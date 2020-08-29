@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		45A1E42A24F82E37003744B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45A1E42824F82E37003744B9 /* Main.storyboard */; };
 		45A1E42C24F82E3C003744B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45A1E42B24F82E3C003744B9 /* Assets.xcassets */; };
 		45A1E42F24F82E3C003744B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45A1E42D24F82E3C003744B9 /* LaunchScreen.storyboard */; };
+		45A1E43824F9F6BC003744B9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E43724F9F6BC003744B9 /* RegisterViewController.swift */; };
 		C93C4C93184025E67F89203D /* Pods_Boatell_v3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A749DC2D477170307B1B42ED /* Pods_Boatell_v3.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		45A1E42B24F82E3C003744B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45A1E42E24F82E3C003744B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45A1E43024F82E3C003744B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45A1E43724F9F6BC003744B9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		45EB1FCBE3A9FC79838EE83D /* Pods-Boatell-v3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boatell-v3.release.xcconfig"; path = "Target Support Files/Pods-Boatell-v3/Pods-Boatell-v3.release.xcconfig"; sourceTree = "<group>"; };
 		A749DC2D477170307B1B42ED /* Pods_Boatell_v3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boatell_v3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D111A115C7FAD47E615D9B /* Pods-Boatell-v3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boatell-v3.debug.xcconfig"; path = "Target Support Files/Pods-Boatell-v3/Pods-Boatell-v3.debug.xcconfig"; sourceTree = "<group>"; };
@@ -63,9 +65,9 @@
 		45A1E42124F82E37003744B9 /* Boatell-v3 */ = {
 			isa = PBXGroup;
 			children = (
+				45A1E43624F9F69E003744B9 /* Login + Register */,
 				45A1E42224F82E37003744B9 /* AppDelegate.swift */,
 				45A1E42424F82E37003744B9 /* SceneDelegate.swift */,
-				45A1E42624F82E37003744B9 /* ViewController.swift */,
 				45A1E42824F82E37003744B9 /* Main.storyboard */,
 				45A1E42B24F82E3C003744B9 /* Assets.xcassets */,
 				45A1E42D24F82E3C003744B9 /* LaunchScreen.storyboard */,
@@ -74,13 +76,21 @@
 			path = "Boatell-v3";
 			sourceTree = "<group>";
 		};
+		45A1E43624F9F69E003744B9 /* Login + Register */ = {
+			isa = PBXGroup;
+			children = (
+				45A1E42624F82E37003744B9 /* ViewController.swift */,
+				45A1E43724F9F6BC003744B9 /* RegisterViewController.swift */,
+			);
+			path = "Login + Register";
+			sourceTree = "<group>";
+		};
 		8830C34046E944E4704EC566 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				B3D111A115C7FAD47E615D9B /* Pods-Boatell-v3.debug.xcconfig */,
 				45EB1FCBE3A9FC79838EE83D /* Pods-Boatell-v3.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -210,6 +220,7 @@
 				45A1E42724F82E37003744B9 /* ViewController.swift in Sources */,
 				45A1E42324F82E37003744B9 /* AppDelegate.swift in Sources */,
 				45A1E42524F82E37003744B9 /* SceneDelegate.swift in Sources */,
+				45A1E43824F9F6BC003744B9 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
