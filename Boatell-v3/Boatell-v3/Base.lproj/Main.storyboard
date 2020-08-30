@@ -145,7 +145,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="iJO-NO-IrN"/>
+                                    <segue destination="or4-IF-Ol3" kind="unwind" unwindAction="unwind:" id="D3Y-1y-DgC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrK-Jx-GL2">
@@ -194,9 +194,11 @@
                         <outlet property="textBoxView" destination="dxI-1i-IWs" id="Pgg-oj-Kdd"/>
                         <outlet property="userImage" destination="VVW-ra-wQQ" id="Ohp-xx-ahO"/>
                         <outlet property="username" destination="GsQ-yc-Uu0" id="mWx-pl-EEi"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="RegisterSegue" id="wed-QR-1t6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9GB-Be-ryl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="or4-IF-Ol3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="-578.57142857142856"/>
         </scene>

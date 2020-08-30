@@ -32,7 +32,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     //MARK: - Set Up Views
     func setUpViews() {
         
-        textBoxView.layer.cornerRadius = 35
+        textBoxView.layer.cornerRadius = 30
         registerButton.layer.cornerRadius = 30
     }
     
@@ -100,14 +100,31 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                          print("error child values: \(error)")
                          return
                      }
-                     
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                        self.performSegue(withIdentifier: "RegisterSegue", sender: self)
+                                    }
                      print("Saved user successfully into firebase db")
                  }
+        }
+    
+    //MARK: - Set Up Register Animation
+     func animateRegister() {
+            UIView.animate(withDuration: 0.2, animations: {               //45 degree rotation. USE RADIANS
+             self.registerButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 0.1).concatenating(CGAffineTransform(scaleX: 0.8, y: 0.8))
+                    
+                }) { (_) in //Is finished
+                    
+                    UIView.animate(withDuration: 0.01, animations: {
+                        self.registerButton.transform = .identity
+                    })
+                    
+                }
         }
     
     //MARK: - Interface Actions
     @IBAction func registerTapped(_ sender: Any) {
         handleRegister()
+        animateRegister()
     }
         
     @IBAction func cameraButtonTapped(_ sender: Any) {
