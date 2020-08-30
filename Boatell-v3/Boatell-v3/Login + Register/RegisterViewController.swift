@@ -91,7 +91,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
             // Successfully Registered Value
                  var ref: DatabaseReference!
                  
-                 ref = Database.database().reference(fromURL: "https://boatell-v2.firebaseio.com/")
+                 ref = Database.database().reference(fromURL: "https://boatell-v3.firebaseio.com/")
                  
                  let userRef = ref.child("users").child(uid)
                  
@@ -167,6 +167,7 @@ extension RegisterViewController {
             UIGraphicsPopContext()
             CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
             userImage.image = newImage
+       
     
              
         }
@@ -174,4 +175,18 @@ extension RegisterViewController {
     
     
     
+}
+
+extension Data {
+
+    init<T>(from value: T) {
+        self = Swift.withUnsafeBytes(of: value) { Data($0) }
+    }
+
+    func to<T>(type: T.Type) -> T? where T: ExpressibleByIntegerLiteral {
+        var value: T = 0
+        guard count >= MemoryLayout.size(ofValue: value) else { return nil }
+        _ = Swift.withUnsafeMutableBytes(of: &value, { copyBytes(to: $0)} )
+        return value
+    }
 }
