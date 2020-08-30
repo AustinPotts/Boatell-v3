@@ -320,6 +320,7 @@
                         <outlet property="password" destination="e5i-rJ-nnN" id="pK7-h2-K2B"/>
                         <outlet property="textBoxView" destination="5ki-4j-v7n" id="Yqb-N5-o4r"/>
                         <outlet property="username" destination="ad7-DP-ofP" id="3z2-mf-eWr"/>
+                        <segue destination="HKl-lA-6Kt" kind="show" identifier="LogInSegue" id="30G-pg-K2s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -329,7 +330,7 @@
         <!--User Services View Controller-->
         <scene sceneID="kig-Uy-nj5">
             <objects>
-                <viewController id="HKl-lA-6Kt" customClass="UserServicesViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="HKl-lA-6Kt" customClass="UserServicesViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zwz-pa-iWD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -375,6 +376,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2ek-p0-Btv"/>
                     </view>
+                    <navigationItem key="navigationItem" id="jTL-zQ-9WI"/>
                     <connections>
                         <segue destination="p3B-Tr-aI7" kind="show" identifier="ViewCalendarSegue" id="8t0-2a-bis"/>
                     </connections>
