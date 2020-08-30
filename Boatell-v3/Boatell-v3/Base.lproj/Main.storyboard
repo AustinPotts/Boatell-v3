@@ -135,6 +135,9 @@
                                 <state key="normal" title="REGISTER">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="registerTapped:" destination="zpf-y5-bzR" eventType="touchUpInside" id="IX8-XZ-UYq"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6NM-jR-L1t">
                                 <rect key="frame" x="20" y="832" width="374" height="30"/>
@@ -145,20 +148,32 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="iJO-NO-IrN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrK-Jx-GL2">
+                                <rect key="frame" x="125" y="109" width="164" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QrK-Jx-GL2" secondAttribute="height" multiplier="41:45" id="4FI-x4-cjj"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="cameraButtonTapped:" destination="zpf-y5-bzR" eventType="touchUpInside" id="Vcy-YZ-sOR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="dxI-1i-IWs" firstAttribute="leading" secondItem="lGF-g1-cEg" secondAttribute="leading" constant="20" id="6rY-Nc-UeY"/>
                             <constraint firstItem="9tN-Yf-8xm" firstAttribute="trailing" secondItem="lGF-g1-cEg" secondAttribute="trailing" id="9sQ-es-L7M"/>
+                            <constraint firstItem="QrK-Jx-GL2" firstAttribute="top" secondItem="lGF-g1-cEg" secondAttribute="top" constant="65" id="CnR-cV-seJ"/>
                             <constraint firstItem="I14-nQ-PKa" firstAttribute="top" secondItem="dxI-1i-IWs" secondAttribute="bottom" constant="52" id="Fum-YY-Yca"/>
                             <constraint firstItem="lGF-g1-cEg" firstAttribute="trailing" secondItem="6NM-jR-L1t" secondAttribute="trailing" constant="20" id="Gau-36-5ug"/>
                             <constraint firstItem="dxI-1i-IWs" firstAttribute="top" secondItem="8WP-LL-uA5" secondAttribute="bottom" constant="8" id="Ico-Yf-wRK"/>
                             <constraint firstItem="8WP-LL-uA5" firstAttribute="leading" secondItem="lGF-g1-cEg" secondAttribute="leading" constant="20" id="IzE-Id-h3g"/>
                             <constraint firstItem="6NM-jR-L1t" firstAttribute="top" secondItem="I14-nQ-PKa" secondAttribute="bottom" constant="11" id="LLB-kb-1LB"/>
+                            <constraint firstItem="lGF-g1-cEg" firstAttribute="trailing" secondItem="QrK-Jx-GL2" secondAttribute="trailing" constant="125" id="P1a-B7-yDR"/>
                             <constraint firstItem="9tN-Yf-8xm" firstAttribute="leading" secondItem="lGF-g1-cEg" secondAttribute="leading" id="QQt-TP-djn"/>
                             <constraint firstItem="lGF-g1-cEg" firstAttribute="trailing" secondItem="dxI-1i-IWs" secondAttribute="trailing" constant="20" id="UJG-LR-nAh"/>
                             <constraint firstItem="lGF-g1-cEg" firstAttribute="trailing" secondItem="VVW-ra-wQQ" secondAttribute="trailing" constant="117" id="UV0-Tf-dBo"/>
                             <constraint firstItem="6NM-jR-L1t" firstAttribute="leading" secondItem="lGF-g1-cEg" secondAttribute="leading" constant="20" id="ZYh-xt-NKt"/>
+                            <constraint firstItem="QrK-Jx-GL2" firstAttribute="leading" secondItem="lGF-g1-cEg" secondAttribute="leading" constant="125" id="dyF-jh-zzn"/>
                             <constraint firstItem="VVW-ra-wQQ" firstAttribute="leading" secondItem="lGF-g1-cEg" secondAttribute="leading" constant="117" id="k44-nj-NKZ"/>
                             <constraint firstItem="I14-nQ-PKa" firstAttribute="leading" secondItem="lGF-g1-cEg" secondAttribute="leading" constant="125" id="mWC-Zb-kQs"/>
                             <constraint firstItem="I14-nQ-PKa" firstAttribute="width" secondItem="I14-nQ-PKa" secondAttribute="height" multiplier="164:63" id="qLi-dz-gYJ"/>
@@ -172,10 +187,18 @@
                         <viewLayoutGuide key="safeArea" id="lGF-g1-cEg"/>
                     </view>
                     <navigationItem key="navigationItem" id="Shy-Z0-IE5"/>
+                    <connections>
+                        <outlet property="email" destination="VL6-bg-u8k" id="gHh-TG-DWQ"/>
+                        <outlet property="password" destination="Bea-eD-PSh" id="27L-Aa-qaR"/>
+                        <outlet property="registerButton" destination="I14-nQ-PKa" id="5QT-M6-mJy"/>
+                        <outlet property="textBoxView" destination="dxI-1i-IWs" id="Pgg-oj-Kdd"/>
+                        <outlet property="userImage" destination="VVW-ra-wQQ" id="Ohp-xx-ahO"/>
+                        <outlet property="username" destination="GsQ-yc-Uu0" id="mWx-pl-EEi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9GB-Be-ryl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="-578"/>
+            <point key="canvasLocation" x="137.68115942028987" y="-578.57142857142856"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -253,6 +276,9 @@
                                 <state key="normal" title="LOGIN">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tJf-s9-Rgn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwh-79-h4v">
                                 <rect key="frame" x="20" y="807" width="374" height="30"/>
@@ -289,6 +315,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="eHm-kf-uDy"/>
+                    <connections>
+                        <outlet property="loginButton" destination="M2q-lA-EuN" id="AKm-vy-314"/>
+                        <outlet property="password" destination="e5i-rJ-nnN" id="pK7-h2-K2B"/>
+                        <outlet property="textBoxView" destination="5ki-4j-v7n" id="Yqb-N5-o4r"/>
+                        <outlet property="username" destination="ad7-DP-ofP" id="3z2-mf-eWr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
