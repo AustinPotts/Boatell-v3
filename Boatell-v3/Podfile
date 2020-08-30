@@ -7,7 +7,7 @@ target 'Boatell-v3' do
 
   # Pods for Boatell-v3
 
-  pod 'FSCalendar'
+  pod 'JTAppleCalendar'
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
