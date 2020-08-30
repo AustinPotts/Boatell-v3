@@ -37,26 +37,23 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     // Create function to handle register logic for USer
-     func handleRegister() {
+    func handleRegister() {
             
-            // Make sure you have the credentials needed to create a new User
             guard let email = email.text, let password = password.text, let name = username.text else { return }
             
-            // Database.auth().createUser() using the unwrapped user credentials
             Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                 if let error = error {
                     print("Error: \(error)")
+                    
                     return
                 }
-                
+               
                 
                 guard let uid = user?.user.uid else { return }
                 
                 let imageName = NSUUID().uuidString
                 
                 let storageRef = Storage.storage().reference().child("\(imageName).png")
-                
-                
                 
                 if let uploadData = self.userImage.image?.pngData() {
                     
@@ -65,21 +62,22 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                             print("Error uploading image data: \(error)")
                             return
                         }
-                        
+                    
                         storageRef.downloadURL { (url, error) in
                             if let error = error {
                                 print("Error downloading URL: \(error)")
                                 return
                             }
                             
-                            if let profileImageUrl = url?.absoluteString {
-                                let values = ["name": name, "email": email, "profileImageURL": profileImageUrl ]
+                             if let profileImageUrl = url?.absoluteString {
+                                
+                                let values = ["name": name, "email": email, "profileImageURL": profileImageUrl]
                                 
                                 self.registerUserIntoDatabaseWithUID(uid: uid, values: values as [String : AnyObject])
                             }
                             
                         }
-                       // print(metadata)
+                    
                     }
                     
                 }
