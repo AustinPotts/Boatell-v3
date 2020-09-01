@@ -126,7 +126,7 @@ extension UserCalendarViewController: JTACMonthViewDataSource, JTACMonthViewDele
 //        } else {
 //            cell.selectedView.isHidden = true
 //        }
-//        cell.dateLabel.text = cellState.text
+        cell.dateLabel.text = cellState.text
 //
 //        handleCellEvents(cell: cell, cellState: cellState)
         handleCellTextColor(cell: cell, cellState: cellState)
