@@ -157,7 +157,7 @@ extension UserCalendarViewController: JTACMonthViewDataSource, JTACMonthViewDele
     
     func calendar(_ calendar: JTACMonthView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTACMonthReusableView {
         let header = calendarView.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "DateHeader", for: indexPath) as! DateHeader
-        header.monthyTitle.text = jtCalMonthFormatter.string(from: range.start)
+        header.monthTitle.text = jtCalMonthFormatter.string(from: range.start)
         return header
     }
     
