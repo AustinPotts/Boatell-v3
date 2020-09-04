@@ -33,6 +33,7 @@ class UserConfirmViewController: UIViewController {
     //MARK: - Once you have the Passed Data (Service Date + Part) you need to add the confirm model to the Database under the user for child node "confirmed"
     
     func setUp(){
+       
         confirm.serviceDateData = serviceDate
         print("Confirm Date \(confirm.serviceDateData)")
         
@@ -45,7 +46,10 @@ class UserConfirmViewController: UIViewController {
         confirmComments.layer.cornerRadius = 20
         serviceImage.layer.cornerRadius = 30
         
-        serviceDateLabel.text = "\(String(describing: confirm.serviceDateData))"
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        
+        serviceDateLabel.text = dateFormatterGet.string(from: serviceDate)
         
     }
     
