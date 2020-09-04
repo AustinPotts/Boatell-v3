@@ -115,10 +115,11 @@ class UserConfirmViewController: UIViewController {
                     let confirm = dateFormatterGet.string(from: self.serviceDate)
                     
                     let confirmService = self.confirm.partData.name
+                    let confirmPrice = self.confirm.partData.price
                                                 
                         print("NEW CONFIRM::: \(confirm)")
                         
-                    let values = ["confirmDate": "\(confirm)", "confirmService" : "\(confirmService)"]
+                    let values = ["confirmDate": "\(confirm)", "confirmService" : "\(confirmService)", "confirmPrice" : "\(confirmPrice)"]
                         guard let uid = Auth.auth().currentUser?.uid else { return }
                         self.createCopyForUserHealth(uid: uid,values: values as [String : AnyObject])
                         
