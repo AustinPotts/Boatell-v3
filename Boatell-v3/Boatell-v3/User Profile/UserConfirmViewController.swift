@@ -23,6 +23,9 @@ class UserConfirmViewController: UIViewController {
        setUpViews()
     }
     
+    //MARK: - Create Confirm Object to Hold Part Data + Service Date Data being passed via the segues
+    let confirm = Confirm()
+    
     func setUpViews() {
         
         confirmButton.layer.cornerRadius = 30

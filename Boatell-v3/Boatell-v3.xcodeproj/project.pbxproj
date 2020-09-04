@@ -22,6 +22,7 @@
 		45A1E44824FD8356003744B9 /* DateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E44724FD8356003744B9 /* DateHeader.swift */; };
 		45A1E44A24FD85D9003744B9 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E44924FD85D9003744B9 /* DateCell.swift */; };
 		45A1E44C24FED668003744B9 /* UserConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E44B24FED668003744B9 /* UserConfirmViewController.swift */; };
+		45A1E44E2501CD9D003744B9 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E44D2501CD9D003744B9 /* Confirm.swift */; };
 		C93C4C93184025E67F89203D /* Pods_Boatell_v3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A749DC2D477170307B1B42ED /* Pods_Boatell_v3.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		45A1E44724FD8356003744B9 /* DateHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHeader.swift; sourceTree = "<group>"; };
 		45A1E44924FD85D9003744B9 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		45A1E44B24FED668003744B9 /* UserConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfirmViewController.swift; sourceTree = "<group>"; };
+		45A1E44D2501CD9D003744B9 /* Confirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confirm.swift; sourceTree = "<group>"; };
 		45EB1FCBE3A9FC79838EE83D /* Pods-Boatell-v3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boatell-v3.release.xcconfig"; path = "Target Support Files/Pods-Boatell-v3/Pods-Boatell-v3.release.xcconfig"; sourceTree = "<group>"; };
 		A749DC2D477170307B1B42ED /* Pods_Boatell_v3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boatell_v3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D111A115C7FAD47E615D9B /* Pods-Boatell-v3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boatell-v3.debug.xcconfig"; path = "Target Support Files/Pods-Boatell-v3/Pods-Boatell-v3.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				45A1E43F24FC1B95003744B9 /* Part.swift */,
+				45A1E44D2501CD9D003744B9 /* Confirm.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			files = (
 				45A1E44324FC1BC0003744B9 /* PartController.swift in Sources */,
 				45A1E44A24FD85D9003744B9 /* DateCell.swift in Sources */,
+				45A1E44E2501CD9D003744B9 /* Confirm.swift in Sources */,
 				45A1E42724F82E37003744B9 /* ViewController.swift in Sources */,
 				45A1E43D24FC1ACB003744B9 /* UserServicesViewController.swift in Sources */,
 				45A1E44824FD8356003744B9 /* DateHeader.swift in Sources */,
