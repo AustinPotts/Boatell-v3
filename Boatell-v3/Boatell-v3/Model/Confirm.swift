@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Confirm {
+class Confirm: NSObject {
     
     var partData: Part!
     var serviceDateData: Date?

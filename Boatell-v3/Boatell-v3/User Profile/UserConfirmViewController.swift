@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UserConfirmViewController: UIViewController {
     
@@ -25,6 +26,8 @@ class UserConfirmViewController: UIViewController {
 
        setUpViews()
         setUp()
+        
+        fetchUser()
     }
     
     //MARK: - Create Confirm Object to Hold Part Data + Service Date Data being passed via the segues
@@ -65,15 +68,80 @@ class UserConfirmViewController: UIViewController {
     
     
     //MARK: -  When the Confirm Button is tapped, we want to save the Confirm Model to the firebase, creating it as a new node value
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func confirmButtonTapped(_ sender: Any) {
+        confirmServiceForUser()
     }
-    */
+    
+    
+    
+    //MARK: - Fetch User From Database
+    func fetchUser(){
+           var users = [User]()
+           let uid = Auth.auth().currentUser?.uid
+           
+           Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+               
+               if let dictionary = snapshot.value as? [String: AnyObject] {
+                   
+                   let user = User()
+                                 
+                   user.setValuesForKeys(dictionary)
+                   users.append(user)
+                   
+               }
+           }, withCancel: nil)
+       }
+    
+    func confirmServiceForUser(){
+            var users = [User]()
+            let uid = Auth.auth().currentUser?.uid
+            
+            Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    
+                    let user = User()
+                                  
+                    user.setValuesForKeys(dictionary)
+                    users.append(user)
+                    
+                    
+                        
+                        
+                   
+                    let dateFormatterGet = DateFormatter()
+                    dateFormatterGet.dateFormat = "yyyy-MM-dd"
+                    let confirm = dateFormatterGet.string(from: self.serviceDate)
+                    
+                    let confirmService = self.confirm.partData
+                                                
+                        print("NEW CONFIRM::: \(confirm)")
+                        
+                    let values = ["confirmDate": "\(confirm)"]
+                        guard let uid = Auth.auth().currentUser?.uid else { return }
+                        self.createCopyForUserHealth(uid: uid,values: values as [String : AnyObject])
+                        
+                    
+                }
+            }, withCancel: nil)
+        }
+    
+    //MARK: - Create Values For User
+           func createCopyForUserHealth(uid: String, values: [String: AnyObject]) {
+               var ref: DatabaseReference!
+                   
+                   ref = Database.database().reference(fromURL: "https://boatell-v3.firebaseio.com/")
+                   
+                   let userRef = ref.child("users").child(uid)
+                   
+                   userRef.updateChildValues(values) { (error, refer) in
+                       if let error = error {
+                           print("ERROR CHILD values: \(error)")
+                           return
+                       }
+                 }
+           }
+    
 
 }
