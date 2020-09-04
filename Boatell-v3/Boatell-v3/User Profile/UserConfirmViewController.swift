@@ -114,11 +114,11 @@ class UserConfirmViewController: UIViewController {
                     dateFormatterGet.dateFormat = "yyyy-MM-dd"
                     let confirm = dateFormatterGet.string(from: self.serviceDate)
                     
-                    let confirmService = self.confirm.partData
+                    let confirmService = self.confirm.partData.name
                                                 
                         print("NEW CONFIRM::: \(confirm)")
                         
-                    let values = ["confirmDate": "\(confirm)"]
+                    let values = ["confirmDate": "\(confirm)", "confirmService" : "\(confirmService)"]
                         guard let uid = Auth.auth().currentUser?.uid else { return }
                         self.createCopyForUserHealth(uid: uid,values: values as [String : AnyObject])
                         

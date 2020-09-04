@@ -15,6 +15,7 @@ class User: NSObject {
     @objc var email: String?
     @objc var profileImageURL: String?
     @objc var confirmDate: Confirm?
+    @objc var confirmService: Confirm?
     
     
 }
