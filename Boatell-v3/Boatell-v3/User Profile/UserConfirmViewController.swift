@@ -17,6 +17,7 @@ class UserConfirmViewController: UIViewController {
     @IBOutlet var confirmButton: UIButton!
     @IBOutlet var confirmComments: UITextView!
     @IBOutlet var serviceDateLabel: UILabel!
+    @IBOutlet var partLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +28,20 @@ class UserConfirmViewController: UIViewController {
     
     //MARK: - Create Confirm Object to Hold Part Data + Service Date Data being passed via the segues
     let confirm = Confirm()
-    var part = Part?.self
+    var part: Part!
     var serviceDate = Date()
     
     //MARK: - Once you have the Passed Data (Service Date + Part) you need to add the confirm model to the Database under the user for child node "confirmed"
     
     func setUp(){
        
+        confirm.partData = part
+        print(confirm.partData.name)
         confirm.serviceDateData = serviceDate
         print("Confirm Date \(confirm.serviceDateData)")
+        partLabel.text = "\(confirm.partData.name)"
+        
+       
         
     }
     
@@ -53,6 +59,8 @@ class UserConfirmViewController: UIViewController {
         
     }
     
+    
+    //MARK: -  When the Confirm Button is tapped, we want to save the Confirm Model to the firebase, creating it as a new node value
 
     /*
     // MARK: - Navigation

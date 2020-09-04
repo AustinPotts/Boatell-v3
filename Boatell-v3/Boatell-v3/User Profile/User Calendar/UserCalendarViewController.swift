@@ -23,7 +23,7 @@ class UserCalendarViewController: UIViewController {
     }
     
     //MARK: - Recieve Part Data
-    let part = Part?.self
+    var part: Part!
     var serviceDate = Date()
     
     func setUpSubViews() {

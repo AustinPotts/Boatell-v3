@@ -89,17 +89,17 @@ extension UserServicesViewController: UICollectionViewDelegateFlowLayout, UIColl
                 return cell
         }
         
-//        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "ViewCalendarSegue" {
-//            guard let indexPath = collectionView.indexPathsForSelectedItems?.first?.item,
-//                let partSelectVC = segue.destination as? ScheduleServiceViewController else{return}
-//
-//            let selectedPart = partController.part[indexPath]
-//            partSelectVC.part = selectedPart
-//
-//        }
-//
-//     }
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ViewCalendarSegue" {
+            guard let indexPath = collectionView.indexPathsForSelectedItems?.first?.item,
+                let partSelectVC = segue.destination as? UserCalendarViewController else{return}
+
+            let selectedPart = partController.part[indexPath]
+            partSelectVC.part = selectedPart
+
+        }
+
+     }
     
     //MARK: Pass Part Object Data Here 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

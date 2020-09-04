@@ -753,6 +753,7 @@
                         <outlet property="confirmButton" destination="CGy-mf-C5n" id="uLx-jL-FIx"/>
                         <outlet property="confirmComments" destination="dc9-n4-Wfn" id="6YP-8W-X4s"/>
                         <outlet property="confirmViewBox" destination="Egh-3x-wCM" id="bQf-fE-Aq8"/>
+                        <outlet property="partLabel" destination="HZR-sD-f3o" id="Yek-U2-2nv"/>
                         <outlet property="serviceDateLabel" destination="jtg-Bu-hWC" id="LAm-Hp-5Si"/>
                         <outlet property="serviceImage" destination="WW7-Jj-X5D" id="thf-rP-QWV"/>
                     </connections>

@@ -10,7 +10,7 @@ import Foundation
 
 class Confirm {
     
-    var partData: Part?
+    var partData: Part!
     var serviceDateData: Date?
     
     
