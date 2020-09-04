@@ -430,7 +430,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kph-FW-TqG"/>
-                                    <segue destination="z9b-YW-Wvm" kind="show" id="vs1-nM-OLw"/>
+                                    <segue destination="z9b-YW-Wvm" kind="show" identifier="userCalendarSegue" id="vs1-nM-OLw"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TPH-6S-faK" customClass="JTACMonthView" customModule="JTAppleCalendar">
@@ -753,6 +753,7 @@
                         <outlet property="confirmButton" destination="CGy-mf-C5n" id="uLx-jL-FIx"/>
                         <outlet property="confirmComments" destination="dc9-n4-Wfn" id="6YP-8W-X4s"/>
                         <outlet property="confirmViewBox" destination="Egh-3x-wCM" id="bQf-fE-Aq8"/>
+                        <outlet property="serviceDateLabel" destination="jtg-Bu-hWC" id="LAm-Hp-5Si"/>
                         <outlet property="serviceImage" destination="WW7-Jj-X5D" id="thf-rP-QWV"/>
                     </connections>
                 </viewController>

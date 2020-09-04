@@ -16,15 +16,27 @@ class UserConfirmViewController: UIViewController {
     @IBOutlet var serviceImage: UIImageView!
     @IBOutlet var confirmButton: UIButton!
     @IBOutlet var confirmComments: UITextView!
+    @IBOutlet var serviceDateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
        setUpViews()
+        setUp()
     }
     
     //MARK: - Create Confirm Object to Hold Part Data + Service Date Data being passed via the segues
     let confirm = Confirm()
+    var part = Part?.self
+    var serviceDate = Date()
+    
+    //MARK: - Once you have the Passed Data (Service Date + Part) you need to add the confirm model to the Database under the user for child node "confirmed"
+    
+    func setUp(){
+        confirm.serviceDateData = serviceDate
+        print("Confirm Date \(confirm.serviceDateData)")
+        
+    }
     
     func setUpViews() {
         
@@ -32,6 +44,8 @@ class UserConfirmViewController: UIViewController {
         confirmViewBox.layer.cornerRadius = 30
         confirmComments.layer.cornerRadius = 20
         serviceImage.layer.cornerRadius = 30
+        
+        serviceDateLabel.text = "\(String(describing: confirm.serviceDateData))"
         
     }
     

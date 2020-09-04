@@ -22,6 +22,10 @@ class UserCalendarViewController: UIViewController {
         calendarView.calendarDelegate = self
     }
     
+    //MARK: - Recieve Part Data
+    let part = Part?.self
+    var serviceDate = Date()
+    
     func setUpSubViews() {
         nextButton.layer.cornerRadius = 30
         calendarView.layer.borderColor = #colorLiteral(red: 0.1722870469, green: 0.1891334951, blue: 0.2275838256, alpha: 1)
@@ -66,16 +70,22 @@ class UserCalendarViewController: UIViewController {
     }()
     
 
-    //MARK: - Pass Both the Part Data & The Service Date Data Here In the Segue to Confirm
-    /*
+    //MARK: - Recieve the Part then Pass Both the Part Data & The Service Date Data Here In the Segue to Confirm
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+     
+        
+        if segue.identifier == "userCalendarSegue" {
+            if let detailVC = segue.destination as? UserConfirmViewController {
+                detailVC.part = part
+                detailVC.serviceDate = serviceDate
+            }
+        }
+        
     }
-    */
+    
     
 
 }
@@ -87,12 +97,16 @@ extension UserCalendarViewController: JTACMonthViewDataSource, JTACMonthViewDele
         handleCellSelected(cell: cell, cellState: cellState)
         let dateString = dateFormatter.string(from: date)
         let formattedDate = dateFormatter.date(from: dateString)
+        print("Date? Test2 \(date)")
+        self.serviceDate = date
+        print("Date? Test3 \(self.serviceDate)")
 //        self.dateSelected = formattedDate
     }
     
     func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         guard let cell = cell as? DateCell else { return }
         handleCellSelected(cell: cell, cellState: cellState)
+       
         
     }
     
