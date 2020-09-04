@@ -13,6 +13,7 @@ class UserCalendarViewController: UIViewController {
     
     @IBOutlet weak var calendarView: JTACMonthView!
     @IBOutlet weak var nextButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +70,7 @@ class UserCalendarViewController: UIViewController {
         return formatter
     }()
     
-
+    
     //MARK: - Recieve the Part then Pass Both the Part Data & The Service Date Data Here In the Segue to Confirm
     
     // MARK: - Navigation

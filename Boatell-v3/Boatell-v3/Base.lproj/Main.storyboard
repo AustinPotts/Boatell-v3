@@ -571,6 +571,19 @@
                                     <outlet property="ibCalendarDelegate" destination="p3B-Tr-aI7" id="dOg-CW-vvU"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPV-ot-8uG">
+                                <rect key="frame" x="20" y="164" width="30" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gPV-ot-8uG" secondAttribute="height" multiplier="5:9" id="xrf-bj-Zdd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="rf0-7f-gen" kind="unwind" unwindAction="unwindToServices:" id="Q0H-PK-AVP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -592,6 +605,8 @@
                             <constraint firstItem="fjV-W2-BYb" firstAttribute="trailing" secondItem="TPH-6S-faK" secondAttribute="trailing" constant="20" id="l30-xa-RIm"/>
                             <constraint firstItem="ka8-dA-wId" firstAttribute="leading" secondItem="eoU-Fr-wWq" secondAttribute="leading" id="l4r-WO-Wro"/>
                             <constraint firstItem="L9L-wV-KYL" firstAttribute="leading" secondItem="fjV-W2-BYb" secondAttribute="leading" id="mxM-HG-3XS"/>
+                            <constraint firstItem="gPV-ot-8uG" firstAttribute="leading" secondItem="fjV-W2-BYb" secondAttribute="leading" constant="20" id="oyY-3b-uC2"/>
+                            <constraint firstItem="gPV-ot-8uG" firstAttribute="top" secondItem="ka8-dA-wId" secondAttribute="bottom" constant="16" id="qvG-fI-CWF"/>
                             <constraint firstItem="ofy-Nm-03a" firstAttribute="top" secondItem="eoU-Fr-wWq" secondAttribute="top" id="uS1-8G-plG"/>
                             <constraint firstAttribute="trailing" secondItem="ka8-dA-wId" secondAttribute="trailing" id="wE3-vL-Nqv"/>
                             <constraint firstItem="L9L-wV-KYL" firstAttribute="width" secondItem="L9L-wV-KYL" secondAttribute="height" multiplier="207:73" id="wii-nz-IIj"/>
@@ -605,6 +620,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2AQ-b3-SWc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="rf0-7f-gen" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1982.608695652174" y="95.758928571428569"/>
         </scene>
@@ -719,6 +735,19 @@
                                     <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lKn-6z-2eU"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Foj-Zu-xq7">
+                                <rect key="frame" x="20" y="163" width="30" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Foj-Zu-xq7" secondAttribute="height" multiplier="5:9" id="eEg-Ph-mNa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="rKU-eP-d1U" kind="unwind" unwindAction="unwindToServices:" id="oOv-Zk-3db"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -744,6 +773,8 @@
                             <constraint firstItem="hOv-NM-wGK" firstAttribute="top" secondItem="KNM-iy-FWS" secondAttribute="top" id="kTK-fA-Xz6"/>
                             <constraint firstItem="eXw-Nl-7CH" firstAttribute="trailing" secondItem="8aF-UA-nbs" secondAttribute="trailing" constant="20" id="pwM-Ws-zf6"/>
                             <constraint firstItem="CGy-mf-C5n" firstAttribute="width" secondItem="CGy-mf-C5n" secondAttribute="height" multiplier="164:63" id="qlr-0g-WIh"/>
+                            <constraint firstItem="Foj-Zu-xq7" firstAttribute="leading" secondItem="eXw-Nl-7CH" secondAttribute="leading" constant="20" id="rA3-Pe-b1Y"/>
+                            <constraint firstItem="Foj-Zu-xq7" firstAttribute="top" secondItem="3lH-Xm-FLy" secondAttribute="bottom" constant="16" id="xpB-gE-XXB"/>
                             <constraint firstAttribute="trailing" secondItem="3lH-Xm-FLy" secondAttribute="trailing" id="yov-bi-xfB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eXw-Nl-7CH"/>
@@ -760,6 +791,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OGv-SI-Hud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="rKU-eP-d1U" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2834.7826086956525" y="91.741071428571431"/>
         </scene>
