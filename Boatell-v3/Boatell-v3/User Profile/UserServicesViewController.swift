@@ -94,7 +94,7 @@ extension UserServicesViewController: UICollectionViewDelegateFlowLayout, UIColl
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first?.item,
                 let partSelectVC = segue.destination as? UserCalendarViewController else{return}
 
-            let selectedPart = partController.part[indexPath]
+            let selectedPart = data[indexPath]
             partSelectVC.part = selectedPart
 
         }

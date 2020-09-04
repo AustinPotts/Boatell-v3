@@ -756,6 +756,7 @@
                         <outlet property="partLabel" destination="HZR-sD-f3o" id="Yek-U2-2nv"/>
                         <outlet property="serviceDateLabel" destination="jtg-Bu-hWC" id="LAm-Hp-5Si"/>
                         <outlet property="serviceImage" destination="WW7-Jj-X5D" id="thf-rP-QWV"/>
+                        <outlet property="servicePrice" destination="lmO-4D-5nA" id="lN4-yW-7ay"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OGv-SI-Hud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

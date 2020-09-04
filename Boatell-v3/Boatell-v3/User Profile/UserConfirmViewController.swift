@@ -18,6 +18,7 @@ class UserConfirmViewController: UIViewController {
     @IBOutlet var confirmComments: UITextView!
     @IBOutlet var serviceDateLabel: UILabel!
     @IBOutlet var partLabel: UILabel!
+    @IBOutlet var servicePrice: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,9 @@ class UserConfirmViewController: UIViewController {
         confirm.serviceDateData = serviceDate
         print("Confirm Date \(confirm.serviceDateData)")
         partLabel.text = "\(confirm.partData.name)"
+        servicePrice.text = confirm.partData.price
+        serviceImage.image = confirm.partData.image
+        
         
        
         
