@@ -9,6 +9,7 @@
 import Foundation
 
 
+
 class User: NSObject {
     
     @objc var name: String?
@@ -17,6 +18,7 @@ class User: NSObject {
     @objc var confirmDate: Confirm?
     @objc var confirmService: Confirm?
     @objc var confirmPrice: Confirm?
+    @objc var confirmed: NSString?
     
     
 }

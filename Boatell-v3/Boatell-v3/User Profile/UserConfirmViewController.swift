@@ -134,7 +134,8 @@ class UserConfirmViewController: UIViewController {
                    
                    ref = Database.database().reference(fromURL: "https://boatell-v3.firebaseio.com/")
                    
-                   let userRef = ref.child("users").child(uid)
+                   let userRef = ref.child("users").child(uid).child("confirmed").childByAutoId()
+            let childRef = ref.child("confirmed").childByAutoId()
                    
                    userRef.updateChildValues(values) { (error, refer) in
                        if let error = error {
