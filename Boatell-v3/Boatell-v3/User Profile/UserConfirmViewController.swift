@@ -77,13 +77,15 @@ class UserConfirmViewController: UIViewController {
         
         customALert.showAlertWithTitle("Service Confirmed", "An Email has been sent to you.", self)
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.performSegue(withIdentifier: "unwind", sender: nil)
+        }
+        
     }
     
     @objc func dismissAlert(){
         customALert.dismissAlert()
     }
-    
-    //MARK: - Alert To Notify User Service Has Been Confirmed - followed by Unwind Segue
     
     
     
@@ -225,6 +227,7 @@ class MyAlert {
     @objc func dismissAlert(){
         
         guard let targetView = myTargetView else {return}
+       
         
         UIView.animate(withDuration: 0.25, animations:  {
             self.alertView.frame = CGRect(x: 40, y: targetView.frame.size.height, width: targetView.frame.size.width - 80, height: 200)

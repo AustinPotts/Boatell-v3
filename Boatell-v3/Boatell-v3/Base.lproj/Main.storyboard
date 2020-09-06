@@ -330,7 +330,7 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
         </scene>
-        <!--User Services View Controller-->
+        <!--Services-->
         <scene sceneID="kig-Uy-nj5">
             <objects>
                 <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="HKl-lA-6Kt" customClass="UserServicesViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
@@ -379,6 +379,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2ek-p0-Btv"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Services" selectedImage="square.and.pencil" catalog="system" id="Aw8-0W-zUg"/>
                     <navigationItem key="navigationItem" id="jTL-zQ-9WI"/>
                     <connections>
                         <segue destination="p3B-Tr-aI7" kind="show" identifier="ViewCalendarSegue" id="8t0-2a-bis"/>
@@ -387,6 +388,110 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hdb-le-URu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1107" y="97"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="YK0-XU-qtb">
+            <objects>
+                <viewController id="ZBo-gd-aPC" customClass="UserProfileViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ndR-H7-j6L">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BoatelllV2" translatesAutoresizingMaskIntoConstraints="NO" id="EHw-BL-jva">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zIY-Dm-wd3">
+                                <rect key="frame" x="122" y="135" width="170" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zIY-Dm-wd3" secondAttribute="height" multiplier="1:1" id="Sho-IL-Sez"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="James Bond" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nds-Sz-ORt">
+                                <rect key="frame" x="20" y="313" width="374" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Safety Harbor, Florida" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRH-vH-Iab">
+                                <rect key="frame" x="20" y="350" width="374" height="27"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wA0-D2-P4R">
+                                <rect key="frame" x="68" y="454" width="278" height="72"/>
+                                <color key="backgroundColor" red="0.0" green="0.4123458056" blue="0.73996668779999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wA0-D2-P4R" secondAttribute="height" multiplier="139:36" id="2S0-Sk-YhY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Service History">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXy-3E-Jnw">
+                                <rect key="frame" x="68" y="564" width="278" height="72"/>
+                                <color key="backgroundColor" red="0.0" green="0.4123458056" blue="0.73996668779999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KXy-3E-Jnw" secondAttribute="height" multiplier="139:36" id="eDF-TK-gCA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Your Boat(s)">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fm8-fA-cPz">
+                                <rect key="frame" x="68" y="674" width="278" height="72"/>
+                                <color key="backgroundColor" red="0.0" green="0.4123458056" blue="0.73996668779999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fm8-fA-cPz" secondAttribute="height" multiplier="139:36" id="bOG-Mg-kwh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Schedule Service">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wA0-D2-P4R" firstAttribute="leading" secondItem="YJb-Ro-hJs" secondAttribute="leading" constant="68" id="1iu-zW-orx"/>
+                            <constraint firstItem="YJb-Ro-hJs" firstAttribute="trailing" secondItem="kRH-vH-Iab" secondAttribute="trailing" constant="20" id="9W7-J9-ZAh"/>
+                            <constraint firstItem="KXy-3E-Jnw" firstAttribute="leading" secondItem="YJb-Ro-hJs" secondAttribute="leading" constant="68" id="Bec-aM-I8d"/>
+                            <constraint firstItem="YJb-Ro-hJs" firstAttribute="trailing" secondItem="zIY-Dm-wd3" secondAttribute="trailing" constant="122" id="BzD-jv-YhI"/>
+                            <constraint firstItem="kRH-vH-Iab" firstAttribute="leading" secondItem="YJb-Ro-hJs" secondAttribute="leading" constant="20" id="JNM-VY-6rL"/>
+                            <constraint firstItem="KXy-3E-Jnw" firstAttribute="top" secondItem="wA0-D2-P4R" secondAttribute="bottom" constant="38" id="M18-Tt-9vO"/>
+                            <constraint firstItem="EHw-BL-jva" firstAttribute="leading" secondItem="YJb-Ro-hJs" secondAttribute="leading" id="Sjp-6o-dJX"/>
+                            <constraint firstItem="YJb-Ro-hJs" firstAttribute="trailing" secondItem="fm8-fA-cPz" secondAttribute="trailing" constant="68" id="UPR-HX-0cE"/>
+                            <constraint firstItem="YJb-Ro-hJs" firstAttribute="trailing" secondItem="KXy-3E-Jnw" secondAttribute="trailing" constant="68" id="V4a-F7-GTe"/>
+                            <constraint firstItem="EHw-BL-jva" firstAttribute="top" secondItem="ndR-H7-j6L" secondAttribute="top" id="Ytp-e8-4Xg"/>
+                            <constraint firstItem="fm8-fA-cPz" firstAttribute="leading" secondItem="YJb-Ro-hJs" secondAttribute="leading" constant="68" id="ZYW-hj-BbH"/>
+                            <constraint firstItem="nds-Sz-ORt" firstAttribute="top" secondItem="zIY-Dm-wd3" secondAttribute="bottom" constant="8" id="cq3-OB-wd0"/>
+                            <constraint firstAttribute="bottom" secondItem="EHw-BL-jva" secondAttribute="bottom" id="dMY-58-ybv"/>
+                            <constraint firstItem="EHw-BL-jva" firstAttribute="trailing" secondItem="YJb-Ro-hJs" secondAttribute="trailing" id="eu6-Rl-VAF"/>
+                            <constraint firstItem="kRH-vH-Iab" firstAttribute="top" secondItem="nds-Sz-ORt" secondAttribute="bottom" constant="1" id="hYD-5S-Uqf"/>
+                            <constraint firstItem="YJb-Ro-hJs" firstAttribute="trailing" secondItem="wA0-D2-P4R" secondAttribute="trailing" constant="68" id="kPX-4l-L9p"/>
+                            <constraint firstItem="wA0-D2-P4R" firstAttribute="top" secondItem="kRH-vH-Iab" secondAttribute="bottom" constant="77" id="n8j-aZ-cdi"/>
+                            <constraint firstItem="fm8-fA-cPz" firstAttribute="top" secondItem="KXy-3E-Jnw" secondAttribute="bottom" constant="38" id="q3K-hg-mEo"/>
+                            <constraint firstItem="YJb-Ro-hJs" firstAttribute="trailing" secondItem="nds-Sz-ORt" secondAttribute="trailing" constant="20" id="qs0-GU-BNn"/>
+                            <constraint firstItem="zIY-Dm-wd3" firstAttribute="leading" secondItem="YJb-Ro-hJs" secondAttribute="leading" constant="122" id="rEc-Mx-LdL"/>
+                            <constraint firstItem="zIY-Dm-wd3" firstAttribute="top" secondItem="YJb-Ro-hJs" secondAttribute="top" constant="91" id="yWY-lu-U58"/>
+                            <constraint firstItem="nds-Sz-ORt" firstAttribute="leading" secondItem="YJb-Ro-hJs" secondAttribute="leading" constant="20" id="zkn-Gv-ND7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YJb-Ro-hJs"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="person.fill" catalog="system" id="Sxc-hN-rIb"/>
+                    <connections>
+                        <outlet property="scheduleServiceButton" destination="fm8-fA-cPz" id="8HD-Rb-LXw"/>
+                        <outlet property="serviceHistoryButton" destination="wA0-D2-P4R" id="lax-cS-16k"/>
+                        <outlet property="userImage" destination="zIY-Dm-wd3" id="AuO-PE-FRw"/>
+                        <outlet property="userLocation" destination="kRH-vH-Iab" id="aGr-gl-Q5a"/>
+                        <outlet property="userName" destination="nds-Sz-ORt" id="uTL-TH-TUf"/>
+                        <outlet property="yourBoatsButton" destination="KXy-3E-Jnw" id="eIo-ew-SWf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="laR-gG-T8G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2034.7826086956522" y="813.61607142857144"/>
         </scene>
         <!--User Calendar View Controller-->
         <scene sceneID="sel-Wh-jkN">
@@ -797,6 +902,7 @@
                         <outlet property="serviceDateLabel" destination="jtg-Bu-hWC" id="LAm-Hp-5Si"/>
                         <outlet property="serviceImage" destination="WW7-Jj-X5D" id="thf-rP-QWV"/>
                         <outlet property="servicePrice" destination="lmO-4D-5nA" id="lN4-yW-7ay"/>
+                        <segue destination="HKl-lA-6Kt" kind="show" identifier="unwind" id="3rb-88-5PJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OGv-SI-Hud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -804,12 +910,35 @@
             </objects>
             <point key="canvasLocation" x="2834.7826086956525" y="91.741071428571431"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="LRL-0X-Ncm">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rD6-dJ-TJN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FXa-25-irs">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ZBo-gd-aPC" kind="relationship" relationship="viewControllers" id="hGi-AB-xnI"/>
+                        <segue destination="HKl-lA-6Kt" kind="relationship" relationship="viewControllers" id="8aX-1a-hdY"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b0p-Yz-gfX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1124.6376811594205" y="813.61607142857144"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8aX-1a-hdY"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="BoatLogoWhite copy" width="200" height="200"/>
         <image name="BoatelllV2" width="853" height="1280"/>
         <image name="Cut" width="599" height="600"/>
         <image name="Mechanic copy" width="999" height="671"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="118"/>
     </resources>
 </document>
