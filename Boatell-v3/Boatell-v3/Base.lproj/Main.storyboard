@@ -323,7 +323,7 @@
                         <outlet property="password" destination="e5i-rJ-nnN" id="pK7-h2-K2B"/>
                         <outlet property="textBoxView" destination="5ki-4j-v7n" id="Yqb-N5-o4r"/>
                         <outlet property="username" destination="ad7-DP-ofP" id="3z2-mf-eWr"/>
-                        <segue destination="HKl-lA-6Kt" kind="show" identifier="LogInSegue" id="30G-pg-K2s"/>
+                        <segue destination="rD6-dJ-TJN" kind="show" identifier="LogInSegue" id="0yS-Zl-O8p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -335,11 +335,11 @@
             <objects>
                 <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="HKl-lA-6Kt" customClass="UserServicesViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zwz-pa-iWD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BoatelllV2" translatesAutoresizingMaskIntoConstraints="NO" id="SSl-Dk-I9f">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mechanic copy" translatesAutoresizingMaskIntoConstraints="NO" id="uyu-Pw-VNu">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="146"/>
@@ -379,7 +379,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2ek-p0-Btv"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Services" selectedImage="square.and.pencil" catalog="system" id="Aw8-0W-zUg"/>
+                    <tabBarItem key="tabBarItem" title="Services" image="square.and.pencil" catalog="system" selectedImage="square.and.pencil" id="Aw8-0W-zUg"/>
                     <navigationItem key="navigationItem" id="jTL-zQ-9WI"/>
                     <connections>
                         <segue destination="p3B-Tr-aI7" kind="show" identifier="ViewCalendarSegue" id="8t0-2a-bis"/>
@@ -392,34 +392,34 @@
         <!--Profile-->
         <scene sceneID="YK0-XU-qtb">
             <objects>
-                <viewController id="ZBo-gd-aPC" customClass="UserProfileViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="ZBo-gd-aPC" customClass="UserProfileViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ndR-H7-j6L">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BoatelllV2" translatesAutoresizingMaskIntoConstraints="NO" id="EHw-BL-jva">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zIY-Dm-wd3">
-                                <rect key="frame" x="122" y="135" width="170" height="170"/>
+                                <rect key="frame" x="122" y="91" width="170" height="170"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zIY-Dm-wd3" secondAttribute="height" multiplier="1:1" id="Sho-IL-Sez"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="James Bond" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nds-Sz-ORt">
-                                <rect key="frame" x="20" y="313" width="374" height="36"/>
+                                <rect key="frame" x="20" y="269" width="374" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Safety Harbor, Florida" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRH-vH-Iab">
-                                <rect key="frame" x="20" y="350" width="374" height="27"/>
+                                <rect key="frame" x="20" y="306" width="374" height="27"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wA0-D2-P4R">
-                                <rect key="frame" x="68" y="454" width="278" height="72"/>
+                                <rect key="frame" x="68" y="410" width="278" height="72"/>
                                 <color key="backgroundColor" red="0.0" green="0.4123458056" blue="0.73996668779999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wA0-D2-P4R" secondAttribute="height" multiplier="139:36" id="2S0-Sk-YhY"/>
@@ -430,7 +430,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXy-3E-Jnw">
-                                <rect key="frame" x="68" y="564" width="278" height="72"/>
+                                <rect key="frame" x="68" y="520" width="278" height="72"/>
                                 <color key="backgroundColor" red="0.0" green="0.4123458056" blue="0.73996668779999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KXy-3E-Jnw" secondAttribute="height" multiplier="139:36" id="eDF-TK-gCA"/>
@@ -441,7 +441,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fm8-fA-cPz">
-                                <rect key="frame" x="68" y="674" width="278" height="72"/>
+                                <rect key="frame" x="68" y="630" width="278" height="72"/>
                                 <color key="backgroundColor" red="0.0" green="0.4123458056" blue="0.73996668779999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fm8-fA-cPz" secondAttribute="height" multiplier="139:36" id="bOG-Mg-kwh"/>
@@ -479,7 +479,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YJb-Ro-hJs"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="person.fill" catalog="system" id="Sxc-hN-rIb"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" selectedImage="person.fill" id="Sxc-hN-rIb"/>
                     <connections>
                         <outlet property="scheduleServiceButton" destination="fm8-fA-cPz" id="8HD-Rb-LXw"/>
                         <outlet property="serviceHistoryButton" destination="wA0-D2-P4R" id="lax-cS-16k"/>
@@ -913,20 +913,24 @@
         <!--Tab Bar Controller-->
         <scene sceneID="LRL-0X-Ncm">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rD6-dJ-TJN" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="rD6-dJ-TJN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FXa-25-irs">
+                    <navigationItem key="navigationItem" id="opm-2x-lSr"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="FXa-25-irs">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.26379517479999998" green="0.39073671859999998" blue="0.46701309279999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ZBo-gd-aPC" kind="relationship" relationship="viewControllers" id="hGi-AB-xnI"/>
                         <segue destination="HKl-lA-6Kt" kind="relationship" relationship="viewControllers" id="8aX-1a-hdY"/>
+                        <segue destination="ZBo-gd-aPC" kind="relationship" relationship="viewControllers" id="hGi-AB-xnI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0p-Yz-gfX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1124.6376811594205" y="813.61607142857144"/>
+            <point key="canvasLocation" x="816" y="814"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

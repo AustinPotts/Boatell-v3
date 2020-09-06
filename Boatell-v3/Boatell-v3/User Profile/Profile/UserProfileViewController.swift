@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UserProfileViewController: UIViewController {
     
@@ -23,12 +24,45 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        updateViews()
+        setUpViews()
     }
     
+    //MARK: - User Property Observer
+        var users: User? {
+              didSet {
+                  updateViews()
+              }
+          }
+    
+    //MARK: - Update Views with Database Values
+       func updateViews(){
+           let uid = Auth.auth().currentUser?.uid
+
+             Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+               
+               
+                     
+                     if let dictionary = snapshot.value as? [String: AnyObject] {
+                       self.userName.text = dictionary["name"] as? String
+                       let profileImageURL = dictionary["profileImageURL"] as? String
+                       self.userImage.loadImageViewUsingCacheWithUrlString(urlString: profileImageURL!)
+                       self.userImage.layer.cornerRadius = self.userImage.frame.height / 2
+                       self.userImage.layer.masksToBounds = false
+                       self.userImage.clipsToBounds = true
+                     }
+                     print(snapshot)
+                 }, withCancel: nil)
+       }
+       
+    
     func setUpViews(){
-        
+        serviceHistoryButton.layer.cornerRadius = 30
+        yourBoatsButton.layer.cornerRadius = 30
+        scheduleServiceButton.layer.cornerRadius = 30
     }
+    
+    
 
  
 
