@@ -26,6 +26,8 @@
 		45A1E4502502CB23003744B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E44F2502CB23003744B9 /* User.swift */; };
 		45A1E45325049A0D003744B9 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E45225049A0D003744B9 /* UserProfileViewController.swift */; };
 		45A1E45625049C13003744B9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E45525049C13003744B9 /* Extensions.swift */; };
+		45A1E4592504A437003744B9 /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E4582504A437003744B9 /* ServiceTableViewCell.swift */; };
+		45A1E45D2504A531003744B9 /* UserServiceHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E45C2504A531003744B9 /* UserServiceHistoryViewController.swift */; };
 		C93C4C93184025E67F89203D /* Pods_Boatell_v3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A749DC2D477170307B1B42ED /* Pods_Boatell_v3.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		45A1E44F2502CB23003744B9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		45A1E45225049A0D003744B9 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		45A1E45525049C13003744B9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		45A1E4582504A437003744B9 /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
+		45A1E45C2504A531003744B9 /* UserServiceHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceHistoryViewController.swift; sourceTree = "<group>"; };
 		45EB1FCBE3A9FC79838EE83D /* Pods-Boatell-v3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boatell-v3.release.xcconfig"; path = "Target Support Files/Pods-Boatell-v3/Pods-Boatell-v3.release.xcconfig"; sourceTree = "<group>"; };
 		A749DC2D477170307B1B42ED /* Pods_Boatell_v3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boatell_v3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D111A115C7FAD47E615D9B /* Pods-Boatell-v3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boatell-v3.debug.xcconfig"; path = "Target Support Files/Pods-Boatell-v3/Pods-Boatell-v3.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 		45A1E42124F82E37003744B9 /* Boatell-v3 */ = {
 			isa = PBXGroup;
 			children = (
+				45A1E4572504A41C003744B9 /* Views */,
 				45A1E45425049BFA003744B9 /* Helpers */,
 				45A1E44124FC1BAE003744B9 /* Model Controller */,
 				45A1E43E24FC1B86003744B9 /* Model */,
@@ -157,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				45A1E45225049A0D003744B9 /* UserProfileViewController.swift */,
+				45A1E45C2504A531003744B9 /* UserServiceHistoryViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -167,6 +173,14 @@
 				45A1E45525049C13003744B9 /* Extensions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		45A1E4572504A41C003744B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45A1E4582504A437003744B9 /* ServiceTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8830C34046E944E4704EC566 /* Pods */ = {
@@ -309,8 +323,10 @@
 				45A1E42724F82E37003744B9 /* ViewController.swift in Sources */,
 				45A1E43D24FC1ACB003744B9 /* UserServicesViewController.swift in Sources */,
 				45A1E44824FD8356003744B9 /* DateHeader.swift in Sources */,
+				45A1E45D2504A531003744B9 /* UserServiceHistoryViewController.swift in Sources */,
 				45A1E44C24FED668003744B9 /* UserConfirmViewController.swift in Sources */,
 				45A1E42324F82E37003744B9 /* AppDelegate.swift in Sources */,
+				45A1E4592504A437003744B9 /* ServiceTableViewCell.swift in Sources */,
 				45A1E45325049A0D003744B9 /* UserProfileViewController.swift in Sources */,
 				45A1E45625049C13003744B9 /* Extensions.swift in Sources */,
 				45A1E42524F82E37003744B9 /* SceneDelegate.swift in Sources */,
