@@ -527,16 +527,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qTF-DE-4jH">
-                                <rect key="frame" x="0.0" y="228" width="414" height="551"/>
+                                <rect key="frame" x="0.0" y="228" width="414" height="668"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="qTF-DE-4jH" secondAttribute="height" multiplier="414:551" id="Wuh-Q7-DKn"/>
+                                    <constraint firstAttribute="width" secondItem="qTF-DE-4jH" secondAttribute="height" multiplier="207:334" id="Sf2-Bp-8mt"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ServiceCell" rowHeight="119" id="5TE-si-Sma" customClass="ServiceTableViewCell" customModule="Boatell_v3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5TE-si-Sma" id="d4b-bF-Sbl">
+                                        <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5TE-si-Sma" id="d4b-bF-Sbl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="119"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -549,13 +549,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4W-rq-a1H">
                                                     <rect key="frame" x="112" y="19" width="78" height="27"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSd-ZC-b3c">
                                                     <rect key="frame" x="112" y="46" width="111" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQZ-o2-8TJ">
@@ -574,6 +574,7 @@
                                                         <constraint firstItem="Vbk-iQ-5zO" firstAttribute="leading" secondItem="GQZ-o2-8TJ" secondAttribute="leading" constant="5" id="Pqr-Fr-c0a"/>
                                                         <constraint firstAttribute="trailing" secondItem="Vbk-iQ-5zO" secondAttribute="trailing" constant="5" id="QmZ-ls-EJ3"/>
                                                         <constraint firstItem="Vbk-iQ-5zO" firstAttribute="top" secondItem="GQZ-o2-8TJ" secondAttribute="top" constant="8" id="Wgt-gT-rlj"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Vbk-iQ-5zO" secondAttribute="bottom" constant="6" id="wGu-bA-N1a"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -590,6 +591,7 @@
                                                 <constraint firstItem="KSd-ZC-b3c" firstAttribute="top" secondItem="R4W-rq-a1H" secondAttribute="bottom" id="z4S-dq-rmE"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.26379517479999998" green="0.39073671859999998" blue="0.46701309279999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="serviceDate" destination="KSd-ZC-b3c" id="V9C-Iw-qFG"/>
                                             <outlet property="serviceImage" destination="tPy-7P-Dtz" id="Y8R-wx-7qq"/>
@@ -632,7 +634,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2V-XS-LyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2877" y="814"/>
+            <point key="canvasLocation" x="2876.811594202899" y="813.61607142857144"/>
         </scene>
         <!--User Calendar View Controller-->
         <scene sceneID="sel-Wh-jkN">

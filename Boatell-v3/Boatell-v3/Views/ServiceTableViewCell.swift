@@ -26,9 +26,13 @@ class ServiceTableViewCell: UITableViewCell {
     
     //MARK: - Update Views Once Property Is Observed
       func updateViews(){
-
+        
         serviceName.text = confirmed?.confirmService
         servicePrice.text = confirmed?.confirmPrice
+        serviceDate.text = confirmed?.confirmDate
+        
+        servicePriceView.layer.cornerRadius = 15
+        
           
 //          if let profileImageUrl = confirmed!.profileImageURL {
 //
