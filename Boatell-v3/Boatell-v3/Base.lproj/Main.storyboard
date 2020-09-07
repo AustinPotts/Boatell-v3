@@ -420,7 +420,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wA0-D2-P4R">
                                 <rect key="frame" x="68" y="410" width="278" height="72"/>
-                                <color key="backgroundColor" red="0.0" green="0.4123458056" blue="0.73996668779999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.23310689109999999" green="0.62398741570000005" blue="1" alpha="0.88021725169999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wA0-D2-P4R" secondAttribute="height" multiplier="139:36" id="2S0-Sk-YhY"/>
                                 </constraints>
@@ -434,7 +434,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXy-3E-Jnw">
                                 <rect key="frame" x="68" y="520" width="278" height="72"/>
-                                <color key="backgroundColor" red="0.0" green="0.4123458056" blue="0.73996668779999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.23310689109999999" green="0.62398741570000005" blue="1" alpha="0.88021725169999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KXy-3E-Jnw" secondAttribute="height" multiplier="139:36" id="eDF-TK-gCA"/>
                                 </constraints>
@@ -445,7 +445,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fm8-fA-cPz">
                                 <rect key="frame" x="68" y="630" width="278" height="72"/>
-                                <color key="backgroundColor" red="0.0" green="0.4123458056" blue="0.73996668779999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.23310689109999999" green="0.62398741570000005" blue="1" alpha="0.88021725169999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fm8-fA-cPz" secondAttribute="height" multiplier="139:36" id="bOG-Mg-kwh"/>
                                 </constraints>

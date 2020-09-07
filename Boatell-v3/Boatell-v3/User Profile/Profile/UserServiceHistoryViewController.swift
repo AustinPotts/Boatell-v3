@@ -13,7 +13,7 @@ class UserServiceHistoryViewController: UIViewController, UITableViewDelegate, U
     
     //MARK: - Properties
     var users = [User]()
-    var confirmed = [Confirm]()
+    var confirmed = [FirebaseConfirm]()
     
     
     @IBOutlet var serviceHistoryTableView: UITableView!
@@ -22,10 +22,12 @@ class UserServiceHistoryViewController: UIViewController, UITableViewDelegate, U
         super.viewDidLoad()
 
         fetchUsers()
+        serviceHistoryTableView.delegate = self
+        serviceHistoryTableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        users.count
+        confirmed.count
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,16 +42,18 @@ class UserServiceHistoryViewController: UIViewController, UITableViewDelegate, U
     //MARK: - Fetch User From Database
           func fetchUsers() {
             let uid = Auth.auth().currentUser?.uid
-            var confimred = [Confirm]()
+            
             
             Database.database().reference().child("users").child(uid!).child("confirmed").observe(.childAdded, with: { (snapshot) in
                   
                   if let dictionary = snapshot.value as? [String: AnyObject] {
                       let user = User()
+                      let confirm = FirebaseConfirm()
                       
                       //App will crash if Class properties don't exactly match up with the Firebase Dictionary Keys
-                      user.setValuesForKeys(dictionary)
+                      confirm.setValuesForKeys(dictionary)
                       
+                    self.confirmed.append(confirm)
                       self.users.append(user)
                           
                       DispatchQueue.main.async {

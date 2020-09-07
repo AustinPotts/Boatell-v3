@@ -18,7 +18,7 @@ class ServiceTableViewCell: UITableViewCell {
     @IBOutlet var servicePrice: UILabel!
     
     //MARK: - User Property Observer
-     var confirmed: Confirm? {
+     var confirmed: FirebaseConfirm? {
          didSet {
              updateViews()
          }
@@ -27,8 +27,8 @@ class ServiceTableViewCell: UITableViewCell {
     //MARK: - Update Views Once Property Is Observed
       func updateViews(){
 
-        serviceName.text = confirmed?.partData.name
-        servicePrice.text = confirmed?.partData.price
+        serviceName.text = confirmed?.confirmService
+        servicePrice.text = confirmed?.confirmPrice
           
 //          if let profileImageUrl = confirmed!.profileImageURL {
 //
