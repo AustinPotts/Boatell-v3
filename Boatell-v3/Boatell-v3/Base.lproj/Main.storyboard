@@ -602,9 +602,23 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Htc-BG-WRC">
+                                <rect key="frame" x="20" y="169" width="46" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="72N-4w-PQZ"/>
+                                    <constraint firstAttribute="width" secondItem="Htc-BG-WRC" secondAttribute="height" multiplier="23:17" id="c4W-3Q-Vwg"/>
+                                    <constraint firstAttribute="width" constant="46" id="pM7-aW-xjm"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="arrowshape.turn.up.left.fill" catalog="system"/>
+                                <connections>
+                                    <segue destination="3Ev-3w-iYQ" kind="unwind" unwindAction="unwindToProfile:" id="7WW-BC-hSN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Htc-BG-WRC" firstAttribute="top" secondItem="sv3-rb-lAE" secondAttribute="bottom" constant="23" id="3M1-Ck-fLW"/>
                             <constraint firstItem="qTF-DE-4jH" firstAttribute="leading" secondItem="EVl-Xx-nyD" secondAttribute="leading" id="3WW-9s-WPx"/>
                             <constraint firstItem="qTF-DE-4jH" firstAttribute="top" secondItem="Jhy-Rq-6jG" secondAttribute="bottom" constant="24" id="4FI-AI-sUM"/>
                             <constraint firstItem="sv3-rb-lAE" firstAttribute="top" secondItem="9g1-Pb-qch" secondAttribute="top" id="Dyw-e7-sKo"/>
@@ -613,6 +627,7 @@
                             <constraint firstItem="Jhy-Rq-6jG" firstAttribute="leading" secondItem="EVl-Xx-nyD" secondAttribute="leading" constant="128" id="P7d-tS-0BA"/>
                             <constraint firstItem="sv3-rb-lAE" firstAttribute="width" secondItem="sv3-rb-lAE" secondAttribute="height" multiplier="207:73" id="Q2g-1U-CCg"/>
                             <constraint firstItem="EVl-Xx-nyD" firstAttribute="trailing" secondItem="Jhy-Rq-6jG" secondAttribute="trailing" constant="128" id="UWu-E9-McP"/>
+                            <constraint firstItem="Htc-BG-WRC" firstAttribute="leading" secondItem="EVl-Xx-nyD" secondAttribute="leading" constant="20" id="VJw-at-oOH"/>
                             <constraint firstItem="Jhy-Rq-6jG" firstAttribute="top" secondItem="sv3-rb-lAE" secondAttribute="bottom" constant="28" id="Vte-BM-emm"/>
                             <constraint firstItem="sv3-rb-lAE" firstAttribute="trailing" secondItem="EVl-Xx-nyD" secondAttribute="trailing" id="b22-8j-LO5"/>
                             <constraint firstItem="hBL-1N-42T" firstAttribute="trailing" secondItem="EVl-Xx-nyD" secondAttribute="trailing" id="bab-Ot-TAc"/>
@@ -633,6 +648,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2V-XS-LyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="3Ev-3w-iYQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2876.811594202899" y="813.61607142857144"/>
         </scene>
@@ -1084,6 +1100,7 @@
         <image name="BoatelllV2" width="853" height="1280"/>
         <image name="Cut" width="599" height="600"/>
         <image name="Mechanic copy" width="999" height="671"/>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
