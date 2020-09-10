@@ -1119,13 +1119,96 @@
                     <navigationItem key="navigationItem" title="Name" id="o6n-CX-M4H">
                         <rightBarButtonItems>
                             <barButtonItem image="message.circle" catalog="system" id="l32-Ka-56L"/>
-                            <barButtonItem image="book.circle.fill" catalog="system" id="A14-Oj-xGe"/>
+                            <barButtonItem image="book.circle.fill" catalog="system" id="A14-Oj-xGe">
+                                <connections>
+                                    <segue destination="48U-uy-PRd" kind="show" id="52p-Eh-xJV"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apA-MU-uam" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1711.5942028985507" y="1557.5892857142856"/>
+        </scene>
+        <!--Chat Logs-->
+        <scene sceneID="ftL-wM-Ck3">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="48U-uy-PRd" customClass="ChatLogsViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NLu-hr-OB1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIb-Ve-10O">
+                                <rect key="frame" x="0.0" y="664" width="414" height="95"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Message.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0UM-iJ-5T3">
+                                        <rect key="frame" x="8" y="19" width="398" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1d-1F-1DX">
+                                        <rect key="frame" x="358" y="21" width="36" height="30"/>
+                                        <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="sendTapped:" destination="48U-uy-PRd" eventType="touchUpInside" id="baC-sV-Ixt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.26379517479999998" green="0.39073671859999998" blue="0.46701309279999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="X1d-1F-1DX" secondAttribute="trailing" constant="20" id="89j-XM-ZuC"/>
+                                    <constraint firstAttribute="width" secondItem="oIb-Ve-10O" secondAttribute="height" multiplier="414:95" id="BWI-VE-wh6"/>
+                                    <constraint firstItem="0UM-iJ-5T3" firstAttribute="leading" secondItem="oIb-Ve-10O" secondAttribute="leading" constant="8" id="CGE-9k-OlB"/>
+                                    <constraint firstAttribute="trailing" secondItem="0UM-iJ-5T3" secondAttribute="trailing" constant="8" id="IAe-Vc-dl6"/>
+                                    <constraint firstAttribute="bottom" secondItem="0UM-iJ-5T3" secondAttribute="bottom" constant="42" id="gln-Oj-ZgT"/>
+                                    <constraint firstItem="X1d-1F-1DX" firstAttribute="top" secondItem="oIb-Ve-10O" secondAttribute="top" constant="21" id="l4d-XJ-ko3"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DdR-5S-yCs">
+                                <rect key="frame" x="0.0" y="56" width="414" height="758"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DdR-5S-yCs" secondAttribute="height" multiplier="207:379" id="Awg-DT-IDU"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dPN-3b-ZcS">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="QpL-so-cVV">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Lbx-R7-3LE">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="DdR-5S-yCs" firstAttribute="leading" secondItem="6IT-N0-p70" secondAttribute="leading" id="4E9-sG-C1L"/>
+                            <constraint firstItem="DdR-5S-yCs" firstAttribute="trailing" secondItem="6IT-N0-p70" secondAttribute="trailing" id="BRC-b3-fWq"/>
+                            <constraint firstItem="oIb-Ve-10O" firstAttribute="trailing" secondItem="6IT-N0-p70" secondAttribute="trailing" id="Cmm-Gb-SOL"/>
+                            <constraint firstAttribute="bottom" secondItem="oIb-Ve-10O" secondAttribute="bottom" id="dez-7E-deT"/>
+                            <constraint firstItem="oIb-Ve-10O" firstAttribute="leading" secondItem="6IT-N0-p70" secondAttribute="leading" id="hbW-eC-6t5"/>
+                            <constraint firstItem="DdR-5S-yCs" firstAttribute="top" secondItem="6IT-N0-p70" secondAttribute="top" id="jnw-Oy-ciB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6IT-N0-p70"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chat Logs" id="KcK-zg-ZTl"/>
+                    <connections>
+                        <outlet property="messageTextField" destination="0UM-iJ-5T3" id="0tz-Ex-gfc"/>
+                        <outlet property="messagesCollectionView" destination="DdR-5S-yCs" id="tXM-Ik-dkD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Plb-7m-LrO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1712" y="2301"/>
         </scene>
         <!--Messages-->
         <scene sceneID="Cu6-AR-eZE">
