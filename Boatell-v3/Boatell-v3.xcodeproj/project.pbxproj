@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		454C49A32509AAAD00A02076 /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49A22509AAAD00A02076 /* MessagesTableViewController.swift */; };
 		454C49A52509AD9500A02076 /* ChatLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49A42509AD9500A02076 /* ChatLogsViewController.swift */; };
+		454C49A72509B1FB00A02076 /* NewMessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49A62509B1FB00A02076 /* NewMessagesTableViewController.swift */; };
 		45A1E42324F82E37003744B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E42224F82E37003744B9 /* AppDelegate.swift */; };
 		45A1E42524F82E37003744B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E42424F82E37003744B9 /* SceneDelegate.swift */; };
 		45A1E42724F82E37003744B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E42624F82E37003744B9 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		454C49A22509AAAD00A02076 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		454C49A42509AD9500A02076 /* ChatLogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogsViewController.swift; sourceTree = "<group>"; };
+		454C49A62509B1FB00A02076 /* NewMessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessagesTableViewController.swift; sourceTree = "<group>"; };
 		45A1E41F24F82E37003744B9 /* Boatell-v3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boatell-v3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45A1E42224F82E37003744B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45A1E42424F82E37003744B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				454C49A22509AAAD00A02076 /* MessagesTableViewController.swift */,
 				454C49A42509AD9500A02076 /* ChatLogsViewController.swift */,
+				454C49A62509B1FB00A02076 /* NewMessagesTableViewController.swift */,
 			);
 			path = "User Messages";
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				45A1E45625049C13003744B9 /* Extensions.swift in Sources */,
 				45A1E42524F82E37003744B9 /* SceneDelegate.swift in Sources */,
 				45A1E44024FC1B95003744B9 /* Part.swift in Sources */,
+				454C49A72509B1FB00A02076 /* NewMessagesTableViewController.swift in Sources */,
 				45A1E44624FD8142003744B9 /* UserCalendarViewController.swift in Sources */,
 				45A1E43824F9F6BC003744B9 /* RegisterViewController.swift in Sources */,
 			);

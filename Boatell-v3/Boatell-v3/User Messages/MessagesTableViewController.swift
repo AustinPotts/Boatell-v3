@@ -94,10 +94,10 @@ class MessagesTableViewController: UITableViewController {
        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            // Get the new view controller using segue.destination.
            if segue.identifier == "NewMessageSegue" {
-               if let newMessVC = segue.destination as? NewMessageTableViewController {
+               if let newMessVC = segue.destination as? NewMessagesTableViewController {
                    newMessVC.messagesController = self
                }
-           }
+          }
            // Pass the selected object to the new view controller.
        }
        
