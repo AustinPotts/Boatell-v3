@@ -16,8 +16,8 @@ class MessagesTableViewController: UITableViewController {
            
          checkIfUserLoggedIn()
        
-//           let newMessageController = NewMessageTableViewController()
-//                  newMessageController.messagesController = self
+           let newMessageController = NewMessagesTableViewController()
+                  newMessageController.messagesController = self
          
        }
        
@@ -81,8 +81,10 @@ class MessagesTableViewController: UITableViewController {
 
            let chatLogController = ChatLogsViewController()
            chatLogController.user = user
-
-           navigationController?.pushViewController(chatLogController, animated: true)
+       
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let resultViewController = storyBoard.instantiateViewController(withIdentifier: "ChatLogController") as! ChatLogsViewController
+        self.navigationController?.pushViewController(resultViewController, animated: true)
 
        }
 
