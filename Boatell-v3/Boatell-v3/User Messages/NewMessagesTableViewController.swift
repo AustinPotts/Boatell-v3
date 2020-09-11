@@ -114,6 +114,7 @@ class NewMessagesTableViewController: UITableViewController {
                 
             }
             let user = self.users[indexPath.row]
+            
             messagesController.showChatControllerForUser(user: user)
         }
 

@@ -1180,7 +1180,7 @@
             </objects>
             <point key="canvasLocation" x="2646.376811594203" y="1831.4732142857142"/>
         </scene>
-        <!--Chat Logs-->
+        <!--Chat Logs View Controller-->
         <scene sceneID="ftL-wM-Ck3">
             <objects>
                 <viewController storyboardIdentifier="ChatLogController" modalPresentationStyle="fullScreen" id="48U-uy-PRd" customClass="ChatLogsViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
@@ -1249,7 +1249,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6IT-N0-p70"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Chat Logs" id="KcK-zg-ZTl"/>
+                    <navigationItem key="navigationItem" id="KcK-zg-ZTl"/>
                     <connections>
                         <outlet property="messageTextField" destination="0UM-iJ-5T3" id="0tz-Ex-gfc"/>
                         <outlet property="messagesCollectionView" destination="DdR-5S-yCs" id="tXM-Ik-dkD"/>
