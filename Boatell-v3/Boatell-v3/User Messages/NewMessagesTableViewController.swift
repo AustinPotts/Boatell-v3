@@ -31,6 +31,7 @@ class NewMessagesTableViewController: UITableViewController {
                 
                 if let dictionary = snapshot.value as? [String: AnyObject] {
                     let user = User()
+                    user.id = snapshot.key
                     
                     //App will crash if Class properties don't exactly match up with the Firebase Dictionary Keys
                     user.setValuesForKeys(dictionary)

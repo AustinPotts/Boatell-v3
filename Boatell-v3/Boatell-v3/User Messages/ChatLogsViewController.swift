@@ -54,7 +54,7 @@ class ChatLogsViewController: UIViewController {
             let ref = Database.database().reference().child("messages")
             let childRef = ref.childByAutoId()
             
-            let toID = user!.toID!
+            let toID = user!.id!
             //let fromID =
             
             let values = ["text": messageTextField.text!, "toID": toID]

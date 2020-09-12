@@ -12,7 +12,7 @@ import Foundation
 
 class User: NSObject {
     
-    @objc var toID: String?
+    @objc var id: String?
     @objc var name: String?
     @objc var email: String?
     @objc var profileImageURL: String?
