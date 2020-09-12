@@ -12,6 +12,7 @@ import Foundation
 
 class User: NSObject {
     
+    @objc var toID: String?
     @objc var name: String?
     @objc var email: String?
     @objc var profileImageURL: String?
@@ -19,6 +20,7 @@ class User: NSObject {
     @objc var confirmService: Confirm?
     @objc var confirmPrice: Confirm?
     @objc var confirmed: NSString?
+    
     
     
 }
