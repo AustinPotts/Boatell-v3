@@ -147,7 +147,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                                    
                                    let values = ["name": name, "email": email, "profileImageURL": profileImageUrl]
                                    
-                                   self.registerUserIntoDatabaseWithUID(uid: uid, values: values as [String : AnyObject])
+                                   self.registerOwnerIntoDatabaseWithUID(uid: uid, values: values as [String : AnyObject])
                                }
                                
                            }
@@ -161,9 +161,9 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     
        private func registerOwnerIntoDatabaseWithUID(uid: String, values: [String: AnyObject]) {
             // Successfully Registered Value
-                 var ref: DatabaseReference!
-                 
-                 ref = Database.database().reference(fromURL: "https://boatell-v3.firebaseio.com/")
+                  // var ref: DatabaseReference!
+                                 
+                 let ref = Database.database().reference().child("owner")
                  
                  let userRef = ref.child("owner").child(uid)
                  

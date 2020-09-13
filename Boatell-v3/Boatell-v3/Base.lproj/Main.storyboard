@@ -1556,6 +1556,7 @@
                     <navigationItem key="navigationItem" id="huU-IY-9b1"/>
                     <connections>
                         <outlet property="calendarView" destination="jNL-pa-U0G" id="113-Gi-mJ7"/>
+                        <outlet property="upcomingServices" destination="7ck-ZJ-yZ3" id="S2Q-hP-pLE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4F-9v-ILP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
