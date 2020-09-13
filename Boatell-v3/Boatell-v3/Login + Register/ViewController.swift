@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var username: UITextField!
     @IBOutlet var password: UITextField!
-    
+    @IBOutlet var userSegmentController: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +46,25 @@ class ViewController: UIViewController {
             
         }
     
+    
+    //MARK: - Set Up Owner Log In
+    func handleOwnerLogin() {
+         
+         guard let email = username.text, let password = password.text else { return }
+         
+         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+             if let error = error {
+                 
+              //  self.showAlert() // Show Wrong Email or Password Alert
+                 print("Error signing in: \(error)")
+                 return
+             }
+             
+             self.performSegue(withIdentifier: "OwnerLoginSegue", sender: self)
+         }
+         
+     }
+    
     //MARK: - Set Up Login Animation
       func animateLogin() {
           UIView.animate(withDuration: 0.2, animations: {               //45 degree rotation. USE RADIANS
@@ -67,10 +86,31 @@ class ViewController: UIViewController {
 
     
     @IBAction func loginButtonTapped(_ sender: Any) {
-        handleLogIn()
-        animateLogin()
+        if userBool == true {
+            handleLogIn()
+            animateLogin()
+        } else if ownerBool == true {
+            handleOwnerLogin()
+            animateLogin()
+        }
+       
     }
     
+    var userBool: Bool = false
+    var ownerBool: Bool = false
+    
+    @IBAction func indexChanged(_ sender: Any) {
+        switch userSegmentController.selectedSegmentIndex
+        {
+        case 0:
+            userBool = true
+        case 1:
+            ownerBool = true
+        default:
+            break
+        }
+    }
+        
 
 }
 

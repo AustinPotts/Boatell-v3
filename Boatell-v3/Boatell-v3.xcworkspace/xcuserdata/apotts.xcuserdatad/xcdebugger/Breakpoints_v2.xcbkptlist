@@ -39,16 +39,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9ED12E46-922F-4878-AB0F-031C5D9D34A2"
+            uuid = "B3A6310F-521A-43FC-9EBC-19D726F6E8DD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Boatell-v3/Login + Register/RegisterViewController.swift"
+            filePath = "Boatell-v3/Login + Register/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
-            landmarkName = "indexChanged(_:)"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "handleOwnerLogin()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

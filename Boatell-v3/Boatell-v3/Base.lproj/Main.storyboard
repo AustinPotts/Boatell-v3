@@ -297,12 +297,24 @@
                                     <segue destination="zpf-y5-bzR" kind="show" id="8sq-pX-PlT"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2tG-oy-Pm4">
+                                <rect key="frame" x="148" y="599" width="118" height="32"/>
+                                <color key="backgroundColor" red="0.23310689109999999" green="0.62398741570000005" blue="1" alpha="0.88021725169999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <segments>
+                                    <segment title="User"/>
+                                    <segment title="Owner"/>
+                                </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Xj6-2E-4ha"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.41234580563061912" blue="0.73996668781725883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ZXu-QL-XAx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5Ed-oZ-VD0"/>
                             <constraint firstItem="wwh-79-h4v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="6hr-DQ-wmF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5ki-4j-v7n" secondAttribute="bottom" constant="281" id="7Pi-V0-eDP"/>
+                            <constraint firstItem="2tG-oy-Pm4" firstAttribute="top" secondItem="5ki-4j-v7n" secondAttribute="bottom" constant="18" id="A2e-SM-T9h"/>
                             <constraint firstItem="4Qk-WS-vUX" firstAttribute="top" secondItem="ZXu-QL-XAx" secondAttribute="bottom" constant="90" id="EZj-aC-5me"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5ki-4j-v7n" secondAttribute="trailing" constant="37" id="H2V-Ky-q8f"/>
                             <constraint firstItem="wwh-79-h4v" firstAttribute="top" secondItem="M2q-lA-EuN" secondAttribute="bottom" constant="29" id="Iay-Bq-vNC"/>
@@ -312,6 +324,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZXu-QL-XAx" secondAttribute="trailing" constant="20" id="ZeN-ZK-Cbu"/>
                             <constraint firstItem="3XY-h5-KY0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Zg1-Sc-K2j"/>
                             <constraint firstItem="3XY-h5-KY0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="b9e-ra-J1n"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2tG-oy-Pm4" secondAttribute="trailing" constant="148" id="bQ4-Vt-exF"/>
+                            <constraint firstItem="2tG-oy-Pm4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="148" id="dds-YL-PiN"/>
                             <constraint firstItem="M2q-lA-EuN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="125" id="eXK-iN-K9G"/>
                             <constraint firstItem="5ki-4j-v7n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="fKW-Xi-cln"/>
                             <constraint firstItem="ZXu-QL-XAx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="31" id="mfi-fe-CEc"/>
@@ -327,8 +341,10 @@
                         <outlet property="loginButton" destination="M2q-lA-EuN" id="AKm-vy-314"/>
                         <outlet property="password" destination="e5i-rJ-nnN" id="pK7-h2-K2B"/>
                         <outlet property="textBoxView" destination="5ki-4j-v7n" id="Yqb-N5-o4r"/>
+                        <outlet property="userSegmentController" destination="2tG-oy-Pm4" id="Lhq-Z4-9Jl"/>
                         <outlet property="username" destination="ad7-DP-ofP" id="3z2-mf-eWr"/>
                         <segue destination="rD6-dJ-TJN" kind="show" identifier="LogInSegue" id="0yS-Zl-O8p"/>
+                        <segue destination="iCD-Ej-2lx" kind="show" identifier="OwnerLoginSegue" id="440-Y7-efv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1565,6 +1581,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="LSG-yc-J3T"/>
         <segue reference="8aX-1a-hdY"/>
     </inferredMetricsTieBreakers>
     <resources>
