@@ -20,7 +20,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet var username: UITextField!
     @IBOutlet var email: UITextField!
     @IBOutlet var password: UITextField!
-    
+    @IBOutlet var userSegmentController: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +107,80 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                  }
         }
     
+    //MARK: - GOAL - Once the owner choice is selected upon register, the Owners data should be saved on its own seperate node
+    
+    // create Handle Owner Register
+    
+    func handleOwnerRegister() {
+               
+               guard let email = email.text, let password = password.text, let name = username.text else { return }
+               
+               Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                   if let error = error {
+                       print("Error: \(error)")
+                       
+                       return
+                   }
+                  
+                   
+                   guard let uid = user?.user.uid else { return }
+                   
+                   let imageName = NSUUID().uuidString
+                   
+                   let storageRef = Storage.storage().reference().child("\(imageName).png")
+                   
+                   if let uploadData = self.userImage.image?.pngData() {
+                       
+                       storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+                           if let error = error {
+                               print("Error uploading image data: \(error)")
+                               return
+                           }
+                       
+                           storageRef.downloadURL { (url, error) in
+                               if let error = error {
+                                   print("Error downloading URL: \(error)")
+                                   return
+                               }
+                               
+                                if let profileImageUrl = url?.absoluteString {
+                                   
+                                   let values = ["name": name, "email": email, "profileImageURL": profileImageUrl]
+                                   
+                                   self.registerUserIntoDatabaseWithUID(uid: uid, values: values as [String : AnyObject])
+                               }
+                               
+                           }
+                       
+                       }
+                       
+                   }
+                   
+               }
+           }
+    
+       private func registerOwnerIntoDatabaseWithUID(uid: String, values: [String: AnyObject]) {
+            // Successfully Registered Value
+                 var ref: DatabaseReference!
+                 
+                 ref = Database.database().reference(fromURL: "https://boatell-v3.firebaseio.com/")
+                 
+                 let userRef = ref.child("owner").child(uid)
+                 
+    //             let values = ["name": name, "email": email, "profileImageURL": metadata.downloadURL()]
+                 
+                 userRef.updateChildValues(values) { (error, refer) in
+                     if let error = error {
+                         print("error onwer values: \(error)")
+                         return
+                     }
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                        self.performSegue(withIdentifier: "OwnerRegisterSegue", sender: self)
+                                    }
+                     print("Saved owner successfully into firebase db")
+                 }
+        }
+    
     //MARK: - Set Up Register Animation
      func animateRegister() {
             UIView.animate(withDuration: 0.2, animations: {               //45 degree rotation. USE RADIANS
@@ -123,9 +197,20 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     
     //MARK: - Interface Actions
     @IBAction func registerTapped(_ sender: Any) {
-        handleRegister()
-        animateRegister()
+        
+        //Do logic in here for the Segment Controller i.e if set then etc
+        if userBool == true {
+            handleRegister()
+            animateRegister()
+        } else if ownerBool == true {
+            handleOwnerRegister()
+            animateRegister()
+        }
+     
     }
+    
+    var userBool: Bool = false
+    var ownerBool: Bool = false
         
     @IBAction func cameraButtonTapped(_ sender: Any) {
            let picker = UIImagePickerController()
@@ -139,6 +224,18 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
        @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
            view.endEditing(true)
        }
+    
+    @IBAction func indexChanged(_ sender: Any) {
+        switch userSegmentController.selectedSegmentIndex
+        {
+        case 0:
+            userBool = true
+        case 1:
+            ownerBool = true
+        default:
+            break
+        }
+    }
     
 
     

@@ -96,6 +96,9 @@
                                             <segment title="User"/>
                                             <segment title="Owner"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="indexChanged:" destination="zpf-y5-bzR" eventType="valueChanged" id="hMy-Fn-kEX"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" red="0.26379517479999998" green="0.39073671859999998" blue="0.46701309279999997" alpha="0.88021725169999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -194,8 +197,10 @@
                         <outlet property="registerButton" destination="I14-nQ-PKa" id="5QT-M6-mJy"/>
                         <outlet property="textBoxView" destination="dxI-1i-IWs" id="Pgg-oj-Kdd"/>
                         <outlet property="userImage" destination="VVW-ra-wQQ" id="Ohp-xx-ahO"/>
+                        <outlet property="userSegmentController" destination="wGu-IS-VOv" id="X5Q-4A-aNr"/>
                         <outlet property="username" destination="GsQ-yc-Uu0" id="mWx-pl-EEi"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="RegisterSegue" id="wed-QR-1t6"/>
+                        <segue destination="iCD-Ej-2lx" kind="show" identifier="OwnerRegisterSegue" id="LSG-yc-J3T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9GB-Be-ryl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
