@@ -22,5 +22,4 @@ class User: NSObject {
     @objc var confirmed: NSString?
     
     
-    
 }

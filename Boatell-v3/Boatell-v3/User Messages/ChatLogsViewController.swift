@@ -14,8 +14,13 @@ class ChatLogsViewController: UIViewController {
   
         var user: User? {
             didSet{
-                navigationItem.title = user?.name
+                self.navigationItem.title = user?.name
                 print("USER: \(user?.name)")
+            }
+            
+            willSet {
+                self.navigationItem.title = user?.name
+                print("USER WILL SET: \(user?.name)")
             }
         }
         
@@ -36,7 +41,7 @@ class ChatLogsViewController: UIViewController {
         override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(true)
             // messageTextField.delegate! = self
-           
+            self.navigationItem.title = user?.name
             
         }
 
