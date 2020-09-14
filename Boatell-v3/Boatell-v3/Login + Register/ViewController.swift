@@ -30,6 +30,8 @@ class ViewController: UIViewController {
     
     //MARK: - Set Up User Log In
        func handleLogIn() {
+        
+      
             
             guard let email = username.text, let password = password.text else { return }
             
@@ -41,27 +43,34 @@ class ViewController: UIViewController {
                     return
                 }
                 
+                
+                
                 self.performSegue(withIdentifier: "LogInSegue", sender: self)
             }
+         
+        
             
         }
     
     
     //MARK: - Set Up Owner Log In
     func handleOwnerLogin() {
+        
+     
          
          guard let email = username.text, let password = password.text else { return }
          
-         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
              if let error = error {
                  
               //  self.showAlert() // Show Wrong Email or Password Alert
-                 print("Error signing in: \(error)")
+                 print("Error signing Owner in: \(error)")
                  return
              }
              
              self.performSegue(withIdentifier: "OwnerLoginSegue", sender: self)
          }
+      
          
      }
     
