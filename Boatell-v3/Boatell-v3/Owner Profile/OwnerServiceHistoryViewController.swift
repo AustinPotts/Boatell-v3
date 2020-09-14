@@ -13,7 +13,7 @@ import Firebase
 class OwnerServiceHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - Properties
-    var users = [User]()
+    var owner = [Owner]()
     var confirmed = [FirebaseConfirm]()
     
     
@@ -45,20 +45,20 @@ class OwnerServiceHistoryViewController: UIViewController, UITableViewDelegate, 
     
     //MARK: - Fetch User From Database
           func fetchUsers() {
-            let uid = Auth.auth().currentUser?.uid
             
             
-            Database.database().reference().child("users").child(uid!).child("confirmed").observe(.childAdded, with: { (snapshot) in
+            
+            Database.database().reference().child("owner").child("owner").child("confirmed").observe(.childAdded, with: { (snapshot) in
                   
                   if let dictionary = snapshot.value as? [String: AnyObject] {
-                      let user = User()
+                      let owner = Owner()
                       let confirm = FirebaseConfirm()
                       
                       //App will crash if Class properties don't exactly match up with the Firebase Dictionary Keys
                       confirm.setValuesForKeys(dictionary)
                       
                     self.confirmed.append(confirm)
-                      self.users.append(user)
+                      self.owner.append(owner)
                           
                       DispatchQueue.main.async {
                            self.serviceHistoryTableView.reloadData()
