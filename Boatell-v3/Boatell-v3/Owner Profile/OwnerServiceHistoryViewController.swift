@@ -34,7 +34,9 @@ class OwnerServiceHistoryViewController: UIViewController, UITableViewDelegate, 
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceCell", for: indexPath) as? ServiceTableViewCell else {return UITableViewCell()}
+             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceCell", for: indexPath) as? ServiceTableViewCell else {
+                print("NO CELL")
+                return UITableViewCell()}
         
         cell.confirmed = confirmed[indexPath.row]
         cell.backgroundColor = UIColor.clear

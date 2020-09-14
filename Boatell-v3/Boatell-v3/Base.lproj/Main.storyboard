@@ -1474,7 +1474,7 @@
                                     <constraint firstAttribute="width" secondItem="7ck-ZJ-yZ3" secondAttribute="height" multiplier="23:17" id="CQk-RD-der"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ServiceCell" rowHeight="119" id="AL4-9s-J0x" customClass="OwnerUpcomingServicesTableViewCell" customModule="Boatell_v3" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ServiceCell" rowHeight="119" id="AL4-9s-J0x" customClass="ServiceTableViewCell" customModule="Boatell_v3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AL4-9s-J0x" id="yho-mt-3t3">
@@ -1534,11 +1534,11 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.26379517479999998" green="0.39073671859999998" blue="0.46701309279999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="serviceDate" destination="1xU-pi-LDL" id="Pyq-JY-xjW"/>
-                                            <outlet property="serviceImage" destination="Kmx-3k-imI" id="sFL-PM-bkm"/>
-                                            <outlet property="serviceName" destination="NhQ-Y4-t4h" id="6pc-RH-Wh0"/>
-                                            <outlet property="servicePrice" destination="tQe-qZ-Q8U" id="qVS-vB-FLp"/>
-                                            <outlet property="servicePriceView" destination="agr-1h-sqP" id="KkA-0O-Ogz"/>
+                                            <outlet property="serviceDate" destination="1xU-pi-LDL" id="Tgi-Vx-m4W"/>
+                                            <outlet property="serviceImage" destination="Kmx-3k-imI" id="6fC-Aa-F7B"/>
+                                            <outlet property="serviceName" destination="NhQ-Y4-t4h" id="mc1-Vx-Uld"/>
+                                            <outlet property="servicePrice" destination="tQe-qZ-Q8U" id="aHl-Oh-gNJ"/>
+                                            <outlet property="servicePriceView" destination="yho-mt-3t3" id="3s4-hI-Egx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
