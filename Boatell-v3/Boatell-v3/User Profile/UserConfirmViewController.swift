@@ -35,6 +35,7 @@ class UserConfirmViewController: UIViewController {
     var part: Part!
     var serviceDate = Date()
     let customALert = MyAlert()
+    let ownerConfirmed = [Owner().confirmed]
 
     
     //MARK: - Once you have the Passed Data (Service Date + Part) you need to add the confirm model to the Database under the user for child node "confirmed"
@@ -116,6 +117,7 @@ class UserConfirmViewController: UIViewController {
                 if let dictionary = snapshot.value as? [String: AnyObject] {
                     
                     let user = User()
+                    
                                   
                     user.setValuesForKeys(dictionary)
                     users.append(user)
@@ -132,9 +134,12 @@ class UserConfirmViewController: UIViewController {
                     let confirmPrice = self.confirm.partData.price
                                                 
                         print("NEW CONFIRM::: \(confirm)")
+                   
+                    
                         
                     let values = ["confirmDate": "\(confirm)", "confirmService" : "\(confirmService)", "confirmPrice" : "\(confirmPrice)"]
                         guard let uid = Auth.auth().currentUser?.uid else { return }
+                      
                         self.createCopyForUserHealth(uid: uid,values: values as [String : AnyObject])
                         
                     
@@ -149,7 +154,8 @@ class UserConfirmViewController: UIViewController {
                    ref = Database.database().reference(fromURL: "https://boatell-v3.firebaseio.com/")
                    
                    let userRef = ref.child("users").child(uid).child("confirmed").childByAutoId()
-            let childRef = ref.child("confirmed").childByAutoId()
+                //   let childRef = ref.child("confirmed").childByAutoId()
+                   let ownerRef = ref.child("owner").child("owner").child("confirmed")
                    
                    userRef.updateChildValues(values) { (error, refer) in
                        if let error = error {
@@ -157,6 +163,12 @@ class UserConfirmViewController: UIViewController {
                            return
                        }
                  }
+                 ownerRef.updateChildValues(values) { (error, refer) in
+                                      if let error = error {
+                                          print("ERROR CHILD values: \(error)")
+                                          return
+                                      }
+                                }
            }
     
      

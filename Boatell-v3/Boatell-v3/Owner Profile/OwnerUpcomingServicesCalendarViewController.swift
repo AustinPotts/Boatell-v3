@@ -19,6 +19,7 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
         override func viewDidLoad() {
             super.viewDidLoad()
 
+            fetchUsers()
             setUpSubViews()
             calendarView.calendarDataSource = self
             calendarView.calendarDelegate = self
@@ -79,14 +80,18 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
                 confirm.setValuesForKeys(dictionary)
                 
               self.confirmed.append(confirm)
-                self.users.append(user)
+              self.users.append(user)
+                
+
                     
                 DispatchQueue.main.async {
                      self.upcomingServices.reloadData()
                 }
             }
+   
             print(snapshot)
         }, withCancel: nil)
+        
     }
 
         

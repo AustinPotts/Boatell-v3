@@ -13,6 +13,8 @@
 		454C49AA250E927400A02076 /* OwnerUpcomingServicesCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49A9250E927400A02076 /* OwnerUpcomingServicesCalendarViewController.swift */; };
 		454C49AC250E94A600A02076 /* OwnerUpcomingServicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49AB250E94A600A02076 /* OwnerUpcomingServicesTableViewCell.swift */; };
 		454C49AE250FE94D00A02076 /* OwnerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49AD250FE94D00A02076 /* OwnerProfileViewController.swift */; };
+		454C49B0250FEE1900A02076 /* OwnerServiceHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49AF250FEE1900A02076 /* OwnerServiceHistoryViewController.swift */; };
+		454C49B2250FF14900A02076 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49B1250FF14900A02076 /* Owner.swift */; };
 		45A1E42324F82E37003744B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E42224F82E37003744B9 /* AppDelegate.swift */; };
 		45A1E42524F82E37003744B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E42424F82E37003744B9 /* SceneDelegate.swift */; };
 		45A1E42724F82E37003744B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E42624F82E37003744B9 /* ViewController.swift */; };
@@ -45,6 +47,8 @@
 		454C49A9250E927400A02076 /* OwnerUpcomingServicesCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerUpcomingServicesCalendarViewController.swift; sourceTree = "<group>"; };
 		454C49AB250E94A600A02076 /* OwnerUpcomingServicesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerUpcomingServicesTableViewCell.swift; sourceTree = "<group>"; };
 		454C49AD250FE94D00A02076 /* OwnerProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerProfileViewController.swift; sourceTree = "<group>"; };
+		454C49AF250FEE1900A02076 /* OwnerServiceHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerServiceHistoryViewController.swift; sourceTree = "<group>"; };
+		454C49B1250FF14900A02076 /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		45A1E41F24F82E37003744B9 /* Boatell-v3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boatell-v3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45A1E42224F82E37003744B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45A1E42424F82E37003744B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 			children = (
 				454C49A9250E927400A02076 /* OwnerUpcomingServicesCalendarViewController.swift */,
 				454C49AD250FE94D00A02076 /* OwnerProfileViewController.swift */,
+				454C49AF250FEE1900A02076 /* OwnerServiceHistoryViewController.swift */,
 			);
 			path = "Owner Profile";
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 				45A1E44D2501CD9D003744B9 /* Confirm.swift */,
 				45A1E44F2502CB23003744B9 /* User.swift */,
 				45A1E45E2506B667003744B9 /* FirebaseConfirm.swift */,
+				454C49B1250FF14900A02076 /* Owner.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -361,10 +367,12 @@
 				45A1E42724F82E37003744B9 /* ViewController.swift in Sources */,
 				45A1E43D24FC1ACB003744B9 /* UserServicesViewController.swift in Sources */,
 				45A1E44824FD8356003744B9 /* DateHeader.swift in Sources */,
+				454C49B0250FEE1900A02076 /* OwnerServiceHistoryViewController.swift in Sources */,
 				454C49AC250E94A600A02076 /* OwnerUpcomingServicesTableViewCell.swift in Sources */,
 				45A1E45D2504A531003744B9 /* UserServiceHistoryViewController.swift in Sources */,
 				45A1E44C24FED668003744B9 /* UserConfirmViewController.swift in Sources */,
 				45A1E45F2506B667003744B9 /* FirebaseConfirm.swift in Sources */,
+				454C49B2250FF14900A02076 /* Owner.swift in Sources */,
 				454C49AE250FE94D00A02076 /* OwnerProfileViewController.swift in Sources */,
 				454C49A52509AD9500A02076 /* ChatLogsViewController.swift in Sources */,
 				45A1E42324F82E37003744B9 /* AppDelegate.swift in Sources */,

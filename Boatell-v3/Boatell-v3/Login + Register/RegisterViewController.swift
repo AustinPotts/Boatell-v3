@@ -147,7 +147,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                                    
                                    let values = ["name": name, "email": email, "profileImageURL": profileImageUrl]
                                    
-                                   self.registerOwnerIntoDatabaseWithUID(uid: uid, values: values as [String : AnyObject])
+                                   self.registerOwnerIntoDatabaseWithUID(values: values as [String : AnyObject])
                                }
                                
                            }
@@ -159,13 +159,13 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                }
            }
     
-       private func registerOwnerIntoDatabaseWithUID(uid: String, values: [String: AnyObject]) {
+       private func registerOwnerIntoDatabaseWithUID(values: [String: AnyObject]) {
             // Successfully Registered Value
                   // var ref: DatabaseReference!
                                  
                  let ref = Database.database().reference().child("owner")
                  
-                 let userRef = ref.child("owner").child(uid)
+                 let userRef = ref.child("owner")
                  
     //             let values = ["name": name, "email": email, "profileImageURL": metadata.downloadURL()]
                  

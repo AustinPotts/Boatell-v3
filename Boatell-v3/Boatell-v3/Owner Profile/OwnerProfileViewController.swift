@@ -37,9 +37,9 @@ class OwnerProfileViewController: UIViewController {
         
         //MARK: - Update Views with Database Values
            func updateViews(){
-               let uid = Auth.auth().currentUser?.uid
+             
 
-            Database.database().reference().child("owner").child("owner").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+            Database.database().reference().child("owner").child("owner").observeSingleEvent(of: .value, with: { (snapshot) in
                    
                    
                          
