@@ -1569,9 +1569,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oUX-7m-qLW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Service Requests" selectedImage="calendar" catalog="system" id="2Mp-To-Dxm">
-                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Service Requests" selectedImage="calendar" catalog="system" id="2Mp-To-Dxm"/>
                     <navigationItem key="navigationItem" id="huU-IY-9b1"/>
                     <connections>
                         <outlet property="calendarView" destination="jNL-pa-U0G" id="113-Gi-mJ7"/>
