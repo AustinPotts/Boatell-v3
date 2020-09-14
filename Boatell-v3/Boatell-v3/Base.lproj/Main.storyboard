@@ -2003,7 +2003,7 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ya6-ZC-Bsh">
-                                <rect key="frame" x="0.0" y="747" width="414" height="95"/>
+                                <rect key="frame" x="0.0" y="687" width="414" height="95"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Message.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y40-4r-Zr3">
                                         <rect key="frame" x="8" y="19" width="398" height="34"/>
@@ -2034,7 +2034,7 @@
                             <constraint firstItem="ya6-ZC-Bsh" firstAttribute="trailing" secondItem="G9c-bI-fZG" secondAttribute="trailing" id="20g-Kl-dld"/>
                             <constraint firstItem="ya6-ZC-Bsh" firstAttribute="leading" secondItem="G9c-bI-fZG" secondAttribute="leading" id="8Az-lD-Nlw"/>
                             <constraint firstItem="7OM-kI-kAc" firstAttribute="top" secondItem="G9c-bI-fZG" secondAttribute="top" id="fX3-fh-Kuk"/>
-                            <constraint firstAttribute="bottom" secondItem="ya6-ZC-Bsh" secondAttribute="bottom" id="mpM-9i-DqI"/>
+                            <constraint firstAttribute="bottom" secondItem="ya6-ZC-Bsh" secondAttribute="bottom" constant="60" id="mpM-9i-DqI"/>
                             <constraint firstItem="7OM-kI-kAc" firstAttribute="leading" secondItem="G9c-bI-fZG" secondAttribute="leading" id="w62-Li-CGC"/>
                             <constraint firstItem="7OM-kI-kAc" firstAttribute="trailing" secondItem="G9c-bI-fZG" secondAttribute="trailing" id="zPe-j8-xke"/>
                         </constraints>

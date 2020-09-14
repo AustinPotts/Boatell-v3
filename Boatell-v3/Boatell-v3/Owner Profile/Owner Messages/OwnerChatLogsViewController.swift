@@ -58,10 +58,10 @@ class OwnerChatLogsViewController: UIViewController {
             let ref = Database.database().reference().child("messages")
             let childRef = ref.childByAutoId()
             
-            let toID = user!.id!
+//            let toID = user!.id!
             //let fromID =
             
-            let values = ["text": messageTextField.text!, "toID": toID]
+            let values = ["text": messageTextField.text!]
             childRef.updateChildValues(values)
             
         }
