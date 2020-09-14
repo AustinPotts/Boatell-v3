@@ -39,6 +39,7 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                guard let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceCell", for: indexPath) as? ServiceTableViewCell else {return UITableViewCell()}
           
+          cell.servicePriceView.layer.cornerRadius = 15 
           cell.confirmed = confirmed[indexPath.row]
           cell.backgroundColor = UIColor.clear
           
