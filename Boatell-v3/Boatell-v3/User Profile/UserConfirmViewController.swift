@@ -133,14 +133,42 @@ class UserConfirmViewController: UIViewController {
                     let confirmService = self.confirm.partData.name
                     let confirmPrice = self.confirm.partData.price
                                                 
-                        print("NEW CONFIRM::: \(confirm)")
-                   
+                    print("NEW CONFIRM::: \(confirm)")
+                    let imageName = NSUUID().uuidString
+                                                
+                    let storageRef = Storage.storage().reference().child("\(imageName).png")
                     
+                    if let uploadData = self.serviceImage.image?.pngData() {
                         
-                    let values = ["confirmDate": "\(confirm)", "confirmService" : "\(confirmService)", "confirmPrice" : "\(confirmPrice)"]
-                        guard let uid = Auth.auth().currentUser?.uid else { return }
-                      
-                        self.createCopyForUserHealth(uid: uid,values: values as [String : AnyObject])
+                        storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+                            if let error = error {
+                                print("Error uploading image data: \(error)")
+                                return
+                            }
+                            
+                            storageRef.downloadURL { (url, error) in
+                                if let error = error {
+                                    print("Error downloading URL: \(error)")
+                                    return
+                                }
+                                
+                                if let confirmImage = url?.absoluteString {
+                                    
+                                    let values = ["confirmDate": "\(confirm)", "confirmService" : "\(confirmService)", "confirmPrice" : "\(confirmPrice)", "confirmImage" : confirmImage]
+                                    
+                                    
+                                    guard let uid = Auth.auth().currentUser?.uid else { return }
+                                    
+                                    self.createCopyForUserHealth(uid: uid,values: values as [String : AnyObject])
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                
                         
                     
                 }

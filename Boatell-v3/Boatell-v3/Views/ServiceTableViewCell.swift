@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class ServiceTableViewCell: UITableViewCell {
     
     
-    @IBOutlet var serviceImage: UIImageView!
+    @IBOutlet var confirmImage: UIImageView!
     @IBOutlet var serviceName: UILabel!
     @IBOutlet var serviceDate: UILabel!
     @IBOutlet var servicePriceView: UIView!
@@ -21,6 +22,7 @@ class ServiceTableViewCell: UITableViewCell {
      var confirmed: FirebaseConfirm? {
          didSet {
              updateViews()
+            // updateViews2()
          }
      }
     
@@ -31,6 +33,7 @@ class ServiceTableViewCell: UITableViewCell {
         servicePrice.text = confirmed?.confirmPrice
         serviceDate.text = confirmed?.confirmDate
         
+        
         servicePriceView.layer.cornerRadius = 15
         
           
@@ -40,6 +43,26 @@ class ServiceTableViewCell: UITableViewCell {
 //
 //          }
       }
+    
+    func updateViews2(){
+             let uid = Auth.auth().currentUser?.uid
+
+               Database.database().reference().child("users").child(uid!).child("confirmed").observeSingleEvent(of: .value, with: { (snapshot) in
+                 
+                 
+                       print(snapshot)
+                       if let dictionary = snapshot.value as? [String: AnyObject] {
+                         let confirmImage = dictionary["confirmImage"] as? String
+                         self.confirmImage.loadImageViewUsingCacheWithUrlString(urlString: confirmImage!)
+                         self.confirmImage.layer.cornerRadius = self.confirmImage.frame.height / 2
+                         self.confirmImage.layer.masksToBounds = false
+                         self.confirmImage.clipsToBounds = true
+                       }
+                       
+                   }, withCancel: nil)
+         }
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

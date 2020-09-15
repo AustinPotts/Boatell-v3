@@ -42,7 +42,7 @@ class UserProfileViewController: UIViewController {
              Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
                
                
-                     
+                     print(snapshot)
                      if let dictionary = snapshot.value as? [String: AnyObject] {
                        self.userName.text = dictionary["name"] as? String
                        let profileImageURL = dictionary["profileImageURL"] as? String
@@ -51,7 +51,7 @@ class UserProfileViewController: UIViewController {
                        self.userImage.layer.masksToBounds = false
                        self.userImage.clipsToBounds = true
                      }
-                     print(snapshot)
+                     
                  }, withCancel: nil)
        }
        

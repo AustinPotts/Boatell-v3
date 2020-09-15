@@ -27,6 +27,8 @@ class UserServiceHistoryViewController: UIViewController, UITableViewDelegate, U
         serviceHistoryTableView.backgroundColor = UIColor.clear
     }
     
+  
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         confirmed.count
      }
@@ -35,7 +37,10 @@ class UserServiceHistoryViewController: UIViewController, UITableViewDelegate, U
              guard let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceCell", for: indexPath) as? ServiceTableViewCell else {return UITableViewCell()}
         
         cell.confirmed = confirmed[indexPath.row]
+        
         cell.backgroundColor = UIColor.clear
+        
+        
         
         return cell
         
