@@ -15,7 +15,8 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
    @IBOutlet weak var calendarView: JTACMonthView!
    @IBOutlet var upcomingServices: UITableView!
         
-
+   
+    
         override func viewDidLoad() {
             super.viewDidLoad()
 
@@ -194,6 +195,23 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
     //        } else {
     //            cell.selectedView.isHidden = true
     //        }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                
+                
+                for confirm in self.confirmed {
+                    
+                    var confirmHolder: String = ""
+                    confirmHolder = confirm.confirmDate!
+                    
+                    
+                    let cutConfirm = confirmHolder.dropFirst(8)
+                    
+                    if cutConfirm == cellState.text {
+                    cell.dateHasAppointmentView.backgroundColor = .red
+                }
+             }
+            }
+            
             cell.dateLabel.text = cellState.text
     //
     //        handleCellEvents(cell: cell, cellState: cellState)

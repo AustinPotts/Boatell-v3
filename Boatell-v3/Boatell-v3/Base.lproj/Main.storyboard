@@ -1355,15 +1355,26 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0o-xj-bzg">
+                                                    <rect key="frame" x="15" y="29" width="7" height="7"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="e0o-xj-bzg" secondAttribute="height" multiplier="1:1" id="AOq-lF-Dfx"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="e0o-xj-bzg" firstAttribute="top" secondItem="OqR-DJ-TOw" secondAttribute="bottom" id="959-IO-sou"/>
                                                 <constraint firstItem="OqR-DJ-TOw" firstAttribute="centerX" secondItem="F5A-F3-Y8i" secondAttribute="centerX" id="A5G-3Y-qLY"/>
                                                 <constraint firstItem="OqR-DJ-TOw" firstAttribute="centerY" secondItem="F5A-F3-Y8i" secondAttribute="centerY" id="GXW-6S-LJd"/>
+                                                <constraint firstAttribute="trailing" secondItem="e0o-xj-bzg" secondAttribute="trailing" constant="15" id="UgA-Br-KvU"/>
+                                                <constraint firstItem="e0o-xj-bzg" firstAttribute="leading" secondItem="F5A-F3-Y8i" secondAttribute="leading" constant="15" id="vAE-fI-mqV"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.26379517479999998" green="0.39073671859999998" blue="0.46701309279999997" alpha="0.88021725169999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <size key="customSize" width="37" height="40"/>
                                         <connections>
+                                            <outlet property="dateHasAppointmentView" destination="e0o-xj-bzg" id="Y7a-Xf-vY6"/>
                                             <outlet property="dateLabel" destination="OqR-DJ-TOw" id="ZpR-9r-681"/>
                                         </connections>
                                     </collectionViewCell>
@@ -1578,7 +1589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4F-9v-ILP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1207" y="-1603"/>
+            <point key="canvasLocation" x="1205.7971014492755" y="-1603.125"/>
         </scene>
         <!--Profile-->
         <scene sceneID="RdM-nT-p5S">
@@ -1694,6 +1705,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="kLk-Gm-UVT"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UnM-5x-UaE">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.26379517479999998" green="0.39073671859999998" blue="0.46701309279999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

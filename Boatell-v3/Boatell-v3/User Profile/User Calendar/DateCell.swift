@@ -13,5 +13,6 @@ class DateCell: JTACDayCell {
     
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet var dateHasAppointmentView: UIView!
     
 }
