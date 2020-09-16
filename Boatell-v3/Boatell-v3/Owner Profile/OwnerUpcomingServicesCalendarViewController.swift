@@ -195,21 +195,32 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
     //        } else {
     //            cell.selectedView.isHidden = true
     //        }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 
                 
                 for confirm in self.confirmed {
                     
                     var confirmHolder: String = ""
                     confirmHolder = confirm.confirmDate!
-                    
-                    
                     let cutConfirm = confirmHolder.dropFirst(8)
                     
+                    print("Cell State \(cellState.text ) vs. Confirm \(cutConfirm)")
                     if cutConfirm == cellState.text {
                     cell.dateHasAppointmentView.backgroundColor = .red
                 }
              }
+                
+                for confirm in self.confirmed {
+                    
+                    var confirmHolder: String = ""
+                    confirmHolder = confirm.confirmDate!
+                    let cutConfirm = confirmHolder.dropFirst(8)
+                    
+                    if cutConfirm == "0\(cellState.text)" {
+                        cell.dateHasAppointmentView.backgroundColor = .red
+                    }
+                }
+                
             }
             
             cell.dateLabel.text = cellState.text
