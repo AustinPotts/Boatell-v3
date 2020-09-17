@@ -33,11 +33,11 @@ class OwnerUpcomingServicesTableViewCell: UITableViewCell {
             servicePriceView.layer.cornerRadius = 15
             
               
-    //          if let profileImageUrl = confirmed!.profileImageURL {
-    //
-    //                   usersImage.loadImageViewUsingCacheWithUrlString(urlString: profileImageUrl)
-    //
-    //          }
+            if let confirmImageURL = confirmed!.confirmImage {
+                
+                serviceImage.loadImageViewUsingCacheWithUrlString(urlString: confirmImageURL)
+                
+            }
           }
         
         override func awakeFromNib() {

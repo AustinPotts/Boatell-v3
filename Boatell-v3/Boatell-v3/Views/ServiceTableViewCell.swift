@@ -22,7 +22,7 @@ class ServiceTableViewCell: UITableViewCell {
      var confirmed: FirebaseConfirm? {
          didSet {
              updateViews()
-            // updateViews2()
+             //updateViews2()
          }
      }
     
@@ -37,11 +37,11 @@ class ServiceTableViewCell: UITableViewCell {
         servicePriceView.layer.cornerRadius = 15
         
           
-//          if let profileImageUrl = confirmed!.profileImageURL {
-//
-//                   usersImage.loadImageViewUsingCacheWithUrlString(urlString: profileImageUrl)
-//
-//          }
+          if let confirmImageURL = confirmed!.confirmImage {
+
+                   confirmImage.loadImageViewUsingCacheWithUrlString(urlString: confirmImageURL)
+
+          }
       }
     
     func updateViews2(){
@@ -52,8 +52,13 @@ class ServiceTableViewCell: UITableViewCell {
                  
                        print(snapshot)
                        if let dictionary = snapshot.value as? [String: AnyObject] {
-                         let confirmImage = dictionary["confirmImage"] as? String
-                         self.confirmImage.loadImageViewUsingCacheWithUrlString(urlString: confirmImage!)
+                        
+                       
+                         //MARK: - This is being found Nil
+                        self.serviceName.text = dictionary["confirmService"] as? String
+                         let confirmedImage = dictionary["confirmImage"] as? String
+                         self.confirmImage.loadImageViewUsingCacheWithUrlString(urlString: confirmedImage!)
+                        
                          self.confirmImage.layer.cornerRadius = self.confirmImage.frame.height / 2
                          self.confirmImage.layer.masksToBounds = false
                          self.confirmImage.clipsToBounds = true

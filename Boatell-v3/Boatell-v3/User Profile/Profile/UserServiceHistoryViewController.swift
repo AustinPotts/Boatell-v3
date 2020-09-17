@@ -25,6 +25,8 @@ class UserServiceHistoryViewController: UIViewController, UITableViewDelegate, U
         serviceHistoryTableView.delegate = self
         serviceHistoryTableView.dataSource = self
         serviceHistoryTableView.backgroundColor = UIColor.clear
+        
+
     }
     
   
@@ -37,7 +39,7 @@ class UserServiceHistoryViewController: UIViewController, UITableViewDelegate, U
              guard let cell = tableView.dequeueReusableCell(withIdentifier: "ServiceCell", for: indexPath) as? ServiceTableViewCell else {return UITableViewCell()}
         
         cell.confirmed = confirmed[indexPath.row]
-        
+       
         cell.backgroundColor = UIColor.clear
         
         
