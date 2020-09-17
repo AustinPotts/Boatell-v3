@@ -55,9 +55,8 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
         
         func setUpSubViews() {
            
-            calendarView.layer.borderColor = #colorLiteral(red: 0.1722870469, green: 0.1891334951, blue: 0.2275838256, alpha: 1)
+            
             calendarView.backgroundColor = .white
-            calendarView.layer.borderWidth = 1.0
             calendarView.layer.cornerRadius = 12
             calendarView.scrollingMode = .stopAtEachCalendarFrame
             calendarView.allowsRangedSelection = true
