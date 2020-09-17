@@ -40,6 +40,7 @@ class ServiceTableViewCell: UITableViewCell {
           if let confirmImageURL = confirmed!.confirmImage {
 
                    confirmImage.loadImageViewUsingCacheWithUrlString(urlString: confirmImageURL)
+            confirmImage.layer.cornerRadius = 20
 
           }
       }
