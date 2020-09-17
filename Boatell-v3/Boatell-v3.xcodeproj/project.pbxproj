@@ -19,6 +19,7 @@
 		454C49B7251000FC00A02076 /* OwnerNewMessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49B6251000FC00A02076 /* OwnerNewMessagesTableViewController.swift */; };
 		454C49B92510011200A02076 /* OwnerChatLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49B82510011200A02076 /* OwnerChatLogsViewController.swift */; };
 		455185502513EAFB00888BC5 /* OwnerUpcommingAppointmentWorkOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4551854F2513EAFB00888BC5 /* OwnerUpcommingAppointmentWorkOrderViewController.swift */; };
+		455185522513FFDE00888BC5 /* OwnerAppointmentHistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455185512513FFDE00888BC5 /* OwnerAppointmentHistoryDetailViewController.swift */; };
 		45A1E42324F82E37003744B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E42224F82E37003744B9 /* AppDelegate.swift */; };
 		45A1E42524F82E37003744B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E42424F82E37003744B9 /* SceneDelegate.swift */; };
 		45A1E42724F82E37003744B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E42624F82E37003744B9 /* ViewController.swift */; };
@@ -57,6 +58,7 @@
 		454C49B6251000FC00A02076 /* OwnerNewMessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerNewMessagesTableViewController.swift; sourceTree = "<group>"; };
 		454C49B82510011200A02076 /* OwnerChatLogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerChatLogsViewController.swift; sourceTree = "<group>"; };
 		4551854F2513EAFB00888BC5 /* OwnerUpcommingAppointmentWorkOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerUpcommingAppointmentWorkOrderViewController.swift; sourceTree = "<group>"; };
+		455185512513FFDE00888BC5 /* OwnerAppointmentHistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerAppointmentHistoryDetailViewController.swift; sourceTree = "<group>"; };
 		45A1E41F24F82E37003744B9 /* Boatell-v3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boatell-v3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45A1E42224F82E37003744B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45A1E42424F82E37003744B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				454C49AD250FE94D00A02076 /* OwnerProfileViewController.swift */,
 				454C49AF250FEE1900A02076 /* OwnerServiceHistoryViewController.swift */,
 				4551854F2513EAFB00888BC5 /* OwnerUpcommingAppointmentWorkOrderViewController.swift */,
+				455185512513FFDE00888BC5 /* OwnerAppointmentHistoryDetailViewController.swift */,
 			);
 			path = "Owner Profile";
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				454C49AA250E927400A02076 /* OwnerUpcomingServicesCalendarViewController.swift in Sources */,
 				45A1E45325049A0D003744B9 /* UserProfileViewController.swift in Sources */,
 				45A1E45625049C13003744B9 /* Extensions.swift in Sources */,
+				455185522513FFDE00888BC5 /* OwnerAppointmentHistoryDetailViewController.swift in Sources */,
 				45A1E42524F82E37003744B9 /* SceneDelegate.swift in Sources */,
 				45A1E44024FC1B95003744B9 /* Part.swift in Sources */,
 				454C49A72509B1FB00A02076 /* NewMessagesTableViewController.swift in Sources */,

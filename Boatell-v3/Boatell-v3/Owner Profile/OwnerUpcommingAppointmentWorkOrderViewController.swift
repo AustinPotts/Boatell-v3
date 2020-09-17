@@ -42,7 +42,7 @@ class OwnerUpcommingAppointmentWorkOrderViewController: UIViewController {
         if let confirmImageURL = confirmed?.confirmImage {
 
                          serviceImage.loadImageViewUsingCacheWithUrlString(urlString: confirmImageURL)
-                  serviceImage.layer.cornerRadius = 50
+                  serviceImage.layer.cornerRadius = 70
 
                 }
         
