@@ -564,7 +564,9 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tPy-7P-Dtz">
                                                     <rect key="frame" x="10" y="11" width="94" height="97"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="97" id="3BB-Sw-7dU"/>
                                                         <constraint firstAttribute="width" secondItem="tPy-7P-Dtz" secondAttribute="height" multiplier="94:97" id="ph4-GF-aiN"/>
+                                                        <constraint firstAttribute="width" constant="94" id="xOg-2P-m1h"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4W-rq-a1H">
@@ -591,6 +593,8 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="88" id="519-Zt-ATz"/>
+                                                        <constraint firstAttribute="height" constant="35" id="Ijs-Vh-gdd"/>
                                                         <constraint firstAttribute="width" secondItem="GQZ-o2-8TJ" secondAttribute="height" multiplier="88:35" id="Nkp-Jv-ztd"/>
                                                         <constraint firstItem="Vbk-iQ-5zO" firstAttribute="leading" secondItem="GQZ-o2-8TJ" secondAttribute="leading" constant="5" id="Pqr-Fr-c0a"/>
                                                         <constraint firstAttribute="trailing" secondItem="Vbk-iQ-5zO" secondAttribute="trailing" constant="5" id="QmZ-ls-EJ3"/>
@@ -1495,6 +1499,8 @@
                                                     <rect key="frame" x="10" y="11" width="94" height="97"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Kmx-3k-imI" secondAttribute="height" multiplier="94:97" id="0NT-uy-qA0"/>
+                                                        <constraint firstAttribute="height" constant="97" id="8Js-9j-7TE"/>
+                                                        <constraint firstAttribute="width" constant="94" id="uh8-kh-70U"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhQ-Y4-t4h">
@@ -1521,7 +1527,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="88" id="9lM-97-ye2"/>
                                                         <constraint firstItem="tQe-qZ-Q8U" firstAttribute="leading" secondItem="agr-1h-sqP" secondAttribute="leading" constant="5" id="QJF-G9-xeh"/>
+                                                        <constraint firstAttribute="height" constant="35" id="Y6Q-zX-Mr7"/>
                                                         <constraint firstItem="tQe-qZ-Q8U" firstAttribute="top" secondItem="agr-1h-sqP" secondAttribute="top" constant="8" id="dqn-BU-zLf"/>
                                                         <constraint firstAttribute="trailing" secondItem="tQe-qZ-Q8U" secondAttribute="trailing" constant="5" id="qc1-Cw-oZk"/>
                                                         <constraint firstAttribute="bottom" secondItem="tQe-qZ-Q8U" secondAttribute="bottom" constant="6" id="tms-rF-WDh"/>
@@ -1767,7 +1775,8 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pYE-SY-vz8">
                                                     <rect key="frame" x="10" y="11" width="94" height="97"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="pYE-SY-vz8" secondAttribute="height" multiplier="94:97" id="HG1-nW-zvC"/>
+                                                        <constraint firstAttribute="width" constant="94" id="3AP-A4-Oub"/>
+                                                        <constraint firstAttribute="height" constant="97" id="7j7-oe-kEX"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYc-fm-a65">
@@ -1797,8 +1806,9 @@
                                                         <constraint firstItem="Jjn-hu-gaW" firstAttribute="top" secondItem="XNU-b3-B9W" secondAttribute="top" constant="8" id="3P5-Hq-125"/>
                                                         <constraint firstAttribute="bottom" secondItem="Jjn-hu-gaW" secondAttribute="bottom" constant="6" id="Bsi-D1-goV"/>
                                                         <constraint firstAttribute="trailing" secondItem="Jjn-hu-gaW" secondAttribute="trailing" constant="5" id="HAf-I2-i1i"/>
-                                                        <constraint firstAttribute="width" secondItem="XNU-b3-B9W" secondAttribute="height" multiplier="88:35" id="Yem-sk-SPC"/>
+                                                        <constraint firstAttribute="width" constant="88" id="doT-yf-0iX"/>
                                                         <constraint firstItem="Jjn-hu-gaW" firstAttribute="leading" secondItem="XNU-b3-B9W" secondAttribute="leading" constant="5" id="mDP-gU-LDU"/>
+                                                        <constraint firstAttribute="height" constant="35" id="vId-pH-moO"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
