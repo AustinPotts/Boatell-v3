@@ -27,6 +27,7 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
             upcomingServices.delegate = self
             upcomingServices.dataSource = self
             upcomingServices.backgroundColor = UIColor.clear
+            calendarView.backgroundColor = .clear
         }
     
     var owner = [Owner]()
@@ -137,6 +138,7 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
             }
             
         }
+   
         
         
 
@@ -170,11 +172,47 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
         
         func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
             guard let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as? DateCell else { return JTACDayCell() }
+            
+            if cellState.dateBelongsTo == .thisMonth {
+               cell.isHidden = false
+            } else {
+               cell.isHidden = true
+            }
+            
+           
+            
 
             configureCell(cell: cell, cellState: cellState)
+            
 
             return cell
 
+        }
+        
+        func handleCellEvents(cell: DateCell, cellState: CellState) {
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                      for confirm in self.confirmed {
+                          
+                          var confirmHolder: String = ""
+                          confirmHolder = confirm.confirmDate!
+                          let cutConfirm = confirmHolder.dropFirst(8)
+                          
+                          if cutConfirm == cellState.text {
+                            print("MATCH: \(cutConfirm) + \(cellState.text)")
+                            cell.dateHasAppointmentView.backgroundColor = .green
+                          }
+                        
+                        if cutConfirm == "0\(cellState.text)" {
+                            print("MATCH2: \(cutConfirm) + \(cellState.text)")
+                            cell.dateHasAppointmentView.backgroundColor = .green
+                        }
+                      }
+                      
+                   
+            }
+       
+            
         }
         
         func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
@@ -184,6 +222,7 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
             let config = ConfigurationParameters.init(startDate: startDate, endDate: endDate, numberOfRows: 6, calendar: .autoupdatingCurrent, generateInDates: .forAllMonths, generateOutDates: .tillEndOfGrid, firstDayOfWeek: .sunday, hasStrictBoundaries: true)
             return config
         }
+        
         
         func configureCell(cell: DateCell, cellState: CellState) {
             cell.layer.borderWidth = 0.5
@@ -195,37 +234,16 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
     //        } else {
     //            cell.selectedView.isHidden = true
     //        }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                
-                
-                for confirm in self.confirmed {
-                    
-                    var confirmHolder: String = ""
-                    confirmHolder = confirm.confirmDate!
-                    let cutConfirm = confirmHolder.dropFirst(8)
-                    
-                    print("Cell State \(cellState.text ) vs. Confirm \(cutConfirm)")
-                    if cutConfirm == cellState.text {
-                    cell.dateHasAppointmentView.backgroundColor = .red
-                }
-             }
-                
-                for confirm in self.confirmed {
-                    
-                    var confirmHolder: String = ""
-                    confirmHolder = confirm.confirmDate!
-                    let cutConfirm = confirmHolder.dropFirst(8)
-                    
-                    if cutConfirm == "0\(cellState.text)" {
-                        cell.dateHasAppointmentView.backgroundColor = .red
-                    }
-                }
-                
-            }
+          
             
+            cell.dateHasAppointmentView.layer.cornerRadius = 5
             cell.dateLabel.text = cellState.text
+            
+            
+            
+            
     //
-    //        handleCellEvents(cell: cell, cellState: cellState)
+            handleCellEvents(cell: cell, cellState: cellState)
             handleCellTextColor(cell: cell, cellState: cellState)
             handleCellSelected(cell: cell, cellState: cellState)
         }
@@ -235,7 +253,7 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
                 cell.dateLabel.textColor = .black
     //            cell.dateLabel.font = UIFont(name: PoppinsFont.semiBold.rawValue, size: 12)
             } else {
-                cell.dateLabel.textColor = .lightGray
+                cell.dateLabel.textColor = .white
     //            cell.dateLabel.font = UIFont(name: PoppinsFont.light.rawValue, size: 12)
             }
         }
@@ -255,6 +273,9 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
         func calendar(_ calendar: JTACMonthView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTACMonthReusableView {
             let header = calendarView.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "DateHeader", for: indexPath) as! DateHeader
             header.monthTitle.text = jtCalMonthFormatter.string(from: range.start)
+//            print("Month: \(header.monthTitle.text?.dropFirst(8))") // 2019
+            
+            
             return header
         }
         

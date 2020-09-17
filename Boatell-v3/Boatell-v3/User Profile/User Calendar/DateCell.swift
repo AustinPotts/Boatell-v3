@@ -15,4 +15,6 @@ class DateCell: JTACDayCell {
     
     @IBOutlet var dateHasAppointmentView: UIView!
     
+    
+    
 }
