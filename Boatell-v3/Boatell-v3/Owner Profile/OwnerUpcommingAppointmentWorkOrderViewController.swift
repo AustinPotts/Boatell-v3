@@ -15,21 +15,50 @@ class OwnerUpcommingAppointmentWorkOrderViewController: UIViewController {
     @IBOutlet var serviceDate: UILabel!
     @IBOutlet var servicePrice: UILabel!
     @IBOutlet var serviceImage: UIImageView!
+    
+    @IBOutlet var saveButton: UIButton!
+    
     @IBOutlet var serviceCompleteSegmentController: UISegmentedControl!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateViews()
+       updateViews()
 
     }
+    
+    var confirmed: FirebaseConfirm? 
+    
     
     
     func updateViews() {
         workOrderView.layer.cornerRadius = 30
-    }
+        saveButton.layer.cornerRadius = 30
+        self.serviceName.text = confirmed?.confirmService
+        self.serviceDate.text = confirmed?.confirmDate
+        self.servicePrice.text = confirmed?.confirmPrice
+        
+        if let confirmImageURL = confirmed?.confirmImage {
 
+                         serviceImage.loadImageViewUsingCacheWithUrlString(urlString: confirmImageURL)
+                  serviceImage.layer.cornerRadius = 50
+
+                }
+        
+        
+        
+    }
+    
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: Any){
+        
+    }
+    
     /*
     // MARK: - Navigation
 

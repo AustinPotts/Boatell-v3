@@ -49,6 +49,10 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
           return cell
           
        }
+    
+    
+    
+      
         
         //MARK: - Recieve Part Data
         var part: Part!
@@ -135,7 +139,17 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
                     detailVC.part = part
                     detailVC.serviceDate = serviceDate
                 }
+            } else if segue.identifier == "CellSegue" {
+                guard let indexPath = upcomingServices.indexPathForSelectedRow,
+                    let detailVC = segue.destination as? OwnerUpcommingAppointmentWorkOrderViewController else {return}
+                
+                    let confirm = confirmed[indexPath.row]
+                    detailVC.confirmed = confirm
+
+                
             }
+            
+            
             
         }
    
