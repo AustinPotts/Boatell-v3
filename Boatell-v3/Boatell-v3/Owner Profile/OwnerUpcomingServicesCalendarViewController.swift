@@ -28,6 +28,7 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
             upcomingServices.dataSource = self
             upcomingServices.backgroundColor = UIColor.clear
             calendarView.backgroundColor = .clear
+            
         }
     
     var owner = [Owner]()
@@ -154,6 +155,8 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
             self.serviceDate = date
             print("Date? Test3 \(self.serviceDate)")
     //        self.dateSelected = formattedDate
+            
+
         }
         
         func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
@@ -165,6 +168,7 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
         
         func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
             guard let cell = cell as? DateCell else { return }
+            
             configureCell(cell: cell, cellState: cellState)
 
         }
@@ -179,8 +183,7 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
             }
             
            
-            
-
+            handleCellEvents(cell: cell, cellState: cellState)
             configureCell(cell: cell, cellState: cellState)
             
 
@@ -199,20 +202,26 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
                           
                           if cutConfirm == cellState.text {
                             print("MATCH: \(cutConfirm) + \(cellState.text)")
+                            cell.dateLabel.textColor = .white
                             cell.dateHasAppointmentView.backgroundColor = .green
                           }
                         
                         if cutConfirm == "0\(cellState.text)" {
                             print("MATCH2: \(cutConfirm) + \(cellState.text)")
+                            cell.dateLabel.textColor = .white
                             cell.dateHasAppointmentView.backgroundColor = .green
                         }
                       }
+        
                       
                    
             }
-       
-            
         }
+        
+        
+        
+        
+        
         
         func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
             let startDate = jtCalCompareFormatter.date(from: "01-jan-2019")!
@@ -226,23 +235,12 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
         func configureCell(cell: DateCell, cellState: CellState) {
             cell.layer.borderWidth = 0.5
             cell.layer.borderColor = #colorLiteral(red: 0.1722870469, green: 0.1891334951, blue: 0.2275838256, alpha: 1)
-    //        cell.selectedView.backgroundColor = #colorLiteral(red: 0.1721869707, green: 0.1871494651, blue: 0.2290506661, alpha: 1)
-            
-    //        if cell.isSelected {
-    //            cell.selectedView.isHidden = false
-    //        } else {
-    //            cell.selectedView.isHidden = true
-    //        }
-          
+  
             
             cell.dateHasAppointmentView.layer.cornerRadius = 5
             cell.dateLabel.text = cellState.text
             
             
-            
-            
-    //
-            handleCellEvents(cell: cell, cellState: cellState)
             handleCellTextColor(cell: cell, cellState: cellState)
             handleCellSelected(cell: cell, cellState: cellState)
         }
