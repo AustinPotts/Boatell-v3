@@ -15,6 +15,9 @@ struct CustomData {
 }
 
 class UserServicesViewController: UIViewController {
+    
+    
+    
 
     let partController = PartController()
     
@@ -47,6 +50,8 @@ class UserServicesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         view.addSubview(collectionView)
                    collectionView.backgroundColor = .clear
@@ -90,20 +95,20 @@ extension UserServicesViewController: UICollectionViewDelegateFlowLayout, UIColl
         }
         
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ViewCalendarSegue" {
+         if segue.identifier == "ShowServiceDetailSegue" {
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first?.item,
-                let partSelectVC = segue.destination as? UserCalendarViewController else{return}
-
+            let partSelectVC = segue.destination as? ServiceDetailPopUpViewController else{return}
+            
             let selectedPart = data[indexPath]
             partSelectVC.part = selectedPart
-
-        }
+            
+            }
 
      }
     
     //MARK: Pass Part Object Data Here 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ViewCalendarSegue", sender: indexPath)
+        performSegue(withIdentifier: "ShowServiceDetailSegue", sender: indexPath)
     }
     
     @IBAction func unwindToServices( _ seg: UIStoryboardSegue) {

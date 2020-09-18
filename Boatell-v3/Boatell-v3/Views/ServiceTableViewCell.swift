@@ -17,6 +17,7 @@ class ServiceTableViewCell: UITableViewCell {
     @IBOutlet var serviceDate: UILabel!
     @IBOutlet var servicePriceView: UIView!
     @IBOutlet var servicePrice: UILabel!
+    @IBOutlet var userName: UILabel!
     
     //MARK: - User Property Observer
      var confirmed: FirebaseConfirm? {
@@ -32,6 +33,7 @@ class ServiceTableViewCell: UITableViewCell {
         serviceName.text = confirmed?.confirmService
         servicePrice.text = confirmed?.confirmPrice
         serviceDate.text = confirmed?.confirmDate
+        userName.text = confirmed?.userName
         
         
         servicePriceView.layer.cornerRadius = 15

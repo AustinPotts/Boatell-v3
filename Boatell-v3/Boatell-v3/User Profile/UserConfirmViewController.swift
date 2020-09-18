@@ -135,7 +135,7 @@ class UserConfirmViewController: UIViewController {
                     //MARK: - Add Users Name to Confirm Model
                     let userName = user.name
                     //MARK: - Add Confirm Complete Toggle to Confirm Model
-                    let confirmComplete = "Not Completed"
+                    var confirmComplete = "Not Complete"
                     
                     //MARK: - When SAVE BUTTON in Owner/ Mechanic Work Order Detail Pressed for Complete Confirm, User Should be Charged(STRIPE)
                                                 
