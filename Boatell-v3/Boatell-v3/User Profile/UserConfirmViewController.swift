@@ -132,6 +132,11 @@ class UserConfirmViewController: UIViewController {
                     
                     let confirmService = self.confirm.partData.name
                     let confirmPrice = self.confirm.partData.price
+                    //MARK: - Add Users Name to Confirm Model
+                    //MARK: - Add Confirm Complete Toggle to Confirm Model
+                    let confirmComplete = "Not Completed"
+                    
+                    //MARK: - When SAVE BUTTON in Owner/ Mechanic Work Order Detail Pressed for Complete Confirm, User Should be Charged(STRIPE)
                                                 
                     print("NEW CONFIRM::: \(confirm)")
                     let imageName = NSUUID().uuidString
@@ -154,7 +159,7 @@ class UserConfirmViewController: UIViewController {
                                 
                                 if let confirmImage = url?.absoluteString {
                                     
-                                    let values = ["confirmDate": "\(confirm)", "confirmService" : "\(confirmService)", "confirmPrice" : "\(confirmPrice)", "confirmImage" : confirmImage]
+                                    let values = ["confirmDate": "\(confirm)", "confirmService" : "\(confirmService)", "confirmPrice" : "\(confirmPrice)", "confirmImage" : confirmImage, "confirmComplete" : confirmComplete]
                                     
                                     
                                     guard let uid = Auth.auth().currentUser?.uid else { return }

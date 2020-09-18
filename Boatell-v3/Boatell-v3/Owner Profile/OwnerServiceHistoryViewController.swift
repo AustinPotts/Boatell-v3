@@ -78,14 +78,14 @@ class OwnerServiceHistoryViewController: UIViewController, UITableViewDelegate, 
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "CellSegue" {
-                       guard let indexPath = serviceHistoryTableView.indexPathForSelectedRow,
-                           let detailVC = segue.destination as? OwnerAppointmentHistoryDetailViewController else {return}
-                       
-                           let confirm = confirmed[indexPath.row]
-                           detailVC.confirmed = confirm
-
-                       
-                   }
+            guard let indexPath = serviceHistoryTableView.indexPathForSelectedRow,
+                let detailVC = segue.destination as? OwnerAppointmentHistoryDetailViewController else {return}
+            
+            let confirm = confirmed[indexPath.row]
+            detailVC.confirmed = confirm
+            
+            
+        }
                    
     }
     

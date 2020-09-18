@@ -15,5 +15,6 @@ class FirebaseConfirm: NSObject {
     @objc var confirmPrice: String?
     @objc var confirmService: String?
     @objc var confirmImage: String?
+    @objc var confirmComplete: String?
     
 }
