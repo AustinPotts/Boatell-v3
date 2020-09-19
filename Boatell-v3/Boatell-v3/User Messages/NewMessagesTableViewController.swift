@@ -105,19 +105,14 @@ class NewMessagesTableViewController: UITableViewController {
             return cell
         }
         
-        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           
-            navigationController?.popViewController(animated: true)
-            
-            guard let messagesController = messagesController else {
-                print("Error: No Messages Controller Passed")
-                return
-                
-            }
-            let user = self.users[indexPath.row]
-            
-            messagesController.showChatControllerForUser(user: user)
-        }
+//        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//
+//
+//            let user = self.users[indexPath.row]
+//
+//            performSegue(withIdentifier: "MessageSegue", sender: nil)
+//        }
 
 
         /*
@@ -155,15 +150,18 @@ class NewMessagesTableViewController: UITableViewController {
         }
         */
 
-        /*
+        
         // MARK: - Navigation
 
         // In a storyboard-based application, you will often want to do a little preparation before navigation
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            // Get the new view controller using segue.destination.
-            // Pass the selected object to the new view controller.
+            if segue.identifier == "MessageSegue" {
+            guard let indexPath = tableView.indexPathForSelectedRow, let detailVC = segue.destination as? ChatLogsViewController else{return}
+            detailVC.user = users[indexPath.row]
+                
+            }
         }
-        */
+        
 
     }
 

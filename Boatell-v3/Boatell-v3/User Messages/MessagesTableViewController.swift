@@ -77,16 +77,16 @@ class MessagesTableViewController: UITableViewController {
            
        }
        
-       func showChatControllerForUser(user: User) {
-
-           let chatLogController = ChatLogsViewController()
-           chatLogController.user = user
-       
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let resultViewController = storyBoard.instantiateViewController(withIdentifier: "ChatLogController") as! ChatLogsViewController
-        self.navigationController?.pushViewController(resultViewController, animated: true)
-
-       }
+//       func showChatControllerForUser(user: User) {
+//
+//           let chatLogController = ChatLogsViewController()
+//           chatLogController.user = user
+//
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//        let resultViewController = storyBoard.instantiateViewController(withIdentifier: "ChatLogController") as! ChatLogsViewController
+//        self.navigationController?.pushViewController(resultViewController, animated: true)
+//
+//       }
 
       
        

@@ -14,19 +14,17 @@ class ChatLogsViewController: UIViewController {
   
         var user: User? {
             didSet{
-                self.navigationItem.title = user?.name
+               
+                self.title = user?.name
                 print("USER: \(user?.name)")
-            }
-            
-            willSet {
-                self.navigationItem.title = user?.name
-                print("USER WILL SET: \(user?.name)")
+              
             }
         }
         
         @IBOutlet var messageTextField: UITextField!
         
-        
+   
+    
         @IBOutlet var messagesCollectionView: UICollectionView!
         
         
@@ -34,16 +32,11 @@ class ChatLogsViewController: UIViewController {
             super.viewDidLoad()
             
             
+          
 
         }
     
         
-        override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(true)
-            // messageTextField.delegate! = self
-            self.navigationItem.title = user?.name
-            
-        }
 
       
         

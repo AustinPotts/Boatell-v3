@@ -1270,6 +1270,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="48U-uy-PRd" kind="show" identifier="MessageSegue" id="3NT-K1-ekO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -2071,6 +2074,12 @@
                                                         <constraint firstAttribute="height" constant="35" id="vId-pH-moO"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxl-GE-4xQ">
+                                                    <rect key="frame" x="112" y="69" width="98" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Xzb-ST-Sx0" firstAttribute="leading" secondItem="pYE-SY-vz8" secondAttribute="trailing" constant="8" id="0mD-ed-7xM"/>
@@ -2079,9 +2088,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="pYE-SY-vz8" secondAttribute="bottom" constant="11" id="9yn-8C-AMC"/>
                                                 <constraint firstItem="mYc-fm-a65" firstAttribute="leading" secondItem="pYE-SY-vz8" secondAttribute="trailing" constant="8" id="MwE-sx-piE"/>
                                                 <constraint firstItem="mYc-fm-a65" firstAttribute="top" secondItem="QwU-W0-YFe" secondAttribute="topMargin" constant="8" id="TFX-E4-mBD"/>
+                                                <constraint firstItem="rxl-GE-4xQ" firstAttribute="top" secondItem="mYc-fm-a65" secondAttribute="bottom" constant="23" id="efU-tK-Xn6"/>
                                                 <constraint firstItem="Xzb-ST-Sx0" firstAttribute="top" secondItem="mYc-fm-a65" secondAttribute="bottom" id="gDS-I7-Gno"/>
                                                 <constraint firstItem="XNU-b3-B9W" firstAttribute="trailing" secondItem="QwU-W0-YFe" secondAttribute="trailingMargin" id="juA-Ws-I3q"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="XNU-b3-B9W" secondAttribute="bottom" constant="32" id="kzX-pE-cNW"/>
+                                                <constraint firstItem="rxl-GE-4xQ" firstAttribute="leading" secondItem="pYE-SY-vz8" secondAttribute="trailing" constant="8" id="vLi-QT-ReO"/>
                                                 <constraint firstItem="pYE-SY-vz8" firstAttribute="leading" secondItem="QwU-W0-YFe" secondAttribute="leading" constant="10" id="ydA-oQ-WsC"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -2092,6 +2103,7 @@
                                             <outlet property="serviceName" destination="mYc-fm-a65" id="LBL-sH-jWl"/>
                                             <outlet property="servicePrice" destination="Jjn-hu-gaW" id="ZL7-MU-xZh"/>
                                             <outlet property="servicePriceView" destination="XNU-b3-B9W" id="eeS-oi-HgA"/>
+                                            <outlet property="userName" destination="rxl-GE-4xQ" id="9Km-Pk-NKl"/>
                                             <segue destination="fEl-Al-wOJ" kind="show" identifier="CellSegue" id="Ua8-W4-b4d"/>
                                         </connections>
                                     </tableViewCell>
@@ -2493,8 +2505,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Gsj-Dx-qxl"/>
         <segue reference="qA5-S4-8KW"/>
+        <segue reference="3NT-K1-ekO"/>
         <segue reference="3rb-88-5PJ"/>
     </inferredMetricsTieBreakers>
     <resources>
