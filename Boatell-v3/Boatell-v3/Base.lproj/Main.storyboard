@@ -2252,6 +2252,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="YMk-xg-7Jz" kind="show" identifier="OwnerMessageSegue" id="ucY-d9-ElJ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -2505,6 +2508,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="ucY-d9-ElJ"/>
         <segue reference="qA5-S4-8KW"/>
         <segue reference="3NT-K1-ekO"/>
         <segue reference="3rb-88-5PJ"/>

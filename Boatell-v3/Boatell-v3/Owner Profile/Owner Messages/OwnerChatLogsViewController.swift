@@ -17,10 +17,6 @@ class OwnerChatLogsViewController: UIViewController {
                 print("USER: \(user?.name)")
             }
             
-            willSet {
-                self.navigationItem.title = user?.name
-                print("USER WILL SET: \(user?.name)")
-            }
         }
         
         @IBOutlet var messageTextField: UITextField!
