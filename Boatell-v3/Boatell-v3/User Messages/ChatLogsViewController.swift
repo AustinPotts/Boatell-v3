@@ -12,14 +12,15 @@ import Firebase
 class ChatLogsViewController: UIViewController {
 
   
-        var user: User? {
-            didSet{
-               
-                self.title = user?.name
-                print("USER: \(user?.name)")
-              
-            }
+      
+    
+    var owner: Owner? {
+        didSet {
+            self.title = owner?.name
+               print("USER: \(owner?.name)")
         }
+   
+    }
         
         @IBOutlet var messageTextField: UITextField!
         
@@ -52,10 +53,10 @@ class ChatLogsViewController: UIViewController {
             let ref = Database.database().reference().child("messages")
             let childRef = ref.childByAutoId()
             
-            let toID = user!.id!
+          //  let toID = user!.id!
             //let fromID =
             
-            let values = ["text": messageTextField.text!, "toID": toID]
+            let values = ["text": messageTextField.text!]
             childRef.updateChildValues(values)
             
         }

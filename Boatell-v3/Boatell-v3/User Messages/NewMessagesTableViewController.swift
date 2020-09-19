@@ -15,15 +15,44 @@ class NewMessagesTableViewController: UITableViewController {
         var messagesController: MessagesTableViewController?
         
         var users = [User]()
+    
+        var owners = [Owner]()
         
         override func viewDidLoad() {
             super.viewDidLoad()
 
             fetchUsers()
+            fetchOwner()
             
             
         }
         
+    
+       //MARK: Fetch Owner : User should only be able to message their mechanic
+    func fetchOwner(){
+           
+
+          Database.database().reference().child("owner").child("owner").observeSingleEvent(of: .value, with: { (snapshot) in
+                 
+                 
+                       
+                       if let dictionary = snapshot.value as? [String: AnyObject] {
+                        let owner = Owner()
+                        owner.id = snapshot.key
+                        
+                        //App will crash if Class properties don't exactly match up with the Firebase Dictionary Keys
+                        owner.setValuesForKeys(dictionary)
+                        self.owners.append(owner)
+                        // print(user.name!, user.email!)
+                        
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                        
+                       }
+                       print(snapshot)
+                   }, withCancel: nil)
+         }
 
         
         func fetchUsers() {
@@ -60,17 +89,17 @@ class NewMessagesTableViewController: UITableViewController {
 
         override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             // #warning Incomplete implementation, return the number of rows
-            return users.count
+            return owners.count
         }
 
         
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
 
-            let user = users[indexPath.row]
+            let owner = owners[indexPath.row]
             
-            cell.textLabel?.text = user.name
-            cell.detailTextLabel?.text = user.email
+            cell.textLabel?.text = owner.name
+            cell.detailTextLabel?.text = owner.email
            
             cell.imageView?.image = UIImage(named: "User")
         
@@ -80,7 +109,7 @@ class NewMessagesTableViewController: UITableViewController {
             
             
             
-            if let profileImageUrl = user.profileImageURL {
+            if let profileImageUrl = owner.profileImageURL {
                 
                 cell.imageView?.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
                 
@@ -157,7 +186,7 @@ class NewMessagesTableViewController: UITableViewController {
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "MessageSegue" {
             guard let indexPath = tableView.indexPathForSelectedRow, let detailVC = segue.destination as? ChatLogsViewController else{return}
-            detailVC.user = users[indexPath.row]
+                detailVC.owner = owners[indexPath.row]
                 
             }
         }

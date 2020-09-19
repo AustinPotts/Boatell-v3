@@ -80,7 +80,7 @@ class OwnerMessagesTableViewController: UITableViewController {
            func showChatControllerForUser(user: User) {
 
                let chatLogController = ChatLogsViewController()
-               chatLogController.user = user
+              // chatLogController.user = user
            
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let resultViewController = storyBoard.instantiateViewController(withIdentifier: "OwnerChatLogController") as! OwnerChatLogsViewController
