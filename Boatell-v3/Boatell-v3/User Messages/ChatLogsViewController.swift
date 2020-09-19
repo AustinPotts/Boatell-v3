@@ -54,9 +54,10 @@ class ChatLogsViewController: UIViewController {
             let childRef = ref.childByAutoId()
             
              let toID = owner!.id!
-            //let fromID =
+            let fromID = Auth.auth().currentUser!.uid
+            let timeStamp = String(NSDate().timeIntervalSince1970)
             
-            let values = ["text": messageTextField.text!, "toID" : toID]
+            let values = ["text": messageTextField.text!, "toID" : toID, "fromID" : fromID, "timeStamp" : timeStamp]
             childRef.updateChildValues(values)
             
         }
