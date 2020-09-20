@@ -10,6 +10,9 @@ import UIKit
 import Firebase
 
 class MessagesTableViewController: UITableViewController {
+    
+    
+    var messages = [Message]()
 
     override func viewDidLoad() {
            super.viewDidLoad()
@@ -18,9 +21,34 @@ class MessagesTableViewController: UITableViewController {
        
            let newMessageController = NewMessagesTableViewController()
                   newMessageController.messagesController = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
          
+        observeMessages()
+        
        }
        
+    func observeMessages() {
+        let ref = Database.database().reference().child("messages")
+        ref.observe(.childAdded, with: { (snapshot) in
+            
+            
+            if let dictionary = snapshot.value as? [String:AnyObject] {
+                let message = Message()
+                message.setValuesForKeys(dictionary)
+                self.messages.append(message)
+                print("Messages Snapshot: \(snapshot)")
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                
+            }
+            
+        
+            
+        }, withCancel: nil)
+    }
        
        
        func checkIfUserLoggedIn(){
@@ -44,15 +72,24 @@ class MessagesTableViewController: UITableViewController {
 
        // MARK: - Table view data source
 
-       override func numberOfSections(in tableView: UITableView) -> Int {
-           // #warning Incomplete implementation, return the number of sections
-           return 0
-       }
+    
+    
 
        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
            // #warning Incomplete implementation, return the number of rows
-           return 0
+        return messages.count
        }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
+        
+        let message = messages[indexPath.row]
+        cell.textLabel?.text = message.text
+        cell.detailTextLabel?.text = message.fromID
+        
+        return cell
+        
+    }
        
        
        @IBAction func logoutTapped(_ sender: Any) {
