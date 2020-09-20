@@ -75,29 +75,14 @@ class OwnerNewMessagesTableViewController: UITableViewController {
         
             
             cell.imageView?.layer.masksToBounds = true
-            cell.imageView?.layer.cornerRadius = 50.0
+            cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.height)! / 2
             
             
             
             if let profileImageUrl = user.profileImageURL {
                 
                 cell.imageView?.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
-                
-    //            let url = URL(string: profileImageUrl)
-    //
-    //            URLSession.shared.dataTask(with: url!) { (data, response, error) in
-    //
-    //                if let error = error {
-    //                    print("Error getting image: \(error)")
-    //                    return
-    //                }
-    //
-    //                DispatchQueue.main.async {
-    //                     cell.imageView?.image = UIImage(data: data!)
-    //                }
-    //
-    //
-    //            }.resume()
+               
                 
             }
 

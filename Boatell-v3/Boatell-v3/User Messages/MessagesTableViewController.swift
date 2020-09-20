@@ -94,6 +94,14 @@ class MessagesTableViewController: UITableViewController {
                       if let dictionary = snapshot.value as? [String: AnyObject] {
 
                         cell.textLabel?.text = dictionary["name"] as? String
+                        if let profileImageUrl = dictionary["profileImageURL"] as? String {
+                            cell.imageView?.image = UIImage(named: "User")
+                            cell.imageView?.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
+                            cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.height)! / 2
+                            cell.imageView?.layer.masksToBounds = true
+                            
+                            tableView.reloadData()
+                        }
                         
                           }
             }, withCancel: nil)

@@ -27,6 +27,7 @@ class OwnerMessagesTableViewController: UITableViewController {
              
            }
     
+    
     func observeMessages() {
            let ref = Database.database().reference().child("messages")
            ref.observe(.childAdded, with: { (snapshot) in
@@ -83,27 +84,43 @@ class OwnerMessagesTableViewController: UITableViewController {
                let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
               
               let message = messages[indexPath.row]
+            
+             
+            
                if let toID = message.toID {
                                 let ref = Database.database().reference().child("users").child(toID)
                          ref.observeSingleEvent(of: .value, with: { (snapshot) in
                             
                                    if let dictionary = snapshot.value as? [String: AnyObject] {
-
+          
                                      cell.textLabel?.text = dictionary["name"] as? String
-                                     
+                                    if let profileImageUrl = dictionary["profileImageURL"] as? String {
+                                        cell.imageView?.image = UIImage(named: "User")
+                                        cell.imageView?.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
+                                        cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.height)! / 2
+                                        cell.imageView?.layer.masksToBounds = true
+                                        
+                                        tableView.reloadData()
+                                    }
+                                    
                                        }
                          }, withCancel: nil)
                          
                             }
             cell.detailTextLabel?.text = message.text
+            
                   
                   
               
               return cell
               
           }
-           
-           
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 72
+    }
+    
+    
            @IBAction func logoutTapped(_ sender: Any) {
                    do {
                          try Auth.auth().signOut()
