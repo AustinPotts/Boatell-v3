@@ -51,13 +51,16 @@ class OwnerChatLogsViewController: UIViewController {
             
             //guard let message = messageTextField.text else {return}
             
+            
+            
             let ref = Database.database().reference().child("messages")
             let childRef = ref.childByAutoId()
             
-//            let toID = user!.id!
-            //let fromID =
+            let toID = user!.id!
+            let fromID = Auth.auth().currentUser!.uid
+            let timeStamp = String(NSDate().timeIntervalSince1970)
             
-            let values = ["text": messageTextField.text!]
+            let values = ["text": messageTextField.text!, "toID" : toID, "fromID" : fromID, "timeStamp" : timeStamp]
             childRef.updateChildValues(values)
             
         }
