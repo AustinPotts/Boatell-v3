@@ -602,10 +602,18 @@
                                                         <constraint firstAttribute="bottom" secondItem="Vbk-iQ-5zO" secondAttribute="bottom" constant="6" id="wGu-bA-N1a"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5J-iq-kz7">
+                                                    <rect key="frame" x="112" y="73" width="98" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="d5J-iq-kz7" firstAttribute="top" secondItem="KSd-ZC-b3c" secondAttribute="bottom" constant="3" id="7hl-Ro-oAk"/>
                                                 <constraint firstItem="tPy-7P-Dtz" firstAttribute="leading" secondItem="d4b-bF-Sbl" secondAttribute="leading" constant="10" id="9KV-tG-ryx"/>
                                                 <constraint firstItem="GQZ-o2-8TJ" firstAttribute="top" secondItem="d4b-bF-Sbl" secondAttribute="topMargin" constant="30" id="BPt-l3-aaE"/>
+                                                <constraint firstItem="d5J-iq-kz7" firstAttribute="leading" secondItem="tPy-7P-Dtz" secondAttribute="trailing" constant="8" id="BX8-sp-THg"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="GQZ-o2-8TJ" secondAttribute="bottom" constant="32" id="Cn6-LV-2zn"/>
                                                 <constraint firstItem="GQZ-o2-8TJ" firstAttribute="trailing" secondItem="d4b-bF-Sbl" secondAttribute="trailingMargin" id="DZn-pj-jLK"/>
                                                 <constraint firstItem="R4W-rq-a1H" firstAttribute="top" secondItem="d4b-bF-Sbl" secondAttribute="topMargin" constant="8" id="HyQ-XL-BPW"/>
@@ -623,6 +631,7 @@
                                             <outlet property="serviceName" destination="R4W-rq-a1H" id="0EI-Re-boW"/>
                                             <outlet property="servicePrice" destination="Vbk-iQ-5zO" id="dld-jL-upq"/>
                                             <outlet property="servicePriceView" destination="GQZ-o2-8TJ" id="MHx-fE-3QN"/>
+                                            <outlet property="userName" destination="d5J-iq-kz7" id="3Vs-eQ-cT2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1205,7 +1214,7 @@
             </objects>
             <point key="canvasLocation" x="816" y="814"/>
         </scene>
-        <!--Name-->
+        <!--Messages-->
         <scene sceneID="Pya-4Z-ETK">
             <objects>
                 <tableViewController id="06M-PP-WcS" customClass="MessagesTableViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
@@ -1244,7 +1253,7 @@
                             <outlet property="delegate" destination="06M-PP-WcS" id="q2G-U2-FjC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Name" id="o6n-CX-M4H">
+                    <navigationItem key="navigationItem" title="Messages" id="o6n-CX-M4H">
                         <rightBarButtonItems>
                             <barButtonItem image="message.circle" catalog="system" id="l32-Ka-56L">
                                 <connections>
@@ -2551,7 +2560,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="ucY-d9-ElJ"/>
         <segue reference="qA5-S4-8KW"/>
-        <segue reference="3NT-K1-ekO"/>
+        <segue reference="52p-Eh-xJV"/>
         <segue reference="3rb-88-5PJ"/>
     </inferredMetricsTieBreakers>
     <resources>

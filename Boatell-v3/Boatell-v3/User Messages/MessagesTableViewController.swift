@@ -17,7 +17,7 @@ class MessagesTableViewController: UITableViewController {
     override func viewDidLoad() {
            super.viewDidLoad()
            
-         checkIfUserLoggedIn()
+        
        
            let newMessageController = NewMessagesTableViewController()
                   newMessageController.messagesController = self
@@ -80,6 +80,7 @@ class MessagesTableViewController: UITableViewController {
         return messages.count
        }
     
+    //MARK: BUG - In Users Recieved Messages, User can current view the Owners message but not the image or the name. This may be due to how the Owenr is being stored
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
         
@@ -88,12 +89,14 @@ class MessagesTableViewController: UITableViewController {
         let message = messages[indexPath.row]
         
         if let toID = message.toID {
-                   let ref = Database.database().reference().child("users").child(toID)
+            let ref = Database.database().reference().child("owner").child("owner").child(toID)
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                
                       if let dictionary = snapshot.value as? [String: AnyObject] {
-
-                        cell.textLabel?.text = dictionary["name"] as? String
+                        print("SNAP: \(snapshot.value)")
+                        
+                       cell.textLabel?.text = dictionary["name"] as? String
+                        
                         if let profileImageUrl = dictionary["profileImageURL"] as? String {
                             cell.imageView?.image = UIImage(named: "User")
                             cell.imageView?.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
@@ -103,10 +106,13 @@ class MessagesTableViewController: UITableViewController {
                             tableView.reloadData()
                         }
                         
-                          }
+                    }
             }, withCancel: nil)
             
                }
+       
+        //THIS IS A TEMPORARY FIX
+        cell.textLabel?.text = "Owner"
         
         cell.detailTextLabel?.text = message.text
         
