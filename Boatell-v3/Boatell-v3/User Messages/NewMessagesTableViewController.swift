@@ -105,7 +105,7 @@ class NewMessagesTableViewController: UITableViewController {
         
             
             cell.imageView?.layer.masksToBounds = true
-            cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.height)! / 2
+            
             
             
             
@@ -115,6 +115,7 @@ class NewMessagesTableViewController: UITableViewController {
 
                 
             }
+            cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.height)! / 2
 
             return cell
         }

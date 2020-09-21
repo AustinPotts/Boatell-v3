@@ -80,11 +80,19 @@ class MessagesTableViewController: UITableViewController {
         return messages.count
        }
     
+
+    
     //MARK: BUG - In Users Recieved Messages, User can current view the Owners message but not the image or the name. This may be due to how the Owenr is being stored
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
         
-       
+        var timeLabel: UILabel = {
+            let label = UILabel()
+            label.text = "HH:MM:SS"
+            label.translatesAutoresizingMaskIntoConstraints = false
+            return label
+        }()
+        
         
         let message = messages[indexPath.row]
         
@@ -115,6 +123,11 @@ class MessagesTableViewController: UITableViewController {
         cell.textLabel?.text = "Owner"
         
         cell.detailTextLabel?.text = message.text
+        cell.addSubview(timeLabel)
+        timeLabel.rightAnchor.constraint(equalTo: cell.rightAnchor).isActive = true
+        timeLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 18).isActive = true
+        timeLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        timeLabel.heightAnchor.constraint(equalTo: cell.textLabel!.heightAnchor).isActive = true
         
         return cell
         
