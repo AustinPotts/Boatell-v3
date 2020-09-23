@@ -89,6 +89,9 @@ class MessagesTableViewController: UITableViewController {
         var timeLabel: UILabel = {
             let label = UILabel()
             label.text = "HH:MM:SS"
+            label.font = UIFont.systemFont(ofSize: 13)
+            label.textColor = UIColor.darkGray
+            
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
@@ -121,8 +124,29 @@ class MessagesTableViewController: UITableViewController {
        
         //THIS IS A TEMPORARY FIX
         cell.textLabel?.text = "Owner"
-        
         cell.detailTextLabel?.text = message.text
+        
+      
+        
+        
+        
+        
+        print(message.timeStamp)
+        
+//        let sec = NSNumber(pointer: message.timeStamp)
+//
+//        let seconds = sec.doubleValue
+//        let timeStamp = Date(timeIntervalSince1970: seconds)
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "HH:mm:ss a"
+        
+       
+      
+        //print("DATE \(dateFormatter.string(from: date!))")
+        
+        timeLabel.text = message.timeStamp
+         
+        
         cell.addSubview(timeLabel)
         timeLabel.rightAnchor.constraint(equalTo: cell.rightAnchor).isActive = true
         timeLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 18).isActive = true
