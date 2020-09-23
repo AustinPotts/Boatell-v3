@@ -13,6 +13,7 @@ class MessagesTableViewController: UITableViewController {
     
     
     var messages = [Message]()
+    var messagesDictionary = [String: Message]()
 
     override func viewDidLoad() {
            super.viewDidLoad()
@@ -36,8 +37,18 @@ class MessagesTableViewController: UITableViewController {
             if let dictionary = snapshot.value as? [String:AnyObject] {
                 let message = Message()
                 message.setValuesForKeys(dictionary)
-                self.messages.append(message)
+               // self.messages.append(message)
                 print("Messages Snapshot: \(snapshot)")
+                
+                if let toID = message.toID {
+                    self.messagesDictionary[toID] = message
+                    self.messages = Array(self.messagesDictionary.values)
+                    //sort
+//                    self.messages.sort { (m1, m2) -> Bool in
+//                        return m1.timeStamp > m2.timeStamp
+//                    }
+                }
+                
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -141,7 +152,7 @@ class MessagesTableViewController: UITableViewController {
 //        dateFormatter.dateFormat = "HH:mm:ss a"
         
        
-      
+       //MARK: - FIX ME (The timeLabel.text needs to be the message.timeStamp converted format, rather than ex: 23445433332)
         //print("DATE \(dateFormatter.string(from: date!))")
         
         timeLabel.text = message.timeStamp

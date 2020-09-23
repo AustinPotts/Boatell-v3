@@ -12,6 +12,7 @@ import Firebase
 class OwnerMessagesTableViewController: UITableViewController {
     
     var messages = [Message]()
+    var messagesDictionary = [String: Message]()
 
    override func viewDidLoad() {
                super.viewDidLoad()
@@ -36,8 +37,16 @@ class OwnerMessagesTableViewController: UITableViewController {
                if let dictionary = snapshot.value as? [String:AnyObject] {
                    let message = Message()
                    message.setValuesForKeys(dictionary)
-                   self.messages.append(message)
+                  // self.messages.append(message)
                    print("Messages Snapshot: \(snapshot)")
+                if let toID = message.toID {
+                    self.messagesDictionary[toID] = message
+                    self.messages = Array(self.messagesDictionary.values)
+                    //sort
+                    //                    self.messages.sort { (m1, m2) -> Bool in
+                    //                        return m1.timeStamp > m2.timeStamp
+                    //                    }
+                }
                    
                    DispatchQueue.main.async {
                        self.tableView.reloadData()
@@ -82,6 +91,16 @@ class OwnerMessagesTableViewController: UITableViewController {
     
           override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
+            
+            var timeLabel: UILabel = {
+                     let label = UILabel()
+                     label.text = "HH:MM:SS"
+                     label.font = UIFont.systemFont(ofSize: 13)
+                     label.textColor = UIColor.darkGray
+                     
+                     label.translatesAutoresizingMaskIntoConstraints = false
+                     return label
+                 }()
               
               let message = messages[indexPath.row]
             
@@ -108,6 +127,14 @@ class OwnerMessagesTableViewController: UITableViewController {
                          
                             }
             cell.detailTextLabel?.text = message.text
+            timeLabel.text = message.timeStamp
+             
+            
+            cell.addSubview(timeLabel)
+            timeLabel.rightAnchor.constraint(equalTo: cell.rightAnchor).isActive = true
+            timeLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 18).isActive = true
+            timeLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            timeLabel.heightAnchor.constraint(equalTo: cell.textLabel!.heightAnchor).isActive = true
             
                   
                   
