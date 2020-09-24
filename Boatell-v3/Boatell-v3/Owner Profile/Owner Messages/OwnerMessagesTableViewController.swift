@@ -72,8 +72,8 @@ class OwnerMessagesTableViewController: UITableViewController {
                             // self.messages.append(message)
                             print("Messages Snapshot: \(snapshot)")
                             
-                            if let toID = message.toID {
-                                self.messagesDictionary[toID] = message
+                            if let fromID = message.fromID {
+                                self.messagesDictionary[fromID] = message
                                 self.messages = Array(self.messagesDictionary.values)
                                 //sort
 //                                self.messages.sort { (m1, m2) -> Bool in
@@ -177,10 +177,10 @@ class OwnerMessagesTableViewController: UITableViewController {
             
              
             
-            if let toID = message.toID {
-                let ref = Database.database().reference().child("users").child(toID)
+            if let fromID = message.fromID {
+                let ref = Database.database().reference().child("users").child(fromID)
                 ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                    
+                    print("SNAP: \(snapshot.value)")
                     if let dictionary = snapshot.value as? [String: AnyObject] {
                         
                         cell.textLabel?.text = dictionary["name"] as? String
