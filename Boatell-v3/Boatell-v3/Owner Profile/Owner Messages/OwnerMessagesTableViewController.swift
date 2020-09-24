@@ -54,11 +54,10 @@ class OwnerMessagesTableViewController: UITableViewController {
     
     func observeUserMessages(){
           
-        //  guard let uuid = Auth.auth().currentUser?.uid else {return}
+        guard let uuid = Auth.auth().currentUser?.uid else {return}
         
-        var usersID = [User]()
                     
-            let ref = Database.database().reference().child("user-messages").child("owner")
+            let ref = Database.database().reference().child("user-messages").child(uuid)
                 ref.observe(.childAdded, with: { (snapshot) in
                     print("Snapshot 1: \(snapshot)")
                     let messageID = snapshot.key
@@ -72,8 +71,8 @@ class OwnerMessagesTableViewController: UITableViewController {
                             // self.messages.append(message)
                             print("Messages Snapshot: \(snapshot)")
                             
-                            if let fromID = message.fromID {
-                                self.messagesDictionary[fromID] = message
+                            if let toID = message.toID {
+                                self.messagesDictionary[toID] = message
                                 self.messages = Array(self.messagesDictionary.values)
                                 //sort
 //                                self.messages.sort { (m1, m2) -> Bool in
@@ -119,15 +118,17 @@ class OwnerMessagesTableViewController: UITableViewController {
                     //                    }
                 }
                    
-                   DispatchQueue.main.async {
-                       self.tableView.reloadData()
-                   }
                    
                }
                
            
                
            }, withCancel: nil)
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+
        }
            
            
@@ -176,11 +177,11 @@ class OwnerMessagesTableViewController: UITableViewController {
               let message = messages[indexPath.row]
             
              
-            
-            if let fromID = message.fromID {
-                let ref = Database.database().reference().child("users").child(fromID)
+                          //mesage.chatPartnerID
+            if let toID = message.chatPartnerID() {
+                let ref = Database.database().reference().child("users").child(toID)
                 ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                    print("SNAP: \(snapshot.value)")
+                   // print("SNAP: \(snapshot.value)")
                     if let dictionary = snapshot.value as? [String: AnyObject] {
                         
                         cell.textLabel?.text = dictionary["name"] as? String
@@ -190,7 +191,7 @@ class OwnerMessagesTableViewController: UITableViewController {
                             cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.height)! / 2
                             cell.imageView?.layer.masksToBounds = true
                             
-                            tableView.reloadData()
+                            //tableView.reloadData()
                         }
                         
                     }
@@ -217,6 +218,14 @@ class OwnerMessagesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     
+        
+           performSegue(withIdentifier: "OwnerCellMessageSegue", sender: nil)
+        
+        
+       }
     
     
            @IBAction func logoutTapped(_ sender: Any) {
@@ -263,7 +272,26 @@ class OwnerMessagesTableViewController: UITableViewController {
                    if let newMessVC = segue.destination as? OwnerNewMessagesTableViewController {
                     newMessVC.messagesController = self
                    }
-              }
+               } else if segue.identifier == "OwnerCellMessageSegue" {
+                guard let indexPath = tableView.indexPathForSelectedRow, let detailVC = segue.destination as? OwnerChatLogsViewController else{return}
+                
+                let message = messages[indexPath.row]
+                  
+                  guard let chatPartnerID = message.chatPartnerID() else {return}
+                  
+                  let ref = Database.database().reference().child("users").child(chatPartnerID)
+                  ref.observe(.value, with: { (snapshot) in
+                      
+                      guard let dictionary = snapshot.value as? [String:AnyObject] else {return}
+                      let user = User()
+                      user.setValuesForKeys(dictionary)
+                      detailVC.user = user
+                      
+                  }, withCancel: nil)
+                
+                
+                
+            }
                // Pass the selected object to the new view controller.
            }
            

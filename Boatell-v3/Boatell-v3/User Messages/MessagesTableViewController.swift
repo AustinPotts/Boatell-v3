@@ -136,6 +136,14 @@ class MessagesTableViewController: UITableViewController {
         return messages.count
        }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+           return 72
+       }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "", sender: nil)
+    }
+    
 
     
     //MARK: BUG - In Users Recieved Messages, User can current view the Owners message but not the image or the name. This may be due to how the Owenr is being stored
@@ -158,7 +166,7 @@ class MessagesTableViewController: UITableViewController {
         if let toID = message.toID {
             let ref = Database.database().reference().child("owner").child("owner")
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                print("SNAP: \(snapshot.value)")
+              //  print("SNAP: \(snapshot.value)")
                       if let dictionary = snapshot.value as? [String: AnyObject] {
                        
                         
@@ -170,7 +178,7 @@ class MessagesTableViewController: UITableViewController {
                             cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.height)! / 2
                             cell.imageView?.layer.masksToBounds = true
                             
-                            tableView.reloadData()
+                           // tableView.reloadData()
                         }
                         
                     }
@@ -257,7 +265,11 @@ class MessagesTableViewController: UITableViewController {
            if segue.identifier == "NewMessageSegue" {
                if let newMessVC = segue.destination as? NewMessagesTableViewController {
                 newMessVC.messagesController = self
-               }
+               } else if segue.identifier == "MessageSegue" {
+                guard let indexPath = tableView.indexPathForSelectedRow, let detailVC = segue.destination as? ChatLogsViewController else{return}
+               // detailVC.owner = owners[indexPath.row]
+                
+            }
           }
            // Pass the selected object to the new view controller.
        }

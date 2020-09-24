@@ -2246,6 +2246,9 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <segue destination="YMk-xg-7Jz" kind="show" identifier="OwnerCellMessageSegue" id="3gx-0d-caN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfQ-It-gA6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2558,7 +2561,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ucY-d9-ElJ"/>
+        <segue reference="3gx-0d-caN"/>
         <segue reference="qA5-S4-8KW"/>
         <segue reference="52p-Eh-xJV"/>
         <segue reference="3rb-88-5PJ"/>
