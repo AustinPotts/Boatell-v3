@@ -25,28 +25,73 @@ class MessagesTableViewController: UITableViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
          
-        observeMessages()
+       // observeMessages()
+        observeUserMessages()
         
        }
+    
+    func observeUserMessages(){
+        
+        guard let uuid = Auth.auth().currentUser?.uid else {return}
+        
+        let ref = Database.database().reference().child("user-messages").child(uuid)
+        ref.observe(.childAdded, with: { (snapshot) in
+            print("Snapshot 1: \(snapshot)")
+            let messageID = snapshot.key
+            let messageRef = Database.database().reference().child("messages").child(messageID)
+            
+            messageRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                print("Snapshot 2: \(snapshot)")
+                if let dictionary = snapshot.value as? [String:AnyObject] {
+                    let message = Message()
+                    message.setValuesForKeys(dictionary)
+                    // self.messages.append(message)
+                    print("Messages Snapshot: \(snapshot)")
+                    
+                    if let toID = message.toID {
+                        self.messagesDictionary[toID] = message
+                        self.messages = Array(self.messagesDictionary.values)
+                        //sort
+                       self.messages.sort { (m1, m2) -> Bool in
+                                               let m1Convert = Int(m1.timeStamp!)
+                                               let m2Convert = Int(m2.timeStamp!)
+                                               return m1Convert! > m2Convert!
+                                           }
+                    }
+                    
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    
+                }
+            }, withCancel: nil)
+            
+            
+        }, withCancel: nil)
+        
+    }
        
     func observeMessages() {
         let ref = Database.database().reference().child("messages")
         ref.observe(.childAdded, with: { (snapshot) in
-            
+            print("Snapshot observe messages: \(snapshot)")
             
             if let dictionary = snapshot.value as? [String:AnyObject] {
                 let message = Message()
                 message.setValuesForKeys(dictionary)
                // self.messages.append(message)
-                print("Messages Snapshot: \(snapshot)")
+                
                 
                 if let toID = message.toID {
                     self.messagesDictionary[toID] = message
                     self.messages = Array(self.messagesDictionary.values)
                     //sort
-//                    self.messages.sort { (m1, m2) -> Bool in
-//                        return m1.timeStamp > m2.timeStamp
-//                    }
+                    self.messages.sort { (m1, m2) -> Bool in
+                        let m1Convert = Int(m1.timeStamp!)
+                        let m2Convert = Int(m2.timeStamp!)
+                        return m1Convert! > m2Convert!
+                    }
                 }
                 
                 
@@ -115,7 +160,7 @@ class MessagesTableViewController: UITableViewController {
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                
                       if let dictionary = snapshot.value as? [String: AnyObject] {
-                        print("SNAP: \(snapshot.value)")
+                      //  print("SNAP: \(snapshot.value)")
                         
                        cell.textLabel?.text = dictionary["name"] as? String
                         

@@ -189,6 +189,7 @@ class UserConfirmViewController: UIViewController {
                    
                    let userRef = ref.child("users").child(uid).child("confirmed").childByAutoId()
                 //   let childRef = ref.child("confirmed").childByAutoId()
+           // guard let Owner uid = Auth.auth().currentUser?.uid else { return }
             let ownerRef = ref.child("owner").child("owner").child("confirmed").childByAutoId()
                    
                    userRef.updateChildValues(values) { (error, refer) in

@@ -13,6 +13,7 @@ class OwnerMessagesTableViewController: UITableViewController {
     
     var messages = [Message]()
     var messagesDictionary = [String: Message]()
+    var users = [User]()
 
    override func viewDidLoad() {
                super.viewDidLoad()
@@ -24,9 +25,77 @@ class OwnerMessagesTableViewController: UITableViewController {
     
        tableView.delegate = self
        tableView.dataSource = self
-       observeMessages()
+      // observeMessages()
+       observeUserMessages()
+    fetchUsers()
              
            }
+    
+       func fetchUsers() {
+            Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    let user = User()
+                    
+                    //App will crash if Class properties don't exactly match up with the Firebase Dictionary Keys
+                    user.setValuesForKeys(dictionary)
+                        
+                    self.users.append(user)
+                        
+                    
+    
+                    DispatchQueue.main.async {
+                         self.tableView.reloadData()
+                    }
+                }
+                print(snapshot)
+            }, withCancel: nil)
+        }
+    
+    func observeUserMessages(){
+          
+        //  guard let uuid = Auth.auth().currentUser?.uid else {return}
+        
+        var usersID = [User]()
+                    
+            let ref = Database.database().reference().child("user-messages").child("owner")
+                ref.observe(.childAdded, with: { (snapshot) in
+                    print("Snapshot 1: \(snapshot)")
+                    let messageID = snapshot.key
+                    let messageRef = Database.database().reference().child("messages").child(messageID)
+                    
+                    messageRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                        print("Snapshot 2: \(snapshot)")
+                        if let dictionary = snapshot.value as? [String:AnyObject] {
+                            let message = Message()
+                            message.setValuesForKeys(dictionary)
+                            // self.messages.append(message)
+                            print("Messages Snapshot: \(snapshot)")
+                            
+                            if let toID = message.toID {
+                                self.messagesDictionary[toID] = message
+                                self.messages = Array(self.messagesDictionary.values)
+                                //sort
+                                //                    self.messages.sort { (m1, m2) -> Bool in
+                                //                        return m1.timeStamp > m2.timeStamp
+                                //                    }
+                            }
+                            
+                            
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                            
+                        }
+                    }, withCancel: nil)
+                    
+                    
+                }, withCancel: nil)
+        
+          
+    
+          
+      }
     
     
     func observeMessages() {
@@ -106,23 +175,23 @@ class OwnerMessagesTableViewController: UITableViewController {
             
              
             
-               if let toID = message.toID {
-                                let ref = Database.database().reference().child("users").child(toID)
-                         ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let toID = message.toID {
+                let ref = Database.database().reference().child("users").child(toID)
+                ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                    if let dictionary = snapshot.value as? [String: AnyObject] {
+                        
+                        cell.textLabel?.text = dictionary["name"] as? String
+                        if let profileImageUrl = dictionary["profileImageURL"] as? String {
+                            cell.imageView?.image = UIImage(named: "User")
+                            cell.imageView?.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
+                            cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.height)! / 2
+                            cell.imageView?.layer.masksToBounds = true
                             
-                                   if let dictionary = snapshot.value as? [String: AnyObject] {
-          
-                                     cell.textLabel?.text = dictionary["name"] as? String
-                                    if let profileImageUrl = dictionary["profileImageURL"] as? String {
-                                        cell.imageView?.image = UIImage(named: "User")
-                                        cell.imageView?.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
-                                        cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.height)! / 2
-                                        cell.imageView?.layer.masksToBounds = true
-                                        
-                                        tableView.reloadData()
-                                    }
-                                    
-                                       }
+                            tableView.reloadData()
+                        }
+                        
+                    }
                          }, withCancel: nil)
                          
                             }
