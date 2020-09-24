@@ -52,11 +52,11 @@ class MessagesTableViewController: UITableViewController {
                         self.messagesDictionary[toID] = message
                         self.messages = Array(self.messagesDictionary.values)
                         //sort
-                       self.messages.sort { (m1, m2) -> Bool in
-                                               let m1Convert = Int(m1.timeStamp!)
-                                               let m2Convert = Int(m2.timeStamp!)
-                                               return m1Convert! > m2Convert!
-                                           }
+//                       self.messages.sort { (m1, m2) -> Bool in
+//                                               let m1Convert = Int(m1.timeStamp!)
+//                                               let m2Convert = Int(m2.timeStamp!)
+//                                               return m1Convert! > m2Convert!
+//                                           }
                     }
                     
                     
@@ -87,11 +87,11 @@ class MessagesTableViewController: UITableViewController {
                     self.messagesDictionary[toID] = message
                     self.messages = Array(self.messagesDictionary.values)
                     //sort
-                    self.messages.sort { (m1, m2) -> Bool in
-                        let m1Convert = Int(m1.timeStamp!)
-                        let m2Convert = Int(m2.timeStamp!)
-                        return m1Convert! > m2Convert!
-                    }
+//                    self.messages.sort { (m1, m2) -> Bool in
+//                        let m1Convert = Int(m1.timeStamp!)
+//                        let m2Convert = Int(m2.timeStamp!)
+//                        return m1Convert! > m2Convert!
+//                    }
                 }
                 
                 
@@ -156,11 +156,11 @@ class MessagesTableViewController: UITableViewController {
         let message = messages[indexPath.row]
         
         if let toID = message.toID {
-            let ref = Database.database().reference().child("owner").child("owner").child(toID)
+            let ref = Database.database().reference().child("owner").child("owner")
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
-               
+                print("SNAP: \(snapshot.value)")
                       if let dictionary = snapshot.value as? [String: AnyObject] {
-                      //  print("SNAP: \(snapshot.value)")
+                       
                         
                        cell.textLabel?.text = dictionary["name"] as? String
                         
@@ -179,7 +179,7 @@ class MessagesTableViewController: UITableViewController {
                }
        
         //THIS IS A TEMPORARY FIX
-        cell.textLabel?.text = "Owner"
+        //cell.textLabel?.text = message.fromID
         cell.detailTextLabel?.text = message.text
         
       

@@ -25,8 +25,8 @@ class OwnerMessagesTableViewController: UITableViewController {
     
        tableView.delegate = self
        tableView.dataSource = self
-      // observeMessages()
-       observeUserMessages()
+   // observeMessages()
+    observeUserMessages()
     fetchUsers()
              
            }
@@ -76,9 +76,11 @@ class OwnerMessagesTableViewController: UITableViewController {
                                 self.messagesDictionary[toID] = message
                                 self.messages = Array(self.messagesDictionary.values)
                                 //sort
-                                //                    self.messages.sort { (m1, m2) -> Bool in
-                                //                        return m1.timeStamp > m2.timeStamp
-                                //                    }
+//                                self.messages.sort { (m1, m2) -> Bool in
+//                                    let m1Convert = Int(m1.timeStamp!)
+//                                    let m2Convert = Int(m2.timeStamp!)
+//                                    return m1Convert! > m2Convert!
+//                                }
                             }
                             
                             
@@ -194,7 +196,7 @@ class OwnerMessagesTableViewController: UITableViewController {
                     }
                          }, withCancel: nil)
                          
-                            }
+                }
             cell.detailTextLabel?.text = message.text
             timeLabel.text = message.timeStamp
              
