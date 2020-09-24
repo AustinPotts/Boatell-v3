@@ -37,13 +37,9 @@ class ChatLogsViewController: UIViewController {
 
         }
     
-        
-
-      
-        
-        
         @IBAction func sendTapped(_ sender: Any) {
             handleSend()
+        
         }
         
         func handleSend() {
@@ -58,10 +54,30 @@ class ChatLogsViewController: UIViewController {
             let timeStamp = String(NSDate().timeIntervalSince1970)
             
             let values = ["text": messageTextField.text!, "toID" : toID, "fromID" : fromID, "timeStamp" : timeStamp]
-            childRef.updateChildValues(values)
+           // childRef.updateChildValues(values)
+            
+            let userMessagesRef = Database.database().reference().child("user-messages").child(toID)
+            let messageID = childRef.key!
+            userMessagesRef.updateChildValues([messageID: 1])
+            
+            childRef.updateChildValues(values) { (error, ref) in
+                if error != nil {
+                    print("Error child ref: \(error)")
+                    return
+                }
+               
+                print("MESSAGE ID: \(messageID)")
+            }
             
         }
         
+
+    
+    
+    
+    
+    
+    
     }
 
     //
