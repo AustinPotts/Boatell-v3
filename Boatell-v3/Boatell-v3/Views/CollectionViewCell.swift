@@ -14,13 +14,20 @@ class CollectionViewCell: UICollectionViewCell {
         let tv = UITextView()
         tv.text = "sample"
         tv.font?.withSize(18)
+        tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
     
    override init(frame: CGRect) {
     super.init(frame: frame)
     
-    backgroundColor = UIColor.red
+    addSubview(textView)
+    
+    textView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+    textView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+    textView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+    textView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+    
     
     }
     

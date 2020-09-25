@@ -38,12 +38,19 @@ class OwnerChatLogsViewController: UIViewController, UICollectionViewDelegate {
                 
                 // Potential of crashing if keys dont match
                 message.setValuesForKeys(dictionary)
-                self.messages.append(message)
                 
-                DispatchQueue.main.async {
-                    self.messagesCollectionView.reloadData()
-
+                if message.chatPartnerID() == self.user?.id {
+                    self.messages.append(message)
+                    
+                    DispatchQueue.main.async {
+                        self.messagesCollectionView.reloadData()
+                        
+                    }
                 }
+                
+                
+                
+              
                 
             }, withCancel: nil)
         }, withCancel: nil)
@@ -136,12 +143,16 @@ extension OwnerChatLogsViewController: UICollectionViewDataSource, UICollectionV
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.height, height: 80)
+        return CGSize(width: view.frame.width, height: 80)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "MessageCell", for: indexPath) as! CollectionViewCell
         //cell.backgroundColor = .black
+        
+        let message = messages[indexPath.item]
+        cell.textView.text = message.text
+        
         return cell
     }
     
