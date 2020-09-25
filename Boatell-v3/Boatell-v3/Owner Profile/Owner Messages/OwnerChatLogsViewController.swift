@@ -175,6 +175,18 @@ extension OwnerChatLogsViewController: UICollectionViewDataSource, UICollectionV
         let message = messages[indexPath.item]
         cell.textView.text = message.text
         
+        if message.fromID == Auth.auth().currentUser?.uid {
+            //outgoing blue
+            cell.bubbleView.backgroundColor = .systemBlue
+            cell.textView.textColor = .white
+        } else {
+           // incoming gray message
+            cell.bubbleView.backgroundColor = .opaqueSeparator
+            cell.textView.textColor = .black
+
+            
+        }
+        
         //fix force unwrap
         cell.bubbleWidthAnchor?.constant = esitmatedFrame(message.text!).width + 32
         

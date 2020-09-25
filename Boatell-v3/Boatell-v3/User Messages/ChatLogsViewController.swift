@@ -46,10 +46,14 @@ class ChatLogsViewController: UIViewController, UICollectionViewDelegate {
                // if message.chatPartnerID() == self.owner?.id {
                     self.messages.append(message)
                     
+                if message.chatPartnerID() == "fj94U7Y9GgdMDbljI6nuW0NQZXp2" {
+                    self.messages.append(message)
+                    
                     DispatchQueue.main.async {
                         self.messagesCollectionView.reloadData()
                         
                     }
+                }
                // }
                 
                 
@@ -78,7 +82,8 @@ class ChatLogsViewController: UIViewController, UICollectionViewDelegate {
             messagesCollectionView.dataSource = self
             messagesCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "MessageCell")
             messagesCollectionView.alwaysBounceVertical = true
-          observeMessages()
+            messagesCollectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+            observeMessages()
 
         }
     
@@ -95,8 +100,8 @@ class ChatLogsViewController: UIViewController, UICollectionViewDelegate {
             
             let ref = Database.database().reference().child("messages")
             let childRef = ref.childByAutoId()
-            
-             let toID = owner!.id!
+           // print("OWNER ID: \(owner?.id)")
+             let toID = "fj94U7Y9GgdMDbljI6nuW0NQZXp2"
             let fromID = Auth.auth().currentUser!.uid
             let timeStamp = String(NSDate().timeIntervalSince1970)
             
@@ -160,8 +165,26 @@ extension ChatLogsViewController: UICollectionViewDataSource, UICollectionViewDe
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 80)
+        
+        var height: CGFloat = 80
+              
+              
+              // Get estimated HEight
+              if let text = messages[indexPath.item].text {
+                height = esitmatedFrame(text).height + 20
+              }
+        
+        return CGSize(width: view.frame.width, height: height)
     }
+    
+    private func esitmatedFrame(_ text: String) -> CGRect {
+        let size = CGSize(width: 200, height: 1000)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)], context: nil)
+        
+    }
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "MessageCell", for: indexPath) as! CollectionViewCell
@@ -169,6 +192,19 @@ extension ChatLogsViewController: UICollectionViewDataSource, UICollectionViewDe
         
         let message = messages[indexPath.item]
         cell.textView.text = message.text
+        
+        if message.fromID == Auth.auth().currentUser?.uid {
+                 //outgoing blue
+                 cell.bubbleView.backgroundColor = .systemBlue
+             } else {
+                // incoming gray message
+                 cell.bubbleView.backgroundColor = .lightGray
+
+                 
+             }
+        
+        //fix force unwrap
+        cell.bubbleWidthAnchor?.constant = esitmatedFrame(message.text!).width + 32
         
         return cell
     }
