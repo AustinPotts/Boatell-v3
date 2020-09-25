@@ -44,7 +44,7 @@ class ChatLogsViewController: UIViewController, UICollectionViewDelegate {
                 message.setValuesForKeys(dictionary)
                 
                // if message.chatPartnerID() == self.owner?.id {
-                    self.messages.append(message)
+                   
                     
                 if message.chatPartnerID() == "fj94U7Y9GgdMDbljI6nuW0NQZXp2" {
                     self.messages.append(message)
@@ -123,6 +123,8 @@ class ChatLogsViewController: UIViewController, UICollectionViewDelegate {
                
                 print("MESSAGE ID: \(messageID)")
             }
+            self.messageTextField.text = nil
+            
             
         }
         
