@@ -72,7 +72,7 @@ class OwnerChatLogsViewController: UIViewController, UICollectionViewDelegate {
             messagesCollectionView.dataSource = self
             messagesCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "MessageCell")
             messagesCollectionView.alwaysBounceVertical = true
-            messagesCollectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+            messagesCollectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 58, right: 0)
 
         }
     

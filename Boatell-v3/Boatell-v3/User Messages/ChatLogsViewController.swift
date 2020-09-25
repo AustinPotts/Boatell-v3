@@ -82,7 +82,7 @@ class ChatLogsViewController: UIViewController, UICollectionViewDelegate {
             messagesCollectionView.dataSource = self
             messagesCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "MessageCell")
             messagesCollectionView.alwaysBounceVertical = true
-            messagesCollectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+            messagesCollectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 58, right: 0)
             observeMessages()
 
         }
@@ -193,15 +193,29 @@ extension ChatLogsViewController: UICollectionViewDataSource, UICollectionViewDe
         let message = messages[indexPath.item]
         cell.textView.text = message.text
         
-        if message.fromID == Auth.auth().currentUser?.uid {
-                 //outgoing blue
-                 cell.bubbleView.backgroundColor = .systemBlue
-             } else {
-                // incoming gray message
-                 cell.bubbleView.backgroundColor = .lightGray
+        if let profileImageURL = owner?.profileImageURL{
+            cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: profileImageURL)
 
-                 
-             }
+        }
+        
+        if message.fromID == Auth.auth().currentUser?.uid {
+                //outgoing blue
+                cell.bubbleView.backgroundColor = .systemBlue
+                cell.textView.textColor = .white
+                cell.profileImageView.isHidden = true
+                cell.bubbleViewRightAnchor?.isActive = true
+                cell.bubbleViewLeftAnchor?.isActive = false
+            } else {
+               // incoming gray message
+                cell.bubbleView.backgroundColor = .lightGray
+                cell.textView.textColor = .black
+                cell.bubbleViewRightAnchor?.isActive = false
+                cell.bubbleViewLeftAnchor?.isActive = true
+                cell.profileImageView.isHidden = false
+
+
+                
+            }
         
         //fix force unwrap
         cell.bubbleWidthAnchor?.constant = esitmatedFrame(message.text!).width + 32
