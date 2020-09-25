@@ -72,6 +72,7 @@ class OwnerChatLogsViewController: UIViewController, UICollectionViewDelegate {
             messagesCollectionView.dataSource = self
             messagesCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "MessageCell")
             messagesCollectionView.alwaysBounceVertical = true
+            messagesCollectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
 
         }
     
@@ -118,6 +119,7 @@ class OwnerChatLogsViewController: UIViewController, UICollectionViewDelegate {
                     print("Error child ref: \(error)")
                     return
                 }
+                self.messageTextField.text = nil
                 
                 print("MESSAGE ID: \(messageID)")
             
@@ -144,15 +146,37 @@ extension OwnerChatLogsViewController: UICollectionViewDataSource, UICollectionV
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 80)
+        
+        var height: CGFloat = 80
+        
+        
+        // Get estimated HEight
+        if let text = messages[indexPath.item].text {
+            height = esitmatedFrame(text).height + 20
+        }
+        
+        return CGSize(width: view.frame.width, height: height)
+    }
+    
+    private func esitmatedFrame(_ text: String) -> CGRect {
+        let size = CGSize(width: 200, height: 1000)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)], context: nil)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "MessageCell", for: indexPath) as! CollectionViewCell
         //cell.backgroundColor = .black
         
+       
+        
         let message = messages[indexPath.item]
         cell.textView.text = message.text
+        
+        //fix force unwrap
+        cell.bubbleWidthAnchor?.constant = esitmatedFrame(message.text!).width + 32
         
         return cell
     }
