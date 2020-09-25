@@ -1267,6 +1267,9 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <segue destination="48U-uy-PRd" kind="show" identifier="UserCellMessageSegue" id="Sg9-Bv-gu8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apA-MU-uam" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2342,7 +2345,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BiR-x9-qD6">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MessageCell" id="BiR-x9-qD6">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vjb-vf-fgF">
@@ -2563,7 +2566,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="3gx-0d-caN"/>
         <segue reference="qA5-S4-8KW"/>
-        <segue reference="52p-Eh-xJV"/>
+        <segue reference="Sg9-Bv-gu8"/>
         <segue reference="3rb-88-5PJ"/>
     </inferredMetricsTieBreakers>
     <resources>

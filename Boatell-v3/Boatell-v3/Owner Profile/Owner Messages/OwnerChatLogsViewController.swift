@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class OwnerChatLogsViewController: UIViewController {
+class OwnerChatLogsViewController: UIViewController, UICollectionViewDelegate {
 
         var user: User? {
             didSet{
@@ -18,6 +18,8 @@ class OwnerChatLogsViewController: UIViewController {
             }
             
         }
+    
+    
         
         @IBOutlet var messageTextField: UITextField!
         
@@ -28,7 +30,8 @@ class OwnerChatLogsViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            
+            messagesCollectionView.delegate = self
+            messagesCollectionView.dataSource = self
 
         }
     
@@ -81,6 +84,36 @@ class OwnerChatLogsViewController: UIViewController {
         }
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+//MARK: - Collection View Set Up
+extension OwnerChatLogsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.height, height: 80)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = self.messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "MessageCell", for: indexPath)
+        cell.backgroundColor = .black
+        return cell
+    }
+    
+    
 }
 
     //

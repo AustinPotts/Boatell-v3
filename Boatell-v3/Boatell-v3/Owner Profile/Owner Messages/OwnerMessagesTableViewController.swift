@@ -284,6 +284,7 @@ class OwnerMessagesTableViewController: UITableViewController {
                       
                       guard let dictionary = snapshot.value as? [String:AnyObject] else {return}
                       let user = User()
+                      user.id = chatPartnerID
                       user.setValuesForKeys(dictionary)
                       detailVC.user = user
                       

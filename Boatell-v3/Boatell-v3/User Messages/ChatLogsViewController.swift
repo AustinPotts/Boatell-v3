@@ -16,7 +16,7 @@ class ChatLogsViewController: UIViewController {
     
     var owner: Owner? {
         didSet {
-            self.title = owner?.name
+            self.navigationItem.title = owner?.name
                print("USER: \(owner?.name)")
         }
    

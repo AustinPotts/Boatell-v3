@@ -141,7 +141,7 @@ class MessagesTableViewController: UITableViewController {
        }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "", sender: nil)
+        performSegue(withIdentifier: "UserCellMessageSegue", sender: nil)
     }
     
 
@@ -265,12 +265,26 @@ class MessagesTableViewController: UITableViewController {
            if segue.identifier == "NewMessageSegue" {
                if let newMessVC = segue.destination as? NewMessagesTableViewController {
                 newMessVC.messagesController = self
-               } else if segue.identifier == "MessageSegue" {
-                guard let indexPath = tableView.indexPathForSelectedRow, let detailVC = segue.destination as? ChatLogsViewController else{return}
-               // detailVC.owner = owners[indexPath.row]
-                
-            }
+               }
           }
+        
+        if segue.identifier == "UserCellMessageSegue" {
+            guard let indexPath = tableView.indexPathForSelectedRow, let detailVC = segue.destination as? ChatLogsViewController else{return}
+            let message = messages[indexPath.row]
+                            
+            guard let chatPartnerID = message.chatPartnerID() else {return}
+                            
+            let ref = Database.database().reference().child("owner").child(chatPartnerID)
+            ref.observe(.value, with: { (snapshot) in
+                print("OWNER SNAPSHOT: \(snapshot)")
+                guard let dictionary = snapshot.value as? [String:AnyObject] else {return}
+                let owner = Owner()
+                owner.setValuesForKeys(dictionary)
+                detailVC.owner = owner
+                
+            }, withCancel: nil)
+            
+        }
            // Pass the selected object to the new view controller.
        }
        
