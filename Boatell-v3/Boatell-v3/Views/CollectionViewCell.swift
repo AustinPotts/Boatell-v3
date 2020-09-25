@@ -8,6 +8,7 @@
 
 import UIKit
 
+//MARK: - Collection View Cell for Messages
 class CollectionViewCell: UICollectionViewCell {
     
     let textView: UITextView = {
@@ -18,6 +19,18 @@ class CollectionViewCell: UICollectionViewCell {
         tv.backgroundColor = UIColor.clear
         tv.textColor = .white
         return tv
+    }()
+    
+    let profileImageView: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "Lights")
+        image.layer.cornerRadius = 32
+        image.layer.masksToBounds = false
+        image.layer.cornerRadius = (image.frame.height) / 2
+        image.clipsToBounds = true
+        image.contentMode = .scaleAspectFill
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
     
     let bubbleView: UIView = {
@@ -31,13 +44,22 @@ class CollectionViewCell: UICollectionViewCell {
     }()
     
     var bubbleWidthAnchor: NSLayoutConstraint?
+    var bubbleViewRightAnchor: NSLayoutConstraint?
+    var bubbleViewLeftAnchor: NSLayoutConstraint?
     
    override init(frame: CGRect) {
     super.init(frame: frame)
     
     
     addSubview(bubbleView)
-    bubbleView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8).isActive = true
+    bubbleViewRightAnchor = bubbleView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8)
+    bubbleViewRightAnchor?.isActive = true
+    
+    bubbleViewLeftAnchor = bubbleView.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8)
+    //bubbleViewLeftAnchor?.isActive = true
+    
+    
+    
     bubbleView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
     
     bubbleWidthAnchor = bubbleView.widthAnchor.constraint(equalToConstant: 200)
@@ -57,6 +79,13 @@ class CollectionViewCell: UICollectionViewCell {
     
     
     textView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+    
+    addSubview(profileImageView)
+    profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
+    profileImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+    profileImageView.widthAnchor.constraint(equalToConstant: 32).isActive = true
+    profileImageView.heightAnchor.constraint(equalToConstant: 32).isActive = true
+    
     
     
     }

@@ -175,14 +175,26 @@ extension OwnerChatLogsViewController: UICollectionViewDataSource, UICollectionV
         let message = messages[indexPath.item]
         cell.textView.text = message.text
         
+        if let profileImageURL = self.user?.profileImageURL{
+            cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: profileImageURL)
+
+        }
+        
         if message.fromID == Auth.auth().currentUser?.uid {
             //outgoing blue
             cell.bubbleView.backgroundColor = .systemBlue
             cell.textView.textColor = .white
+            cell.profileImageView.isHidden = true
+            cell.bubbleViewRightAnchor?.isActive = true
+            cell.bubbleViewLeftAnchor?.isActive = false
         } else {
            // incoming gray message
-            cell.bubbleView.backgroundColor = .opaqueSeparator
+            cell.bubbleView.backgroundColor = .lightGray
             cell.textView.textColor = .black
+            cell.bubbleViewRightAnchor?.isActive = false
+            cell.bubbleViewLeftAnchor?.isActive = true
+            cell.profileImageView.isHidden = false
+
 
             
         }
