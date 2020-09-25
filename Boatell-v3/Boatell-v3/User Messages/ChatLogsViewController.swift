@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ChatLogsViewController: UIViewController {
+class ChatLogsViewController: UIViewController, UICollectionViewDelegate {
 
   
       
@@ -18,8 +18,50 @@ class ChatLogsViewController: UIViewController {
         didSet {
             self.navigationItem.title = owner?.name
                print("USER: \(owner?.name)")
+              observeMessages()
         }
    
+    }
+    
+    var messages = [Message]()
+    
+    func observeMessages(){
+        
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+
+        
+        let userMessagesRef = Database.database().reference().child("user-messages").child(uid)
+        
+        userMessagesRef.observe(.childAdded, with: { (snapshot) in
+            let messagesID = snapshot.key
+            let messagesRef = Database.database().reference().child("messages").child(messagesID)
+            
+            messagesRef.observe(.value, with: { (snapshot) in
+                guard let dictionary = snapshot.value as? [String:AnyObject] else {return}
+                let message = Message()
+                
+                // Potential of crashing if keys dont match
+                message.setValuesForKeys(dictionary)
+                
+               // if message.chatPartnerID() == self.owner?.id {
+                    self.messages.append(message)
+                    
+                    DispatchQueue.main.async {
+                        self.messagesCollectionView.reloadData()
+                        
+                    }
+               // }
+                
+                
+                
+              
+                
+            }, withCancel: nil)
+        }, withCancel: nil)
+        
+        print("MESSAGES COUNT \(messages.count)")
+        
+        
     }
         
         @IBOutlet var messageTextField: UITextField!
@@ -32,10 +74,15 @@ class ChatLogsViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            
-          
+            messagesCollectionView.delegate = self
+            messagesCollectionView.dataSource = self
+            messagesCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "MessageCell")
+            messagesCollectionView.alwaysBounceVertical = true
+          observeMessages()
 
         }
+    
+    
     
         @IBAction func sendTapped(_ sender: Any) {
             handleSend()
@@ -103,3 +150,28 @@ class ChatLogsViewController: UIViewController {
             return true
         }
     }
+
+//MARK: - Collection View Set Up
+extension ChatLogsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 80)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = self.messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "MessageCell", for: indexPath) as! CollectionViewCell
+        //cell.backgroundColor = .black
+        
+        let message = messages[indexPath.item]
+        cell.textView.text = message.text
+        
+        return cell
+    }
+    
+    
+}

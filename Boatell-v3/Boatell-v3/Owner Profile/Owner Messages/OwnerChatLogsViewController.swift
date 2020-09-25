@@ -71,6 +71,7 @@ class OwnerChatLogsViewController: UIViewController, UICollectionViewDelegate {
             messagesCollectionView.delegate = self
             messagesCollectionView.dataSource = self
             messagesCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "MessageCell")
+            messagesCollectionView.alwaysBounceVertical = true
 
         }
     
