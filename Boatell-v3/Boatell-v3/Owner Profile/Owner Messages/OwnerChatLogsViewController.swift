@@ -15,11 +15,42 @@ class OwnerChatLogsViewController: UIViewController, UICollectionViewDelegate {
             didSet{
                 self.navigationItem.title = user?.name
                 print("USER: \(user?.name)")
+                observeMessages()
             }
             
         }
     
+    var messages = [Message]()
     
+    func observeMessages(){
+        
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        
+        let userMessagesRef = Database.database().reference().child("user-messages").child(uid)
+        
+        userMessagesRef.observe(.childAdded, with: { (snapshot) in
+            let messagesID = snapshot.key
+            let messagesRef = Database.database().reference().child("messages").child(messagesID)
+            
+            messagesRef.observe(.value, with: { (snapshot) in
+                guard let dictionary = snapshot.value as? [String:AnyObject] else {return}
+                let message = Message()
+                
+                // Potential of crashing if keys dont match
+                message.setValuesForKeys(dictionary)
+                self.messages.append(message)
+                
+                DispatchQueue.main.async {
+                    self.messagesCollectionView.reloadData()
+
+                }
+                
+            }, withCancel: nil)
+        }, withCancel: nil)
+        
+        
+        
+    }
         
         @IBOutlet var messageTextField: UITextField!
         
@@ -32,6 +63,7 @@ class OwnerChatLogsViewController: UIViewController, UICollectionViewDelegate {
             
             messagesCollectionView.delegate = self
             messagesCollectionView.dataSource = self
+            messagesCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "MessageCell")
 
         }
     
@@ -99,7 +131,7 @@ class OwnerChatLogsViewController: UIViewController, UICollectionViewDelegate {
 extension OwnerChatLogsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return messages.count
     }
     
     
@@ -108,8 +140,8 @@ extension OwnerChatLogsViewController: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = self.messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "MessageCell", for: indexPath)
-        cell.backgroundColor = .black
+        let cell = self.messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "MessageCell", for: indexPath) as! CollectionViewCell
+        //cell.backgroundColor = .black
         return cell
     }
     

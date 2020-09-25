@@ -22,6 +22,7 @@
 		455185522513FFDE00888BC5 /* OwnerAppointmentHistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455185512513FFDE00888BC5 /* OwnerAppointmentHistoryDetailViewController.swift */; };
 		4551855625153B4C00888BC5 /* ServiceDetailPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4551855525153B4C00888BC5 /* ServiceDetailPopUpViewController.swift */; };
 		4551855A2516DCA800888BC5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455185592516DCA800888BC5 /* Message.swift */; };
+		4551855C251E59FB00888BC5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4551855B251E59FB00888BC5 /* CollectionViewCell.swift */; };
 		45A1E42324F82E37003744B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E42224F82E37003744B9 /* AppDelegate.swift */; };
 		45A1E42524F82E37003744B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E42424F82E37003744B9 /* SceneDelegate.swift */; };
 		45A1E42724F82E37003744B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E42624F82E37003744B9 /* ViewController.swift */; };
@@ -63,6 +64,7 @@
 		455185512513FFDE00888BC5 /* OwnerAppointmentHistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerAppointmentHistoryDetailViewController.swift; sourceTree = "<group>"; };
 		4551855525153B4C00888BC5 /* ServiceDetailPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailPopUpViewController.swift; sourceTree = "<group>"; };
 		455185592516DCA800888BC5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		4551855B251E59FB00888BC5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		45A1E41F24F82E37003744B9 /* Boatell-v3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Boatell-v3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45A1E42224F82E37003744B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45A1E42424F82E37003744B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			children = (
 				45A1E4582504A437003744B9 /* ServiceTableViewCell.swift */,
 				454C49AB250E94A600A02076 /* OwnerUpcomingServicesTableViewCell.swift */,
+				4551855B251E59FB00888BC5 /* CollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				455185522513FFDE00888BC5 /* OwnerAppointmentHistoryDetailViewController.swift in Sources */,
 				45A1E42524F82E37003744B9 /* SceneDelegate.swift in Sources */,
 				45A1E44024FC1B95003744B9 /* Part.swift in Sources */,
+				4551855C251E59FB00888BC5 /* CollectionViewCell.swift in Sources */,
 				454C49A72509B1FB00A02076 /* NewMessagesTableViewController.swift in Sources */,
 				45A1E44624FD8142003744B9 /* UserCalendarViewController.swift in Sources */,
 				45A1E43824F9F6BC003744B9 /* RegisterViewController.swift in Sources */,
