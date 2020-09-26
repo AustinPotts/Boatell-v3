@@ -37,6 +37,7 @@ class UserConfirmViewController: UIViewController {
     let customALert = MyAlert()
     let ownerConfirmed = [Owner().confirmed]
     var users = [User]()
+    var user = User()
 
     
     //MARK: - Once you have the Passed Data (Service Date + Part) you need to add the confirm model to the Database under the user for child node "confirmed"
@@ -101,8 +102,13 @@ class UserConfirmViewController: UIViewController {
                let toID = Auth.auth().currentUser!.uid
                let fromID = "fj94U7Y9GgdMDbljI6nuW0NQZXp2"
                let timeStamp = String(NSDate().timeIntervalSince1970)
+        
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        let confirmDate = dateFormatterGet.string(from: self.serviceDate)
+        
                
-               let values = ["text": "Hello, I just got your service request", "toID" : toID, "fromID" : fromID, "timeStamp" : timeStamp]
+        let values = ["text": "Hello \(self.user.name!), I just got your service \(confirm.partData.name) request for \(confirmDate)", "toID" : toID, "fromID" : fromID, "timeStamp" : timeStamp]
               // childRef.updateChildValues(values)
                
                let userMessagesRef = Database.database().reference().child("user-messages").child(fromID)
@@ -143,6 +149,8 @@ class UserConfirmViewController: UIViewController {
                                  
                    user.setValuesForKeys(dictionary)
                    self.users.append(user)
+                   self.user = user
+                   
                    
                }
            }, withCancel: nil)
