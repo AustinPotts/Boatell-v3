@@ -36,6 +36,7 @@ class UserConfirmViewController: UIViewController {
     var serviceDate = Date()
     let customALert = MyAlert()
     let ownerConfirmed = [Owner().confirmed]
+    var users = [User]()
 
     
     //MARK: - Once you have the Passed Data (Service Date + Part) you need to add the confirm model to the Database under the user for child node "confirmed"
@@ -69,20 +70,59 @@ class UserConfirmViewController: UIViewController {
         
     }
     
-    
-    //MARK: -  When the Confirm Button is tapped, we want to save the Confirm Model to the firebase, creating it as a new node value
+//MARK: - Action
     
     @IBAction func confirmButtonTapped(_ sender: Any) {
         confirmServiceForUser()
         // Present Custom Alert
-        
         customALert.showAlertWithTitle("Service Confirmed", "An Email has been sent to you.", self)
+        
+        //When cofirm button is tapped, I want the owner to send the user a message
+        
+        //I would need to create a new handleSend() function inside this class
+        handleSend()
+        
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             self.performSegue(withIdentifier: "unwind", sender: nil)
         }
         
     }
+    
+     func handleSend() {
+               
+             // I want to send the user a message from the owner
+             
+               
+               let ref = Database.database().reference().child("messages")
+               let childRef = ref.childByAutoId()
+        
+                //The to id needs to be this users id
+               let toID = Auth.auth().currentUser!.uid
+               let fromID = "fj94U7Y9GgdMDbljI6nuW0NQZXp2"
+               let timeStamp = String(NSDate().timeIntervalSince1970)
+               
+               let values = ["text": "Hello, I just got your service request", "toID" : toID, "fromID" : fromID, "timeStamp" : timeStamp]
+              // childRef.updateChildValues(values)
+               
+               let userMessagesRef = Database.database().reference().child("user-messages").child(fromID)
+               let messageID = childRef.key!
+               userMessagesRef.updateChildValues([messageID: 1])
+               
+               let recipientUserMessagesRef = Database.database().reference().child("user-messages").child(toID)
+               recipientUserMessagesRef.updateChildValues([messageID: 1])
+               
+               childRef.updateChildValues(values) { (error, ref) in
+                   if error != nil {
+                       print("Error child ref: \(error)")
+                       return
+                   }
+                  
+                   print("MESSAGE ID: \(messageID)")
+               }
+               
+               
+           }
     
     @objc func dismissAlert(){
         customALert.dismissAlert()
@@ -92,7 +132,7 @@ class UserConfirmViewController: UIViewController {
     
     //MARK: - Fetch User From Database
     func fetchUser(){
-           var users = [User]()
+           
            let uid = Auth.auth().currentUser?.uid
            
            Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -102,7 +142,7 @@ class UserConfirmViewController: UIViewController {
                    let user = User()
                                  
                    user.setValuesForKeys(dictionary)
-                   users.append(user)
+                   self.users.append(user)
                    
                }
            }, withCancel: nil)
