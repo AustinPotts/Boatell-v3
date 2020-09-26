@@ -162,7 +162,7 @@ extension OwnerChatLogsViewController: UICollectionViewDataSource, UICollectionV
         let size = CGSize(width: 200, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         
-        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)], context: nil)
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], context: nil)
         
     }
     
@@ -178,6 +178,8 @@ extension OwnerChatLogsViewController: UICollectionViewDataSource, UICollectionV
         if let profileImageURL = self.user?.profileImageURL{
             cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: profileImageURL)
 
+        } else {
+            print("NO IMAGE URL")
         }
         
         if message.fromID == Auth.auth().currentUser?.uid {
@@ -200,7 +202,7 @@ extension OwnerChatLogsViewController: UICollectionViewDataSource, UICollectionV
         }
         
         //fix force unwrap
-        cell.bubbleWidthAnchor?.constant = esitmatedFrame(message.text!).width + 32
+        cell.bubbleWidthAnchor?.constant = esitmatedFrame(message.text!).width
         
         return cell
     }

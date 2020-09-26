@@ -14,7 +14,7 @@ class CollectionViewCell: UICollectionViewCell {
     let textView: UITextView = {
         let tv = UITextView()
         tv.text = "sample"
-        tv.font?.withSize(18)
+        tv.font?.withSize(24)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = UIColor.clear
         tv.textColor = .white

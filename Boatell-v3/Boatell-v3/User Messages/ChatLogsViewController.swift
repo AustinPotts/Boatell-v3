@@ -17,7 +17,8 @@ class ChatLogsViewController: UIViewController, UICollectionViewDelegate {
     var owner: Owner? {
         didSet {
             self.navigationItem.title = owner?.name
-               print("USER: \(owner?.name)")
+               print("OWNER: \(owner?.name)")
+            print("OWNER IMAGE \(owner?.profileImageURL)")
               observeMessages()
         }
    
@@ -86,6 +87,13 @@ class ChatLogsViewController: UIViewController, UICollectionViewDelegate {
             observeMessages()
 
         }
+    
+    override func viewDidAppear(_ animated: Bool) {
+              super.viewDidAppear(true)
+              // messageTextField.delegate! = self
+              self.navigationItem.title = owner?.name
+              
+          }
     
     
     
@@ -183,7 +191,7 @@ extension ChatLogsViewController: UICollectionViewDataSource, UICollectionViewDe
         let size = CGSize(width: 200, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         
-        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)], context: nil)
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], context: nil)
         
     }
 
@@ -195,9 +203,11 @@ extension ChatLogsViewController: UICollectionViewDataSource, UICollectionViewDe
         let message = messages[indexPath.item]
         cell.textView.text = message.text
         
-        if let profileImageURL = owner?.profileImageURL{
+        if let profileImageURL = self.owner?.profileImageURL{
             cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: profileImageURL)
 
+        } else {
+            print("NO IMAGE URL")
         }
         
         if message.fromID == Auth.auth().currentUser?.uid {
@@ -220,7 +230,7 @@ extension ChatLogsViewController: UICollectionViewDataSource, UICollectionViewDe
             }
         
         //fix force unwrap
-        cell.bubbleWidthAnchor?.constant = esitmatedFrame(message.text!).width + 32
+        cell.bubbleWidthAnchor?.constant = esitmatedFrame(message.text!).width
         
         return cell
     }

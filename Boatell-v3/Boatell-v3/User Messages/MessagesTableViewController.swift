@@ -266,19 +266,18 @@ class MessagesTableViewController: UITableViewController {
                if let newMessVC = segue.destination as? NewMessagesTableViewController {
                 newMessVC.messagesController = self
                }
-          }
-        
-        if segue.identifier == "UserCellMessageSegue" {
+          } else if segue.identifier == "UserCellMessageSegue" {
             guard let indexPath = tableView.indexPathForSelectedRow, let detailVC = segue.destination as? ChatLogsViewController else{return}
             let message = messages[indexPath.row]
                             
             guard let chatPartnerID = message.chatPartnerID() else {return}
                             
-            let ref = Database.database().reference().child("owner").child(chatPartnerID)
+            let ref = Database.database().reference().child("owner").child("owner").child(chatPartnerID)
             ref.observe(.value, with: { (snapshot) in
                 print("OWNER SNAPSHOT: \(snapshot)")
                 guard let dictionary = snapshot.value as? [String:AnyObject] else {return}
                 let owner = Owner()
+                owner.id = chatPartnerID
                 owner.setValuesForKeys(dictionary)
                 detailVC.owner = owner
                 
