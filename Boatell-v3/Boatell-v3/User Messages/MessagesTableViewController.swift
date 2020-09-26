@@ -24,6 +24,7 @@ class MessagesTableViewController: UITableViewController {
                   newMessageController.messagesController = self
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
          
        // observeMessages()
         observeUserMessages()

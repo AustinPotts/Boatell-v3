@@ -83,6 +83,8 @@ class ChatLogsViewController: UIViewController, UICollectionViewDelegate {
             messagesCollectionView.dataSource = self
             messagesCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "MessageCell")
             messagesCollectionView.alwaysBounceVertical = true
+            messagesCollectionView.backgroundColor = UIColor.clear
+            messagesCollectionView.backgroundView?.backgroundColor = UIColor.clear
             messagesCollectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 58, right: 0)
             observeMessages()
 
