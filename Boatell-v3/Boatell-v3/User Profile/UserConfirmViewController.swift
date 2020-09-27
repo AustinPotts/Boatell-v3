@@ -76,7 +76,7 @@ class UserConfirmViewController: UIViewController {
     @IBAction func confirmButtonTapped(_ sender: Any) {
         confirmServiceForUser()
         // Present Custom Alert
-        customALert.showAlertWithTitle("Service Confirmed", "An Email has been sent to you.", self)
+        customALert.showAlertWithTitle("Service Appointment Confirmed", "An Email & Message have been sent to you, containing order details.", self)
         
         //When cofirm button is tapped, I want the owner to send the user a message
         
@@ -85,7 +85,7 @@ class UserConfirmViewController: UIViewController {
         
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.performSegue(withIdentifier: "unwind", sender: nil)
+            self.dismiss(animated: true, completion: nil)
         }
         
     }
@@ -289,13 +289,13 @@ class MyAlert {
         backgroundView.frame = targetView.bounds
         targetView.addSubview(backgroundView)
         targetView.addSubview(alertView)
-        alertView.frame = CGRect(x: 40, y: -300, width: targetView.frame.size.width - 80, height: 250)
+        alertView.frame = CGRect(x: 40, y: -300, width: targetView.frame.size.width - 80, height: 200)
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: alertView.frame.size.width, height: 80))
         titleLabel.text = title
         titleLabel.textAlignment = .center
         alertView.addSubview(titleLabel)
         
-        let messageLabel = UILabel(frame: CGRect(x: 0, y: 80, width: alertView.frame.size.width, height: 170))
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 20, width: alertView.frame.size.width - 5, height: 170))
         messageLabel.text = message
         messageLabel.textAlignment = .center
         messageLabel.numberOfLines = 0

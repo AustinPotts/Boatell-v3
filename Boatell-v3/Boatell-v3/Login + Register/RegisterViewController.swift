@@ -83,8 +83,31 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                 }
                 
             }
+        //MARK: When a new user is created, register them with Stripe
+        
+       // registerUserWithStripe()
+        
+        
         }
         
+    
+    
+//  func registerUserWithStripe(){
+//        exports.createStripeCustomer = functions.auth.user().onCreate(async (user) => {
+//          const customer = await stripe.customers.create({ email: user.email });
+//          const intent = await stripe.setupIntents.create({
+//            customer: customer.id,
+//          });
+//          await admin.firestore().collection('stripe_customers').doc(user.uid).set({
+//            customer_id: customer.id,
+//            setup_secret: intent.client_secret,
+//          });
+//          return;
+//        });
+//    }
+
+    
+    
         private func registerUserIntoDatabaseWithUID(uid: String, values: [String: AnyObject]) {
             // Successfully Registered Value
                  var ref: DatabaseReference!
