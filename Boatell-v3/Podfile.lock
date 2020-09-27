@@ -102,6 +102,7 @@ PODS:
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.10)
   - Protobuf (3.13.0)
+  - Stripe (20.0.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -110,6 +111,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - JTAppleCalendar
+  - Stripe
 
 SPEC REPOS:
   trunk:
@@ -132,6 +134,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - Protobuf
+    - Stripe
 
 SPEC CHECKSUMS:
   Firebase: 658370fa0181826a74b7cfca8d68c5856ca749ae
@@ -153,7 +156,8 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
+  Stripe: 339e8c50d3a27dcbe9a4f35b98c260fb9715d962
 
-PODFILE CHECKSUM: cbdca027da8203ad5f680adbe0708a2998f48c15
+PODFILE CHECKSUM: fd2c1ebaa0e68690a29f10e83e4336a28be8794f
 
 COCOAPODS: 1.9.0

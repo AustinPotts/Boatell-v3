@@ -13,5 +13,6 @@ target 'Boatell-v3' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Messaging'
+  pod 'Stripe'
 
 end

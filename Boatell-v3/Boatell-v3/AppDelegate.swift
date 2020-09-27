@@ -1,40 +1,61 @@
 //
 //  AppDelegate.swift
-//  Boatell-v3
+//  Basic Integration
 //
-//  Created by Austin Potts on 8/27/20.
-//  Copyright © 2020 Lambda School. All rights reserved.
+//  Created by Jack Flintermann on 1/15/15.
+//  Copyright (c) 2015 Stripe. All rights reserved.
 //
 
 import UIKit
+import Stripe
 import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        FirebaseApp.configure()
         
+        //Creating root view controller to be the Browse VC
+        let rootVC = BrowseProductsViewController()
+        let navigationController = UINavigationController(rootViewController: rootVC)
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = navigationController;
+        window.makeKeyAndVisible()
+        self.window = window
+        FirebaseApp.configure()
         return true
     }
 
-    // MARK: UISceneSession Lifecycle
+    // This method is where you handle URL opens if you are using a native scheme URLs (eg "yourexampleapp://")
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let stripeHandled = Stripe.handleURLCallback(with: url)
 
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+        if (stripeHandled) {
+            return true
+        } else {
+            // This was not a stripe url, do whatever url handling your app
+            // normally does, if any.
+        }
+
+        return false
     }
 
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    // This method is where you handle URL opens if you are using univeral link URLs (eg "https://example.com/stripe_ios_callback")
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
+            if let url = userActivity.webpageURL {
+                let stripeHandled = Stripe.handleURLCallback(with: url)
+
+                if (stripeHandled) {
+                    return true
+                } else {
+                    // This was not a stripe url, do whatever url handling your app
+                    // normally does, if any.
+                }
+            }
+            
+        }
+        return false
     }
-
-
 }
-
