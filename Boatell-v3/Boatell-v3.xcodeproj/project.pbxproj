@@ -15,6 +15,9 @@
 		450C3D8A252100A000096832 /* MyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C3D89252100A000096832 /* MyAPIClient.swift */; };
 		450C3D8C252100DA00096832 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C3D8B252100DA00096832 /* SettingsViewController.swift */; };
 		450C3D8E2521010C00096832 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C3D8D2521010C00096832 /* AppDelegate.swift */; };
+		450C3D912521040C00096832 /* EmojiCheckoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C3D8F2521040C00096832 /* EmojiCheckoutCell.swift */; };
+		450C3D922521040C00096832 /* EmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C3D902521040C00096832 /* EmojiCell.swift */; };
+		450C3D94252104FA00096832 /* PaymentContextFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C3D93252104FA00096832 /* PaymentContextFooterView.swift */; };
 		454C49A32509AAAD00A02076 /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49A22509AAAD00A02076 /* MessagesTableViewController.swift */; };
 		454C49A52509AD9500A02076 /* ChatLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49A42509AD9500A02076 /* ChatLogsViewController.swift */; };
 		454C49A72509B1FB00A02076 /* NewMessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49A62509B1FB00A02076 /* NewMessagesTableViewController.swift */; };
@@ -64,6 +67,9 @@
 		450C3D89252100A000096832 /* MyAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIClient.swift; sourceTree = "<group>"; };
 		450C3D8B252100DA00096832 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		450C3D8D2521010C00096832 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		450C3D8F2521040C00096832 /* EmojiCheckoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiCheckoutCell.swift; sourceTree = "<group>"; };
+		450C3D902521040C00096832 /* EmojiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiCell.swift; sourceTree = "<group>"; };
+		450C3D93252104FA00096832 /* PaymentContextFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentContextFooterView.swift; sourceTree = "<group>"; };
 		454C49A22509AAAD00A02076 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		454C49A42509AD9500A02076 /* ChatLogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogsViewController.swift; sourceTree = "<group>"; };
 		454C49A62509B1FB00A02076 /* NewMessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessagesTableViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +135,9 @@
 				450C3D812521008E00096832 /* CheckoutViewController.swift */,
 				450C3D89252100A000096832 /* MyAPIClient.swift */,
 				450C3D8B252100DA00096832 /* SettingsViewController.swift */,
+				450C3D902521040C00096832 /* EmojiCell.swift */,
+				450C3D8F2521040C00096832 /* EmojiCheckoutCell.swift */,
+				450C3D93252104FA00096832 /* PaymentContextFooterView.swift */,
 			);
 			path = Stripe;
 			sourceTree = "<group>";
@@ -430,10 +439,12 @@
 				45A1E44E2501CD9D003744B9 /* Confirm.swift in Sources */,
 				450C3D8C252100DA00096832 /* SettingsViewController.swift in Sources */,
 				4551855A2516DCA800888BC5 /* Message.swift in Sources */,
+				450C3D94252104FA00096832 /* PaymentContextFooterView.swift in Sources */,
 				454C49A32509AAAD00A02076 /* MessagesTableViewController.swift in Sources */,
 				45A1E42724F82E37003744B9 /* ViewController.swift in Sources */,
 				45A1E43D24FC1ACB003744B9 /* UserServicesViewController.swift in Sources */,
 				45A1E44824FD8356003744B9 /* DateHeader.swift in Sources */,
+				450C3D912521040C00096832 /* EmojiCheckoutCell.swift in Sources */,
 				454C49B0250FEE1900A02076 /* OwnerServiceHistoryViewController.swift in Sources */,
 				454C49AC250E94A600A02076 /* OwnerUpcomingServicesTableViewCell.swift in Sources */,
 				45A1E45D2504A531003744B9 /* UserServiceHistoryViewController.swift in Sources */,
@@ -453,6 +464,7 @@
 				45A1E45325049A0D003744B9 /* UserProfileViewController.swift in Sources */,
 				450C3D7F251EC7D300096832 /* UserServiceDetailViewController.swift in Sources */,
 				4551855625153B4C00888BC5 /* ServiceDetailPopUpViewController.swift in Sources */,
+				450C3D922521040C00096832 /* EmojiCell.swift in Sources */,
 				45A1E45625049C13003744B9 /* Extensions.swift in Sources */,
 				455185522513FFDE00888BC5 /* OwnerAppointmentHistoryDetailViewController.swift in Sources */,
 				45A1E42524F82E37003744B9 /* SceneDelegate.swift in Sources */,

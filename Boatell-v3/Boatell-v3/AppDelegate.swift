@@ -17,12 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         //Creating root view controller to be the Browse VC
-        let rootVC = BrowseProductsViewController()
-        let navigationController = UINavigationController(rootViewController: rootVC)
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = navigationController;
-        window.makeKeyAndVisible()
-        self.window = window
+//        let rootVC = BrowseProductsViewController()
+//        let navigationController = UINavigationController(rootViewController: rootVC)
+//        let window = UIWindow(frame: UIScreen.main.bounds)
+//        window.rootViewController = navigationController;
+//        window.makeKeyAndVisible()
+//        self.window = window
         FirebaseApp.configure()
         return true
     }
