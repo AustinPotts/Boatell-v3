@@ -660,7 +660,7 @@
                                     <constraint firstAttribute="width" secondItem="ZLe-tL-wOQ" secondAttribute="height" multiplier="164:63" id="M0J-TT-D6b"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
-                                <state key="normal" title="NEXT">
+                                <state key="normal" title="SCHEDULE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -1235,7 +1235,7 @@
             </objects>
             <point key="canvasLocation" x="1711.5942028985507" y="1557.5892857142856"/>
         </scene>
-        <!--New Messages Table View Controller-->
+        <!--Contacts-->
         <scene sceneID="RbA-Gp-g20">
             <objects>
                 <tableViewController modalPresentationStyle="fullScreen" id="YS9-Wd-3sC" customClass="NewMessagesTableViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
@@ -1277,7 +1277,7 @@
                             <outlet property="delegate" destination="YS9-Wd-3sC" id="Rsk-XU-GdL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="njg-2Q-rEh"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="njg-2Q-rEh"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUA-Xl-oAu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2170,7 +2170,7 @@
             </objects>
             <point key="canvasLocation" x="1205.7971014492755" y="-2360.4910714285711"/>
         </scene>
-        <!--Owner New Messages Table View Controller-->
+        <!--Contacts-->
         <scene sceneID="5tU-kM-qAy">
             <objects>
                 <tableViewController modalPresentationStyle="fullScreen" id="cTv-C9-tce" customClass="OwnerNewMessagesTableViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
@@ -2212,7 +2212,7 @@
                             <outlet property="delegate" destination="cTv-C9-tce" id="CUD-tT-ph9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="6vi-NT-bNS"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="6vi-NT-bNS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgg-tO-1Ek" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2538,9 +2538,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="vs1-nM-OLw"/>
         <segue reference="ucY-d9-ElJ"/>
         <segue reference="qA5-S4-8KW"/>
-        <segue reference="Sg9-Bv-gu8"/>
+        <segue reference="3NT-K1-ekO"/>
         <segue reference="3rb-88-5PJ"/>
     </inferredMetricsTieBreakers>
     <resources>
