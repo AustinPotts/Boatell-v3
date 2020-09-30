@@ -15,6 +15,9 @@ struct CustomData2 {
 }
 
 class OwnerEditServicesViewController: UIViewController {
+    
+    @IBOutlet var addServiceButton: UIButton!
+    
        
 
         let partController = PartController()
@@ -49,7 +52,9 @@ class OwnerEditServicesViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             
-            
+            addServiceButton.layer.cornerRadius = addServiceButton.frame.height / 2
+            addServiceButton.layer.masksToBounds = false
+            addServiceButton.clipsToBounds = true
 
             view.addSubview(collectionView)
                        collectionView.backgroundColor = .clear
@@ -63,8 +68,12 @@ class OwnerEditServicesViewController: UIViewController {
                        collectionView.dataSource = self //Methods wont run if these arent called
         }
         
+    
+    
         
-        
+    @IBAction func addServiceButtonTapped(_ sender: Any) {
+    }
+    
 
        
 
@@ -95,7 +104,7 @@ class OwnerEditServicesViewController: UIViewController {
             override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
              if segue.identifier == "ShowServiceDetailSegue" {
                 guard let indexPath = collectionView.indexPathsForSelectedItems?.first?.item,
-                let partSelectVC = segue.destination as? ServiceDetailPopUpViewController else{return}
+                let partSelectVC = segue.destination as? OwnerServiceDetailPopUpViewController else{return}
                 
                 let selectedPart = data[indexPath]
                 partSelectVC.part = selectedPart

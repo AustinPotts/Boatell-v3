@@ -123,6 +123,7 @@ class CustomCell: UICollectionViewCell {
         didSet{
             guard let data = data else {return}
             bg.image = data.image
+            labelViewText.text = data.name
         }
     }
     
@@ -137,6 +138,25 @@ class CustomCell: UICollectionViewCell {
         return iv
     }()
     
+    fileprivate let blackLabelView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        view.alpha = 0.6
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        return view
+    }()
+    
+    fileprivate let labelViewText: UILabel = {
+        let label = UILabel()
+        label.text = "Name"
+        label.textColor = UIColor.white
+        label.font.withSize(16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(bg)
@@ -144,6 +164,17 @@ class CustomCell: UICollectionViewCell {
         bg.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         bg.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        
+        bg.addSubview(blackLabelView)
+        blackLabelView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        blackLabelView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        blackLabelView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        blackLabelView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        blackLabelView.addSubview(labelViewText)
+        labelViewText.centerXAnchor.constraint(equalTo: blackLabelView.centerXAnchor).isActive = true
+        labelViewText.centerYAnchor.constraint(equalTo: blackLabelView.centerYAnchor).isActive = true
+
     }
     
     required init?(coder: NSCoder) {
