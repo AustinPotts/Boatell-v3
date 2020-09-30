@@ -45,7 +45,7 @@ class OwnerEditServicesViewController: UIViewController {
                      layout.scrollDirection = .vertical
                       let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
                       cv.translatesAutoresizingMaskIntoConstraints = false
-                      cv.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
+                      cv.register(CustomCell2.self, forCellWithReuseIdentifier: "cell")
                       return cv
                   }()
         
@@ -93,7 +93,7 @@ class OwnerEditServicesViewController: UIViewController {
           
             
             func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
+                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell2
                 
                     // Configure the cell
                    // let part = partController.part[indexPath.item]
@@ -131,6 +131,7 @@ class OwnerEditServicesViewController: UIViewController {
                 guard let data = data else {return}
                 bg.image = data.image
                 labelViewText.text = data.name
+                priceLabel.text = data.price
 
             }
         }
@@ -164,6 +165,24 @@ class OwnerEditServicesViewController: UIViewController {
 
                return label
            }()
+        
+        fileprivate let priceLabel: UILabel = {
+            let priceLabel = UILabel()
+            priceLabel.text = "$10.00"
+            priceLabel.font.withSize(7)
+            priceLabel.textColor = UIColor.darkText
+            priceLabel.translatesAutoresizingMaskIntoConstraints = false
+            return priceLabel
+        }()
+        
+        fileprivate let priceView: UIView = {
+           let priceView = UIView()
+            priceView.backgroundColor = .green
+            priceView.layer.cornerRadius = 5
+            priceView.alpha = 0.6
+            priceView.translatesAutoresizingMaskIntoConstraints = false
+            return priceView
+        }()
            
            override init(frame: CGRect) {
                super.init(frame: frame)
@@ -179,9 +198,25 @@ class OwnerEditServicesViewController: UIViewController {
                blackLabelView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
                blackLabelView.heightAnchor.constraint(equalToConstant: 40).isActive = true
                
-               blackLabelView.addSubview(labelViewText)
-               labelViewText.centerXAnchor.constraint(equalTo: blackLabelView.centerXAnchor).isActive = true
-               labelViewText.centerYAnchor.constraint(equalTo: blackLabelView.centerYAnchor).isActive = true
+            blackLabelView.addSubview(labelViewText)
+            labelViewText.centerYAnchor.constraint(equalTo: blackLabelView.centerYAnchor).isActive = true
+            labelViewText.centerXAnchor.constraint(equalTo: blackLabelView.centerXAnchor).isActive = true
+        
+            
+            bg.addSubview(priceView)
+            priceView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+            priceView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+           // priceView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -75).isActive = true
+            priceView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            priceView.widthAnchor.constraint(equalToConstant: 65).isActive = true
+            
+            priceView.addSubview(priceLabel)
+            priceLabel.leadingAnchor.constraint(equalTo: priceView.leadingAnchor, constant: 5).isActive = true
+            priceLabel.topAnchor.constraint(equalTo: priceView.topAnchor, constant: 5).isActive = true
+
+            
+            
+            
 
            }
         required init?(coder: NSCoder) {
