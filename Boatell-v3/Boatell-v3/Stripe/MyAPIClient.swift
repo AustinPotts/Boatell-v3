@@ -71,7 +71,7 @@ class MyAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)!
         
         urlComponents.queryItems = [URLQueryItem(name: "api_version", value: apiVersion)]
-        urlComponents.queryItems = [URLQueryItem(name: "customer_id", value: "cus_I6GoawcDOzuJM1")]
+       // urlComponents.queryItems = [URLQueryItem(name: "customer_id", value: "cus_I6GoawcDOzuJM1")]
         
         var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = "POST"

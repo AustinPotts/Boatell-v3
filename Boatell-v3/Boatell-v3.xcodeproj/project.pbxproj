@@ -18,6 +18,7 @@
 		450C3D912521040C00096832 /* EmojiCheckoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C3D8F2521040C00096832 /* EmojiCheckoutCell.swift */; };
 		450C3D922521040C00096832 /* EmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C3D902521040C00096832 /* EmojiCell.swift */; };
 		450C3D94252104FA00096832 /* PaymentContextFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C3D93252104FA00096832 /* PaymentContextFooterView.swift */; };
+		450C3D9625240C9500096832 /* OwnerEditServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450C3D9525240C9500096832 /* OwnerEditServicesViewController.swift */; };
 		454C49A32509AAAD00A02076 /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49A22509AAAD00A02076 /* MessagesTableViewController.swift */; };
 		454C49A52509AD9500A02076 /* ChatLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49A42509AD9500A02076 /* ChatLogsViewController.swift */; };
 		454C49A72509B1FB00A02076 /* NewMessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C49A62509B1FB00A02076 /* NewMessagesTableViewController.swift */; };
@@ -70,6 +71,7 @@
 		450C3D8F2521040C00096832 /* EmojiCheckoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiCheckoutCell.swift; sourceTree = "<group>"; };
 		450C3D902521040C00096832 /* EmojiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiCell.swift; sourceTree = "<group>"; };
 		450C3D93252104FA00096832 /* PaymentContextFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentContextFooterView.swift; sourceTree = "<group>"; };
+		450C3D9525240C9500096832 /* OwnerEditServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerEditServicesViewController.swift; sourceTree = "<group>"; };
 		454C49A22509AAAD00A02076 /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		454C49A42509AD9500A02076 /* ChatLogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogsViewController.swift; sourceTree = "<group>"; };
 		454C49A62509B1FB00A02076 /* NewMessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessagesTableViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				454C49AF250FEE1900A02076 /* OwnerServiceHistoryViewController.swift */,
 				4551854F2513EAFB00888BC5 /* OwnerUpcommingAppointmentWorkOrderViewController.swift */,
 				455185512513FFDE00888BC5 /* OwnerAppointmentHistoryDetailViewController.swift */,
+				450C3D9525240C9500096832 /* OwnerEditServicesViewController.swift */,
 			);
 			path = "Owner Profile";
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				45A1E4502502CB23003744B9 /* User.swift in Sources */,
 				45A1E44324FC1BC0003744B9 /* PartController.swift in Sources */,
 				450C3D8E2521010C00096832 /* AppDelegate.swift in Sources */,
+				450C3D9625240C9500096832 /* OwnerEditServicesViewController.swift in Sources */,
 				45A1E44A24FD85D9003744B9 /* DateCell.swift in Sources */,
 				450C3D872521008F00096832 /* CheckoutRowView.swift in Sources */,
 				45A1E44E2501CD9D003744B9 /* Confirm.swift in Sources */,

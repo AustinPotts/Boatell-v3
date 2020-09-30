@@ -1664,7 +1664,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4F-9v-ILP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1205.7971014492755" y="-1603.125"/>
+            <point key="canvasLocation" x="1206" y="-2259"/>
         </scene>
         <!--Owner Upcomming Appointment Work Order View Controller-->
         <scene sceneID="fw7-Pu-NKv">
@@ -1813,7 +1813,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Fb-zj-okb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2116" y="-1603"/>
+            <point key="canvasLocation" x="2116" y="-2259"/>
         </scene>
         <!--Profile-->
         <scene sceneID="RdM-nT-p5S">
@@ -1865,9 +1865,12 @@
                                     <constraint firstAttribute="width" secondItem="Dl3-u0-Kzx" secondAttribute="height" multiplier="139:36" id="Jef-tU-AeW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="Part Inventory">
+                                <state key="normal" title="Edit Services">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="W62-Rx-OtL" kind="show" id="J1I-vn-VJf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BfV-Ve-4qD">
                                 <rect key="frame" x="68" y="630" width="278" height="72"/>
@@ -1920,7 +1923,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvf-cg-46P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2115.9420289855075" y="-829.01785714285711"/>
+            <point key="canvasLocation" x="2116" y="-1554"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dwh-BE-Ce5">
@@ -1944,6 +1947,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I8t-bP-RUp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1205.7971014492755" y="-829.01785714285711"/>
+        </scene>
+        <!--Owner Edit Services View Controller-->
+        <scene sceneID="aRz-Q9-2fW">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="W62-Rx-OtL" customClass="OwnerEditServicesViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K5A-27-B5h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BoatelllV2" translatesAutoresizingMaskIntoConstraints="NO" id="P48-J3-Bkx">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="P48-J3-Bkx" firstAttribute="leading" secondItem="3Az-Sw-9RG" secondAttribute="leading" id="3hE-TN-xdJ"/>
+                            <constraint firstItem="P48-J3-Bkx" firstAttribute="trailing" secondItem="3Az-Sw-9RG" secondAttribute="trailing" id="5V3-0E-Jnc"/>
+                            <constraint firstAttribute="bottom" secondItem="P48-J3-Bkx" secondAttribute="bottom" id="JU5-6g-zt6"/>
+                            <constraint firstItem="P48-J3-Bkx" firstAttribute="top" secondItem="K5A-27-B5h" secondAttribute="top" id="x9D-PR-0UZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3Az-Sw-9RG"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="m9F-4z-Bxt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xTD-eE-VpX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2967" y="-843"/>
         </scene>
         <!--Owner Service History View Controller-->
         <scene sceneID="8kR-yh-s9B">
@@ -2088,7 +2118,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wNl-c9-DZ2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="fXB-o6-qzv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2968" y="-829"/>
+            <point key="canvasLocation" x="2967" y="-1554"/>
         </scene>
         <!--Messages-->
         <scene sceneID="4Q5-tR-eEB">
@@ -2149,7 +2179,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfQ-It-gA6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2115.9420289855075" y="-2360.4910714285711"/>
+            <point key="canvasLocation" x="2116" y="-2955"/>
         </scene>
         <!--MEssages-->
         <scene sceneID="WkD-R6-Oht">
@@ -2168,7 +2198,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvg-tn-Zw4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1205.7971014492755" y="-2360.4910714285711"/>
+            <point key="canvasLocation" x="1206" y="-2955"/>
         </scene>
         <!--Contacts-->
         <scene sceneID="5tU-kM-qAy">
@@ -2216,7 +2246,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgg-tO-1Ek" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3077" y="-2360"/>
+            <point key="canvasLocation" x="3077" y="-2955"/>
         </scene>
         <!--Owner Chat Logs View Controller-->
         <scene sceneID="28c-so-dsA">
@@ -2296,7 +2326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mE6-xg-rsf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3076.811594202899" y="-1637.2767857142856"/>
+            <point key="canvasLocation" x="3077" y="-2259"/>
         </scene>
         <!--Owner Appointment History Detail View Controller-->
         <scene sceneID="ezm-Yg-jSs">
@@ -2432,7 +2462,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNp-YH-6Pp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3953.6231884057975" y="-829.01785714285711"/>
+            <point key="canvasLocation" x="3954" y="-1554"/>
         </scene>
         <!--User Service Detail View Controller-->
         <scene sceneID="Ptv-os-zjY">
@@ -2538,7 +2568,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vs1-nM-OLw"/>
         <segue reference="ucY-d9-ElJ"/>
         <segue reference="qA5-S4-8KW"/>
         <segue reference="3NT-K1-ekO"/>
