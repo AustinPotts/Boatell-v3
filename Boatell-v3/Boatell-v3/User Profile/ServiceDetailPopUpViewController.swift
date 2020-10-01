@@ -16,7 +16,7 @@ class ServiceDetailPopUpViewController: UIViewController {
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var serviceImage: UIImageView!
     
-    var part: Part!
+    var part: FirebaseServices!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +27,9 @@ class ServiceDetailPopUpViewController: UIViewController {
 
     func updateViews(){
         
-        self.serviceName.text = part.name
-        self.servicePrice.text = part.price
-        self.serviceImage.image = part.image
+        self.serviceName.text = part.serviceName
+        self.servicePrice.text = part.servicePrice
+        self.serviceImage.loadImageUsingCacheWithUrlString(urlString: part.serviceImage!)
         nextButton.layer.cornerRadius = 30
         serviceImage.layer.cornerRadius = 40
         
@@ -52,8 +52,9 @@ class ServiceDetailPopUpViewController: UIViewController {
         if segue.identifier == "ViewCalendarSegue" {
                  guard let partSelectVC = segue.destination as? UserCalendarViewController else{return}
 
-            let selectedPart = self.part
-                 partSelectVC.part = selectedPart
+            //This needs to be FirebaseServices
+//            let selectedPart = self.part
+//                 partSelectVC.part = selectedPart
 
              }
     }
