@@ -25,6 +25,7 @@ class OwnerAddNewServiceViewController: UIViewController,  UIImagePickerControll
         updateViews()
     }
     
+     let customALert = MyAlert()
     
     
     func updateViews() {
@@ -113,6 +114,10 @@ class OwnerAddNewServiceViewController: UIViewController,  UIImagePickerControll
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         addServiceToOwner()
+        customALert.showAlertWithTitle("This service had been added", "Your clients will also see this new added service.", self)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
 
