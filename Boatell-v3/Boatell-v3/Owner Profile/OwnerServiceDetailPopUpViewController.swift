@@ -18,6 +18,7 @@ class OwnerServiceDetailPopUpViewController: UIViewController {
     
         
         var part: Part!
+       var service: FirebaseServices!
 
         override func viewDidLoad() {
             super.viewDidLoad()

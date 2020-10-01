@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 struct CustomData2 {
     var title: String
@@ -22,23 +23,8 @@ class OwnerEditServicesViewController: UIViewController {
 
         let partController = PartController()
         
-        //MARK: -  This Mock Data needs to be Data pulled from the Database of the specific Owners Services
-        //MARK: - The Data pulled from the Owners available Services in the Database, will be passed into the Part object
-        let data = [
-            Part(name: "Fluxer Control", price: "$19.99", imageName: "Cut", partNumber: "Fluxer Control made of stainless steel, this part will help reduce rust on cords."),
-            Part(name: "Floater Control", price: "$30.99", imageName: "Engine", partNumber: "A Floater Control not only helps your boat maintain boyance, but also speed handling"),
-            Part(name: "Bellbop Hinge", price: "$23.50", imageName: "Gadget", partNumber: "This part will help keep the oil heated to flow more easily through the shaft."),
-            Part(name: "Fluxer Control", price: "$19.99", imageName: "Cut", partNumber: "Fluxer Control made of stainless steel, this part will help reduce rust on cords."),
-            Part(name: "Floater Control", price: "$30.99", imageName: "Lights", partNumber: "A Floater Control not only helps your boat maintain boyance, but also speed handling"),
-            Part(name: "Bellbop Hinge", price: "$23.50", imageName: "Cut", partNumber: "This part will help keep the oil heated to flow more easily through the shaft."),
-            Part(name: "Fluxer Control", price: "$19.99", imageName: "Cut", partNumber: "Fluxer Control made of stainless steel, this part will help reduce rust on cords."),
-            Part(name: "Floater Control", price: "$30.99", imageName: "Engine", partNumber: "A Floater Control not only helps your boat maintain boyance, but also speed handling"),
-            Part(name: "Bellbop Hinge", price: "$23.50", imageName: "Gadget", partNumber: "This part will help keep the oil heated to flow more easily through the shaft."),
-            Part(name: "Fluxer Control", price: "$19.99", imageName: "Cut", partNumber: "Fluxer Control made of stainless steel, this part will help reduce rust on cords."),
-            Part(name: "Floater Control", price: "$30.99", imageName: "Lights", partNumber: "A Floater Control not only helps your boat maintain boyance, but also speed handling"),
-            Part(name: "Bellbop Hinge", price: "$23.50", imageName: "Cut", partNumber: "This part will help keep the oil heated to flow more easily through the shaft.")
-                     
-                         ]
+       var services = [FirebaseServices]()
+    
         
         fileprivate let collectionView: UICollectionView = {
                       let layout = UICollectionViewFlowLayout()
@@ -48,9 +34,39 @@ class OwnerEditServicesViewController: UIViewController {
                       cv.register(CustomCell2.self, forCellWithReuseIdentifier: "cell")
                       return cv
                   }()
+    
+    
+    
+       // Fetch Owner Services
+       
+    func fetchServices() {
+        Database.database().reference().child("owner").child("owner").child("services").observe(.childAdded, with: { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    let service = FirebaseServices()
+                    
+                    //App will crash if Class properties don't exactly match up with the Firebase Dictionary Keys
+                    service.setValuesForKeys(dictionary)
+                    self.services.append(service)
+                   // print(user.name!, user.email!)
+                    
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                    
+                }
+                
+                
+    //            print(snapshot)
+                
+            }, withCancel: nil)
+        }
+    
         
         override func viewDidLoad() {
             super.viewDidLoad()
+            
+            fetchServices()
             
             addServiceButton.layer.cornerRadius = addServiceButton.frame.height / 2
             addServiceButton.layer.masksToBounds = false
@@ -87,7 +103,7 @@ class OwnerEditServicesViewController: UIViewController {
            
          
            func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return data.count
+            return services.count
            }
             
           
@@ -97,7 +113,7 @@ class OwnerEditServicesViewController: UIViewController {
                 
                     // Configure the cell
                    // let part = partController.part[indexPath.item]
-             cell.data = self.data[indexPath.row]
+             cell.data = self.services[indexPath.row]
                     return cell
             }
             
@@ -106,8 +122,8 @@ class OwnerEditServicesViewController: UIViewController {
                 guard let indexPath = collectionView.indexPathsForSelectedItems?.first?.item,
                 let partSelectVC = segue.destination as? OwnerServiceDetailPopUpViewController else{return}
                 
-                let selectedPart = data[indexPath]
-                partSelectVC.part = selectedPart
+                let selectedPart = services[indexPath]
+                partSelectVC.service = selectedPart
                 
                 }
 
@@ -126,12 +142,13 @@ class OwnerEditServicesViewController: UIViewController {
 
     class CustomCell2: UICollectionViewCell {
         
-        var data: Part? {
+        var data: FirebaseServices? {
             didSet{
                 guard let data = data else {return}
-                bg.image = data.image
-                labelViewText.text = data.name
-                priceLabel.text = data.price
+              //  bg.image = data.serviceImage
+                self.bg.loadImageViewUsingCacheWithUrlString(urlString: data.serviceImage!)
+                labelViewText.text = data.serviceName
+                priceLabel.text = data.servicePrice
 
             }
         }
