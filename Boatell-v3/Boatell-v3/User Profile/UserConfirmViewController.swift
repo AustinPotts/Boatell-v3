@@ -32,7 +32,7 @@ class UserConfirmViewController: UIViewController {
     
     //MARK: - Create Confirm Object to Hold Part Data + Service Date Data being passed via the segues
     let confirm = Confirm()
-    var part: Part!
+    var part: FirebaseServices!
     var serviceDate = Date()
     let customALert = MyAlert()
     let ownerConfirmed = [Owner().confirmed]
@@ -45,12 +45,12 @@ class UserConfirmViewController: UIViewController {
     func setUp(){
        
         confirm.partData = part
-        print(confirm.partData.name)
+        print(confirm.partData.serviceName)
         confirm.serviceDateData = serviceDate
-        print("Confirm Date \(confirm.serviceDateData)")
-        partLabel.text = "\(confirm.partData.name)"
-        servicePrice.text = confirm.partData.price
-        serviceImage.image = confirm.partData.image
+        print("Confirm Date \(confirm.serviceDateData!)")
+        partLabel.text = "\(confirm.partData.serviceName!)"
+        servicePrice.text = confirm.partData.servicePrice
+        serviceImage.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
         
         
        
@@ -82,6 +82,7 @@ class UserConfirmViewController: UIViewController {
         
         //I would need to create a new handleSend() function inside this class
         handleSend()
+        animateConfirm()
         
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
@@ -89,6 +90,21 @@ class UserConfirmViewController: UIViewController {
         }
         
     }
+    
+    //MARK: - Set Up Animation
+          func animateConfirm() {
+              UIView.animate(withDuration: 0.2, animations: {               //45 degree rotation. USE RADIANS
+                  self.confirmButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 0.1).concatenating(CGAffineTransform(scaleX: 0.8, y: 0.8))
+                      
+                  }) { (_) in //Is finished
+                      
+                      
+                      UIView.animate(withDuration: 0.01, animations: {
+                          self.confirmButton.transform = .identity
+                      })
+                                      
+                  }
+          }
     
      func handleSend() {
                
@@ -108,7 +124,7 @@ class UserConfirmViewController: UIViewController {
         let confirmDate = dateFormatterGet.string(from: self.serviceDate)
         
                
-        let values = ["text": "Hello \(self.user.name!), I just got your service \(confirm.partData.name) request for \(confirmDate)", "toID" : toID, "fromID" : fromID, "timeStamp" : timeStamp]
+        let values = ["text": "Hello \(self.user.name!), I just got your service \(confirm.partData.serviceName!) request for \(confirmDate)", "toID" : toID, "fromID" : fromID, "timeStamp" : timeStamp]
               // childRef.updateChildValues(values)
                
                let userMessagesRef = Database.database().reference().child("user-messages").child(fromID)
@@ -178,8 +194,8 @@ class UserConfirmViewController: UIViewController {
                     dateFormatterGet.dateFormat = "yyyy-MM-dd"
                     let confirm = dateFormatterGet.string(from: self.serviceDate)
                     
-                    let confirmService = self.confirm.partData.name
-                    let confirmPrice = self.confirm.partData.price
+                    let confirmService = self.confirm.partData.serviceName
+                    let confirmPrice = self.confirm.partData.servicePrice
                     //MARK: - Add Users Name to Confirm Model
                     let userName = user.name
                     //MARK: - Add Confirm Complete Toggle to Confirm Model

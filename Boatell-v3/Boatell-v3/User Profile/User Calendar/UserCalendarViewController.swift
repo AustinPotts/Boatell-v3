@@ -24,7 +24,7 @@ class UserCalendarViewController: UIViewController {
     }
     
     //MARK: - Recieve Part Data
-    var part: Part!
+    var part: FirebaseServices!
     var serviceDate = Date()
     
     func setUpSubViews() {
@@ -42,6 +42,21 @@ class UserCalendarViewController: UIViewController {
         calendarView.scrollingMode = .stopAtEachCalendarFrame
         calendarView.showsHorizontalScrollIndicator = false
     }
+    
+    //MARK: - Set Up Animation
+          func animateNext() {
+              UIView.animate(withDuration: 0.2, animations: {               //45 degree rotation. USE RADIANS
+                  self.nextButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 0.1).concatenating(CGAffineTransform(scaleX: 0.8, y: 0.8))
+                      
+                  }) { (_) in //Is finished
+                      
+                      
+                      UIView.animate(withDuration: 0.01, animations: {
+                          self.nextButton.transform = .identity
+                      })
+                                      
+                  }
+          }
     
     //MARK: - Formatters
     let jtCalCompareFormatter: DateFormatter = {
@@ -69,6 +84,11 @@ class UserCalendarViewController: UIViewController {
         formatter.timeStyle = .short
         return formatter
     }()
+    
+    
+    @IBAction func nextbuttonTapped(_ sender: Any) {
+        animateNext()
+    }
     
     
     //MARK: - Recieve the Part then Pass Both the Part Data & The Service Date Data Here In the Segue to Confirm

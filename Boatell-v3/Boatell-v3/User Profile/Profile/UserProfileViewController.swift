@@ -62,6 +62,55 @@ class UserProfileViewController: UIViewController {
         scheduleServiceButton.layer.cornerRadius = 30
     }
     
+    
+    @IBAction func serviceHistoryTapped(_ sender: Any) { //MARK: - Set Up Login Animation
+            
+        UIView.animate(withDuration: 0.2, animations: {               //45 degree rotation. USE RADIANS
+            self.serviceHistoryButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 0.1).concatenating(CGAffineTransform(scaleX: 0.8, y: 0.8))
+            
+        }) { (_) in //Is finished
+            
+            
+            UIView.animate(withDuration: 0.01, animations: {
+                self.serviceHistoryButton.transform = .identity
+            })
+            
+        }
+             
+    }
+    
+    @IBAction func yourBoatsTapped(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.2, animations: {               //45 degree rotation. USE RADIANS
+            self.yourBoatsButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 0.1).concatenating(CGAffineTransform(scaleX: 0.8, y: 0.8))
+            
+        }) { (_) in //Is finished
+            
+            
+            UIView.animate(withDuration: 0.01, animations: {
+                self.yourBoatsButton.transform = .identity
+            })
+            
+        }
+    }
+    
+    @IBAction func scheduleServiceTapped(_ sender: Any) {
+        UIView.animate(withDuration: 0.2, animations: {               //45 degree rotation. USE RADIANS
+        self.scheduleServiceButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 0.1).concatenating(CGAffineTransform(scaleX: 0.8, y: 0.8))
+            
+        }) { (_) in //Is finished
+            
+            
+            UIView.animate(withDuration: 0.01, animations: {
+                self.scheduleServiceButton.transform = .identity
+            })
+                            
+        }
+    }
+    
+    
+    
+    
     @IBAction func unwindToProfile( _ seg: UIStoryboardSegue) {
            
        }

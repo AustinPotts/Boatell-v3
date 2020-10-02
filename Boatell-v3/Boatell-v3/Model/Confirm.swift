@@ -10,7 +10,7 @@ import Foundation
 
 class Confirm: NSObject {
     
-    var partData: Part!
+    var partData: FirebaseServices!
     var serviceDateData: Date?
     
     

@@ -30,10 +30,15 @@ class ServiceTableViewCell: UITableViewCell {
     //MARK: - Update Views Once Property Is Observed
       func updateViews(){
         
-        serviceName.text = confirmed?.confirmService
-        servicePrice.text = confirmed?.confirmPrice
-        serviceDate.text = confirmed?.confirmDate
-        userName.text = confirmed?.userName
+       
+        if let serviceNameUnwrap = confirmed?.confirmService! {
+            serviceName.text = serviceNameUnwrap
+        }
+        
+        
+        servicePrice.text = confirmed!.confirmPrice
+        serviceDate.text = confirmed!.confirmDate
+        userName.text = confirmed!.userName
         
         
         servicePriceView.layer.cornerRadius = 15

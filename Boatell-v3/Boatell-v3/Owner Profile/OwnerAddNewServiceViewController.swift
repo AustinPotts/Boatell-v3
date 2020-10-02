@@ -33,7 +33,23 @@ class OwnerAddNewServiceViewController: UIViewController,  UIImagePickerControll
         saveButton.layer.cornerRadius = 30
         serviceDetailsTextView.layer.cornerRadius = 20
     }
+    
+    //MARK: - Set Up Login Animation
+         func animateSave() {
+             UIView.animate(withDuration: 0.2, animations: {               //45 degree rotation. USE RADIANS
+                 self.saveButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 0.1).concatenating(CGAffineTransform(scaleX: 0.8, y: 0.8))
+                     
+                 }) { (_) in //Is finished
+                     
+                     
+                     UIView.animate(withDuration: 0.01, animations: {
+                         self.saveButton.transform = .identity
+                     })
+                                     
+                 }
+         }
 
+    
     
     // Once Save Button is tapped, the function "addServiceToOwner" should be called
     // addServiceToOwner will add the input values (Name,Price,Details,Image) to a new Node under the owner
@@ -114,6 +130,7 @@ class OwnerAddNewServiceViewController: UIViewController,  UIImagePickerControll
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         addServiceToOwner()
+        animateSave()
         customALert.showAlertWithTitle("This service had been added", "Your clients will also see this new added service.", self)
         DispatchQueue.main.asyncAfter(deadline: .now() + 5){
             self.dismiss(animated: true, completion: nil)

@@ -30,7 +30,7 @@ class UserServicesViewController: UIViewController {
                  layout.scrollDirection = .vertical
                   let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
                   cv.translatesAutoresizingMaskIntoConstraints = false
-                  cv.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
+                  cv.register(CustomCell2.self, forCellWithReuseIdentifier: "cell")
                   return cv
               }()
     
@@ -100,7 +100,7 @@ extension UserServicesViewController: UICollectionViewDelegateFlowLayout, UIColl
       
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
+             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell2
             
                 // Configure the cell
                // let part = partController.part[indexPath.item]

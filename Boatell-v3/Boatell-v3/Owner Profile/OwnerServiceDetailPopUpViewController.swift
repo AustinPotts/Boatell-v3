@@ -16,9 +16,9 @@ class OwnerServiceDetailPopUpViewController: UIViewController {
     @IBOutlet var serviceImage: UIImageView!
     @IBOutlet var editButton: UIButton!
     
-        
-        var part: Part!
-       var service: FirebaseServices!
+    @IBOutlet var serviceDetailsTextView: UITextView!
+    
+        var part: FirebaseServices!
 
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -26,13 +26,18 @@ class OwnerServiceDetailPopUpViewController: UIViewController {
             nextButton.isHidden = true
 
         }
+    
+    
         
 
         func updateViews(){
             
-            self.serviceName.text = part.name
-            self.servicePrice.text = part.price
-            self.serviceImage.image = part.image
+            self.serviceName.text = part.serviceName
+            self.servicePrice.text = part.servicePrice
+            self.serviceDetailsTextView.text = part.serviceDetails
+            self.serviceImage.loadImageUsingCacheWithUrlString(urlString: part.serviceImage!)
+            
+            serviceDetailsTextView.layer.cornerRadius = 5
             nextButton.layer.cornerRadius = 30
             serviceImage.layer.cornerRadius = 40
             
@@ -41,6 +46,21 @@ class OwnerServiceDetailPopUpViewController: UIViewController {
             editButton.clipsToBounds = true
             
         }
+    
+    //MARK: - Set Up Login Animation
+         func animateEdit() {
+             UIView.animate(withDuration: 0.2, animations: {               //45 degree rotation. USE RADIANS
+                 self.editButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 0.1).concatenating(CGAffineTransform(scaleX: 0.8, y: 0.8))
+                     
+                 }) { (_) in //Is finished
+                     
+                     
+                     UIView.animate(withDuration: 0.01, animations: {
+                         self.editButton.transform = .identity
+                     })
+                                     
+                 }
+         }
        
         
         @IBAction func confirmButtonTapped(_ sender: Any) {
@@ -52,21 +72,22 @@ class OwnerServiceDetailPopUpViewController: UIViewController {
         
     @IBAction func editButtonTapped(_ sender: Any) {
         nextButton.isHidden = false
+        animateEdit()
     }
     
         
         // MARK: - Navigation
 
         // In a storyboard-based application, you will often want to do a little preparation before navigation
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "ViewCalendarSegue" {
-                     guard let partSelectVC = segue.destination as? UserCalendarViewController else{return}
-
-                let selectedPart = self.part
-                     partSelectVC.part = selectedPart
-
-                 }
-        }
+//        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            if segue.identifier == "ViewCalendarSegue" {
+//                     guard let partSelectVC = segue.destination as? UserCalendarViewController else{return}
+//
+//                let selectedPart = self.part
+//                     partSelectVC.part = selectedPart
+//
+//                 }
+//        }
         
 
     }

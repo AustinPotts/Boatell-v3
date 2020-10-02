@@ -85,9 +85,23 @@ class OwnerEditServicesViewController: UIViewController {
         }
         
     
-    
+    //MARK: - Set Up Login Animation
+         func animateAdd() {
+             UIView.animate(withDuration: 0.2, animations: {               //45 degree rotation. USE RADIANS
+                 self.addServiceButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 0.1).concatenating(CGAffineTransform(scaleX: 0.8, y: 0.8))
+                     
+                 }) { (_) in //Is finished
+                     
+                     
+                     UIView.animate(withDuration: 0.01, animations: {
+                         self.addServiceButton.transform = .identity
+                     })
+                                     
+                 }
+         }
         
     @IBAction func addServiceButtonTapped(_ sender: Any) {
+        animateAdd()
     }
     
 
@@ -123,7 +137,7 @@ class OwnerEditServicesViewController: UIViewController {
                 let partSelectVC = segue.destination as? OwnerServiceDetailPopUpViewController else{return}
                 
                 let selectedPart = services[indexPath]
-                partSelectVC.service = selectedPart
+                partSelectVC.part = selectedPart
                 
                 }
 

@@ -134,12 +134,7 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          
             
-            if segue.identifier == "userCalendarSegue" {
-                if let detailVC = segue.destination as? UserConfirmViewController {
-                    detailVC.part = part
-                    detailVC.serviceDate = serviceDate
-                }
-            } else if segue.identifier == "CellSegue" {
+           if segue.identifier == "CellSegue" {
                 guard let indexPath = upcomingServices.indexPathForSelectedRow,
                     let detailVC = segue.destination as? OwnerUpcommingAppointmentWorkOrderViewController else {return}
                 

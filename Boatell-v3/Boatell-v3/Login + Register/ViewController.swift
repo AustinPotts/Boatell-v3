@@ -105,7 +105,7 @@ class ViewController: UIViewController {
        
     }
     
-    var userBool: Bool = false
+    var userBool: Bool = true
     var ownerBool: Bool = false
     
     @IBAction func indexChanged(_ sender: Any) {
@@ -113,8 +113,10 @@ class ViewController: UIViewController {
         {
         case 0:
             userBool = true
+            ownerBool = false
         case 1:
             ownerBool = true
+            userBool = false
         default:
             break
         }

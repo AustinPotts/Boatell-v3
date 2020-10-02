@@ -15,6 +15,7 @@ class ServiceDetailPopUpViewController: UIViewController {
     
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var serviceImage: UIImageView!
+    @IBOutlet var serviceDetailsTextView: UITextView!
     
     var part: FirebaseServices!
 
@@ -29,6 +30,7 @@ class ServiceDetailPopUpViewController: UIViewController {
         
         self.serviceName.text = part.serviceName
         self.servicePrice.text = part.servicePrice
+        self.serviceDetailsTextView.text = part.serviceDetails
         self.serviceImage.loadImageUsingCacheWithUrlString(urlString: part.serviceImage!)
         nextButton.layer.cornerRadius = 30
         serviceImage.layer.cornerRadius = 40
@@ -37,11 +39,25 @@ class ServiceDetailPopUpViewController: UIViewController {
    
     
     @IBAction func confirmButtonTapped(_ sender: Any) {
+        animateNext()
        self.performSegue(withIdentifier: "ViewCalendarSegue", sender: nil)
         
     }
     
-    
+    //MARK: - Set Up Animation
+       func animateNext() {
+           UIView.animate(withDuration: 0.2, animations: {               //45 degree rotation. USE RADIANS
+               self.nextButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 0.1).concatenating(CGAffineTransform(scaleX: 0.8, y: 0.8))
+                   
+               }) { (_) in //Is finished
+                   
+                   
+                   UIView.animate(withDuration: 0.01, animations: {
+                       self.nextButton.transform = .identity
+                   })
+                                   
+               }
+       }
     
     
     
@@ -52,9 +68,9 @@ class ServiceDetailPopUpViewController: UIViewController {
         if segue.identifier == "ViewCalendarSegue" {
                  guard let partSelectVC = segue.destination as? UserCalendarViewController else{return}
 
-            //This needs to be FirebaseServices
-//            let selectedPart = self.part
-//                 partSelectVC.part = selectedPart
+          
+            let selectedPart = self.part
+                 partSelectVC.part = selectedPart
 
              }
     }

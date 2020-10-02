@@ -431,6 +431,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="serviceHistoryTapped:" destination="ZBo-gd-aPC" eventType="touchUpInside" id="bBN-NQ-7wq"/>
                                     <segue destination="Q9a-ZF-zz9" kind="show" id="F5x-eO-sLJ"/>
                                 </connections>
                             </button>
@@ -444,6 +445,9 @@
                                 <state key="normal" title="Your Boat(s)">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="yourBoatsTapped:" destination="ZBo-gd-aPC" eventType="touchUpInside" id="y0c-0C-gnM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fm8-fA-cPz">
                                 <rect key="frame" x="68" y="630" width="278" height="72"/>
@@ -455,6 +459,9 @@
                                 <state key="normal" title="Schedule Service">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="scheduleServiceTapped:" destination="ZBo-gd-aPC" eventType="touchUpInside" id="PdD-EL-qMB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -680,8 +687,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUg-ix-58d">
-                                <rect key="frame" x="20" y="265" width="154" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="20" y="265" width="148" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -697,6 +704,15 @@
                                 <color key="textColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="E2a-o4-lwf">
+                                <rect key="frame" x="20" y="294" width="374" height="93"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="E2a-o4-lwf" secondAttribute="height" multiplier="374:93" id="NBN-fe-zId"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.26379517479999998" green="0.39073671859999998" blue="0.46701309279999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -709,11 +725,15 @@
                             <constraint firstItem="wMf-gG-zDZ" firstAttribute="leading" secondItem="0dO-do-NTq" secondAttribute="leading" constant="20" id="6sY-5k-9TL"/>
                             <constraint firstItem="Rml-iu-HAp" firstAttribute="top" secondItem="0dO-do-NTq" secondAttribute="top" constant="80" id="8Gg-mC-na9"/>
                             <constraint firstItem="bUh-Ac-DiB" firstAttribute="top" secondItem="Rml-iu-HAp" secondAttribute="bottom" constant="18" id="8yv-kK-Rb2"/>
+                            <constraint firstItem="E2a-o4-lwf" firstAttribute="leading" secondItem="0dO-do-NTq" secondAttribute="leading" constant="20" id="BYG-tJ-bRc"/>
                             <constraint firstItem="VJ8-65-1dU" firstAttribute="top" secondItem="qUg-ix-58d" secondAttribute="bottom" constant="131" id="BbX-P7-93Q"/>
                             <constraint firstItem="ZLe-tL-wOQ" firstAttribute="leading" secondItem="0dO-do-NTq" secondAttribute="leading" constant="125" id="G3t-S0-SGE"/>
+                            <constraint firstItem="E2a-o4-lwf" firstAttribute="top" secondItem="qUg-ix-58d" secondAttribute="bottom" constant="8" id="TOp-WC-TWi"/>
                             <constraint firstItem="0dO-do-NTq" firstAttribute="trailing" secondItem="wMf-gG-zDZ" secondAttribute="trailing" constant="20" id="Vhu-W5-qAb"/>
                             <constraint firstItem="qUg-ix-58d" firstAttribute="top" secondItem="bUh-Ac-DiB" secondAttribute="bottom" constant="95" id="Yhj-Ut-sy8"/>
                             <constraint firstItem="ZLe-tL-wOQ" firstAttribute="width" secondItem="ZLe-tL-wOQ" secondAttribute="height" multiplier="164:63" id="at4-dt-tbx"/>
+                            <constraint firstItem="E2a-o4-lwf" firstAttribute="width" secondItem="E2a-o4-lwf" secondAttribute="height" multiplier="374:93" id="cRq-Vk-Mdt"/>
+                            <constraint firstItem="0dO-do-NTq" firstAttribute="trailing" secondItem="E2a-o4-lwf" secondAttribute="trailing" constant="20" id="ckv-r8-c65"/>
                             <constraint firstItem="ZLe-tL-wOQ" firstAttribute="width" secondItem="ZLe-tL-wOQ" secondAttribute="height" multiplier="164:63" id="d0f-lx-k6m"/>
                             <constraint firstItem="Rml-iu-HAp" firstAttribute="leading" secondItem="0dO-do-NTq" secondAttribute="leading" constant="20" id="dL5-iR-fNh"/>
                             <constraint firstItem="0dO-do-NTq" firstAttribute="trailing" secondItem="VJ8-65-1dU" secondAttribute="trailing" constant="87" id="e8w-df-6mB"/>
@@ -722,6 +742,7 @@
                     </view>
                     <connections>
                         <outlet property="nextButton" destination="ZLe-tL-wOQ" id="B5G-Ga-Che"/>
+                        <outlet property="serviceDetailsTextView" destination="E2a-o4-lwf" id="aYC-jB-Kub"/>
                         <outlet property="serviceImage" destination="VJ8-65-1dU" id="rdf-O1-8lL"/>
                         <outlet property="serviceName" destination="Rml-iu-HAp" id="c6E-46-dGz"/>
                         <outlet property="servicePrice" destination="bUh-Ac-DiB" id="mmA-lJ-xYE"/>
@@ -761,6 +782,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kph-FW-TqG"/>
+                                    <action selector="nextbuttonTapped:" destination="p3B-Tr-aI7" eventType="touchUpInside" id="TF6-P7-vhK"/>
                                     <segue destination="z9b-YW-Wvm" kind="show" identifier="userCalendarSegue" id="vs1-nM-OLw"/>
                                 </connections>
                             </button>
@@ -1855,6 +1877,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="appointmentHistoryTapped:" destination="DAZ-jp-uBm" eventType="touchUpInside" id="coE-hC-TMz"/>
                                     <segue destination="MhP-i0-ZyR" kind="show" id="yU8-8V-cE8"/>
                                 </connections>
                             </button>
@@ -1869,6 +1892,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="editServicesTapped:" destination="DAZ-jp-uBm" eventType="touchUpInside" id="lxh-Mf-viA"/>
                                     <segue destination="W62-Rx-OtL" kind="show" id="J1I-vn-VJf"/>
                                 </connections>
                             </button>
@@ -1979,14 +2003,14 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcg-XL-JaX">
                                 <rect key="frame" x="341" y="54" width="53" height="53"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.0" green="0.62535691624365475" blue="0.023976345827741045" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="53" id="6o9-jU-9VK"/>
                                     <constraint firstAttribute="height" constant="53" id="IUX-Hl-7DB"/>
                                 </constraints>
-                                <color key="tintColor" red="0.13562803409999999" green="0.8201538706" blue="0.13760587420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="plus.circle" catalog="system">
-                                    <color key="titleColor" red="0.13562803409999999" green="0.8201538706" blue="0.13760587420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="addServiceButtonTapped:" destination="W62-Rx-OtL" eventType="touchUpInside" id="l80-IF-765"/>
@@ -2647,8 +2671,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7f-AA-2rB">
-                                <rect key="frame" x="20" y="265" width="154" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="20" y="265" width="148" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -2679,6 +2703,15 @@
                                     <action selector="editButtonTapped:" destination="VO6-mH-c53" eventType="touchUpInside" id="6K6-mG-SI4"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5zg-Pf-rPi">
+                                <rect key="frame" x="20" y="294" width="374" height="93"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5zg-Pf-rPi" secondAttribute="height" multiplier="374:93" id="Wnh-e3-7wK"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.26379517479999998" green="0.39073671859999998" blue="0.46701309279999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -2688,6 +2721,7 @@
                             <constraint firstItem="4oK-2s-023" firstAttribute="top" secondItem="Obp-bg-loW" secondAttribute="top" constant="80" id="8UI-Hv-nks"/>
                             <constraint firstItem="6sg-ge-5hB" firstAttribute="width" secondItem="6sg-ge-5hB" secondAttribute="height" multiplier="164:63" id="AYq-RA-L6Y"/>
                             <constraint firstItem="dTT-Qb-heD" firstAttribute="top" secondItem="H7f-AA-2rB" secondAttribute="bottom" constant="131" id="GaT-bt-8qf"/>
+                            <constraint firstItem="Obp-bg-loW" firstAttribute="trailing" secondItem="5zg-Pf-rPi" secondAttribute="trailing" constant="20" id="Ihl-Xr-gxa"/>
                             <constraint firstItem="ie1-KJ-EBt" firstAttribute="top" secondItem="4oK-2s-023" secondAttribute="bottom" constant="18" id="PAt-fn-H1R"/>
                             <constraint firstItem="H7f-AA-2rB" firstAttribute="top" secondItem="ie1-KJ-EBt" secondAttribute="bottom" constant="95" id="Qfv-n1-biH"/>
                             <constraint firstItem="ie1-KJ-EBt" firstAttribute="leading" secondItem="Obp-bg-loW" secondAttribute="leading" constant="20" id="TYf-b3-sRY"/>
@@ -2700,7 +2734,9 @@
                             <constraint firstItem="6sg-ge-5hB" firstAttribute="leading" secondItem="Obp-bg-loW" secondAttribute="leading" constant="125" id="e71-4f-vWn"/>
                             <constraint firstItem="I7f-CC-0zT" firstAttribute="top" secondItem="Obp-bg-loW" secondAttribute="top" constant="20" id="fwE-Vf-bU1"/>
                             <constraint firstItem="Obp-bg-loW" firstAttribute="bottom" secondItem="6sg-ge-5hB" secondAttribute="bottom" constant="36" id="idz-po-jqU"/>
+                            <constraint firstItem="5zg-Pf-rPi" firstAttribute="top" secondItem="H7f-AA-2rB" secondAttribute="bottom" constant="8" id="tcN-wT-07E"/>
                             <constraint firstItem="dTT-Qb-heD" firstAttribute="leading" secondItem="Obp-bg-loW" secondAttribute="leading" constant="87" id="y6p-Yn-SbC"/>
+                            <constraint firstItem="5zg-Pf-rPi" firstAttribute="leading" secondItem="Obp-bg-loW" secondAttribute="leading" constant="20" id="yKO-JC-i8w"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Obp-bg-loW"/>
                     </view>
@@ -2708,6 +2744,7 @@
                     <connections>
                         <outlet property="editButton" destination="y6m-oy-xQv" id="8e8-7E-h2J"/>
                         <outlet property="nextButton" destination="6sg-ge-5hB" id="Wpb-e2-aWF"/>
+                        <outlet property="serviceDetailsTextView" destination="5zg-Pf-rPi" id="STk-fz-yQq"/>
                         <outlet property="serviceImage" destination="dTT-Qb-heD" id="mjb-vo-qiC"/>
                         <outlet property="serviceName" destination="4oK-2s-023" id="Gyw-Ia-iZD"/>
                         <outlet property="servicePrice" destination="ie1-KJ-EBt" id="lWR-aW-he6"/>
@@ -2715,7 +2752,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2v-Fc-P55" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3790" y="-893"/>
+            <point key="canvasLocation" x="3789.8550724637685" y="-893.30357142857133"/>
         </scene>
         <!--Owner Add New Service View Controller-->
         <scene sceneID="gzP-gc-6YZ">
@@ -2882,7 +2919,7 @@
                         <outlet property="saveButton" destination="hts-nU-M2p" id="56S-mp-puU"/>
                         <outlet property="serviceDetailsTextView" destination="26J-hp-872" id="1Ip-hR-QxG"/>
                         <outlet property="serviceImage" destination="rJH-H9-BE6" id="1FH-B1-QoK"/>
-                        <outlet property="serviceNameTextField" destination="0Fp-m2-BlR" id="UXN-CC-hVr"/>
+                        <outlet property="serviceNameTextField" destination="jBP-sy-Whi" id="osQ-oQ-jgK"/>
                         <outlet property="servicePriceTextField" destination="0Fp-m2-BlR" id="ytd-zl-U1Z"/>
                     </connections>
                 </viewController>

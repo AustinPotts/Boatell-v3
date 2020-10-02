@@ -54,7 +54,45 @@ class OwnerProfileViewController: UIViewController {
                          print(snapshot)
                      }, withCancel: nil)
            }
-           
+    
+    //MARK: - Set Up Animation
+             func animate() {
+                 UIView.animate(withDuration: 0.2, animations: {               //45 degree rotation. USE RADIANS
+                     self.serviceHistoryButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 0.1).concatenating(CGAffineTransform(scaleX: 0.8, y: 0.8))
+                         
+                     }) { (_) in //Is finished
+                         
+                         
+                         UIView.animate(withDuration: 0.01, animations: {
+                             self.serviceHistoryButton.transform = .identity
+                         })
+                                         
+                     }
+             }
+    
+    func animate2() {
+         UIView.animate(withDuration: 0.2, animations: {               //45 degree rotation. USE RADIANS
+             self.yourBoatsButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 0.1).concatenating(CGAffineTransform(scaleX: 0.8, y: 0.8))
+                 
+             }) { (_) in //Is finished
+                 
+                 
+                 UIView.animate(withDuration: 0.01, animations: {
+                     self.yourBoatsButton.transform = .identity
+                 })
+                                 
+             }
+     }
+    
+    @IBAction func appointmentHistoryTapped(_ sender: Any) {
+        animate()
+    }
+    
+    
+    @IBAction func editServicesTapped(_ sender: Any) {
+        animate2()
+    }
+    
         
         func setUpViews(){
             serviceHistoryButton.layer.cornerRadius = 30

@@ -37,9 +37,9 @@ class OwnerUpcommingAppointmentWorkOrderViewController: UIViewController {
     func updateViews() {
         workOrderView.layer.cornerRadius = 30
         saveButton.layer.cornerRadius = 30
-        self.serviceName.text = confirmed?.confirmService
+        self.serviceName.text = confirmed?.confirmService!
         self.serviceDate.text = confirmed?.confirmDate
-        self.servicePrice.text = confirmed?.confirmPrice
+        self.servicePrice.text = confirmed?.confirmPrice!
         self.userName.text = confirmed?.userName
         
         if let confirmImageURL = confirmed?.confirmImage {
