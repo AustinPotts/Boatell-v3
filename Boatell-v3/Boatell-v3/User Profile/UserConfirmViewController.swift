@@ -36,8 +36,8 @@ class UserConfirmViewController: UIViewController {
     var serviceDate = Date()
     let customALert = MyAlert()
     let ownerConfirmed = [Owner().confirmed]
-    var users = [User]()
-    var user = User()
+    var users = [Users]()
+    var user = Users()
 
     
     //MARK: - Once you have the Passed Data (Service Date + Part) you need to add the confirm model to the Database under the user for child node "confirmed"
@@ -161,7 +161,7 @@ class UserConfirmViewController: UIViewController {
                
                if let dictionary = snapshot.value as? [String: AnyObject] {
                    
-                   let user = User()
+                   let user = Users()
                                  
                    user.setValuesForKeys(dictionary)
                    self.users.append(user)
@@ -173,14 +173,14 @@ class UserConfirmViewController: UIViewController {
        }
     
     func confirmServiceForUser(){
-            var users = [User]()
+            var users = [Users]()
             let uid = Auth.auth().currentUser?.uid
             
             Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
                 
                 if let dictionary = snapshot.value as? [String: AnyObject] {
                     
-                    let user = User()
+                    let user = Users()
                     
                                   
                     user.setValuesForKeys(dictionary)
@@ -224,7 +224,7 @@ class UserConfirmViewController: UIViewController {
                                 
                                 if let confirmImage = url?.absoluteString {
                                     
-                                    let values = ["confirmDate": "\(confirm)", "confirmService" : "\(confirmService)", "confirmPrice" : "\(confirmPrice)", "confirmImage" : confirmImage, "confirmComplete" : confirmComplete, "userName" : userName]
+                                    let values = ["confirmDate": "\(confirm)", "confirmService" : "\(confirmService!)", "confirmPrice" : "\(confirmPrice!)", "confirmImage" : confirmImage, "confirmComplete" : confirmComplete, "userName" : userName]
                                     
                                     
                                     guard let uid = Auth.auth().currentUser?.uid else { return }

@@ -31,12 +31,11 @@ class ServiceTableViewCell: UITableViewCell {
       func updateViews(){
         
        
-        if let serviceNameUnwrap = confirmed?.confirmService! {
-            serviceName.text = serviceNameUnwrap
-        }
-        
-        
+        serviceName.text = confirmed!.confirmService
+
         servicePrice.text = confirmed!.confirmPrice
+        
+        
         serviceDate.text = confirmed!.confirmDate
         userName.text = confirmed!.userName
         

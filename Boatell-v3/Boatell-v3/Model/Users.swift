@@ -10,7 +10,7 @@ import Foundation
 
 
 
-class User: NSObject {
+class Users: NSObject {
     
     @objc var id: String?
     @objc var name: String?

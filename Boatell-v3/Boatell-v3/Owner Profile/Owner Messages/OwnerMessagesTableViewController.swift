@@ -13,7 +13,7 @@ class OwnerMessagesTableViewController: UITableViewController {
     
     var messages = [Message]()
     var messagesDictionary = [String: Message]()
-    var users = [User]()
+    var users = [Users]()
 
    override func viewDidLoad() {
                super.viewDidLoad()
@@ -35,7 +35,7 @@ class OwnerMessagesTableViewController: UITableViewController {
             Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
                 
                 if let dictionary = snapshot.value as? [String: AnyObject] {
-                    let user = User()
+                    let user = Users()
                     
                     //App will crash if Class properties don't exactly match up with the Firebase Dictionary Keys
                     user.setValuesForKeys(dictionary)
@@ -250,7 +250,7 @@ class OwnerMessagesTableViewController: UITableViewController {
                
            }
            
-           func showChatControllerForUser(user: User) {
+           func showChatControllerForUser(user: Users) {
 
                let chatLogController = ChatLogsViewController()
               // chatLogController.user = user
@@ -283,7 +283,7 @@ class OwnerMessagesTableViewController: UITableViewController {
                   ref.observe(.value, with: { (snapshot) in
                       
                       guard let dictionary = snapshot.value as? [String:AnyObject] else {return}
-                      let user = User()
+                      let user = Users()
                       user.id = chatPartnerID
                       user.setValuesForKeys(dictionary)
                       detailVC.user = user

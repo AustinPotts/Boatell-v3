@@ -53,7 +53,7 @@
 		45A1E44A24FD85D9003744B9 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E44924FD85D9003744B9 /* DateCell.swift */; };
 		45A1E44C24FED668003744B9 /* UserConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E44B24FED668003744B9 /* UserConfirmViewController.swift */; };
 		45A1E44E2501CD9D003744B9 /* Confirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E44D2501CD9D003744B9 /* Confirm.swift */; };
-		45A1E4502502CB23003744B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E44F2502CB23003744B9 /* User.swift */; };
+		45A1E4502502CB23003744B9 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E44F2502CB23003744B9 /* Users.swift */; };
 		45A1E45325049A0D003744B9 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E45225049A0D003744B9 /* UserProfileViewController.swift */; };
 		45A1E45625049C13003744B9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E45525049C13003744B9 /* Extensions.swift */; };
 		45A1E4592504A437003744B9 /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E4582504A437003744B9 /* ServiceTableViewCell.swift */; };
@@ -111,7 +111,7 @@
 		45A1E44924FD85D9003744B9 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		45A1E44B24FED668003744B9 /* UserConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfirmViewController.swift; sourceTree = "<group>"; };
 		45A1E44D2501CD9D003744B9 /* Confirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confirm.swift; sourceTree = "<group>"; };
-		45A1E44F2502CB23003744B9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		45A1E44F2502CB23003744B9 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		45A1E45225049A0D003744B9 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		45A1E45525049C13003744B9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		45A1E4582504A437003744B9 /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 			children = (
 				45A1E43F24FC1B95003744B9 /* Part.swift */,
 				45A1E44D2501CD9D003744B9 /* Confirm.swift */,
-				45A1E44F2502CB23003744B9 /* User.swift */,
+				45A1E44F2502CB23003744B9 /* Users.swift */,
 				45A1E45E2506B667003744B9 /* FirebaseConfirm.swift */,
 				454C49B1250FF14900A02076 /* Owner.swift */,
 				455185592516DCA800888BC5 /* Message.swift */,
@@ -443,7 +443,7 @@
 			files = (
 				455185502513EAFB00888BC5 /* OwnerUpcommingAppointmentWorkOrderViewController.swift in Sources */,
 				454C49B7251000FC00A02076 /* OwnerNewMessagesTableViewController.swift in Sources */,
-				45A1E4502502CB23003744B9 /* User.swift in Sources */,
+				45A1E4502502CB23003744B9 /* Users.swift in Sources */,
 				45A1E44324FC1BC0003744B9 /* PartController.swift in Sources */,
 				450C3D8E2521010C00096832 /* AppDelegate.swift in Sources */,
 				450C3D9625240C9500096832 /* OwnerEditServicesViewController.swift in Sources */,

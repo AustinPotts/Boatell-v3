@@ -14,7 +14,7 @@ class NewMessagesTableViewController: UITableViewController {
    
         var messagesController: MessagesTableViewController?
         
-        var users = [User]()
+        var users = [Users]()
     
         var owners = [Owner]()
         
@@ -59,7 +59,7 @@ class NewMessagesTableViewController: UITableViewController {
             Database.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
                 
                 if let dictionary = snapshot.value as? [String: AnyObject] {
-                    let user = User()
+                    let user = Users()
                     user.id = snapshot.key
                     
                     //App will crash if Class properties don't exactly match up with the Firebase Dictionary Keys

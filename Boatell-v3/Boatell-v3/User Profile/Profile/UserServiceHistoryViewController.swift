@@ -12,7 +12,7 @@ import Firebase
 class UserServiceHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - Properties
-    var users = [User]()
+    var users = [Users]()
     var confirmed = [FirebaseConfirm]()
     
     
@@ -56,7 +56,7 @@ class UserServiceHistoryViewController: UIViewController, UITableViewDelegate, U
             Database.database().reference().child("users").child(uid!).child("confirmed").observe(.childAdded, with: { (snapshot) in
                   
                   if let dictionary = snapshot.value as? [String: AnyObject] {
-                      let user = User()
+                      let user = Users()
                       let confirm = FirebaseConfirm()
                       
                       //App will crash if Class properties don't exactly match up with the Firebase Dictionary Keys

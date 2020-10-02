@@ -29,7 +29,7 @@ class OwnerProfileViewController: UIViewController {
         }
         
         //MARK: - User Property Observer
-            var users: User? {
+            var users: Users? {
                   didSet {
                       updateViews()
                   }

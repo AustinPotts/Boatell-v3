@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet var password: UITextField!
     @IBOutlet var userSegmentController: UISegmentedControl!
     
+    
+    let customAlert = MyAlert()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
@@ -40,6 +43,7 @@ class ViewController: UIViewController {
                     
                  //  self.showAlert() // Show Wrong Email or Password Alert
                     print("Error signing in: \(error)")
+                    self.customAlert.showAlertWithTitle("Your email or password was incorrect.", "Please try again", self)
                     return
                 }
                 

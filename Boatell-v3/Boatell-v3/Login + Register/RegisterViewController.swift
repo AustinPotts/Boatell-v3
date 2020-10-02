@@ -29,6 +29,24 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
      
     }
     
+    //MARK: Verification Email
+    private var authUser : User? {
+        return Auth.auth().currentUser
+    }
+    
+    public func sendVerificationMail() {
+        if self.authUser != nil && !self.authUser!.isEmailVerified {
+            self.authUser!.sendEmailVerification(completion: { (error) in
+                // Notify the user that the mail has sent or couldn't because of an error.
+            })
+        }
+        else {
+            // Either the user is not available, or the user is already verified.
+        }
+    }
+    
+    let customAlert = MyAlert()
+    
     //MARK: - Set Up Views
     func setUpViews() {
         
@@ -47,6 +65,9 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                     
                     return
                 }
+                
+                //MARK: Verification Email Test
+                self.sendVerificationMail()
                
                 
                 guard let uid = user?.user.uid else { return }
@@ -74,6 +95,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                                 let values = ["name": name, "email": email, "profileImageURL": profileImageUrl]
                                 
                                 self.registerUserIntoDatabaseWithUID(uid: uid, values: values as [String : AnyObject])
+                              
                             }
                             
                         }
@@ -121,11 +143,13 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                  userRef.updateChildValues(values) { (error, refer) in
                      if let error = error {
                          print("error child values: \(error)")
+                         self.customAlert.showAlertWithTitle("Error Creating Account.", "\(error)", self)
                          return
                      }
-                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                                         self.performSegue(withIdentifier: "RegisterSegue", sender: self)
                                     }
+                       self.customAlert.showAlertWithTitle("Your profile has been created!", "An Email confirmation will be sent to you.", self)
                      print("Saved user successfully into firebase db")
                  }
         }
@@ -195,9 +219,10 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                  userRef.updateChildValues(values) { (error, refer) in
                      if let error = error {
                          print("error onwer values: \(error)")
+                         self.customAlert.showAlertWithTitle("Error Creating Account.", "\(error)", self)
                          return
                      }
-                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                                         self.performSegue(withIdentifier: "OwnerRegisterSegue", sender: self)
                                     }
                      print("Saved owner successfully into firebase db")
@@ -222,6 +247,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBAction func registerTapped(_ sender: Any) {
         
         //Do logic in here for the Segment Controller i.e if set then etc
+        
         if userBool == true {
             handleRegister()
             animateRegister()

@@ -11,7 +11,7 @@ import Firebase
 
 class OwnerChatLogsViewController: UIViewController, UICollectionViewDelegate {
 
-        var user: User? {
+        var user: Users? {
             didSet{
                 self.navigationItem.title = user?.name
                 print("USER: \(user?.name)")
