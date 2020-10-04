@@ -50,9 +50,8 @@ class OwnerEditServicesViewController: UIViewController {
                     self.services.append(service)
                    // print(user.name!, user.email!)
                     
-                    DispatchQueue.main.async {
                         self.collectionView.reloadData()
-                    }
+                    
                     
                 }
                 

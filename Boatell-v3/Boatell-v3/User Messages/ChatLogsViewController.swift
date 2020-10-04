@@ -79,6 +79,9 @@ class ChatLogsViewController: UIViewController, UICollectionViewDelegate {
         override func viewDidLoad() {
             super.viewDidLoad()
             
+            self.navigationItem.title = owner?.name
+
+            
             messagesCollectionView.delegate = self
             messagesCollectionView.dataSource = self
             messagesCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "MessageCell")
