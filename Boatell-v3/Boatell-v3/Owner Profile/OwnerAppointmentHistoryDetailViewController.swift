@@ -16,7 +16,9 @@ class OwnerAppointmentHistoryDetailViewController: UIViewController {
         @IBOutlet var servicePrice: UILabel!
         @IBOutlet var serviceImage: UIImageView!
         
-        @IBOutlet var saveButton: UIButton!
+    @IBOutlet var clientCommentsTextView: UITextView!
+    @IBOutlet var userNameLabel: UILabel!
+    @IBOutlet var saveButton: UIButton!
         
         @IBOutlet var serviceCompleteSegmentController: UISegmentedControl!
         
@@ -38,6 +40,8 @@ class OwnerAppointmentHistoryDetailViewController: UIViewController {
             self.serviceName.text = confirmed?.confirmService
             self.serviceDate.text = confirmed?.confirmDate
             self.servicePrice.text = confirmed?.confirmPrice
+            self.userNameLabel.text = confirmed?.userName
+            self.clientCommentsTextView.text = confirmed?.clientComments 
             
             if let confirmImageURL = confirmed?.confirmImage {
 
