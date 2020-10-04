@@ -201,14 +201,20 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
         }
         
         func handleCellEvents(cell: DateCell, cellState: CellState) {
-            
+            cell.dateHasAppointmentView.backgroundColor = .clear
             DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                
+                     
                       for confirm in self.confirmed {
+                        
+                        
                           
                           var confirmHolder: String = ""
                           confirmHolder = confirm.confirmDate!
                           let cutConfirm = confirmHolder.dropFirst(8)
+                          let cutConfirmMonth = confirmHolder.dropFirst(5)
                           
+                        
                           if cutConfirm == cellState.text {
                             print("MATCH: \(cutConfirm) + \(cellState.text)")
                             cell.dateLabel.textColor = .white
