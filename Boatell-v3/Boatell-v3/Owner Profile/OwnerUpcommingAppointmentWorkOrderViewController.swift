@@ -16,6 +16,8 @@ class OwnerUpcommingAppointmentWorkOrderViewController: UIViewController {
     @IBOutlet var serviceDate: UILabel!
     @IBOutlet var servicePrice: UILabel!
     @IBOutlet var serviceImage: UIImageView!
+    @IBOutlet var clientCommentsTextView: UITextView!
+    
     
     @IBOutlet var userName: UILabel!
     @IBOutlet var saveButton: UIButton!
@@ -41,6 +43,7 @@ class OwnerUpcommingAppointmentWorkOrderViewController: UIViewController {
         self.serviceDate.text = confirmed?.confirmDate
         self.servicePrice.text = confirmed?.confirmPrice!
         self.userName.text = confirmed?.userName
+        self.clientCommentsTextView.text = confirmed?.clientComments 
         
         if let confirmImageURL = confirmed?.confirmImage {
 
