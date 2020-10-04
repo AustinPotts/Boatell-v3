@@ -190,8 +190,9 @@ class OwnerMessagesTableViewController: UITableViewController {
                             cell.imageView?.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
                             cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.height)! / 2
                             cell.imageView?.layer.masksToBounds = true
+                            cell.imageView?.clipsToBounds = true
                             
-                            //tableView.reloadData()
+                            self.tableView.reloadData()
                         }
                         
                     }

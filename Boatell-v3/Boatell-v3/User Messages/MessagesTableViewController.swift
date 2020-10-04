@@ -179,7 +179,7 @@ class MessagesTableViewController: UITableViewController {
                             cell.imageView?.layer.cornerRadius = (cell.imageView?.frame.height)! / 2
                             cell.imageView?.layer.masksToBounds = true
                             
-                           // tableView.reloadData()
+                            self.tableView.reloadData()
                         }
                         
                     }
