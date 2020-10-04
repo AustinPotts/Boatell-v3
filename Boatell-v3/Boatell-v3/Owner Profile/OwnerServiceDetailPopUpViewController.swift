@@ -41,6 +41,7 @@ class OwnerServiceDetailPopUpViewController: UIViewController {
             nextButton.layer.cornerRadius = 30
             serviceImage.layer.cornerRadius = 40
             
+            
             editButton.layer.cornerRadius = editButton.frame.height / 2
             editButton.layer.masksToBounds = false
             editButton.clipsToBounds = true

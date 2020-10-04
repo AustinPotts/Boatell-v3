@@ -180,7 +180,7 @@ class OwnerEditServicesViewController: UIViewController {
         fileprivate let blackLabelView: UIView = {
                let view = UIView()
                view.backgroundColor = .black
-               view.alpha = 0.6
+               view.alpha = 0.8
                view.translatesAutoresizingMaskIntoConstraints = false
 
                return view
@@ -209,7 +209,7 @@ class OwnerEditServicesViewController: UIViewController {
            let priceView = UIView()
             priceView.backgroundColor = .green
             priceView.layer.cornerRadius = 5
-            priceView.alpha = 0.6
+            priceView.alpha = 0.9
             priceView.translatesAutoresizingMaskIntoConstraints = false
             return priceView
         }()

@@ -147,7 +147,9 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
             
             
         }
+    
    
+    var testMonth = ""
         
         
 
@@ -200,6 +202,8 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
 
         }
         
+        
+        
         func handleCellEvents(cell: DateCell, cellState: CellState) {
             cell.dateHasAppointmentView.backgroundColor = .clear
             DispatchQueue.main.asyncAfter(deadline: .now() + 1){
@@ -207,7 +211,11 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
                      
                       for confirm in self.confirmed {
                         
+
+                       
+                        print("CONFIRM DATE: \(confirm.confirmDate) vs JTMONTH: \(self.testMonth)")
                         
+                       
                           
                           var confirmHolder: String = ""
                           confirmHolder = confirm.confirmDate!
@@ -285,8 +293,10 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
         func calendar(_ calendar: JTACMonthView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTACMonthReusableView {
             let header = calendarView.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "DateHeader", for: indexPath) as! DateHeader
             header.monthTitle.text = jtCalMonthFormatter.string(from: range.start)
-//            print("Month: \(header.monthTitle.text?.dropFirst(8))") // 2019
             
+//            print("Month: \(header.monthTitle.text?.dropFirst(8))") // 2019
+            self.testMonth = header.monthTitle.text!
+            print("MONTH: \(self.testMonth)")
             
             return header
         }
