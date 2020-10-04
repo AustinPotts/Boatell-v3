@@ -18,4 +18,5 @@ class FirebaseServices: NSObject {
     @objc var serviceDetails: String?
     
     
+    
 }

@@ -17,7 +17,8 @@ class UserServiceDetailViewController: UIViewController {
     @IBOutlet var servicePrice: UILabel!
     @IBOutlet var serviceImage: UIImageView!
     
-   
+    @IBOutlet var clientNotesTextView: UITextView!
+    
         
         
         
@@ -37,6 +38,9 @@ class UserServiceDetailViewController: UIViewController {
             self.serviceName.text = confirmed?.confirmService
             self.serviceDate.text = confirmed?.confirmDate
             self.servicePrice.text = confirmed?.confirmPrice
+            self.clientNotesTextView.text = confirmed?.clientComments
+            print("COMMENTS: \(confirmed?.clientComments)")
+            print("NAME: \(confirmed?.confirmService)")
             
             if let confirmImageURL = confirmed?.confirmImage {
 

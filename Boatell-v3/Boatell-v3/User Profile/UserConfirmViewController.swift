@@ -196,6 +196,7 @@ class UserConfirmViewController: UIViewController {
                     
                     let confirmService = self.confirm.partData.serviceName
                     let confirmPrice = self.confirm.partData.servicePrice
+                    let clientComments = self.confirmComments.text
                     //MARK: - Add Users Name to Confirm Model
                     let userName = user.name
                     //MARK: - Add Confirm Complete Toggle to Confirm Model
@@ -224,7 +225,7 @@ class UserConfirmViewController: UIViewController {
                                 
                                 if let confirmImage = url?.absoluteString {
                                     
-                                    let values = ["confirmDate": "\(confirm)", "confirmService" : "\(confirmService!)", "confirmPrice" : "\(confirmPrice!)", "confirmImage" : confirmImage, "confirmComplete" : confirmComplete, "userName" : userName]
+                                    let values = ["confirmDate": "\(confirm)", "confirmService" : "\(confirmService!)", "confirmPrice" : "\(confirmPrice!)", "confirmImage" : confirmImage, "confirmComplete" : confirmComplete, "userName" : userName, "clientComments" : clientComments]
                                     
                                     
                                     guard let uid = Auth.auth().currentUser?.uid else { return }

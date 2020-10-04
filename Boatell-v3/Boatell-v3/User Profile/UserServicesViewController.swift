@@ -140,6 +140,7 @@ class CustomCell: UICollectionViewCell {
             self.bg.loadImageViewUsingCacheWithUrlString(urlString: data.serviceImage!)
             labelViewText.text = data.serviceName
             priceLabel.text = data.servicePrice
+            
 
         }
     }
@@ -179,7 +180,7 @@ class CustomCell: UICollectionViewCell {
         let priceLabel = UILabel()
         priceLabel.text = "$10.00"
         priceLabel.font.withSize(7)
-        priceLabel.textColor = UIColor.darkText
+        priceLabel.textColor = .white
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
         return priceLabel
     }()
