@@ -12,6 +12,9 @@ PODS:
   - Firebase/Database (6.31.1):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 6.5.0)
+  - Firebase/Functions (6.31.1):
+    - Firebase/CoreOnly
+    - FirebaseFunctions (~> 2.8.0)
   - Firebase/Messaging (6.31.1):
     - Firebase/CoreOnly
     - FirebaseMessaging (~> 4.6.2)
@@ -44,6 +47,9 @@ PODS:
   - FirebaseDatabase (6.5.0):
     - FirebaseCore (~> 6.10)
     - leveldb-library (~> 1.22)
+  - FirebaseFunctions (2.8.0):
+    - FirebaseCore (~> 6.10)
+    - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseInstallations (1.7.0):
     - FirebaseCore (~> 6.10)
     - GoogleUtilities/Environment (~> 6.7)
@@ -108,6 +114,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Database
+  - Firebase/Functions
   - Firebase/Messaging
   - Firebase/Storage
   - JTAppleCalendar
@@ -121,6 +128,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseDatabase
+    - FirebaseFunctions
     - FirebaseInstallations
     - FirebaseInstanceID
     - FirebaseMessaging
@@ -143,6 +151,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 6fb954e350af0885803d5aa49865d15d9a6b264c
   FirebaseCoreDiagnostics: 7415bfb3883b3500c5a95c42b6ba66baae78f600
   FirebaseDatabase: d85b47213273708e48c972012b39105f76229588
+  FirebaseFunctions: e0694e614a5e3300120a10d925e2cd3be60a9c81
   FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
   FirebaseInstanceID: 84f5f5762f1bee94ca2254f693bbf5aec6666504
   FirebaseMessaging: 82d75b3770a78bbce470769a6980429608b4c407
@@ -158,6 +167,6 @@ SPEC CHECKSUMS:
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
   Stripe: 339e8c50d3a27dcbe9a4f35b98c260fb9715d962
 
-PODFILE CHECKSUM: fd2c1ebaa0e68690a29f10e83e4336a28be8794f
+PODFILE CHECKSUM: df4666d5f4ec42425990e464b76c591dfc6f0d42
 
 COCOAPODS: 1.9.0

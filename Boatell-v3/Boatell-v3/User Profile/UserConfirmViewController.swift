@@ -247,31 +247,31 @@ class UserConfirmViewController: UIViewController {
         }
     
     //MARK: - Create Values For User
-           func createCopyForUserHealth(uid: String, values: [String: AnyObject]) {
-               var ref: DatabaseReference!
-                   
-                   ref = Database.database().reference(fromURL: "https://boatell-v3.firebaseio.com/")
-                   
-                   let userRef = ref.child("users").child(uid).child("confirmed").childByAutoId()
-                //   let childRef = ref.child("confirmed").childByAutoId()
-           // guard let Owner uid = Auth.auth().currentUser?.uid else { return }
-            let ownerRef = ref.child("owner").child("owner").child("confirmed").childByAutoId()
-                   
-                   userRef.updateChildValues(values) { (error, refer) in
-                       if let error = error {
-                           print("ERROR CHILD values: \(error)")
-                           return
-                       }
-                 }
-                 ownerRef.updateChildValues(values) { (error, refer) in
-                                      if let error = error {
-                                          print("ERROR CHILD values: \(error)")
-                                          return
-                                      }
-                                }
-           }
+    func createCopyForUserHealth(uid: String, values: [String: AnyObject]) {
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference(fromURL: "https://boatell-v3.firebaseio.com/")
+        
+        let userRef = ref.child("users").child(uid).child("confirmed").childByAutoId()
+        //   let childRef = ref.child("confirmed").childByAutoId()
+        // guard let Owner uid = Auth.auth().currentUser?.uid else { return }
+        let ownerRef = ref.child("owner").child("owner").child("confirmed").childByAutoId()
+        
+        userRef.updateChildValues(values) { (error, refer) in
+            if let error = error {
+                print("ERROR CHILD values: \(error)")
+                return
+            }
+        }
+        ownerRef.updateChildValues(values) { (error, refer) in
+            if let error = error {
+                print("ERROR CHILD values: \(error)")
+                return
+            }
+        }
+    }
     
-     
+    
 }
 
 

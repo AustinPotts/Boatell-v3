@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1A888FF575447A2BBA18665066FFB859"
-               BuildableName = "Pods-Boatell-v3.framework"
-               BlueprintName = "Pods-Boatell-v3"
+               BlueprintIdentifier = "F9E35A0CA6062772BE5F031643886E23"
+               BuildableName = "FirebaseFunctions.framework"
+               BlueprintName = "FirebaseFunctions"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
