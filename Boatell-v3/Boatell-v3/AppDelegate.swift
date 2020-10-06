@@ -9,8 +9,11 @@
 import UIKit
 import Stripe
 import Firebase
+import FirebaseFunctions
+
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -24,6 +27,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window.makeKeyAndVisible()
 //        self.window = window
         FirebaseApp.configure()
+        
+        var functions = Functions.functions(region: "us-central1")
+        
+        functions.httpsCallable("getStripePublishablekey").call { (response, error) in
+            if let error = error {
+                print(error)
+            }
+            if let response = (response?.data as? [String: Any]) {
+                let stripePublishableKey = response["publishableKey"] as! String?
+                Stripe.setDefaultPublishableKey(stripePublishableKey!)
+                print(stripePublishableKey)
+            }
+        }
+        
+        
+        
         return true
     }
 
