@@ -8,6 +8,8 @@
 
 import Foundation
 import Stripe
+import FirebaseFunctions
+import Firebase
 
 class MyAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
     enum APIError: Error {
@@ -65,28 +67,47 @@ class MyAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
         task.resume()
     }
 
-    func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
-        let url = self.baseURL.appendingPathComponent("ephemeral_keys")
-        
-        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)!
-        
-        urlComponents.queryItems = [URLQueryItem(name: "api_version", value: apiVersion)]
-       // urlComponents.queryItems = [URLQueryItem(name: "customer_id", value: "cus_I6GoawcDOzuJM1")]
-        
-        var request = URLRequest(url: urlComponents.url!)
-        request.httpMethod = "POST"
-        
-        let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            guard let response = response as? HTTPURLResponse,
-                response.statusCode == 200,
-                let data = data,
-                let json = ((try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]) as [String : Any]??) else {
-                completion(nil, error)
-                return
-            }
-            completion(json, nil)
-        })
-        task.resume()
+//    func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
+//        let url = self.baseURL.appendingPathComponent("ephemeral_keys")
+//
+//        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)!
+//
+//        urlComponents.queryItems = [URLQueryItem(name: "api_version", value: apiVersion)]
+//       // urlComponents.queryItems = [URLQueryItem(name: "customer_id", value: "cus_I6GoawcDOzuJM1")]
+//
+//        var request = URLRequest(url: urlComponents.url!)
+//        request.httpMethod = "POST"
+//
+//        let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+//            guard let response = response as? HTTPURLResponse,
+//                response.statusCode == 200,
+//                let data = data,
+//                let json = ((try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]) as [String : Any]??) else {
+//                completion(nil, error)
+//                return
+//            }
+//            completion(json, nil)
+//        })
+//        task.resume()
+//    }
+
+        func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
+            var functions = Functions.functions(region: "us-central1")
+
+             let user = Users()
+                functions.httpsCallable("getStripeEphemeralKeys").call(["api_version" : apiVersion, "customer_id" : user.stripe_customer_id]) { (response, error) in
+                    if let error = error {
+                        print(error)
+                        completion(nil, error)
+                    }
+                    if let response = (response?.data as? [String: Any]) {
+                        completion(response, nil)
+                        print("MyStripeAPIClient response \(response)")
+                    }
+                }
+            
+            
+        }
     }
 
-}
+

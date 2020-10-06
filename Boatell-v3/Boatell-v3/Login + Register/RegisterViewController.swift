@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseFunctions
+import Stripe
 
 class RegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -111,7 +113,46 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         
         
         }
+    
+    //MARK: - Firebase Functions
+    func firebaseStripe(){
         
+        var functions = Functions.functions(region: "us-central1")
+ 
+        guard let email = email.text, let name = username.text else { return }
+
+        
+        functions.httpsCallable("createStripeCustomer").call(["name" : name, "email" : email]) { (response, error) in
+                if let error = error {
+                    print(error)
+                }
+                if let response = (response?.data as? [String: Any]) {
+                    let customer_id = response["customer_id"] as! String?
+                    print(customer_id)
+                    
+                    
+                    //MARK: - Where do I access the publishable key?
+                    //print(publishable_key)
+                    //Stripe.setDefaultPublishableKey(publishable_key!)
+                    
+                    let user = Users()
+                    user.stripe_customer_id = customer_id!
+                    
+                    let defaults = UserDefaults.standard
+                   // currentProfile = profile
+                    
+                    do {
+                        //try self.db.collection("Profile").document("emailAdd").setData(from: user)
+                        DispatchQueue.main.async {
+                           // self.switchToWelcomePage()
+                        }
+                    } catch let error {
+                        print (error)
+                    }
+                }
+            }
+        }
+    
     
     
 //  func registerUserWithStripe(){
@@ -128,6 +169,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
 //        });
 //    }
 
+    
     
     
         private func registerUserIntoDatabaseWithUID(uid: String, values: [String: AnyObject]) {
@@ -147,7 +189,10 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                          return
                      }
                      DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                        //Once User is registered, register them in Stripe
+                                        self.firebaseStripe()
                                         self.performSegue(withIdentifier: "RegisterSegue", sender: self)
+                        
                                     }
                        self.customAlert.showAlertWithTitle("Your profile has been created!", "An Email confirmation will be sent to you.", self)
                      print("Saved user successfully into firebase db")

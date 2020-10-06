@@ -21,5 +21,8 @@ class Users: NSObject {
     @objc var confirmPrice: Confirm?
     @objc var confirmed: NSString?
     
+    //Fix this snake case after positive test
+    @objc var stripe_customer_id: String?
+    
     
 }

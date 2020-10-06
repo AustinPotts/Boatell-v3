@@ -1104,7 +1104,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDN-kL-SWD">
-                                <rect key="frame" x="150" y="681" width="117" height="36"/>
+                                <rect key="frame" x="150" y="704" width="117" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="STRIPE TEST">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1131,7 +1131,7 @@
                             <constraint firstItem="Foj-Zu-xq7" firstAttribute="leading" secondItem="eXw-Nl-7CH" secondAttribute="leading" constant="20" id="bS2-8n-Uec"/>
                             <constraint firstItem="8aF-UA-nbs" firstAttribute="top" secondItem="eXw-Nl-7CH" secondAttribute="top" constant="49" id="jEG-J6-bkT"/>
                             <constraint firstItem="8aF-UA-nbs" firstAttribute="leading" secondItem="eXw-Nl-7CH" secondAttribute="leading" constant="20" id="kIG-gw-YfF"/>
-                            <constraint firstItem="CGy-mf-C5n" firstAttribute="top" secondItem="EDN-kL-SWD" secondAttribute="bottom" constant="43" id="kyC-eu-out"/>
+                            <constraint firstItem="CGy-mf-C5n" firstAttribute="top" secondItem="EDN-kL-SWD" secondAttribute="bottom" constant="20" id="kyC-eu-out"/>
                             <constraint firstItem="eXw-Nl-7CH" firstAttribute="trailing" secondItem="8aF-UA-nbs" secondAttribute="trailing" constant="20" id="pwM-Ws-zf6"/>
                             <constraint firstItem="CGy-mf-C5n" firstAttribute="width" secondItem="CGy-mf-C5n" secondAttribute="height" multiplier="164:63" id="qlr-0g-WIh"/>
                             <constraint firstItem="Foj-Zu-xq7" firstAttribute="top" secondItem="eXw-Nl-7CH" secondAttribute="top" constant="34" id="qvj-BX-kSC"/>
