@@ -8,6 +8,7 @@
 
 import UIKit
 import Stripe
+import Firebase
 
 class CheckoutViewController: UIViewController {
 
@@ -150,12 +151,39 @@ See https://stripe.com/docs/testing.
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    var users = [Users]()
+    
+    
+    //MARK: - Fetch User From Database
+          func fetchUsers() {
+            let uid = Auth.auth().currentUser?.uid
+            
+            
+            Database.database().reference().child("users").child(uid!).observe(.childAdded, with: { (snapshot) in
+                  
+                  if let dictionary = snapshot.value as? [String: AnyObject] {
+                      let user = Users()
+                     
+                      
+                      //App will crash if Class properties don't exactly match up with the Firebase Dictionary Keys
+                      user.setValuesForKeys(dictionary)
+                      
+                   
+                      self.users.append(user)
+                          
+                      
+                  }
+                  print(snapshot)
+              }, withCancel: nil)
+          }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        
+        fetchUsers()
 
         self.view.backgroundColor = .white
         self.tableView.backgroundColor = .white

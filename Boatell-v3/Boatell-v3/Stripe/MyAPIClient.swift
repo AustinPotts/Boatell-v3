@@ -90,14 +90,45 @@ class MyAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
 //        })
 //        task.resume()
 //    }
+    
+    var users = [Users]()
+    
+    
+    //MARK: - Fetch User From Database
+          func fetchUsers() {
+            let uid = Auth.auth().currentUser?.uid
+            
+            
+            Database.database().reference().child("users").child(uid!).observe(.childAdded, with: { (snapshot) in
+                  
+                  if let dictionary = snapshot.value as? [String: AnyObject] {
+                      let user = Users()
+                     
+                      
+                      //App will crash if Class properties don't exactly match up with the Firebase Dictionary Keys
+                      user.setValuesForKeys(dictionary)
+                      
+                   
+                      self.users.append(user)
+                          
+                      
+                  }
+                  print("Stripe Fetch Snap: \(snapshot)")
+              }, withCancel: nil)
+          }
 
+    
+    //MARK: Currently this is the only Cloud Function not working properly, for some reason the User object is nil & therefore can't access the user.customer_id for Stripe
         func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
             var functions = Functions.functions(region: "us-central1")
-
-             let user = Users()
-                functions.httpsCallable("getStripeEphemeralKeys").call(["api_version" : apiVersion, "customer_id" : user.stripe_customer_id]) { (response, error) in
+            fetchUsers()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                for user in self.users {
+                print("USER Stripe: \(user)")
+                
+                functions.httpsCallable("getStripeEphemeralKeys").call(["api_version" : apiVersion, "customer_id" : user.customer_id]) { (response, error) in
                     if let error = error {
-                        print(error)
+                        print("Here is the Key Error: \(error)")
                         completion(nil, error)
                     }
                     if let response = (response?.data as? [String: Any]) {
@@ -105,6 +136,9 @@ class MyAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
                         print("MyStripeAPIClient response \(response)")
                     }
                 }
+            }
+            
+            }
             
             
         }

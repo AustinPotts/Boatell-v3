@@ -121,7 +121,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
  
         guard let email = email.text, let name = username.text else { return }
 
-        
+        //MARK: - ERROR JSON text did not start with array or object and option to allow fragments not set.?
         functions.httpsCallable("createStripeCustomer").call(["name" : name, "email" : email]) { (response, error) in
                 if let error = error {
                     print(error)
@@ -136,7 +136,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                     //Stripe.setDefaultPublishableKey(publishable_key!)
                     
                     let user = Users()
-                    user.stripe_customer_id = customer_id!
+                    user.customer_id = customer_id!
                     
                     let defaults = UserDefaults.standard
                    // currentProfile = profile
