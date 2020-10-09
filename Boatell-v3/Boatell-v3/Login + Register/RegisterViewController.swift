@@ -56,6 +56,9 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         registerButton.layer.cornerRadius = 30
     }
     
+    
+    var customerID: String = ""
+    
     // Create function to handle register logic for USer
     func handleRegister() {
             
@@ -70,6 +73,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                 
                 //MARK: Verification Email Test
                 self.sendVerificationMail()
+                self.firebaseStripe()
                
                 
                 guard let uid = user?.user.uid else { return }
@@ -94,7 +98,8 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                             
                              if let profileImageUrl = url?.absoluteString {
                                 
-                                let values = ["name": name, "email": email, "profileImageURL": profileImageUrl]
+                                let values = ["name": name, "email": email, "profileImageURL": profileImageUrl, "customer_id" : self.customerID]
+                                print("Values Cus ID \(self.customerID)")
                                 
                                 self.registerUserIntoDatabaseWithUID(uid: uid, values: values as [String : AnyObject])
                               
@@ -128,15 +133,15 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                 }
                 if let response = (response?.data as? [String: Any]) {
                     let customer_id = response["customer_id"] as! String?
-                    print(customer_id)
+                    print("Customer Stripe ID: \(customer_id)")
                     
                     
                     //MARK: - Where do I access the publishable key?
                     //print(publishable_key)
                     //Stripe.setDefaultPublishableKey(publishable_key!)
                     
-                    let user = Users()
-                    user.customer_id = customer_id!
+                        // let user = Users()
+                    self.customerID = customer_id!
                     
                     let defaults = UserDefaults.standard
                    // currentProfile = profile
@@ -155,19 +160,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     
     
     
-//  func registerUserWithStripe(){
-//        exports.createStripeCustomer = functions.auth.user().onCreate(async (user) => {
-//          const customer = await stripe.customers.create({ email: user.email });
-//          const intent = await stripe.setupIntents.create({
-//            customer: customer.id,
-//          });
-//          await admin.firestore().collection('stripe_customers').doc(user.uid).set({
-//            customer_id: customer.id,
-//            setup_secret: intent.client_secret,
-//          });
-//          return;
-//        });
-//    }
+
 
     
     
@@ -190,7 +183,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                      }
                      DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                         //Once User is registered, register them in Stripe
-                                        self.firebaseStripe()
+                                        
                                         self.performSegue(withIdentifier: "RegisterSegue", sender: self)
                         
                                     }

@@ -99,7 +99,7 @@ class MyAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
             let uid = Auth.auth().currentUser?.uid
             
             
-            Database.database().reference().child("users").child(uid!).observe(.childAdded, with: { (snapshot) in
+            Database.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with:  { (snapshot) in
                   
                   if let dictionary = snapshot.value as? [String: AnyObject] {
                       let user = Users()
@@ -110,21 +110,28 @@ class MyAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
                       
                    
                       self.users.append(user)
-                          
                       
                   }
+                
                   print("Stripe Fetch Snap: \(snapshot)")
+                
               }, withCancel: nil)
+            print("STRIPE USERS COUNT \(self.users.count)")
           }
 
     
     //MARK: Currently this is the only Cloud Function not working properly, for some reason the User object is nil & therefore can't access the user.customer_id for Stripe
         func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
             var functions = Functions.functions(region: "us-central1")
+
             fetchUsers()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                print("USER COUNT STRIPE 1: \(self.users.count)")
+
+            
                 for user in self.users {
-                print("USER Stripe: \(user)")
+                    print("USER Stripe: \(user.customer_id)")
                 
                 functions.httpsCallable("getStripeEphemeralKeys").call(["api_version" : apiVersion, "customer_id" : user.customer_id]) { (response, error) in
                     if let error = error {
@@ -138,9 +145,9 @@ class MyAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
                 }
             }
             
+            
+                print("USER COUNT STRIPE 2: \(self.users.count)")
             }
-            
-            
         }
     }
 
