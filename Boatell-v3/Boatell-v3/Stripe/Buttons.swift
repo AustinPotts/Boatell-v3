@@ -36,7 +36,7 @@ class BuyButton: UIButton {
 
     override var isEnabled: Bool {
         didSet {
-            let color = isEnabled ? enabledColor : disabledColor
+            let color = enabledColor 
             setTitleColor(.white, for: UIControl.State())
             backgroundColor = color
         }

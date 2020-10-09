@@ -153,7 +153,14 @@ class BrowseProductsViewController: UICollectionViewController {
     @objc func didSelectBuy() {
         let checkoutViewController = CheckoutViewController(products: shoppingCart,
                                                             settings: self.settingsVC.settings)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6){
+            checkoutViewController.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(checkoutViewController, animated: true)
+           // self.present(checkoutViewController, animated: true, completion: nil)
+            
+            
+        }
+        //self.performSegue(withIdentifier: "CheckoutSegue", sender: nil)
     }
     
     func addToCart(_ product: Product) {

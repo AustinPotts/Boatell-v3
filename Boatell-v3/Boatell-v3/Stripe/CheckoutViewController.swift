@@ -149,7 +149,8 @@ See https://stripe.com/docs/testing.
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+           fatalError("init(coder:) has not been implemented")
+
     }
     
     var users = [Users]()
@@ -225,7 +226,6 @@ See https://stripe.com/docs/testing.
         footerContainerView.frame = CGRect(x: 0, y: 0, width: 0, height: footerContainerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height)
 
         self.activityIndicator.alpha = 0
-        self.buyButton.addTarget(self, action: #selector(didTapBuy), for: .touchUpInside)
         self.totalRow.detail = self.numberFormatter.string(from: NSNumber(value: Float(self.paymentContext.paymentAmount)/100))!
         self.paymentRow.onTap = { [weak self] in
             self?.paymentContext.pushPaymentOptionsViewController()
@@ -270,9 +270,12 @@ See https://stripe.com/docs/testing.
             activityIndicator.centerXAnchor.constraint(equalTo: buyButton.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: buyButton.centerYAnchor),
             ])
+        self.buyButton.addTarget(self, action: #selector(didTapBuy), for: .touchUpInside)
+        self.buyButton.isUserInteractionEnabled = true
     }
 
     @objc func didTapBuy() {
+        print("OBJC FUNC")
         self.paymentInProgress = true
         self.paymentContext.requestPayment()
     }

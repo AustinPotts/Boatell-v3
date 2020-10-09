@@ -1110,7 +1110,7 @@
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="S1c-rL-Sjq" kind="show" id="M7D-iB-MHZ"/>
+                                    <segue destination="KZY-LC-RCp" kind="show" id="M7D-iB-MHZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1161,7 +1161,7 @@
             <objects>
                 <collectionViewController modalPresentationStyle="fullScreen" id="S1c-rL-Sjq" customClass="BrowseProductsViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sJg-9M-iVa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JHh-T2-0du">
@@ -1189,7 +1189,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSn-y0-6Q9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4609" y="123"/>
+            <point key="canvasLocation" x="5518.840579710145" y="122.54464285714285"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LRL-0X-Ncm">
@@ -3062,6 +3062,25 @@
                 <exit id="rai-bh-Cp0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4697.1014492753629" y="-820.3125"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1br-5j-JIQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KZY-LC-RCp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="iea-Rp-ZAd"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V4d-RB-1d4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="S1c-rL-Sjq" kind="relationship" relationship="rootViewController" id="bSa-fN-rnI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pri-i5-DMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4608.695652173913" y="122.54464285714285"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

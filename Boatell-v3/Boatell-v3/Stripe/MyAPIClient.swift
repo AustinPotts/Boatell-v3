@@ -145,7 +145,7 @@ class MyAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
                 }
             }
             
-            
+                
                 print("USER COUNT STRIPE 2: \(self.users.count)")
             }
         }
