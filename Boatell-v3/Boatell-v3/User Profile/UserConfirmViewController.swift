@@ -8,8 +8,10 @@
 
 import UIKit
 import Firebase
+import FirebaseFunctions
+import Stripe
 
-class UserConfirmViewController: UIViewController {
+class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
     
     //MARK: - Interface Outlets
     
@@ -28,7 +30,54 @@ class UserConfirmViewController: UIViewController {
         setUp()
         
         fetchUser()
+        let customerContext = STPCustomerContext(keyProvider: MyAPIClient())
+             self.paymentContext = STPPaymentContext(customerContext: customerContext)
+             self.paymentContext.delegate = self
+             self.paymentContext.hostViewController = self
+             self.paymentContext.paymentAmount = 100
+             
+             self.paymentContext.pushPaymentOptionsViewController()
+        
     }
+    
+    func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
+          
+      }
+      
+      func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
+          
+      }
+      
+      func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPPaymentStatusBlock) {
+          
+      }
+      
+      func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
+          
+      }
+    
+    init() {
+           let customerContext = STPCustomerContext(keyProvider: MyAPIClient())
+           self.paymentContext = STPPaymentContext(customerContext: customerContext)
+           super.init(nibName: nil, bundle: nil)
+           self.paymentContext.delegate = self
+           self.paymentContext.hostViewController = self
+           self.paymentContext.paymentAmount = 100
+           confirm.partData = part
+             print(confirm.partData.serviceName)
+             confirm.serviceDateData = serviceDate
+             print("Confirm Date \(confirm.serviceDateData!)")
+             partLabel.text = "\(confirm.partData.serviceName!)"
+             servicePrice.text = confirm.partData.servicePrice
+             serviceImage.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
+           self.paymentContext.pushPaymentOptionsViewController()
+       }
+       
+       required init?(coder: NSCoder) {
+           self.paymentContext = STPPaymentContext()
+        
+           super.init(coder: coder)
+       }
     
     //MARK: - Create Confirm Object to Hold Part Data + Service Date Data being passed via the segues
     let confirm = Confirm()
@@ -72,6 +121,7 @@ class UserConfirmViewController: UIViewController {
     }
     
 //MARK: - Action
+     var paymentContext: STPPaymentContext
     
     @IBAction func confirmButtonTapped(_ sender: Any) {
         confirmServiceForUser()

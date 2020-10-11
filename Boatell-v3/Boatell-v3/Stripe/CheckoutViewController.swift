@@ -43,6 +43,10 @@ class CheckoutViewController: UIViewController {
     let numberFormatter: NumberFormatter
     let country: String
     var products: [Product]
+    
+    //Add Confirm Model
+   // var confirm: [Confirm]
+    
     var paymentInProgress: Bool = false {
         didSet {
             UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
@@ -73,6 +77,7 @@ class CheckoutViewController: UIViewController {
         assert(backendBaseURL != nil, "You must set your backend base url at the top of CheckoutViewController.swift to run this app.")
 
         self.products = products
+        // Self.confirm = confirm
         self.theme = settings.theme
         MyAPIClient.sharedClient.baseURLString = self.backendBaseURL
 
@@ -184,7 +189,7 @@ See https://stripe.com/docs/testing.
         super.viewDidLoad()
         
         
-        fetchUsers()
+      //  fetchUsers()
 
         self.view.backgroundColor = .white
         self.tableView.backgroundColor = .white
@@ -423,6 +428,7 @@ extension CheckoutViewController: STPPaymentContextDelegate {
 extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
+        //confirm.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
