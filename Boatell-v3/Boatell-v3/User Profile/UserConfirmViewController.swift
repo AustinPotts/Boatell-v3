@@ -80,10 +80,12 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
            super.init(coder: coder)
        }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         navigationController?.navigationBar.isHidden = true
     }
+    
+    
     
     //MARK: - Create Confirm Object to Hold Part Data + Service Date Data being passed via the segues
     let confirm = Confirm()
