@@ -99,7 +99,8 @@ class UserCalendarViewController: UIViewController {
      
         
         if segue.identifier == "userCalendarSegue" {
-            if let detailVC = segue.destination as? UserConfirmViewController {
+            let navController = segue.destination as! UINavigationController
+            if let detailVC = navController.viewControllers[0] as? UserConfirmViewController {
                 detailVC.part = part
                 detailVC.serviceDate = serviceDate
             }

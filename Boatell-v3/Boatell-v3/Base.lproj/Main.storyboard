@@ -356,14 +356,14 @@
             <objects>
                 <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="HKl-lA-6Kt" customClass="UserServicesViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zwz-pa-iWD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BoatelllV2" translatesAutoresizingMaskIntoConstraints="NO" id="SSl-Dk-I9f">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Service" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djz-rm-NuC">
-                                <rect key="frame" x="20" y="20" width="374" height="30"/>
+                                <rect key="frame" x="20" y="108" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
                                 <color key="textColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -782,7 +782,7 @@
                                 <connections>
                                     <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kph-FW-TqG"/>
                                     <action selector="nextbuttonTapped:" destination="p3B-Tr-aI7" eventType="touchUpInside" id="TF6-P7-vhK"/>
-                                    <segue destination="z9b-YW-Wvm" kind="show" identifier="userCalendarSegue" id="vs1-nM-OLw"/>
+                                    <segue destination="RFV-zd-JPP" kind="show" identifier="userCalendarSegue" id="vs1-nM-OLw"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TPH-6S-faK" customClass="JTACMonthView" customModule="JTAppleCalendar">
@@ -978,13 +978,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Service Scheduled" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aF-UA-nbs">
-                                <rect key="frame" x="20" y="93" width="374" height="30"/>
+                                <rect key="frame" x="20" y="137" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
                                 <color key="textColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Egh-3x-wCM">
-                                <rect key="frame" x="20" y="175" width="374" height="522"/>
+                                <rect key="frame" x="20" y="219" width="374" height="522"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$120.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmO-4D-5nA">
                                         <rect key="frame" x="20" y="89" width="160" height="48"/>
@@ -1094,7 +1094,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Foj-Zu-xq7">
-                                <rect key="frame" x="20" y="78" width="30" height="54"/>
+                                <rect key="frame" x="20" y="122" width="30" height="54"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1110,7 +1110,7 @@
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="KZY-LC-RCp" kind="show" id="M7D-iB-MHZ"/>
+                                    <segue destination="KZY-LC-RCp" kind="show" identifier="TestStripeSegue" id="M7D-iB-MHZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1154,14 +1154,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OGv-SI-Hud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="rKU-eP-d1U" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3742.0289855072465" y="109.82142857142857"/>
+            <point key="canvasLocation" x="4652.1739130434789" y="109.82142857142857"/>
         </scene>
         <!--Browse Products View Controller-->
         <scene sceneID="1Dr-EM-P9o">
             <objects>
                 <collectionViewController modalPresentationStyle="fullScreen" id="S1c-rL-Sjq" customClass="BrowseProductsViewController" customModule="Boatell_v3" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sJg-9M-iVa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JHh-T2-0du">
@@ -1189,7 +1189,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSn-y0-6Q9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5518.840579710145" y="122.54464285714285"/>
+            <point key="canvasLocation" x="6427.5362318840589" y="122.54464285714285"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LRL-0X-Ncm">
@@ -3066,11 +3066,12 @@
         <!--Navigation Controller-->
         <scene sceneID="1br-5j-JIQ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pri-i5-DMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KZY-LC-RCp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="iea-Rp-ZAd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V4d-RB-1d4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3078,16 +3079,35 @@
                         <segue destination="S1c-rL-Sjq" kind="relationship" relationship="rootViewController" id="bSa-fN-rnI"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pri-i5-DMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4608.695652173913" y="122.54464285714285"/>
+            <point key="canvasLocation" x="5517.3913043478269" y="122.54464285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="W2m-DI-mja">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RFV-zd-JPP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="AE8-i5-9kE"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lqT-dq-uSX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="z9b-YW-Wvm" kind="relationship" relationship="rootViewController" id="lqr-pd-yud"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PGJ-Rn-16m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3742.0289855072465" y="109.82142857142857"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="lqr-pd-yud"/>
         <segue reference="Fug-eP-TlZ"/>
         <segue reference="qA5-S4-8KW"/>
         <segue reference="3NT-K1-ekO"/>
-        <segue reference="8aX-1a-hdY"/>
+        <segue reference="3rb-88-5PJ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BoatLogoWhite copy" width="200" height="200"/>

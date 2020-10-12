@@ -60,6 +60,9 @@
 		45A1E45D2504A531003744B9 /* UserServiceHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E45C2504A531003744B9 /* UserServiceHistoryViewController.swift */; };
 		45A1E45F2506B667003744B9 /* FirebaseConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E45E2506B667003744B9 /* FirebaseConfirm.swift */; };
 		45BED5C52530E5120080953F /* PaymentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED5C42530E5120080953F /* PaymentsViewController.swift */; };
+		45BED5C72534B6030080953F /* CustomServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED5C62534B6030080953F /* CustomServiceCell.swift */; };
+		45BED5C92534BB510080953F /* TestNewCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED5C82534BB510080953F /* TestNewCheckoutViewController.swift */; };
+		45BED5CB2534C2060080953F /* ServiceCehckoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED5CA2534C2060080953F /* ServiceCehckoutCell.swift */; };
 		C93C4C93184025E67F89203D /* Pods_Boatell_v3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A749DC2D477170307B1B42ED /* Pods_Boatell_v3.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +122,9 @@
 		45A1E45C2504A531003744B9 /* UserServiceHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceHistoryViewController.swift; sourceTree = "<group>"; };
 		45A1E45E2506B667003744B9 /* FirebaseConfirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConfirm.swift; sourceTree = "<group>"; };
 		45BED5C42530E5120080953F /* PaymentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewController.swift; sourceTree = "<group>"; };
+		45BED5C62534B6030080953F /* CustomServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomServiceCell.swift; sourceTree = "<group>"; };
+		45BED5C82534BB510080953F /* TestNewCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNewCheckoutViewController.swift; sourceTree = "<group>"; };
+		45BED5CA2534C2060080953F /* ServiceCehckoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCehckoutCell.swift; sourceTree = "<group>"; };
 		45EB1FCBE3A9FC79838EE83D /* Pods-Boatell-v3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boatell-v3.release.xcconfig"; path = "Target Support Files/Pods-Boatell-v3/Pods-Boatell-v3.release.xcconfig"; sourceTree = "<group>"; };
 		A749DC2D477170307B1B42ED /* Pods_Boatell_v3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Boatell_v3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D111A115C7FAD47E615D9B /* Pods-Boatell-v3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boatell-v3.debug.xcconfig"; path = "Target Support Files/Pods-Boatell-v3/Pods-Boatell-v3.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +155,7 @@
 				450C3D8F2521040C00096832 /* EmojiCheckoutCell.swift */,
 				450C3D93252104FA00096832 /* PaymentContextFooterView.swift */,
 				45BED5C42530E5120080953F /* PaymentsViewController.swift */,
+				45BED5C82534BB510080953F /* TestNewCheckoutViewController.swift */,
 			);
 			path = Stripe;
 			sourceTree = "<group>";
@@ -307,6 +314,8 @@
 				45A1E4582504A437003744B9 /* ServiceTableViewCell.swift */,
 				454C49AB250E94A600A02076 /* OwnerUpcomingServicesTableViewCell.swift */,
 				4551855B251E59FB00888BC5 /* CollectionViewCell.swift */,
+				45BED5C62534B6030080953F /* CustomServiceCell.swift */,
+				45BED5CA2534C2060080953F /* ServiceCehckoutCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -462,6 +471,7 @@
 				45A1E42724F82E37003744B9 /* ViewController.swift in Sources */,
 				45A1E43D24FC1ACB003744B9 /* UserServicesViewController.swift in Sources */,
 				45A1E44824FD8356003744B9 /* DateHeader.swift in Sources */,
+				45BED5C72534B6030080953F /* CustomServiceCell.swift in Sources */,
 				450C3D912521040C00096832 /* EmojiCheckoutCell.swift in Sources */,
 				454C49B0250FEE1900A02076 /* OwnerServiceHistoryViewController.swift in Sources */,
 				454C49AC250E94A600A02076 /* OwnerUpcomingServicesTableViewCell.swift in Sources */,
@@ -486,9 +496,11 @@
 				450C3D9C252646AB00096832 /* FirebaseServices.swift in Sources */,
 				450C3D922521040C00096832 /* EmojiCell.swift in Sources */,
 				45A1E45625049C13003744B9 /* Extensions.swift in Sources */,
+				45BED5C92534BB510080953F /* TestNewCheckoutViewController.swift in Sources */,
 				455185522513FFDE00888BC5 /* OwnerAppointmentHistoryDetailViewController.swift in Sources */,
 				45A1E42524F82E37003744B9 /* SceneDelegate.swift in Sources */,
 				45A1E44024FC1B95003744B9 /* Part.swift in Sources */,
+				45BED5CB2534C2060080953F /* ServiceCehckoutCell.swift in Sources */,
 				4551855C251E59FB00888BC5 /* CollectionViewCell.swift in Sources */,
 				454C49A72509B1FB00A02076 /* NewMessagesTableViewController.swift in Sources */,
 				45A1E44624FD8142003744B9 /* UserCalendarViewController.swift in Sources */,

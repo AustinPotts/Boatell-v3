@@ -66,6 +66,44 @@ class MyAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
         })
         task.resume()
     }
+    
+    func createPaymentIntent2(confirm: [Confirm], shippingMethod: PKShippingMethod?, country: String? = nil, completion: @escaping ((Result<String, Error>) -> Void)) {
+          let url = self.baseURL.appendingPathComponent("create_payment_intent")
+          var params: [String: Any] = [
+              "metadata": [
+                  // example-mobile-backend allows passing metadata through to Stripe
+                  "payment_request_id": "B3E611D1-5FA1-4410-9CEC-00958A5126CB",
+              ],
+          ]
+          params["products"] = confirm.map({ (p) -> String in
+            guard let serviceName = p.partData.serviceName else {
+                print("NO PARAMS ERROR!!")
+                return "Service"
+            }
+            return serviceName
+          })
+          if let shippingMethod = shippingMethod {
+              params["shipping"] = shippingMethod.identifier
+          }
+          params["country"] = country
+          let jsonData = try? JSONSerialization.data(withJSONObject: params)
+          var request = URLRequest(url: url)
+          request.httpMethod = "POST"
+          request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+          request.httpBody = jsonData
+          let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+              guard let response = response as? HTTPURLResponse,
+                  response.statusCode == 200,
+                  let data = data,
+                  let json = ((try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]) as [String : Any]??),
+                  let secret = json?["secret"] as? String else {
+                      completion(.failure(error ?? APIError.unknown))
+                      return
+              }
+              completion(.success(secret))
+          })
+          task.resume()
+      }
 
 //    func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
 //        let url = self.baseURL.appendingPathComponent("ephemeral_keys")

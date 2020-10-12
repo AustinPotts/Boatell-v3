@@ -124,20 +124,35 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
      var paymentContext: STPPaymentContext
     
     @IBAction func confirmButtonTapped(_ sender: Any) {
-        confirmServiceForUser()
+       // confirmServiceForUser()
         // Present Custom Alert
-        customALert.showAlertWithTitle("Service Appointment Confirmed", "An Email & Message have been sent to you, containing order details.", self)
+       // customALert.showAlertWithTitle("Service Appointment Confirmed", "An Email & Message have been sent to you, containing order details.", self)
         
         //When cofirm button is tapped, I want the owner to send the user a message
         
         //I would need to create a new handleSend() function inside this class
-        handleSend()
+        //handleSend()
         animateConfirm()
         
+        var confirmArray = [Confirm]()
+        confirmArray.append(confirm)
+        print("CONFIRM COUNT: \(confirmArray.count)")
+        let settingsVC = SettingsViewController()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            self.dismiss(animated: true, completion: nil)
-        }
+        let checkoutViewController = TestNewCheckoutViewController(confirm: confirmArray, settings: settingsVC.settings)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 6){
+                checkoutViewController.modalPresentationStyle = .fullScreen
+                
+            self.navigationController?.pushViewController(checkoutViewController, animated: true)
+                //self.present(checkoutViewController, animated: true, completion: nil)
+                
+                
+            }
+        
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+//            self.dismiss(animated: true, completion: nil)
+//        }
         
     }
     

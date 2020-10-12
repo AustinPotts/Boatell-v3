@@ -1,16 +1,16 @@
 //
-//  CheckoutViewController.swift
-//  Basic Integration
+//  TestNewCheckoutViewController.swift
+//  Boatell-v3
 //
-//  Created by Ben Guo on 4/22/16.
-//  Copyright © 2016 Stripe. All rights reserved.
+//  Created by Austin Potts on 10/12/20.
+//  Copyright © 2020 Lambda School. All rights reserved.
 //
 
 import UIKit
 import Stripe
 import Firebase
 
-class CheckoutViewController: UIViewController {
+class TestNewCheckoutViewController: UIViewController {
 
     // 1) To get started with this demo, first head to https://dashboard.stripe.com/account/apikeys
     // and copy your "Test Publishable Key" (it looks like pk_test_abcdef) into the line below.
@@ -42,7 +42,9 @@ class CheckoutViewController: UIViewController {
     let activityIndicator = UIActivityIndicatorView(style: .gray)
     let numberFormatter: NumberFormatter
     let country: String
-    var products: [Product]
+   // var products: [Product]
+    
+    var confirm: [Confirm]
     
     //Add Confirm Model
    // var confirm: [Confirm]
@@ -63,7 +65,7 @@ class CheckoutViewController: UIViewController {
         }
     }
     
-    init(products: [Product], settings: Settings) {
+    init(confirm: [Confirm], settings: Settings) {
         if let stripePublishableKey = UserDefaults.standard.string(forKey: "StripePublishableKey") {
             self.stripePublishableKey = stripePublishableKey
         }
@@ -76,8 +78,9 @@ class CheckoutViewController: UIViewController {
         assert(stripePublishableKey.hasPrefix("pk_"), "You must set your Stripe publishable key at the top of CheckoutViewController.swift to run this app.")
         assert(backendBaseURL != nil, "You must set your backend base url at the top of CheckoutViewController.swift to run this app.")
 
-        self.products = products
-        // Self.confirm = confirm
+       // self.products = products
+        self.confirm = confirm
+        print("CHECKOUT CONFIRM COUNT: \(confirm.count)")
         self.theme = settings.theme
         MyAPIClient.sharedClient.baseURLString = self.backendBaseURL
 
@@ -100,8 +103,12 @@ class CheckoutViewController: UIViewController {
                                                theme: settings.theme)
         let userInformation = STPUserInformation()
         paymentContext.prefilledInformation = userInformation
-        paymentContext.paymentAmount = products.reduce(0) { result, product in
-            return result + product.price
+        
+        
+        
+        paymentContext.paymentAmount = confirm.reduce(0) { result, confirm in
+            let priceUnwrap = Int(confirm.partData.servicePrice!)
+            return result + 10
         }
         paymentContext.paymentCurrency = self.paymentCurrency
 
@@ -147,6 +154,7 @@ See https://stripe.com/docs/testing.
         numberFormatter.usesGroupingSeparator = true
         self.numberFormatter = numberFormatter
         super.init(nibName: nil, bundle: nil)
+        
         self.paymentContext.delegate = self
         paymentContext.hostViewController = self
         self.tableView.delegate = self
@@ -179,7 +187,7 @@ See https://stripe.com/docs/testing.
         #endif
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = 84
-        self.tableView.register(EmojiCheckoutCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.register(ServiceCheckoutCell.self, forCellReuseIdentifier: "Cell")
         var red: CGFloat = 0
         
         self.theme.primaryBackgroundColor.getRed(&red, green: nil, blue: nil, alpha: nil)
@@ -265,7 +273,7 @@ See https://stripe.com/docs/testing.
 }
 
 // MARK: STPPaymentContextDelegate
-extension CheckoutViewController: STPPaymentContextDelegate {
+extension TestNewCheckoutViewController: STPPaymentContextDelegate {
     enum CheckoutError: Error {
         case unknown
 
@@ -279,7 +287,7 @@ extension CheckoutViewController: STPPaymentContextDelegate {
     func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPPaymentStatusBlock) {
         // Create the PaymentIntent on the backend
         // To speed this up, create the PaymentIntent earlier in the checkout flow and update it as necessary (e.g. when the cart subtotal updates or when shipping fees and taxes are calculated, instead of re-creating a PaymentIntent for every payment attempt.
-        MyAPIClient.sharedClient.createPaymentIntent(products: self.products, shippingMethod: paymentContext.selectedShippingMethod, country: self.country) { result in
+        MyAPIClient.sharedClient.createPaymentIntent2(confirm: self.confirm, shippingMethod: paymentContext.selectedShippingMethod, country: self.country) { result in
             switch result {
             case .success(let clientSecret):
                 // Confirm the PaymentIntent
@@ -403,18 +411,19 @@ extension CheckoutViewController: STPPaymentContextDelegate {
 }
 
 // MARK: - UITableViewController
-extension CheckoutViewController: UITableViewDelegate, UITableViewDataSource {
+extension TestNewCheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+        return confirm.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? EmojiCheckoutCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? ServiceCheckoutCell else {
             return UITableViewCell()
         }
         
-        let product = self.products[indexPath.item]
-        cell.configure(with: product, numberFormatter: self.numberFormatter)
+        //let product = self.products[indexPath.item]
+        let confirm = self.confirm[indexPath.item]
+        cell.configure2(with: confirm, numberFormatter: self.numberFormatter)
         cell.selectionStyle = .none
         return cell
     }
