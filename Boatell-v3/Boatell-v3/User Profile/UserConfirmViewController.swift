@@ -29,6 +29,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
        setUpViews()
         setUp()
         
+        
         fetchUser()
         let customerContext = STPCustomerContext(keyProvider: MyAPIClient())
              self.paymentContext = STPPaymentContext(customerContext: customerContext)
@@ -36,7 +37,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
              self.paymentContext.hostViewController = self
              self.paymentContext.paymentAmount = 100
              
-             self.paymentContext.pushPaymentOptionsViewController()
+             //self.paymentContext.pushPaymentOptionsViewController()
         
     }
     
@@ -78,6 +79,11 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
         
            super.init(coder: coder)
        }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        navigationController?.navigationBar.isHidden = true
+    }
     
     //MARK: - Create Confirm Object to Hold Part Data + Service Date Data being passed via the segues
     let confirm = Confirm()
@@ -154,6 +160,11 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
 //            self.dismiss(animated: true, completion: nil)
 //        }
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
     }
     
     //MARK: - Set Up Animation

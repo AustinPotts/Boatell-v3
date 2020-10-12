@@ -101,6 +101,7 @@ class UserCalendarViewController: UIViewController {
         if segue.identifier == "userCalendarSegue" {
             let navController = segue.destination as! UINavigationController
             if let detailVC = navController.viewControllers[0] as? UserConfirmViewController {
+               detailVC.navigationController?.navigationBar.isHidden = true
                 detailVC.part = part
                 detailVC.serviceDate = serviceDate
             }
