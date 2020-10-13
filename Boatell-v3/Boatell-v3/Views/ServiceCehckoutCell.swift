@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-
+//MARK: - FIXME: Fix Naming from Emoji to Service
 
 class ServiceCheckoutCell: UITableViewCell {
     let emojiLabel: UILabel
@@ -63,6 +63,6 @@ class ServiceCheckoutCell: UITableViewCell {
                                                                         //confirm price
            priceLabel.text = numberFormatter.string(from: NSNumber(value: Float(10)/100))!
         emojiLabel.text = confirm.partData.serviceName
-        detailLabel.text = confirm.partData.serviceDetails
+        //detailLabel.text = confirm.partData.serviceDetails
        }
 }

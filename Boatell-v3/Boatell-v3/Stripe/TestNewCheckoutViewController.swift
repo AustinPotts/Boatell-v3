@@ -105,7 +105,7 @@ class TestNewCheckoutViewController: UIViewController {
         paymentContext.prefilledInformation = userInformation
         
         
-        
+        //MARK: FIXME: - This needs to return the result + price of the service not static 10
         paymentContext.paymentAmount = confirm.reduce(0) { result, confirm in
             let priceUnwrap = Int(confirm.partData.servicePrice!)
             return result + 10
