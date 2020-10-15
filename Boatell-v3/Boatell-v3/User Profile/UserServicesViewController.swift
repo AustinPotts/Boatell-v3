@@ -22,7 +22,8 @@ class UserServicesViewController: UIViewController {
 
     let partController = PartController()
     var services = [FirebaseServices]()
-
+    
+    var cartArray = [FirebaseServices]()
     
     //This should be used to cary the servie data to schedule calendar
     @IBOutlet var cartButton: UIButton!
@@ -206,8 +207,20 @@ class CustomCell: UICollectionViewCell {
         button.imageView?.image = .strokedCheckmark
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(cartButton), for: .touchUpInside)
         return button
     }()
+    
+    @objc func cartButton(){
+        print("OBJC SELECTOR CART")
+        guard let data = data else {return}
+        print("CART DATA \(data.serviceName)")
+        
+    }
+    
+    //Create action for Cart button
+    // when add button  is tapped, append service to cartArray +
+    // change cartIntAmout to +=1
        
        override init(frame: CGRect) {
            super.init(frame: frame)
@@ -242,7 +255,7 @@ class CustomCell: UICollectionViewCell {
         priceView.heightAnchor.constraint(equalToConstant: 30).isActive = true
         priceView.widthAnchor.constraint(equalToConstant: 65).isActive = true
         
-        priceView.addSubview(addToCartButton)
+        bg.addSubview(addToCartButton)
         addToCartButton.leadingAnchor.constraint(equalTo: priceView.leadingAnchor, constant: 5).isActive = true
         addToCartButton.topAnchor.constraint(equalTo: priceView.topAnchor, constant: 5).isActive = true
         

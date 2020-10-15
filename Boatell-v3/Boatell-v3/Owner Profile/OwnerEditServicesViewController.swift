@@ -213,8 +213,16 @@ class OwnerEditServicesViewController: UIViewController {
             button.titleLabel?.textColor = .white
               button.layer.cornerRadius = 10
               button.translatesAutoresizingMaskIntoConstraints = false
+             
               return button
           }()
+        
+        @objc func cartButton(){
+               print("OBJC SELECTOR CART")
+               guard let data = data else {return}
+               print("CART DATA \(data.serviceName)")
+               
+           }
         
         fileprivate let priceView: UIView = {
            let priceView = UIView()
@@ -249,11 +257,12 @@ class OwnerEditServicesViewController: UIViewController {
             labelViewText.leadingAnchor.constraint(equalTo: blackLabelView.leadingAnchor, constant: 5).isActive = true
             labelViewText.topAnchor.constraint(equalTo: blackLabelView.topAnchor, constant: 10).isActive = true
             
-            blackLabelView.addSubview(addToCartButton)
+            contentView.addSubview(addToCartButton)
             addToCartButton.trailingAnchor.constraint(equalTo: blackLabelView.trailingAnchor, constant: -5).isActive = true
                        addToCartButton.topAnchor.constraint(equalTo: blackLabelView.topAnchor, constant: 10).isActive = true
          addToCartButton.heightAnchor.constraint(equalToConstant: 23).isActive = true
          addToCartButton.widthAnchor.constraint(equalToConstant: 23).isActive = true
+           addToCartButton.addTarget(self, action: #selector(cartButton), for: .touchUpInside)
             
 //            bg.addSubview(priceView)
 //            priceView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
