@@ -139,7 +139,7 @@ class CustomCell: UICollectionViewCell {
           //  bg.image = data.serviceImage
             self.bg.loadImageViewUsingCacheWithUrlString(urlString: data.serviceImage!)
             labelViewText.text = data.serviceName
-            priceLabel.text = data.servicePrice
+          //  priceLabel.text = data.servicePrice
             
 
         }
@@ -176,14 +176,14 @@ class CustomCell: UICollectionViewCell {
     }()
     
   
-    fileprivate let priceLabel: UILabel = {
-        let priceLabel = UILabel()
-        priceLabel.text = "$10.00"
-        priceLabel.font.withSize(7)
-        priceLabel.textColor = .white
-        priceLabel.translatesAutoresizingMaskIntoConstraints = false
-        return priceLabel
-    }()
+//    fileprivate let priceLabel: UILabel = {
+//        let priceLabel = UILabel()
+//        priceLabel.text = "$10.00"
+//        priceLabel.font.withSize(7)
+//        priceLabel.textColor = .white
+//        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+//        return priceLabel
+//    }()
     
     fileprivate let priceView: UIView = {
        let priceView = UIView()
@@ -192,6 +192,15 @@ class CustomCell: UICollectionViewCell {
         priceView.alpha = 0.9
         priceView.translatesAutoresizingMaskIntoConstraints = false
         return priceView
+    }()
+    
+    fileprivate let addToCartButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .green
+        button.imageView?.image = .strokedCheckmark
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
        
        override init(frame: CGRect) {
@@ -207,22 +216,31 @@ class CustomCell: UICollectionViewCell {
            blackLabelView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
            blackLabelView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
            blackLabelView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+//        bg.addSubview(addToCartButton)
+//        addToCartButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
+//        addToCartButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30).isActive = true
+//        addToCartButton.heightAnchor.constraint(equalToConstant: 10).isActive = true
+//        addToCartButton.widthAnchor.constraint(equalToConstant: 10).isActive = true
            
         blackLabelView.addSubview(labelViewText)
         labelViewText.centerYAnchor.constraint(equalTo: blackLabelView.centerYAnchor).isActive = true
         labelViewText.centerXAnchor.constraint(equalTo: blackLabelView.centerXAnchor).isActive = true
+        
+      
     
         
         bg.addSubview(priceView)
         priceView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         priceView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-       // priceView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -75).isActive = true
         priceView.heightAnchor.constraint(equalToConstant: 30).isActive = true
         priceView.widthAnchor.constraint(equalToConstant: 65).isActive = true
         
-        priceView.addSubview(priceLabel)
-        priceLabel.leadingAnchor.constraint(equalTo: priceView.leadingAnchor, constant: 5).isActive = true
-        priceLabel.topAnchor.constraint(equalTo: priceView.topAnchor, constant: 5).isActive = true
+        priceView.addSubview(addToCartButton)
+        addToCartButton.leadingAnchor.constraint(equalTo: priceView.leadingAnchor, constant: 5).isActive = true
+        addToCartButton.topAnchor.constraint(equalTo: priceView.topAnchor, constant: 5).isActive = true
+        
+      
 
         
         

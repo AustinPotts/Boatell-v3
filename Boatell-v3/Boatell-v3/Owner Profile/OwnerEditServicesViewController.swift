@@ -205,6 +205,16 @@ class OwnerEditServicesViewController: UIViewController {
             return priceLabel
         }()
         
+        fileprivate let addToCartButton: UIButton = {
+              let button = UIButton()
+            button.backgroundColor = .darkGray
+            button.setTitle("+", for: .normal)
+            button.titleLabel?.textColor = .white
+              button.layer.cornerRadius = 10
+              button.translatesAutoresizingMaskIntoConstraints = false
+              return button
+          }()
+        
         fileprivate let priceView: UIView = {
            let priceView = UIView()
             priceView.backgroundColor = .green
@@ -227,22 +237,28 @@ class OwnerEditServicesViewController: UIViewController {
                blackLabelView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
                blackLabelView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
                blackLabelView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            
+            bg.addSubview(addToCartButton)
+            addToCartButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
+            addToCartButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+            addToCartButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+            addToCartButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
                
             blackLabelView.addSubview(labelViewText)
             labelViewText.centerYAnchor.constraint(equalTo: blackLabelView.centerYAnchor).isActive = true
             labelViewText.centerXAnchor.constraint(equalTo: blackLabelView.centerXAnchor).isActive = true
         
             
-            bg.addSubview(priceView)
-            priceView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-            priceView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-           // priceView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -75).isActive = true
-            priceView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-            priceView.widthAnchor.constraint(equalToConstant: 65).isActive = true
-            
-            priceView.addSubview(priceLabel)
-            priceLabel.leadingAnchor.constraint(equalTo: priceView.leadingAnchor, constant: 5).isActive = true
-            priceLabel.topAnchor.constraint(equalTo: priceView.topAnchor, constant: 5).isActive = true
+//            bg.addSubview(priceView)
+//            priceView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+//            priceView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+//           // priceView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -75).isActive = true
+//            priceView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+//            priceView.widthAnchor.constraint(equalToConstant: 65).isActive = true
+//
+//            priceView.addSubview(priceLabel)
+//            priceLabel.leadingAnchor.constraint(equalTo: priceView.leadingAnchor, constant: 5).isActive = true
+//            priceLabel.topAnchor.constraint(equalTo: priceView.topAnchor, constant: 5).isActive = true
 
             
             

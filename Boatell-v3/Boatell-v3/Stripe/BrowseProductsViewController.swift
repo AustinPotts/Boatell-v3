@@ -36,6 +36,7 @@ class BrowseProductsViewController: UICollectionViewController {
         Product(emoji: "👚", price: 2500),
     ]
     
+    //MARK: Here is the Shopping Cart set up, its an array of product(Serivces) with a property observer
     var shoppingCart = [Product]() {
         didSet {
             let price = shoppingCart.reduce(0) { result, product in result + product.price }
@@ -163,6 +164,7 @@ class BrowseProductsViewController: UICollectionViewController {
        
     }
     
+    //MARK: Here is the addToCart function that is called when a row is selected 
     func addToCart(_ product: Product) {
         shoppingCart.append(product)
     }
