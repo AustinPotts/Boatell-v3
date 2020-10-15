@@ -23,7 +23,7 @@ class UserServicesViewController: UIViewController {
     let partController = PartController()
     var services = [FirebaseServices]()
     
-    var cartArray = [FirebaseServices]()
+    static var cartArray = [FirebaseServices]()
     
     //This should be used to cary the servie data to schedule calendar
     @IBOutlet var cartButton: UIButton!
@@ -88,6 +88,14 @@ class UserServicesViewController: UIViewController {
     
     
     
+    @IBAction func cartButtonTapped(_ sender: Any) {
+        if UserServicesViewController.cartArray.count > 0 {
+            self.performSegue(withIdentifier: "CartSegue", sender: nil)
+        } else {
+            print("You have no items in your Cart.")
+        }
+    }
+    
 
    
 
@@ -135,6 +143,9 @@ extension UserServicesViewController: UICollectionViewDelegateFlowLayout, UIColl
     @IBAction func unwindToServices( _ seg: UIStoryboardSegue) {
         
     }
+    
+    
+    
     
 }
 

@@ -25,6 +25,10 @@ class OwnerEditServicesViewController: UIViewController {
         
        var services = [FirebaseServices]()
     
+    var serviceCartArray = [FirebaseServices]()
+    
+    
+    
         
         fileprivate let collectionView: UICollectionView = {
                       let layout = UICollectionViewFlowLayout()
@@ -151,6 +155,8 @@ class OwnerEditServicesViewController: UIViewController {
             
         }
         
+        
+        
     }
 
     class CustomCell2: UICollectionViewCell {
@@ -220,8 +226,11 @@ class OwnerEditServicesViewController: UIViewController {
         @objc func cartButton(){
                print("OBJC SELECTOR CART")
                guard let data = data else {return}
-               print("CART DATA \(data.serviceName)")
-               
+    
+             //  let cheatVC = UserServicesViewController()
+            print("CART DATA: \(data.serviceName)")
+            UserServicesViewController.cartArray.append(data)
+            print("CART Count: \(UserServicesViewController.cartArray.count)")
            }
         
         fileprivate let priceView: UIView = {
@@ -262,7 +271,7 @@ class OwnerEditServicesViewController: UIViewController {
                        addToCartButton.topAnchor.constraint(equalTo: blackLabelView.topAnchor, constant: 10).isActive = true
          addToCartButton.heightAnchor.constraint(equalToConstant: 23).isActive = true
          addToCartButton.widthAnchor.constraint(equalToConstant: 23).isActive = true
-           addToCartButton.addTarget(self, action: #selector(cartButton), for: .touchUpInside)
+         addToCartButton.addTarget(self, action: #selector(cartButton), for: .touchUpInside)
             
 //            bg.addSubview(priceView)
 //            priceView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
