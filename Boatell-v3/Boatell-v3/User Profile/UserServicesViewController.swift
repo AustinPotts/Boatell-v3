@@ -23,6 +23,11 @@ class UserServicesViewController: UIViewController {
     let partController = PartController()
     var services = [FirebaseServices]()
 
+    
+    //This should be used to cary the servie data to schedule calendar
+    @IBOutlet var cartButton: UIButton!
+    @IBOutlet var cartIntAmount: UILabel!
+    
 
     
     fileprivate let collectionView: UICollectionView = {
@@ -65,6 +70,7 @@ class UserServicesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        cartIntAmount.text = "0"
         
        fetchServices()
         view.addSubview(collectionView)

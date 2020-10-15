@@ -207,8 +207,9 @@ class OwnerEditServicesViewController: UIViewController {
         
         fileprivate let addToCartButton: UIButton = {
               let button = UIButton()
-            button.backgroundColor = .darkGray
+            button.backgroundColor = .systemBlue
             button.setTitle("+", for: .normal)
+            button.setTitleColor(.black, for: .normal)
             button.titleLabel?.textColor = .white
               button.layer.cornerRadius = 10
               button.translatesAutoresizingMaskIntoConstraints = false
@@ -238,16 +239,21 @@ class OwnerEditServicesViewController: UIViewController {
                blackLabelView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
                blackLabelView.heightAnchor.constraint(equalToConstant: 40).isActive = true
             
-            bg.addSubview(addToCartButton)
-            addToCartButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
-            addToCartButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
-            addToCartButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
-            addToCartButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
-               
+//            bg.addSubview(addToCartButton)
+//            addToCartButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
+//            addToCartButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+//            addToCartButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+//            addToCartButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
+//
             blackLabelView.addSubview(labelViewText)
-            labelViewText.centerYAnchor.constraint(equalTo: blackLabelView.centerYAnchor).isActive = true
-            labelViewText.centerXAnchor.constraint(equalTo: blackLabelView.centerXAnchor).isActive = true
-        
+            labelViewText.leadingAnchor.constraint(equalTo: blackLabelView.leadingAnchor, constant: 5).isActive = true
+            labelViewText.topAnchor.constraint(equalTo: blackLabelView.topAnchor, constant: 10).isActive = true
+            
+            blackLabelView.addSubview(addToCartButton)
+            addToCartButton.trailingAnchor.constraint(equalTo: blackLabelView.trailingAnchor, constant: -5).isActive = true
+                       addToCartButton.topAnchor.constraint(equalTo: blackLabelView.topAnchor, constant: 10).isActive = true
+         addToCartButton.heightAnchor.constraint(equalToConstant: 23).isActive = true
+         addToCartButton.widthAnchor.constraint(equalToConstant: 23).isActive = true
             
 //            bg.addSubview(priceView)
 //            priceView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
