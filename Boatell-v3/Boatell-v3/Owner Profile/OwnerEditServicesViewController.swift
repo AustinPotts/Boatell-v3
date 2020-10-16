@@ -142,7 +142,7 @@ class OwnerEditServicesViewController: UIViewController {
                 let selectedPart = services[indexPath]
                 partSelectVC.part = selectedPart
                 
-                }
+             } 
 
          }
         
@@ -211,26 +211,39 @@ class OwnerEditServicesViewController: UIViewController {
             return priceLabel
         }()
         
+        
         fileprivate let addToCartButton: UIButton = {
-              let button = UIButton()
+            let button = UIButton()
             button.backgroundColor = .systemBlue
             button.setTitle("+", for: .normal)
-            button.setTitleColor(.black, for: .normal)
+            button.setTitleColor(.black, for: .highlighted)
             button.titleLabel?.textColor = .white
-              button.layer.cornerRadius = 10
-              button.translatesAutoresizingMaskIntoConstraints = false
-             
+            button.layer.cornerRadius = 10
+            button.translatesAutoresizingMaskIntoConstraints = false
+            
+        
+            
               return button
           }()
         
-        @objc func cartButton(){
+      
+        
+        @objc func cartButton(sender: UIButton){
                print("OBJC SELECTOR CART")
                guard let data = data else {return}
-    
+           
+
+            sender.backgroundColor = .systemRed
+            sender.setTitle("-", for: .normal)
+            sender.isEnabled = false
+            
              //  let cheatVC = UserServicesViewController()
             print("CART DATA: \(data.serviceName)")
             UserServicesViewController.cartArray.append(data)
+            UserServicesViewController.cartInt += 1
             print("CART Count: \(UserServicesViewController.cartArray.count)")
+            
+            
            }
         
         fileprivate let priceView: UIView = {

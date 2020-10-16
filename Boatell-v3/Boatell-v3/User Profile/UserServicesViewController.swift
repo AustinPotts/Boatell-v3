@@ -22,6 +22,7 @@ class UserServicesViewController: UIViewController {
 
     let partController = PartController()
     var services = [FirebaseServices]()
+    static var cartInt = 0
     
     static var cartArray = [FirebaseServices]()
     
@@ -65,13 +66,18 @@ class UserServicesViewController: UIViewController {
              }, withCancel: nil)
          }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.cartIntAmount.text = "\(UserServicesViewController.cartInt)"
+      
+    }
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cartIntAmount.text = "0"
+        cartIntAmount.text = "\(UserServicesViewController.cartInt)"
         
        fetchServices()
         view.addSubview(collectionView)
@@ -131,6 +137,9 @@ extension UserServicesViewController: UICollectionViewDelegateFlowLayout, UIColl
             let selectedPart = services[indexPath]
             partSelectVC.part = selectedPart
             
+            } else if segue.identifier == "CartSegue"{
+            guard let detailVC = segue.destination as? UserCalendarViewController else {return}
+            detailVC.cartArray = UserServicesViewController.cartArray
             }
 
      }

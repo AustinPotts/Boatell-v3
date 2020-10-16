@@ -27,6 +27,12 @@ class UserCalendarViewController: UIViewController {
     var part: FirebaseServices!
     var serviceDate = Date()
     
+    var cartArray = [FirebaseServices]() {
+        didSet{
+            print("Calendar Cart: \(cartArray.count)")
+        }
+    }
+    
     func setUpSubViews() {
         nextButton.layer.cornerRadius = 30
         calendarView.layer.borderColor = #colorLiteral(red: 0.1722870469, green: 0.1891334951, blue: 0.2275838256, alpha: 1)
@@ -104,6 +110,7 @@ class UserCalendarViewController: UIViewController {
                detailVC.navigationController?.navigationBar.isHidden = true
                 detailVC.part = part
                 detailVC.serviceDate = serviceDate
+                detailVC.cartArray = cartArray
             }
         }
         

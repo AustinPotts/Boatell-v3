@@ -64,13 +64,13 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
            self.paymentContext.delegate = self
            self.paymentContext.hostViewController = self
            self.paymentContext.paymentAmount = 100
-           confirm.partData = part
-             print(confirm.partData.serviceName)
-             confirm.serviceDateData = serviceDate
-             print("Confirm Date \(confirm.serviceDateData!)")
-             partLabel.text = "\(confirm.partData.serviceName!)"
-             servicePrice.text = confirm.partData.servicePrice
-             serviceImage.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
+//           confirm.partData = part
+//             print(confirm.partData.serviceName)
+//             confirm.serviceDateData = serviceDate
+//             print("Confirm Date \(confirm.serviceDateData!)")
+//             partLabel.text = "\(confirm.partData.serviceName!)"
+//             servicePrice.text = confirm.partData.servicePrice
+//             serviceImage.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
            self.paymentContext.pushPaymentOptionsViewController()
        }
        
@@ -95,21 +95,33 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
     let ownerConfirmed = [Owner().confirmed]
     var users = [Users]()
     var user = Users()
+    
+    var cartArray = [FirebaseServices]() {
+        didSet{
+            print("CONFIRM CART COUNT: \(cartArray.count)")
+        }
+    }
 
     
     //MARK: - Once you have the Passed Data (Service Date + Part) you need to add the confirm model to the Database under the user for child node "confirmed"
     
     func setUp(){
        
-        confirm.partData = part
-        print(confirm.partData.serviceName)
-        confirm.serviceDateData = serviceDate
-        print("Confirm Date \(confirm.serviceDateData!)")
-        partLabel.text = "\(confirm.partData.serviceName!)"
-        servicePrice.text = confirm.partData.servicePrice
-        serviceImage.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
+//        confirm.partData = part
+//        print(confirm.partData.serviceName)
+//        confirm.serviceDateData = serviceDate
+//        print("Confirm Date \(confirm.serviceDateData!)")
+//        partLabel.text = "\(confirm.partData.serviceName!)"
+//        servicePrice.text = confirm.partData.servicePrice
+//        serviceImage.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
         
-        
+        for service in cartArray {
+            confirm.partData = service
+            confirm.serviceDateData = serviceDate
+            partLabel.text = "\(confirm.partData.serviceName!)"
+            servicePrice.text = confirm.partData.servicePrice
+             serviceImage.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
+        }
        
         
     }
