@@ -23,9 +23,17 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
     @IBOutlet var partLabel: UILabel!
     @IBOutlet var servicePrice: UILabel!
     
+    @IBOutlet var serviceTended2: UILabel!
+    @IBOutlet var serviceTended3: UILabel!
+    @IBOutlet var serviceTended4: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        serviceTended2.text = ""
+        serviceTended3.text = ""
+        serviceTended4.text = ""
+        
        setUpViews()
         setUp()
         
