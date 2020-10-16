@@ -176,15 +176,15 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
      var paymentContext: STPPaymentContext
     
     @IBAction func confirmButtonTapped(_ sender: Any) {
-       // confirmServiceForUser()
+        confirmServiceForUser() //Send Work Order of User to Mechanic Database
         // Present Custom Alert
        // customALert.showAlertWithTitle("Service Appointment Confirmed", "An Email & Message have been sent to you, containing order details.", self)
         
         //When cofirm button is tapped, I want the owner to send the user a message
         
         //I would need to create a new handleSend() function inside this class
-        //handleSend()
-        animateConfirm()
+        handleSend() //Owner to User Message
+        animateConfirm() // Animate COnfirm Button
         
         var confirmArray = [FirebaseServices]()
         //confirmArray.append(confirm)
@@ -315,14 +315,16 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
                     
                     
                         
+                    // I need to save an array of cartArray values, but seperately in order to
+                    // mantain the childByAutoID structure for services
+                    for service in self.cartArray {
                         
-                   
                     let dateFormatterGet = DateFormatter()
                     dateFormatterGet.dateFormat = "yyyy-MM-dd"
                     let confirm = dateFormatterGet.string(from: self.serviceDate)
                     
-                    let confirmService = self.confirm.partData.serviceName
-                    let confirmPrice = self.confirm.partData.servicePrice
+                    let confirmService = service.serviceName
+                        let confirmPrice = service.servicePrice
                     let clientComments = self.confirmComments.text
                     //MARK: - Add Users Name to Confirm Model
                     let userName = user.name
@@ -366,7 +368,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
                         }
                         
                     }
-                
+                } //For loop end
                         
                     
                 }
