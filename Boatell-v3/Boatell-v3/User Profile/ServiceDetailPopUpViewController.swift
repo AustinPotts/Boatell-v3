@@ -37,10 +37,12 @@ class ServiceDetailPopUpViewController: UIViewController {
         
     }
    
-    
+    //Change to Add To Cart
     @IBAction func confirmButtonTapped(_ sender: Any) {
         animateNext()
-       self.performSegue(withIdentifier: "ViewCalendarSegue", sender: nil)
+        UserServicesViewController.cartArray.append(part)
+        UserServicesViewController.cartInt += 1
+     //  self.performSegue(withIdentifier: "ViewCalendarSegue", sender: nil)
         
     }
     
@@ -64,16 +66,16 @@ class ServiceDetailPopUpViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ViewCalendarSegue" {
-                 guard let partSelectVC = segue.destination as? UserCalendarViewController else{return}
-
-          
-            let selectedPart = self.part
-                 partSelectVC.part = selectedPart
-
-             }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "ViewCalendarSegue" {
+//                 guard let partSelectVC = segue.destination as? UserCalendarViewController else{return}
+//
+//          
+//            let selectedPart = self.part
+//                 partSelectVC.part = selectedPart
+//
+//             }
+//    }
     
 
 }

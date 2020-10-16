@@ -251,7 +251,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
         let confirmDate = dateFormatterGet.string(from: self.serviceDate)
         
                
-        let values = ["text": "Hello \(self.user.name!), I just got your service \(confirm.partData.serviceName!) request for \(confirmDate)", "toID" : toID, "fromID" : fromID, "timeStamp" : timeStamp]
+        let values = ["text": "Hello \(self.user.name!), I just got your service request for \(confirmDate)", "toID" : toID, "fromID" : fromID, "timeStamp" : timeStamp]
               // childRef.updateChildValues(values)
                
                let userMessagesRef = Database.database().reference().child("user-messages").child(fromID)
@@ -338,7 +338,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
                                                 
                     let storageRef = Storage.storage().reference().child("\(imageName).png")
                     
-                    if let uploadData = self.serviceImage.image?.pngData() {
+                        if let uploadData = self.serviceImage.image?.pngData() {
                         
                         storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
                             if let error = error {
