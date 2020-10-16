@@ -58,11 +58,11 @@ class ServiceCheckoutCell: UITableViewCell {
         detailLabel.text = product.emoji.unicodeScalars.first?.properties.name?.localizedCapitalized
     }
     
-    public func configure2(with confirm: Confirm, numberFormatter: NumberFormatter) {
+    public func configure2(with confirm: FirebaseServices, numberFormatter: NumberFormatter) {
         
                                                                         //confirm price
            priceLabel.text = numberFormatter.string(from: NSNumber(value: Float(10)/100))!
-        emojiLabel.text = confirm.partData.serviceName
+        emojiLabel.text = confirm.serviceName
         //detailLabel.text = confirm.partData.serviceDetails
        }
 }

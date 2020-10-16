@@ -67,7 +67,7 @@ class MyAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
         task.resume()
     }
     
-    func createPaymentIntent2(confirm: [Confirm], shippingMethod: PKShippingMethod?, country: String? = nil, completion: @escaping ((Result<String, Error>) -> Void)) {
+    func createPaymentIntent2(confirm: [FirebaseServices], shippingMethod: PKShippingMethod?, country: String? = nil, completion: @escaping ((Result<String, Error>) -> Void)) {
           let url = self.baseURL.appendingPathComponent("create_payment_intent")
           var params: [String: Any] = [
               "metadata": [
@@ -76,7 +76,7 @@ class MyAPIClient: NSObject, STPCustomerEphemeralKeyProvider {
               ],
           ]
           params["products"] = confirm.map({ (p) -> String in
-            guard let serviceName = p.partData.serviceName else {
+            guard let serviceName = p.serviceName else {
                 print("NO PARAMS ERROR!!")
                 return "Service"
             }

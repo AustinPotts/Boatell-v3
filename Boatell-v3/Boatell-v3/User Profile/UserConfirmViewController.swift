@@ -27,6 +27,10 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
     @IBOutlet var serviceTended3: UILabel!
     @IBOutlet var serviceTended4: UILabel!
     
+    @IBOutlet var serviceImage2: UIImageView!
+    @IBOutlet var serviceImage3: UIImageView!
+    @IBOutlet var serviceImage4: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -123,13 +127,30 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
 //        servicePrice.text = confirm.partData.servicePrice
 //        serviceImage.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
         
+        var totalPrice = ""
+        
         for service in cartArray {
             confirm.partData = service
             confirm.serviceDateData = serviceDate
             partLabel.text = "\(confirm.partData.serviceName!)"
-            servicePrice.text = confirm.partData.servicePrice
+            
+            totalPrice.append(confirm.partData.servicePrice!)
+            
              serviceImage.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
+            
+            for service2 in cartArray where service2 != service {
+                confirm.partData = service2
+                confirm.serviceDateData = serviceDate
+                serviceTended2.text = "\(confirm.partData.serviceName!)"
+                serviceImage2.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
+
+                totalPrice.append(service2.servicePrice!)
+                
+            }
+            
         }
+    
+        print("TOTAL PRICE: \(totalPrice)")
        
         
     }
@@ -140,6 +161,9 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
         confirmViewBox.layer.cornerRadius = 30
         confirmComments.layer.cornerRadius = 20
         serviceImage.layer.cornerRadius = 30
+        serviceImage2.layer.cornerRadius = 30
+        serviceImage3.layer.cornerRadius = 30
+        serviceImage4.layer.cornerRadius = 30
         
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd"
@@ -162,8 +186,13 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
         //handleSend()
         animateConfirm()
         
-        var confirmArray = [Confirm]()
-        confirmArray.append(confirm)
+        var confirmArray = [FirebaseServices]()
+        //confirmArray.append(confirm)
+        
+        for service in cartArray {
+            confirmArray.append(service)
+        }
+        
         print("CONFIRM COUNT: \(confirmArray.count)")
         let settingsVC = SettingsViewController()
         

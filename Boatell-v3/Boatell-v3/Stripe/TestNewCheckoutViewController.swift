@@ -44,7 +44,8 @@ class TestNewCheckoutViewController: UIViewController {
     let country: String
    // var products: [Product]
     
-    var confirm: [Confirm]
+    //var confirm: [Confirm]
+    var cartArray = [FirebaseServices]()
     
     //Add Confirm Model
    // var confirm: [Confirm]
@@ -65,7 +66,7 @@ class TestNewCheckoutViewController: UIViewController {
         }
     }
     
-    init(confirm: [Confirm], settings: Settings) {
+    init(confirm: [FirebaseServices], settings: Settings) {
         if let stripePublishableKey = UserDefaults.standard.string(forKey: "StripePublishableKey") {
             self.stripePublishableKey = stripePublishableKey
         }
@@ -79,7 +80,7 @@ class TestNewCheckoutViewController: UIViewController {
         assert(backendBaseURL != nil, "You must set your backend base url at the top of CheckoutViewController.swift to run this app.")
 
        // self.products = products
-        self.confirm = confirm
+        self.cartArray = confirm
         print("CHECKOUT CONFIRM COUNT: \(confirm.count)")
         self.theme = settings.theme
         MyAPIClient.sharedClient.baseURLString = self.backendBaseURL
@@ -107,7 +108,7 @@ class TestNewCheckoutViewController: UIViewController {
         
         //MARK: FIXME: - This needs to return the result + price of the service not static 10
         paymentContext.paymentAmount = confirm.reduce(0) { result, confirm in
-            let priceUnwrap = Int(confirm.partData.servicePrice!)
+          //  let priceUnwrap = Int(confirm.partData.servicePrice!)
             return result + 10
         }
         paymentContext.paymentCurrency = self.paymentCurrency
@@ -287,7 +288,7 @@ extension TestNewCheckoutViewController: STPPaymentContextDelegate {
     func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPPaymentStatusBlock) {
         // Create the PaymentIntent on the backend
         // To speed this up, create the PaymentIntent earlier in the checkout flow and update it as necessary (e.g. when the cart subtotal updates or when shipping fees and taxes are calculated, instead of re-creating a PaymentIntent for every payment attempt.
-        MyAPIClient.sharedClient.createPaymentIntent2(confirm: self.confirm, shippingMethod: paymentContext.selectedShippingMethod, country: self.country) { result in
+        MyAPIClient.sharedClient.createPaymentIntent2(confirm: self.cartArray, shippingMethod: paymentContext.selectedShippingMethod, country: self.country) { result in
             switch result {
             case .success(let clientSecret):
                 // Confirm the PaymentIntent
@@ -413,7 +414,7 @@ extension TestNewCheckoutViewController: STPPaymentContextDelegate {
 // MARK: - UITableViewController
 extension TestNewCheckoutViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return confirm.count
+        return cartArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -422,7 +423,7 @@ extension TestNewCheckoutViewController: UITableViewDelegate, UITableViewDataSou
         }
         
         //let product = self.products[indexPath.item]
-        let confirm = self.confirm[indexPath.item]
+        let confirm = self.cartArray[indexPath.item]
         cell.configure2(with: confirm, numberFormatter: self.numberFormatter)
         cell.selectionStyle = .none
         return cell
