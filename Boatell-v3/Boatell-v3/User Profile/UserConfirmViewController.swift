@@ -129,6 +129,8 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
         
         var totalPrice = ""
         
+        
+        //MARK: - Appending Service from Cart Array to UIOutlets
         for service in cartArray {
             confirm.partData = service
             confirm.serviceDateData = serviceDate
@@ -138,17 +140,34 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
             
              serviceImage.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
             
-            for service2 in cartArray where service2 != service {
-                confirm.partData = service2
-                confirm.serviceDateData = serviceDate
-                serviceTended2.text = "\(confirm.partData.serviceName!)"
-                serviceImage2.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
-
-                totalPrice.append(service2.servicePrice!)
-                
-            }
             
         }
+        
+        for service2 in 0..<cartArray.count - 1 {
+                 confirm.partData = cartArray[service2]
+                 confirm.serviceDateData = serviceDate
+                 serviceTended2.text = "\(confirm.partData.serviceName!)"
+                 serviceImage2.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
+
+                 
+                 
+             }
+        
+        for service3 in 0..<cartArray.count - 2 {
+                         confirm.partData = cartArray[service3]
+                         confirm.serviceDateData = serviceDate
+                         serviceTended3.text = "\(confirm.partData.serviceName!)"
+                         serviceImage3.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
+
+                     }
+        
+        for service4 in 0..<cartArray.count - 3 {
+                            confirm.partData = cartArray[service4]
+                            confirm.serviceDateData = serviceDate
+                            serviceTended4.text = "\(confirm.partData.serviceName!)"
+                            serviceImage4.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
+
+                        }
     
         print("TOTAL PRICE: \(totalPrice)")
        
@@ -178,7 +197,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
     @IBAction func confirmButtonTapped(_ sender: Any) {
         confirmServiceForUser() //Send Work Order of User to Mechanic Database
         // Present Custom Alert
-       // customALert.showAlertWithTitle("Service Appointment Confirmed", "An Email & Message have been sent to you, containing order details.", self)
+        customALert.showAlertWithTitle("Service Appointment Confirmed", "An Email & Message have been sent to you, containing order details.", self)
         
         //When cofirm button is tapped, I want the owner to send the user a message
         

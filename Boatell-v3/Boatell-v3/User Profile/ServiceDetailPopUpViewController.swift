@@ -42,6 +42,9 @@ class ServiceDetailPopUpViewController: UIViewController {
         animateNext()
         UserServicesViewController.cartArray.append(part)
         UserServicesViewController.cartInt += 1
+        
+        nextButton.setTitle("Added To Cart", for: .normal)
+        nextButton.backgroundColor = .green
      //  self.performSegue(withIdentifier: "ViewCalendarSegue", sender: nil)
         
     }
