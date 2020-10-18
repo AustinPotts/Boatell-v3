@@ -14,6 +14,14 @@ class UserCalendarViewController: UIViewController {
     @IBOutlet weak var calendarView: JTACMonthView!
     @IBOutlet weak var nextButton: UIButton!
     
+    //MARK: Time Selection
+    @IBOutlet var timeSelectionView: UIView!
+    
+    @IBOutlet var timeView1: UIView!
+    @IBOutlet var timeView2: UIView!
+    @IBOutlet var timeView3: UIView!
+    @IBOutlet var timeView4: UIView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +29,7 @@ class UserCalendarViewController: UIViewController {
         setUpSubViews()
         calendarView.calendarDataSource = self
         calendarView.calendarDelegate = self
+        timeSelectionView.isHidden = true
     }
     
     //MARK: - Recieve Part Data
@@ -34,6 +43,9 @@ class UserCalendarViewController: UIViewController {
     }
     
     func setUpSubViews() {
+        
+        
+        
         nextButton.layer.cornerRadius = 30
         calendarView.layer.borderColor = #colorLiteral(red: 0.1722870469, green: 0.1891334951, blue: 0.2275838256, alpha: 1)
         calendarView.backgroundColor = .white
@@ -47,6 +59,12 @@ class UserCalendarViewController: UIViewController {
         calendarView.scrollDirection = .horizontal
         calendarView.scrollingMode = .stopAtEachCalendarFrame
         calendarView.showsHorizontalScrollIndicator = false
+        
+        timeSelectionView.layer.cornerRadius = 20
+        timeView1.layer.cornerRadius = 10
+        timeView2.layer.cornerRadius = 10
+        timeView3.layer.cornerRadius = 10
+        timeView4.layer.cornerRadius = 10
     }
     
     //MARK: - Set Up Animation
@@ -130,6 +148,7 @@ extension UserCalendarViewController: JTACMonthViewDataSource, JTACMonthViewDele
         print("Date? Test2 \(date)")
         self.serviceDate = date
         print("Date? Test3 \(self.serviceDate)")
+        timeSelectionView.isHidden = false
 //        self.dateSelected = formattedDate
     }
     
