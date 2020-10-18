@@ -69,7 +69,7 @@ class UserServicesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.cartIntAmount.text = "\(UserServicesViewController.cartInt)"
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .didReceiveData, object: nil)
     }
     
     
@@ -102,6 +102,12 @@ class UserServicesViewController: UIViewController {
             print("You have no items in your Cart.")
         }
     }
+    
+    //MARK:- Actions for Notification Observer
+     @objc func onDidReceiveData(_ notification:Notification) {
+        self.cartIntAmount.text = "\(UserServicesViewController.cartInt)"
+        
+     }
     
 
    
@@ -241,11 +247,11 @@ class CustomCell2: UICollectionViewCell {
         sender.isEnabled = false
         
         //  let cheatVC = UserServicesViewController()
-        print("CART DATA: \(data.serviceName)")
         UserServicesViewController.cartArray.append(data)
         UserServicesViewController.cartInt += 1
         
-        
+        //Notification
+        NotificationCenter.default.post(name: .didReceiveData, object: nil)
         
         
     }
@@ -311,4 +317,10 @@ class CustomCell2: UICollectionViewCell {
     }
     
     
+}
+
+//MARK: - Notification Helper
+extension Notification.Name {
+    static let didReceiveData = Notification.Name("didReceiveData")
+    static let cellRecieveData = Notification.Name("cellRecieveData")
 }
