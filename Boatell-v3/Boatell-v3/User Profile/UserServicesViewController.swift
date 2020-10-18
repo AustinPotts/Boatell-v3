@@ -23,7 +23,7 @@ class UserServicesViewController: UIViewController {
     let partController = PartController()
     var services = [FirebaseServices]()
     static var cartInt = 0
-    
+    let alert = MyAlert()
     static var cartArray = [FirebaseServices]()
     
     //This should be used to cary the servie data to schedule calendar
@@ -69,6 +69,8 @@ class UserServicesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.cartIntAmount.text = "\(UserServicesViewController.cartInt)"
+        
+        //MARK: - Notification Center Add Observer
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .didReceiveData, object: nil)
     }
     
@@ -99,8 +101,13 @@ class UserServicesViewController: UIViewController {
         if UserServicesViewController.cartArray.count > 0 {
             self.performSegue(withIdentifier: "CartSegue", sender: nil)
         } else {
+            alert.showAlertWithTitle("Sorry", "You have no items in your Cart.", self)
             print("You have no items in your Cart.")
         }
+    }
+    
+    @objc func dismissAlert(){
+        alert.dismissAlert()
     }
     
     //MARK:- Actions for Notification Observer
