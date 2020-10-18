@@ -17,6 +17,7 @@ class ServiceDetailPopUpViewController: UIViewController {
     @IBOutlet var serviceImage: UIImageView!
     @IBOutlet var serviceDetailsTextView: UITextView!
     
+    
     var part: FirebaseServices!
 
     override func viewDidLoad() {
@@ -46,8 +47,12 @@ class ServiceDetailPopUpViewController: UIViewController {
         nextButton.setTitle("Added To Cart", for: .normal)
         nextButton.backgroundColor = .green
      //  self.performSegue(withIdentifier: "ViewCalendarSegue", sender: nil)
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+        self.dismiss(animated: true, completion: nil)
+        }
     }
+    
+    
     
     //MARK: - Set Up Animation
        func animateNext() {

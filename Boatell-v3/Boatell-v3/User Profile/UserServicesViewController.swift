@@ -69,15 +69,16 @@ class UserServicesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.cartIntAmount.text = "\(UserServicesViewController.cartInt)"
-      
+        
     }
+    
+    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cartIntAmount.text = "\(UserServicesViewController.cartInt)"
         
        fetchServices()
         view.addSubview(collectionView)
@@ -212,10 +213,11 @@ class CustomCell2: UICollectionViewCell {
         return priceLabel
     }()
     
+    static var buttonColor = UIColor.systemBlue
     
     fileprivate let addToCartButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = CustomCell2.buttonColor
         button.setTitle("+", for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.titleLabel?.textColor = .white
@@ -242,7 +244,7 @@ class CustomCell2: UICollectionViewCell {
         print("CART DATA: \(data.serviceName)")
         UserServicesViewController.cartArray.append(data)
         UserServicesViewController.cartInt += 1
-        print("CART Count: \(UserServicesViewController.cartArray.count)")
+        
         
         
         
