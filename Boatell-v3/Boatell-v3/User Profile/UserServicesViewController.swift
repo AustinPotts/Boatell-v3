@@ -158,20 +158,21 @@ extension UserServicesViewController: UICollectionViewDelegateFlowLayout, UIColl
     
 }
 
-class CustomCell: UICollectionViewCell {
+
+//MARK: Custom Cell
+class CustomCell2: UICollectionViewCell {
     
     var data: FirebaseServices? {
         didSet{
             guard let data = data else {return}
-          //  bg.image = data.serviceImage
+            //  bg.image = data.serviceImage
             self.bg.loadImageViewUsingCacheWithUrlString(urlString: data.serviceImage!)
             labelViewText.text = data.serviceName
-          //  priceLabel.text = data.servicePrice
+            priceLabel.text = data.servicePrice
             
-
         }
     }
-
+    
     fileprivate let bg: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "Cut")
@@ -188,7 +189,7 @@ class CustomCell: UICollectionViewCell {
         view.backgroundColor = .black
         view.alpha = 0.8
         view.translatesAutoresizingMaskIntoConstraints = false
-
+        
         return view
     }()
     
@@ -198,22 +199,57 @@ class CustomCell: UICollectionViewCell {
         label.textColor = UIColor.white
         label.font.withSize(16)
         label.translatesAutoresizingMaskIntoConstraints = false
-
+        
         return label
     }()
     
-  
-//    fileprivate let priceLabel: UILabel = {
-//        let priceLabel = UILabel()
-//        priceLabel.text = "$10.00"
-//        priceLabel.font.withSize(7)
-//        priceLabel.textColor = .white
-//        priceLabel.translatesAutoresizingMaskIntoConstraints = false
-//        return priceLabel
-//    }()
+    fileprivate let priceLabel: UILabel = {
+        let priceLabel = UILabel()
+        priceLabel.text = "$10.00"
+        priceLabel.font.withSize(7)
+        priceLabel.textColor = UIColor.darkText
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        return priceLabel
+    }()
+    
+    
+    fileprivate let addToCartButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemBlue
+        button.setTitle("+", for: .normal)
+        button.setTitleColor(.black, for: .highlighted)
+        button.titleLabel?.textColor = .white
+        button.layer.cornerRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        
+        return button
+    }()
+    
+    
+    
+    @objc func cartButton(sender: UIButton){
+        print("OBJC SELECTOR CART")
+        guard let data = data else {return}
+        
+        
+        sender.backgroundColor = .systemRed
+        sender.setTitle("-", for: .normal)
+        sender.isEnabled = false
+        
+        //  let cheatVC = UserServicesViewController()
+        print("CART DATA: \(data.serviceName)")
+        UserServicesViewController.cartArray.append(data)
+        UserServicesViewController.cartInt += 1
+        print("CART Count: \(UserServicesViewController.cartArray.count)")
+        
+        
+        
+    }
     
     fileprivate let priceView: UIView = {
-       let priceView = UIView()
+        let priceView = UIView()
         priceView.backgroundColor = .green
         priceView.layer.cornerRadius = 5
         priceView.alpha = 0.9
@@ -221,72 +257,53 @@ class CustomCell: UICollectionViewCell {
         return priceView
     }()
     
-    fileprivate let addToCartButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .green
-        button.imageView?.image = .strokedCheckmark
-        button.layer.cornerRadius = 10
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(cartButton), for: .touchUpInside)
-        return button
-    }()
-    
-    @objc func cartButton(){
-        print("OBJC SELECTOR CART")
-        guard let data = data else {return}
-        print("CART DATA \(data.serviceName)")
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        contentView.addSubview(bg)
+        bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        bg.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        bg.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        
+        bg.addSubview(blackLabelView)
+        blackLabelView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        blackLabelView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        blackLabelView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        blackLabelView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        //            bg.addSubview(addToCartButton)
+        //            addToCartButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
+        //            addToCartButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+        //            addToCartButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        //            addToCartButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        //
+        blackLabelView.addSubview(labelViewText)
+        labelViewText.leadingAnchor.constraint(equalTo: blackLabelView.leadingAnchor, constant: 5).isActive = true
+        labelViewText.topAnchor.constraint(equalTo: blackLabelView.topAnchor, constant: 10).isActive = true
+        
+        contentView.addSubview(addToCartButton)
+        addToCartButton.trailingAnchor.constraint(equalTo: blackLabelView.trailingAnchor, constant: -5).isActive = true
+        addToCartButton.topAnchor.constraint(equalTo: blackLabelView.topAnchor, constant: 10).isActive = true
+        addToCartButton.heightAnchor.constraint(equalToConstant: 23).isActive = true
+        addToCartButton.widthAnchor.constraint(equalToConstant: 23).isActive = true
+        addToCartButton.addTarget(self, action: #selector(cartButton), for: .touchUpInside)
+        
+        //            bg.addSubview(priceView)
+        //            priceView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        //            priceView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        //           // priceView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -75).isActive = true
+        //            priceView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        //            priceView.widthAnchor.constraint(equalToConstant: 65).isActive = true
+        //
+        //            priceView.addSubview(priceLabel)
+        //            priceLabel.leadingAnchor.constraint(equalTo: priceView.leadingAnchor, constant: 5).isActive = true
+        //            priceLabel.topAnchor.constraint(equalTo: priceView.topAnchor, constant: 5).isActive = true
+        
+        
+        
+        
         
     }
-    
-    //Create action for Cart button
-    // when add button  is tapped, append service to cartArray +
-    // change cartIntAmout to +=1
-       
-       override init(frame: CGRect) {
-           super.init(frame: frame)
-           contentView.addSubview(bg)
-           bg.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-           bg.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-           bg.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-           bg.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-           
-           bg.addSubview(blackLabelView)
-           blackLabelView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-           blackLabelView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-           blackLabelView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-           blackLabelView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
-//        bg.addSubview(addToCartButton)
-//        addToCartButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
-//        addToCartButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30).isActive = true
-//        addToCartButton.heightAnchor.constraint(equalToConstant: 10).isActive = true
-//        addToCartButton.widthAnchor.constraint(equalToConstant: 10).isActive = true
-           
-        blackLabelView.addSubview(labelViewText)
-        labelViewText.centerYAnchor.constraint(equalTo: blackLabelView.centerYAnchor).isActive = true
-        labelViewText.centerXAnchor.constraint(equalTo: blackLabelView.centerXAnchor).isActive = true
-        
-      
-    
-        
-        bg.addSubview(priceView)
-        priceView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        priceView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        priceView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        priceView.widthAnchor.constraint(equalToConstant: 65).isActive = true
-        
-        bg.addSubview(addToCartButton)
-        addToCartButton.leadingAnchor.constraint(equalTo: priceView.leadingAnchor, constant: 5).isActive = true
-        addToCartButton.topAnchor.constraint(equalTo: priceView.topAnchor, constant: 5).isActive = true
-        
-      
-
-        
-        
-        
-
-       }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

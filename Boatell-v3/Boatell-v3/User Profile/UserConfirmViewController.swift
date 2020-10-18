@@ -130,7 +130,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
         var totalPrice = ""
         
         
-        //MARK: - Appending Service from Cart Array to UIOutlets
+        //MARK: - Appending Service from Cart Array to UIOutlets (Right now this only allows for 4)
         for service in cartArray {
             confirm.partData = service
             confirm.serviceDateData = serviceDate
