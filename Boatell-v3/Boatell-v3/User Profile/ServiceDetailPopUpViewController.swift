@@ -50,6 +50,7 @@ class ServiceDetailPopUpViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
         self.dismiss(animated: true, completion: nil)
         }
+        NotificationCenter.default.post(name: .onCartButtonDidReceiveData, object: nil)
     }
     
     

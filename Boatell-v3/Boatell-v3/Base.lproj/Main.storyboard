@@ -379,12 +379,25 @@
                                     <action selector="cartButtonTapped:" destination="HKl-lA-6Kt" eventType="touchUpInside" id="nsl-Pl-DgZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzY-sv-Rmu">
-                                <rect key="frame" x="372" y="113" width="18" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9zM-Yr-a7Z">
+                                <rect key="frame" x="371" y="95" width="23" height="23"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzY-sv-Rmu">
+                                        <rect key="frame" x="1" y="1" width="21" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="4FF-UN-vbi"/>
+                                    <constraint firstItem="ZzY-sv-Rmu" firstAttribute="leading" secondItem="9zM-Yr-a7Z" secondAttribute="leading" constant="1" id="548-7M-FwN"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZzY-sv-Rmu" secondAttribute="trailing" constant="1" id="8YU-N1-m11"/>
+                                    <constraint firstItem="ZzY-sv-Rmu" firstAttribute="top" secondItem="9zM-Yr-a7Z" secondAttribute="top" constant="1" id="lgR-qG-QTV"/>
+                                    <constraint firstAttribute="width" constant="23" id="ttZ-kJ-SN3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -394,10 +407,10 @@
                             <constraint firstItem="48i-pc-5XG" firstAttribute="top" secondItem="2ek-p0-Btv" secondAttribute="top" constant="20" id="P9o-N4-wTO"/>
                             <constraint firstItem="SSl-Dk-I9f" firstAttribute="top" secondItem="Zwz-pa-iWD" secondAttribute="top" id="Q5f-NX-nto"/>
                             <constraint firstItem="Djz-rm-NuC" firstAttribute="top" secondItem="2ek-p0-Btv" secondAttribute="top" constant="20" id="W3z-PI-EXF"/>
-                            <constraint firstItem="ZzY-sv-Rmu" firstAttribute="top" secondItem="2ek-p0-Btv" secondAttribute="top" constant="25" id="Zxd-P0-jQX"/>
+                            <constraint firstItem="2ek-p0-Btv" firstAttribute="trailing" secondItem="9zM-Yr-a7Z" secondAttribute="trailing" constant="20" id="WRW-WG-mDN"/>
                             <constraint firstItem="SSl-Dk-I9f" firstAttribute="leading" secondItem="2ek-p0-Btv" secondAttribute="leading" id="emH-lD-qbg"/>
                             <constraint firstItem="Djz-rm-NuC" firstAttribute="leading" secondItem="2ek-p0-Btv" secondAttribute="leading" constant="20" id="epD-ra-UTV"/>
-                            <constraint firstItem="2ek-p0-Btv" firstAttribute="trailing" secondItem="ZzY-sv-Rmu" secondAttribute="trailing" constant="24" id="lQp-V7-TIN"/>
+                            <constraint firstItem="9zM-Yr-a7Z" firstAttribute="top" secondItem="2ek-p0-Btv" secondAttribute="top" constant="7" id="jy5-t2-c84"/>
                             <constraint firstItem="2ek-p0-Btv" firstAttribute="trailing" secondItem="Djz-rm-NuC" secondAttribute="trailing" constant="20" id="x6G-li-jXD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2ek-p0-Btv"/>
@@ -407,6 +420,7 @@
                     <connections>
                         <outlet property="cartButton" destination="48i-pc-5XG" id="0jM-J9-47T"/>
                         <outlet property="cartIntAmount" destination="ZzY-sv-Rmu" id="eXH-m5-IqQ"/>
+                        <outlet property="cartIntView" destination="9zM-Yr-a7Z" id="a2p-k2-YJC"/>
                         <segue destination="s9f-Xa-j5a" kind="presentation" identifier="ShowServiceDetailSegue" id="1JC-s8-BWc"/>
                         <segue destination="p3B-Tr-aI7" kind="show" identifier="CartSegue" id="0sP-aK-QS0"/>
                     </connections>
@@ -3258,11 +3272,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vs1-nM-OLw"/>
         <segue reference="Fug-eP-TlZ"/>
         <segue reference="qA5-S4-8KW"/>
         <segue reference="3NT-K1-ekO"/>
-        <segue reference="Gsj-Dx-qxl"/>
+        <segue reference="0sP-aK-QS0"/>
         <segue reference="3rb-88-5PJ"/>
     </inferredMetricsTieBreakers>
     <resources>

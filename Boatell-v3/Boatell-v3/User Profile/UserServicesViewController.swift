@@ -30,7 +30,8 @@ class UserServicesViewController: UIViewController {
     @IBOutlet var cartButton: UIButton!
     @IBOutlet var cartIntAmount: UILabel!
     
-
+    @IBOutlet var cartIntView: UIView!
+    
     
     fileprivate let collectionView: UICollectionView = {
                   let layout = UICollectionViewFlowLayout()
@@ -81,7 +82,9 @@ class UserServicesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        cartIntView.layer.cornerRadius = cartIntView.frame.height / 2
+        cartIntView.clipsToBounds = true
+        cartIntView.layer.masksToBounds = false
        fetchServices()
         view.addSubview(collectionView)
                    collectionView.backgroundColor = .clear
@@ -161,6 +164,7 @@ extension UserServicesViewController: UICollectionViewDelegateFlowLayout, UIColl
     //MARK: Pass Part Object Data Here 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "ShowServiceDetailSegue", sender: indexPath)
+        
     }
     
     @IBAction func unwindToServices( _ seg: UIStoryboardSegue) {
@@ -183,9 +187,15 @@ class CustomCell2: UICollectionViewCell {
             self.bg.loadImageViewUsingCacheWithUrlString(urlString: data.serviceImage!)
             labelViewText.text = data.serviceName
             priceLabel.text = data.servicePrice
-            
+//             NotificationCenter.default.addObserver(self, selector: #selector(onCartButtonDidReceiveData(_:)), name: .onCartButtonDidReceiveData, object: nil)
         }
     }
+    
+    //Notification Center for Cell Button
+//    @objc func onCartButtonDidReceiveData(_ notification:Notification) {
+//        self.addToCartButton.backgroundColor = .systemRed
+//
+//        }
     
     fileprivate let bg: UIImageView = {
         let iv = UIImageView()
@@ -232,9 +242,8 @@ class CustomCell2: UICollectionViewCell {
         let button = UIButton()
         button.backgroundColor = CustomCell2.buttonColor
         button.setTitle("+", for: .normal)
-        button.setTitleColor(.black, for: .highlighted)
         button.titleLabel?.textColor = .white
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 11
         button.translatesAutoresizingMaskIntoConstraints = false
         
         
@@ -330,4 +339,6 @@ class CustomCell2: UICollectionViewCell {
 extension Notification.Name {
     static let didReceiveData = Notification.Name("didReceiveData")
     static let cellRecieveData = Notification.Name("cellRecieveData")
+    static let onCartButtonDidReceiveData = Notification.Name("onCartButtonDidReceiveData")
 }
+
