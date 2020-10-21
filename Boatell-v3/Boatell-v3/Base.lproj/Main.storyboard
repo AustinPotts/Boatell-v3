@@ -815,7 +815,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRg-MX-wfz">
-                                <rect key="frame" x="20" y="94" width="374" height="30"/>
+                                <rect key="frame" x="20" y="138" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
                                 <color key="textColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -837,7 +837,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TPH-6S-faK" customClass="JTACMonthView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="20" y="224" width="374" height="336"/>
+                                <rect key="frame" x="20" y="268" width="374" height="336"/>
                                 <color key="backgroundColor" red="0.26379517479999998" green="0.39073671859999998" blue="0.46701309279999997" alpha="0.88021725169999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="TPH-6S-faK" secondAttribute="height" multiplier="187:168" id="Dd3-Cf-Ze5"/>
@@ -975,7 +975,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPV-ot-8uG">
-                                <rect key="frame" x="20" y="78" width="30" height="54"/>
+                                <rect key="frame" x="20" y="122" width="30" height="54"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -985,38 +985,91 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZv-o5-Guu">
-                                <rect key="frame" x="20" y="586" width="374" height="107"/>
+                                <rect key="frame" x="20" y="630" width="374" height="107"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KmO-vV-E1W">
                                         <rect key="frame" x="8" y="8" width="175" height="40"/>
-                                        <color key="backgroundColor" red="0.2038499236159485" green="0.30694003732843833" blue="0.36677911437360411" alpha="0.88021725169999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time One" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvZ-jd-qnl">
+                                                <rect key="frame" x="20" y="10" width="135" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.20392156862745098" green="0.30588235294117649" blue="0.36862745098039218" alpha="0.88021725169999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
+                                            <constraint firstItem="lvZ-jd-qnl" firstAttribute="top" secondItem="KmO-vV-E1W" secondAttribute="top" constant="10" id="3Tn-Jx-78Y"/>
+                                            <constraint firstItem="lvZ-jd-qnl" firstAttribute="leading" secondItem="KmO-vV-E1W" secondAttribute="leading" constant="20" id="3j5-MN-hmp"/>
                                             <constraint firstAttribute="height" constant="40" id="MTE-CX-a2k"/>
+                                            <constraint firstAttribute="trailing" secondItem="lvZ-jd-qnl" secondAttribute="trailing" constant="20" id="ZQ3-nu-Xaq"/>
                                             <constraint firstAttribute="width" constant="175" id="kgC-UD-j0i"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Gvu-Lp-qeU" appends="YES" id="rRj-Ou-W51"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ri-Sg-9wn">
                                         <rect key="frame" x="8" y="56" width="175" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Three" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekY-Pv-AcI">
+                                                <rect key="frame" x="20" y="10" width="135" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" red="0.20384992360000001" green="0.30694003730000002" blue="0.36677911439999999" alpha="0.88021725169999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ekY-Pv-AcI" secondAttribute="trailing" constant="20" id="6Si-IT-pAn"/>
+                                            <constraint firstItem="ekY-Pv-AcI" firstAttribute="leading" secondItem="8ri-Sg-9wn" secondAttribute="leading" constant="20" id="JYR-e1-fhu"/>
                                             <constraint firstAttribute="height" constant="40" id="SVr-WU-QeE"/>
+                                            <constraint firstItem="ekY-Pv-AcI" firstAttribute="top" secondItem="8ri-Sg-9wn" secondAttribute="top" constant="10" id="gLK-Dd-gn9"/>
                                             <constraint firstAttribute="width" constant="175" id="j3S-eV-Dfg"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRK-fe-6C8">
                                         <rect key="frame" x="191" y="8" width="175" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Two" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdE-aL-gbZ">
+                                                <rect key="frame" x="20" y="10" width="135" height="20.5"/>
+                                                <gestureRecognizers/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" red="0.20384992360000001" green="0.30694003730000002" blue="0.36677911439999999" alpha="0.88021725169999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
+                                            <constraint firstItem="WdE-aL-gbZ" firstAttribute="top" secondItem="kRK-fe-6C8" secondAttribute="top" constant="10" id="cOA-1K-TNb"/>
                                             <constraint firstAttribute="height" constant="40" id="iUN-vD-CVE"/>
                                             <constraint firstAttribute="width" constant="175" id="jnW-z4-dsV"/>
+                                            <constraint firstItem="WdE-aL-gbZ" firstAttribute="leading" secondItem="kRK-fe-6C8" secondAttribute="leading" constant="20" id="n2W-xr-ZfH"/>
+                                            <constraint firstAttribute="trailing" secondItem="WdE-aL-gbZ" secondAttribute="trailing" constant="20" id="v0c-BC-S4g"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="hQy-Ed-UVQ" appends="YES" id="wzi-i3-wfw"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfY-Og-Vgw">
                                         <rect key="frame" x="191" y="56" width="175" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Four" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1L1-va-fd8">
+                                                <rect key="frame" x="20" y="10" width="135" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" red="0.20384992360000001" green="0.30694003730000002" blue="0.36677911439999999" alpha="0.88021725169999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="ANB-ZX-Old"/>
+                                            <constraint firstItem="1L1-va-fd8" firstAttribute="top" secondItem="wfY-Og-Vgw" secondAttribute="top" constant="10" id="Q5t-nC-fqd"/>
                                             <constraint firstAttribute="height" constant="40" id="ZUa-6x-BJH"/>
+                                            <constraint firstAttribute="trailing" secondItem="1L1-va-fd8" secondAttribute="trailing" constant="20" id="frB-91-aWJ"/>
+                                            <constraint firstItem="1L1-va-fd8" firstAttribute="leading" secondItem="wfY-Og-Vgw" secondAttribute="leading" constant="20" id="mU1-MS-u8P"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1062,7 +1115,11 @@
                     <connections>
                         <outlet property="calendarView" destination="TPH-6S-faK" id="B9j-dY-pfL"/>
                         <outlet property="nextButton" destination="peH-rY-rOg" id="HxG-q9-R3d"/>
+                        <outlet property="timeFourLabel" destination="1L1-va-fd8" id="IZQ-rT-6GI"/>
+                        <outlet property="timeOneLabel" destination="lvZ-jd-qnl" id="DMC-jl-1S1"/>
                         <outlet property="timeSelectionView" destination="YZv-o5-Guu" id="xMi-ta-CgF"/>
+                        <outlet property="timeThreeLabel" destination="ekY-Pv-AcI" id="QBr-Go-2Kd"/>
+                        <outlet property="timeTwoLabel" destination="WdE-aL-gbZ" id="ROm-fX-W96"/>
                         <outlet property="timeView1" destination="KmO-vV-E1W" id="Nsu-nR-p9Q"/>
                         <outlet property="timeView2" destination="8ri-Sg-9wn" id="j2Y-Bc-Hwo"/>
                         <outlet property="timeView3" destination="kRK-fe-6C8" id="31V-wP-aZh"/>
@@ -1071,6 +1128,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2AQ-b3-SWc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="rf0-7f-gen" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="Gvu-Lp-qeU">
+                    <connections>
+                        <action selector="tapViewOne:" destination="p3B-Tr-aI7" id="fDd-FQ-fX8"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="hQy-Ed-UVQ">
+                    <connections>
+                        <action selector="tapViewTwo:" destination="p3B-Tr-aI7" id="Vbu-Wt-vXX"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2966.666666666667" y="109.82142857142857"/>
         </scene>
@@ -3272,6 +3339,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="vs1-nM-OLw"/>
         <segue reference="Fug-eP-TlZ"/>
         <segue reference="qA5-S4-8KW"/>
         <segue reference="3NT-K1-ekO"/>

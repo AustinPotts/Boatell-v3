@@ -22,9 +22,20 @@ class UserCalendarViewController: UIViewController {
     @IBOutlet var timeView3: UIView!
     @IBOutlet var timeView4: UIView!
     
+    @IBOutlet var timeOneLabel: UILabel!
+    @IBOutlet var timeTwoLabel: UILabel!
+    @IBOutlet var timeThreeLabel: UILabel!
+    @IBOutlet var timeFourLabel: UILabel!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        timeOneLabel.text = "10:00 am"
+        timeTwoLabel.text = "12:00 pm"
+        timeThreeLabel.text = "2:00 pm"
+        timeFourLabel.text = "4:00 pm"
 
         setUpSubViews()
         calendarView.calendarDataSource = self
@@ -132,6 +143,29 @@ class UserCalendarViewController: UIViewController {
             }
         }
         
+    }
+    
+    //MARK: - Gesture Recognizers
+    @IBAction func tapViewOne(_ sender: Any) {
+        timeView1.backgroundColor = .green
+        timeOneLabel.textColor = .black
+        
+        timeView3.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
+        
+        timeTwoLabel.textColor = .white
+        
+        
+    }
+    
+    
+    
+    @IBAction func tapViewTwo(_ sender: Any) {
+        timeView3.backgroundColor = .green
+               timeTwoLabel.textColor = .black
+               
+               timeView1.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
+        
+               timeOneLabel.textColor = .white
     }
     
     
