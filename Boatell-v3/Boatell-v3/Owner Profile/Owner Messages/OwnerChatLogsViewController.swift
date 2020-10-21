@@ -11,17 +11,20 @@ import Firebase
 
 class OwnerChatLogsViewController: UIViewController, UICollectionViewDelegate {
 
-        var user: Users? {
-            didSet{
-                self.navigationItem.title = user?.name
-                print("USER: \(user?.name)")
-                observeMessages()
-            }
-            
-        }
     
+    //MARK: - Properties
+    var user: Users? {
+        didSet{
+            self.navigationItem.title = user?.name
+            print("USER: \(user?.name)")
+            observeMessages()
+        }
+    }
+
     var messages = [Message]()
     
+    
+    //MARK: - Observe User Messages
     func observeMessages(){
         
         guard let uid = Auth.auth().currentUser?.uid else {return}
@@ -47,24 +50,17 @@ class OwnerChatLogsViewController: UIViewController, UICollectionViewDelegate {
                         
                     }
                 }
-                
-                
-                
-              
-                
+        
             }, withCancel: nil)
         }, withCancel: nil)
-        
-        
-        
     }
         
+        //MARK: - Interface Outlets
         @IBOutlet var messageTextField: UITextField!
-        
-        
         @IBOutlet var messagesCollectionView: UICollectionView!
         
         
+        //MARK: - View Life Cycles
         override func viewDidLoad() {
             super.viewDidLoad()
             
@@ -79,23 +75,18 @@ class OwnerChatLogsViewController: UIViewController, UICollectionViewDelegate {
         
         override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(true)
-            // messageTextField.delegate! = self
             self.navigationItem.title = user?.name
             
         }
 
-      
-        
-        
+       //MARK: - Interface Action
         @IBAction func sendTapped(_ sender: Any) {
             handleSend()
         }
+    
         
+        //MARK: - Handle Send Message
         func handleSend() {
-            
-            //guard let message = messageTextField.text else {return}
-            
-            
             
             let ref = Database.database().reference().child("messages")
             let childRef = ref.childByAutoId()
@@ -126,16 +117,8 @@ class OwnerChatLogsViewController: UIViewController, UICollectionViewDelegate {
         }
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
+
 
 //MARK: - Collection View Set Up
 extension OwnerChatLogsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -150,7 +133,7 @@ extension OwnerChatLogsViewController: UICollectionViewDataSource, UICollectionV
         var height: CGFloat = 80
         
         
-        // Get estimated HEight
+        // Get estimated Height
         if let text = messages[indexPath.item].text {
             height = esitmatedFrame(text).height + 20
         }
@@ -168,7 +151,6 @@ extension OwnerChatLogsViewController: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.messagesCollectionView.dequeueReusableCell(withReuseIdentifier: "MessageCell", for: indexPath) as! CollectionViewCell
-        //cell.backgroundColor = .black
         
        
         
@@ -210,20 +192,8 @@ extension OwnerChatLogsViewController: UICollectionViewDataSource, UICollectionV
     
 }
 
-    //
-    //extension ChatLogsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    //        <#code#>
-    //    }
-    //
-    //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    //        <#code#>
-    //    }
-    //
-    //
-    //}
 
-
+  //MARK: - Text Field Delegate
     extension OwnerChatLogsViewController: UITextFieldDelegate {
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             handleSend()
