@@ -147,12 +147,24 @@ class UserCalendarViewController: UIViewController {
     
     //MARK: - Gesture Recognizers
     @IBAction func tapViewOne(_ sender: Any) {
+        // Time One
         timeView1.backgroundColor = .green
         timeOneLabel.textColor = .black
         
+        // Time Two
         timeView3.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
         
         timeTwoLabel.textColor = .white
+        
+        // Time Four
+        timeView4.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
+        
+        timeFourLabel.textColor = .white
+        
+        // Time Three
+        timeView2.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
+        
+        timeThreeLabel.textColor = .white
         
         
     }
@@ -160,12 +172,68 @@ class UserCalendarViewController: UIViewController {
     
     
     @IBAction func tapViewTwo(_ sender: Any) {
+        //Time Two
         timeView3.backgroundColor = .green
-               timeTwoLabel.textColor = .black
-               
-               timeView1.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
+        timeTwoLabel.textColor = .black
         
-               timeOneLabel.textColor = .white
+        //Time One
+        timeView1.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
+        
+        timeOneLabel.textColor = .white
+        
+        // Time Four
+        timeView4.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
+        
+        timeFourLabel.textColor = .white
+        
+        // Time Three
+        timeView2.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
+        
+        timeThreeLabel.textColor = .white
+    }
+    
+    
+    @IBAction func tapViewThree(_ sender: Any) {
+        
+        //Time One
+        timeView1.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
+        
+        timeOneLabel.textColor = .white
+        // Time Two
+        timeView3.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
+        
+        timeTwoLabel.textColor = .white
+        // Time Four
+        timeView4.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
+              
+        timeFourLabel.textColor = .white
+        
+        // Time Three
+        timeView2.backgroundColor = .green
+        timeThreeLabel.textColor = .black
+        
+    }
+    
+    
+    @IBAction func tapViewFour(_ sender: Any) {
+        //Time One
+        timeView1.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
+        
+        timeOneLabel.textColor = .white
+        // Time Two
+        timeView3.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
+        
+        timeTwoLabel.textColor = .white
+        
+        // Time Four
+        timeView4.backgroundColor = .green
+        timeFourLabel.textColor = .black
+        
+        // Time Three
+        timeView2.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
+        
+        timeThreeLabel.textColor = .white
+        
     }
     
     

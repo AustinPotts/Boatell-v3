@@ -1021,6 +1021,7 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.20384992360000001" green="0.30694003730000002" blue="0.36677911439999999" alpha="0.88021725169999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="ekY-Pv-AcI" secondAttribute="trailing" constant="20" id="6Si-IT-pAn"/>
                                             <constraint firstItem="ekY-Pv-AcI" firstAttribute="leading" secondItem="8ri-Sg-9wn" secondAttribute="leading" constant="20" id="JYR-e1-fhu"/>
@@ -1028,6 +1029,9 @@
                                             <constraint firstItem="ekY-Pv-AcI" firstAttribute="top" secondItem="8ri-Sg-9wn" secondAttribute="top" constant="10" id="gLK-Dd-gn9"/>
                                             <constraint firstAttribute="width" constant="175" id="j3S-eV-Dfg"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="VWt-LQ-QBB" appends="YES" id="Y2e-OD-04w"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRK-fe-6C8">
                                         <rect key="frame" x="191" y="8" width="175" height="40"/>
@@ -1064,6 +1068,7 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.20384992360000001" green="0.30694003730000002" blue="0.36677911439999999" alpha="0.88021725169999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="ANB-ZX-Old"/>
                                             <constraint firstItem="1L1-va-fd8" firstAttribute="top" secondItem="wfY-Og-Vgw" secondAttribute="top" constant="10" id="Q5t-nC-fqd"/>
@@ -1071,6 +1076,9 @@
                                             <constraint firstAttribute="trailing" secondItem="1L1-va-fd8" secondAttribute="trailing" constant="20" id="frB-91-aWJ"/>
                                             <constraint firstItem="1L1-va-fd8" firstAttribute="leading" secondItem="wfY-Og-Vgw" secondAttribute="leading" constant="20" id="mU1-MS-u8P"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="bmZ-lF-FtX" appends="YES" id="kdc-bG-nc4"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.26379517479999998" green="0.39073671859999998" blue="0.46701309279999997" alpha="0.88021725169999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1136,6 +1144,16 @@
                 <tapGestureRecognizer id="hQy-Ed-UVQ">
                     <connections>
                         <action selector="tapViewTwo:" destination="p3B-Tr-aI7" id="Vbu-Wt-vXX"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="VWt-LQ-QBB">
+                    <connections>
+                        <action selector="tapViewThree:" destination="p3B-Tr-aI7" id="QcU-Fb-KsE"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="bmZ-lF-FtX">
+                    <connections>
+                        <action selector="tapViewFour:" destination="p3B-Tr-aI7" id="ks1-G5-L9p"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
