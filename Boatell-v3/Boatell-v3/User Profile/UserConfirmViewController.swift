@@ -143,14 +143,13 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
             
         }
         
+        if cartArray.count > 1 {
+        //MARK: - This is not good code. (No flex, too static, too bug prone) FIX
         for service2 in 0..<cartArray.count - 1 {
                  confirm.partData = cartArray[service2]
                  confirm.serviceDateData = serviceDate
                  serviceTended2.text = "\(confirm.partData.serviceName!)"
                  serviceImage2.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
-
-                 
-                 
              }
         
         for service3 in 0..<cartArray.count - 2 {
@@ -168,6 +167,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
                             serviceImage4.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
 
                         }
+        }
     
         print("TOTAL PRICE: \(totalPrice)")
        
