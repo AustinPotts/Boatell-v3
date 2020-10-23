@@ -53,6 +53,8 @@ class UserCalendarViewController: UIViewController {
         }
     }
     
+    var selectedDate = ""
+    
     func setUpSubViews() {
         
         
@@ -115,8 +117,8 @@ class UserCalendarViewController: UIViewController {
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.timeZone = .current
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
+        formatter.setLocalizedDateFormatFromTemplate("yyyy MM dd")
+        formatter.dateFormat = "yyyy MM dd"
         return formatter
     }()
     
@@ -140,6 +142,7 @@ class UserCalendarViewController: UIViewController {
                 detailVC.part = part
                 detailVC.serviceDate = serviceDate
                 detailVC.cartArray = cartArray
+                detailVC.selectedDate = selectedDate
             }
         }
         
@@ -165,7 +168,8 @@ class UserCalendarViewController: UIViewController {
         timeView2.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
         
         timeThreeLabel.textColor = .white
-        
+        selectedDate = timeOneLabel.text!
+
         
     }
     
@@ -190,6 +194,8 @@ class UserCalendarViewController: UIViewController {
         timeView2.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
         
         timeThreeLabel.textColor = .white
+        selectedDate = timeTwoLabel.text!
+
     }
     
     
@@ -211,6 +217,7 @@ class UserCalendarViewController: UIViewController {
         // Time Three
         timeView2.backgroundColor = .green
         timeThreeLabel.textColor = .black
+        selectedDate = timeThreeLabel.text!
         
     }
     
@@ -233,6 +240,8 @@ class UserCalendarViewController: UIViewController {
         timeView2.backgroundColor = UIColor(red: 52/255, green: 78/255, blue: 94/255, alpha: 1)
         
         timeThreeLabel.textColor = .white
+        print(timeFourLabel.text)
+        selectedDate = timeFourLabel.text!
         
     }
     
@@ -247,9 +256,17 @@ extension UserCalendarViewController: JTACMonthViewDataSource, JTACMonthViewDele
         handleCellSelected(cell: cell, cellState: cellState)
         let dateString = dateFormatter.string(from: date)
         let formattedDate = dateFormatter.date(from: dateString)
-        print("Date? Test2 \(date)")
-        self.serviceDate = date
+        let reverseFormat = dateFormatter.string(from: formattedDate!)
+        
+        let tryThree = jtCalDateFormatter.date(from: reverseFormat)!
+        
+        print("Date? Test2 \(reverseFormat)")
+        
+        
+        
+        self.serviceDate = tryThree
         print("Date? Test3 \(self.serviceDate)")
+        
         timeSelectionView.isHidden = false
 //        self.dateSelected = formattedDate
     }

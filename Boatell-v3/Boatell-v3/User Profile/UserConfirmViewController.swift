@@ -30,6 +30,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
     @IBOutlet var serviceImage2: UIImageView!
     @IBOutlet var serviceImage3: UIImageView!
     @IBOutlet var serviceImage4: UIImageView!
+    @IBOutlet var selectedDateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +108,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
     let ownerConfirmed = [Owner().confirmed]
     var users = [Users]()
     var user = Users()
+    var selectedDate = ""
     
     var cartArray = [FirebaseServices]() {
         didSet{
@@ -118,7 +120,8 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
     //MARK: - Once you have the Passed Data (Service Date + Part) you need to add the confirm model to the Database under the user for child node "confirmed"
     
     func setUp(){
-       
+       selectedDateLabel.text = selectedDate
+
 //        confirm.partData = part
 //        print(confirm.partData.serviceName)
 //        confirm.serviceDateData = serviceDate

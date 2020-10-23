@@ -1276,6 +1276,12 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVu-TN-Zjw">
+                                        <rect key="frame" x="152" y="336" width="47" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Hv-BG-S0C">
                                         <rect key="frame" x="212" y="229" width="50" height="51"/>
                                         <constraints>
@@ -1307,8 +1313,10 @@
                                     <constraint firstItem="lmO-4D-5nA" firstAttribute="top" secondItem="YV1-ca-T9m" secondAttribute="bottom" constant="1" id="fqN-iP-paF"/>
                                     <constraint firstItem="kzt-lG-ADm" firstAttribute="leading" secondItem="Egh-3x-wCM" secondAttribute="leading" constant="20" id="hBC-Xu-7Vz"/>
                                     <constraint firstItem="450-Mq-AlL" firstAttribute="leading" secondItem="Egh-3x-wCM" secondAttribute="leading" constant="20" id="hKa-BU-mg9"/>
+                                    <constraint firstAttribute="trailing" secondItem="GVu-TN-Zjw" secondAttribute="trailing" constant="175" id="hxR-MO-vtY"/>
                                     <constraint firstAttribute="width" secondItem="Egh-3x-wCM" secondAttribute="height" multiplier="187:261" id="ij3-hz-1Xh"/>
                                     <constraint firstItem="9Hv-BG-S0C" firstAttribute="leading" secondItem="M0w-aN-sNS" secondAttribute="trailing" constant="14" id="o6w-E2-apO"/>
+                                    <constraint firstItem="GVu-TN-Zjw" firstAttribute="top" secondItem="CSV-jD-sW6" secondAttribute="bottom" constant="2" id="pc3-bw-sUM"/>
                                     <constraint firstItem="HZR-sD-f3o" firstAttribute="leading" secondItem="Egh-3x-wCM" secondAttribute="leading" constant="20" id="rzm-nj-fU4"/>
                                     <constraint firstItem="450-Mq-AlL" firstAttribute="top" secondItem="Egh-3x-wCM" secondAttribute="top" constant="8" id="sHU-0a-xeh"/>
                                     <constraint firstItem="9Hv-BG-S0C" firstAttribute="top" secondItem="v10-7L-xUx" secondAttribute="bottom" constant="67" id="slr-Fg-tks"/>
@@ -1389,6 +1397,7 @@
                         <outlet property="confirmComments" destination="dc9-n4-Wfn" id="6YP-8W-X4s"/>
                         <outlet property="confirmViewBox" destination="Egh-3x-wCM" id="bQf-fE-Aq8"/>
                         <outlet property="partLabel" destination="HZR-sD-f3o" id="Yek-U2-2nv"/>
+                        <outlet property="selectedDateLabel" destination="GVu-TN-Zjw" id="7Rw-al-hpx"/>
                         <outlet property="serviceDateLabel" destination="jtg-Bu-hWC" id="LAm-Hp-5Si"/>
                         <outlet property="serviceImage" destination="WW7-Jj-X5D" id="thf-rP-QWV"/>
                         <outlet property="serviceImage2" destination="zR0-89-m5U" id="FOz-Ld-axt"/>
