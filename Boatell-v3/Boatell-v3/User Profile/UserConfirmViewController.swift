@@ -348,7 +348,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
                     let dateFormatterGet = DateFormatter()
                     dateFormatterGet.dateFormat = "yyyy-MM-dd"
                         let confirm = self.serviceDate
-                    
+                        let confirmTime = self.selectedDate
                     let confirmService = service.serviceName
                         let confirmPrice = service.servicePrice
                     let clientComments = self.confirmComments.text
@@ -380,7 +380,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
                                 
                                 if let confirmImage = url?.absoluteString {
                                     
-                                    let values = ["confirmDate": "\(confirm)", "confirmService" : "\(confirmService!)", "confirmPrice" : "\(confirmPrice!)", "confirmImage" : confirmImage, "confirmComplete" : confirmComplete, "userName" : userName, "clientComments" : clientComments]
+                                    let values = ["confirmDate": "\(confirm)", "confirmTime" : "\(confirmTime)", "confirmService" : "\(confirmService!)", "confirmPrice" : "\(confirmPrice!)", "confirmImage" : confirmImage, "confirmComplete" : confirmComplete, "userName" : userName, "clientComments" : clientComments]
                                     
                                     
                                     guard let uid = Auth.auth().currentUser?.uid else { return }
