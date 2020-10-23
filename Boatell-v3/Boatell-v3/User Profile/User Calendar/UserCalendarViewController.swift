@@ -45,7 +45,7 @@ class UserCalendarViewController: UIViewController {
     
     //MARK: - Recieve Part Data
     var part: FirebaseServices!
-    var serviceDate = Date()
+    var serviceDate: String = ""
     
     var cartArray = [FirebaseServices]() {
         didSet{
@@ -117,10 +117,12 @@ class UserCalendarViewController: UIViewController {
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.timeZone = .current
+        formatter.timeStyle = .none
         formatter.setLocalizedDateFormatFromTemplate("yyyy MM dd")
-        formatter.dateFormat = "yyyy MM dd"
+        formatter.dateFormat = "MMM yyyy dd"
         return formatter
     }()
+    
     
     
     @IBAction func nextbuttonTapped(_ sender: Any) {
@@ -254,17 +256,18 @@ extension UserCalendarViewController: JTACMonthViewDataSource, JTACMonthViewDele
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         guard let cell = cell as? DateCell else { return }
         handleCellSelected(cell: cell, cellState: cellState)
+        
+        
         let dateString = dateFormatter.string(from: date)
         let formattedDate = dateFormatter.date(from: dateString)
         let reverseFormat = dateFormatter.string(from: formattedDate!)
         
-        let tryThree = jtCalDateFormatter.date(from: reverseFormat)!
-        
-        print("Date? Test2 \(reverseFormat)")
+      
         
         
         
-        self.serviceDate = tryThree
+        print("Date? Test2 \(dateString)")
+        self.serviceDate = dateString
         print("Date? Test3 \(self.serviceDate)")
         
         timeSelectionView.isHidden = false

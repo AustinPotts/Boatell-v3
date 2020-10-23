@@ -103,7 +103,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
     //MARK: - Create Confirm Object to Hold Part Data + Service Date Data being passed via the segues
     let confirm = Confirm()
     var part: FirebaseServices!
-    var serviceDate = Date()
+    var serviceDate: String = ""
     let customALert = MyAlert()
     let ownerConfirmed = [Owner().confirmed]
     var users = [Users]()
@@ -162,6 +162,10 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
                          serviceImage3.loadImageUsingCacheWithUrlString(urlString: confirm.partData.serviceImage!)
 
                      }
+            
+        }
+        
+        if cartArray.count > 2 {
         
         for service4 in 0..<cartArray.count - 3 {
                             confirm.partData = cartArray[service4]
@@ -171,6 +175,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
 
                         }
         }
+        
     
         print("TOTAL PRICE: \(totalPrice)")
        
@@ -190,8 +195,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd"
         
-        serviceDateLabel.text = dateFormatterGet.string(from: serviceDate)
-        
+        serviceDateLabel.text = serviceDate
     }
     
 //MARK: - Action
@@ -270,7 +274,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
         
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd"
-        let confirmDate = dateFormatterGet.string(from: self.serviceDate)
+        let confirmDate = serviceDate
         
                
         let values = ["text": "Hello \(self.user.name!), I just got your service request for \(confirmDate)", "toID" : toID, "fromID" : fromID, "timeStamp" : timeStamp]
@@ -343,7 +347,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
                         
                     let dateFormatterGet = DateFormatter()
                     dateFormatterGet.dateFormat = "yyyy-MM-dd"
-                    let confirm = dateFormatterGet.string(from: self.serviceDate)
+                        let confirm = self.serviceDate
                     
                     let confirmService = service.serviceName
                         let confirmPrice = service.servicePrice
