@@ -12,6 +12,7 @@ import Foundation
 class FirebaseConfirm: NSObject {
     
     @objc var confirmDate: String?
+    @objc var confirmTime: String?
     @objc var confirmPrice: String?
     @objc var confirmService: String?
     @objc var confirmImage: String?
