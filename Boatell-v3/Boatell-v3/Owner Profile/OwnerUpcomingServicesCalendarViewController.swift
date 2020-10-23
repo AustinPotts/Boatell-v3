@@ -213,13 +213,13 @@ class OwnerUpcomingServicesCalendarViewController: UIViewController, UITableView
                         
 
                        
-                        print("CONFIRM DATE: \(confirm.confirmDate) vs JTMONTH: \(self.testMonth)")
+                        print("CONFIRM DATE: \(confirm.confirmDate) vs JTMONTH: \(cellState.text)")
                         
                        
                           
                           var confirmHolder: String = ""
                           confirmHolder = confirm.confirmDate!
-                          let cutConfirm = confirmHolder.dropFirst(8)
+                          let cutConfirm = confirmHolder.dropFirst(9)
                           let cutConfirmMonth = confirmHolder.dropFirst(5)
                           
                         

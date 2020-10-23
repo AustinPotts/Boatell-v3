@@ -40,7 +40,7 @@ class OwnerUpcommingAppointmentWorkOrderViewController: UIViewController {
         workOrderView.layer.cornerRadius = 30
         saveButton.layer.cornerRadius = 30
         self.serviceName.text = confirmed?.confirmService!
-        self.serviceDate.text = confirmed?.confirmDate
+         self.serviceDate.text = "\(confirmed!.confirmDate!) at \(confirmed!.confirmTime!)"
         self.servicePrice.text = confirmed?.confirmPrice!
         self.userName.text = confirmed?.userName
         self.clientCommentsTextView.text = confirmed?.clientComments 

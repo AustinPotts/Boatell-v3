@@ -36,7 +36,7 @@ class UserServiceDetailViewController: UIViewController {
         func updateViews() {
             workOrderView.layer.cornerRadius = 30
             self.serviceName.text = confirmed?.confirmService
-            self.serviceDate.text = confirmed?.confirmDate
+            self.serviceDate.text = " \(confirmed!.confirmDate!) at \(confirmed!.confirmTime!)"
             self.servicePrice.text = confirmed?.confirmPrice
             self.clientNotesTextView.text = confirmed?.clientComments
             print("COMMENTS: \(confirmed?.clientComments)")
