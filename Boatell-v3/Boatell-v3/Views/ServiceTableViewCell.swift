@@ -42,6 +42,9 @@ class ServiceTableViewCell: UITableViewCell {
         
         servicePriceView.layer.cornerRadius = 15
         
+        if confirmed?.confirmComplete == "Not Complete" {
+            servicePriceView.backgroundColor = .red
+        }
           
           if let confirmImageURL = confirmed!.confirmImage {
 

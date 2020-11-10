@@ -64,6 +64,7 @@ class OwnerUpcommingAppointmentWorkOrderViewController: UIViewController {
     @IBAction func saveButtonTapped(_ sender: Any){
         // Update new values in database for confirmComplete node
         updateUserConfirmComplete()
+        saveButton.backgroundColor = .gray
     }
     
     //Segment Controller Action
@@ -87,7 +88,7 @@ class OwnerUpcommingAppointmentWorkOrderViewController: UIViewController {
               let uid = Auth.auth().currentUser?.uid
               
         //MARK: - You need to get the Confirmed Child By Auto ID for refrence node
-        Database.database().reference().child("owner").child("owner").child("confirmed").observeSingleEvent(of: .value, with: { (snapshot) in
+        Database.database().reference().child("owner").child("owner").child("confirmed").child("MKLfhUC6B3BHJUvtssD").observeSingleEvent(of: .value, with: { (snapshot) in
                   
                 print("Snap: \(snapshot)")
                   if let dictionary = snapshot.value as? [String: AnyObject] {
@@ -97,10 +98,10 @@ class OwnerUpcommingAppointmentWorkOrderViewController: UIViewController {
                       owner.setValuesForKeys(dictionary)
                     owners.append(owner)
                       
-                          
+                    print("CONFIRM COMPLETE \(self.confirmComplete)")
                     let values = ["confirmComplete": self.confirmComplete]
-                    guard let uid = Auth.auth().currentUser?.uid else { return }
-                    self.createCopyForUserValues(uid: uid,values: values as [String : AnyObject])
+                   
+                    self.createCopyForUserValues(values: values as [String : AnyObject])
                     
                           }
               }, withCancel: nil)
@@ -108,21 +109,16 @@ class OwnerUpcommingAppointmentWorkOrderViewController: UIViewController {
           
 
            //MARK: - Create Values For User
-    func createCopyForUserValues(uid: String, values: [String: AnyObject]) {
+    func createCopyForUserValues(values: [String: AnyObject]) {
         var ref: DatabaseReference!
         
         ref = Database.database().reference(fromURL: "https://boatell-v3.firebaseio.com/")
         
-        let userRef = ref.child("users").child(uid).child("confirmed").childByAutoId()
+      
         //   let childRef = ref.child("confirmed").childByAutoId()
-        let ownerRef = ref.child("owner").child("owner").child("confirmed").childByAutoId()
+        let ownerRef = ref.child("owner").child("owner").child("confirmed").child("MKLfhUC6B3BHJUvtssD")
         
-        userRef.updateChildValues(values) { (error, refer) in
-            if let error = error {
-                print("ERROR CHILD values: \(error)")
-                return
-            }
-        }
+    
         ownerRef.updateChildValues(values) { (error, refer) in
             if let error = error {
                 print("ERROR CHILD values: \(error)")
