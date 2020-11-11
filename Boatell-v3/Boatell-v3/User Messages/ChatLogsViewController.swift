@@ -90,6 +90,7 @@ class ChatLogsViewController: UIViewController, UICollectionViewDelegate {
             messagesCollectionView.backgroundView?.backgroundColor = UIColor.clear
             messagesCollectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 58, right: 0)
             observeMessages()
+            messageTextField.delegate = self
 
         }
     
@@ -202,6 +203,7 @@ class ChatLogsViewController: UIViewController, UICollectionViewDelegate {
     extension ChatLogsViewController: UITextFieldDelegate {
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             handleSend()
+            messageTextField.resignFirstResponder()
             return true
         }
     }
