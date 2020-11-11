@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class OwnerAddNewServiceViewController: UIViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class OwnerAddNewServiceViewController: UIViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet var serviceNameTextField: UITextField!
     @IBOutlet var servicePriceTextField: UITextField!
@@ -23,6 +23,9 @@ class OwnerAddNewServiceViewController: UIViewController,  UIImagePickerControll
         super.viewDidLoad()
 
         updateViews()
+        serviceNameTextField.delegate = self
+        servicePriceTextField.delegate = self
+        serviceDetailsTextView.delegate = self
     }
     
      let customALert = MyAlert()
@@ -48,6 +51,23 @@ class OwnerAddNewServiceViewController: UIViewController,  UIImagePickerControll
                                      
                  }
          }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        serviceNameTextField.resignFirstResponder()
+        servicePriceTextField.resignFirstResponder()
+        serviceDetailsTextView.resignFirstResponder()
+        return true
+    }
+
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+           if(text == "\n") {
+               textView.resignFirstResponder()
+            serviceDetailsTextView.resignFirstResponder()
+
+               return false
+           }
+           return true
+       }
 
     
     
