@@ -18,7 +18,6 @@ class MessagesTableViewController: UITableViewController {
     override func viewDidLoad() {
            super.viewDidLoad()
            
-        
        
            let newMessageController = NewMessagesTableViewController()
                   newMessageController.messagesController = self
@@ -30,6 +29,8 @@ class MessagesTableViewController: UITableViewController {
         observeUserMessages()
         
        }
+    
+
     
     func observeUserMessages(){
         
@@ -64,6 +65,7 @@ class MessagesTableViewController: UITableViewController {
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
+                    NotificationCenter.default.post(name: .didReceiveMessageData, object: nil)
                     
                 }
             }, withCancel: nil)
@@ -289,5 +291,10 @@ class MessagesTableViewController: UITableViewController {
        }
        
 
+
+}
+
+extension Notification.Name {
+    static let didReceiveMessageData = Notification.Name("didReceiveData")
 
 }

@@ -19,7 +19,8 @@ class UserServicesViewController: UIViewController {
     
     
     
-
+    var messages = [Message]()
+    var messagesDictionary = [String: Message]()
     let partController = PartController()
     var services = [FirebaseServices]()
     static var cartInt = 0
@@ -42,6 +43,42 @@ class UserServicesViewController: UIViewController {
                   return cv
               }()
     
+    func observeUserMessages(){
+        
+        guard let uuid = Auth.auth().currentUser?.uid else {return}
+        
+        let ref = Database.database().reference().child("user-messages").child(uuid)
+        ref.observe(.childAdded, with: { (snapshot) in
+            print("Snapshot 1: \(snapshot)")
+            let messageID = snapshot.key
+            let messageRef = Database.database().reference().child("messages").child(messageID)
+            
+            messageRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                print("Snapshot 2: \(snapshot)")
+                if let dictionary = snapshot.value as? [String:AnyObject] {
+                    let message = Message()
+                    message.setValuesForKeys(dictionary)
+                    // self.messages.append(message)
+                    print("Messages Snapshot: \(snapshot)")
+                    
+                    if let partnerID = message.chatPartnerID() {
+                        self.messagesDictionary[partnerID] = message
+                        self.messages = Array(self.messagesDictionary.values)
+      
+                    }
+                    
+                    if self.messages.count > 0 {
+                        NotificationCenter.default.post(name: .didReceiveMessageData, object: nil)
+                    }
+                    
+                    
+                }
+            }, withCancel: nil)
+            
+            
+        }, withCancel: nil)
+        
+    }
     
     //Fetch Services
     func fetchServices() {
@@ -81,7 +118,7 @@ class UserServicesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        observeUserMessages()
         cartIntView.layer.cornerRadius = cartIntView.frame.height / 2
         cartIntView.clipsToBounds = true
         cartIntView.layer.masksToBounds = false

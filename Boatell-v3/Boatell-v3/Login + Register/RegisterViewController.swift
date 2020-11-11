@@ -11,7 +11,7 @@ import Firebase
 import FirebaseFunctions
 import Stripe
 
-class RegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class RegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     
     //MARK: - Interface Outlets
@@ -28,7 +28,17 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
         
         setUpViews()
-     
+        username.delegate = self
+        email.delegate = self
+        password.delegate = self
+    }
+    
+    //Text Field Delegation
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        username.resignFirstResponder()
+        password.resignFirstResponder()
+        email.resignFirstResponder()
+        return true
     }
     
     //MARK: Verification Email
