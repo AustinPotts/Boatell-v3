@@ -11,7 +11,7 @@ import Firebase
 import FirebaseFunctions
 import Stripe
 
-class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
+class UserConfirmViewController: UIViewController, STPPaymentContextDelegate, UITextViewDelegate {
     
     //MARK: - Interface Outlets
     
@@ -38,7 +38,7 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
         serviceTended2.text = ""
         serviceTended3.text = ""
         serviceTended4.text = ""
-        
+        confirmComments.delegate = self
        setUpViews()
         setUp()
         
@@ -53,6 +53,16 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate {
              //self.paymentContext.pushPaymentOptionsViewController()
         
     }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+           if(text == "\n") {
+               textView.resignFirstResponder()
+            confirmComments.resignFirstResponder()
+
+               return false
+           }
+           return true
+       }
     
     func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
           

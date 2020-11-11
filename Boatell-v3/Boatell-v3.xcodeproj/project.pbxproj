@@ -59,6 +59,7 @@
 		45A1E4592504A437003744B9 /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E4582504A437003744B9 /* ServiceTableViewCell.swift */; };
 		45A1E45D2504A531003744B9 /* UserServiceHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E45C2504A531003744B9 /* UserServiceHistoryViewController.swift */; };
 		45A1E45F2506B667003744B9 /* FirebaseConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1E45E2506B667003744B9 /* FirebaseConfirm.swift */; };
+		45AAF375255C609700908981 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AAF374255C609700908981 /* TabBarViewController.swift */; };
 		45BED5C52530E5120080953F /* PaymentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED5C42530E5120080953F /* PaymentsViewController.swift */; };
 		45BED5C72534B6030080953F /* CustomServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED5C62534B6030080953F /* CustomServiceCell.swift */; };
 		45BED5C92534BB510080953F /* TestNewCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BED5C82534BB510080953F /* TestNewCheckoutViewController.swift */; };
@@ -121,6 +122,7 @@
 		45A1E4582504A437003744B9 /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
 		45A1E45C2504A531003744B9 /* UserServiceHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceHistoryViewController.swift; sourceTree = "<group>"; };
 		45A1E45E2506B667003744B9 /* FirebaseConfirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConfirm.swift; sourceTree = "<group>"; };
+		45AAF374255C609700908981 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		45BED5C42530E5120080953F /* PaymentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewController.swift; sourceTree = "<group>"; };
 		45BED5C62534B6030080953F /* CustomServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomServiceCell.swift; sourceTree = "<group>"; };
 		45BED5C82534BB510080953F /* TestNewCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNewCheckoutViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 		45A1E42124F82E37003744B9 /* Boatell-v3 */ = {
 			isa = PBXGroup;
 			children = (
+				45AAF373255C607500908981 /* Tab Bar Controller */,
 				450C3D802521005100096832 /* Stripe */,
 				454C49A8250E924500A02076 /* Owner Profile */,
 				454C49A12509AA7D00A02076 /* User Messages */,
@@ -318,6 +321,14 @@
 				45BED5CA2534C2060080953F /* ServiceCehckoutCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		45AAF373255C607500908981 /* Tab Bar Controller */ = {
+			isa = PBXGroup;
+			children = (
+				45AAF374255C609700908981 /* TabBarViewController.swift */,
+			);
+			path = "Tab Bar Controller";
 			sourceTree = "<group>";
 		};
 		8830C34046E944E4704EC566 /* Pods */ = {
@@ -469,6 +480,7 @@
 				450C3D94252104FA00096832 /* PaymentContextFooterView.swift in Sources */,
 				454C49A32509AAAD00A02076 /* MessagesTableViewController.swift in Sources */,
 				45A1E42724F82E37003744B9 /* ViewController.swift in Sources */,
+				45AAF375255C609700908981 /* TabBarViewController.swift in Sources */,
 				45A1E43D24FC1ACB003744B9 /* UserServicesViewController.swift in Sources */,
 				45A1E44824FD8356003744B9 /* DateHeader.swift in Sources */,
 				45BED5C72534B6030080953F /* CustomServiceCell.swift in Sources */,
