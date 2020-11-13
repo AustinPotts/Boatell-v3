@@ -297,6 +297,9 @@ class UserConfirmViewController: UIViewController, STPPaymentContextDelegate, UI
                let recipientUserMessagesRef = Database.database().reference().child("user-messages").child(toID)
                recipientUserMessagesRef.updateChildValues([messageID: 1])
                
+               // User Messages Notification 
+               NotificationCenter.default.post(name: .didReceiveMessageData, object: nil)
+        
                childRef.updateChildValues(values) { (error, ref) in
                    if error != nil {
                        print("Error child ref: \(error)")

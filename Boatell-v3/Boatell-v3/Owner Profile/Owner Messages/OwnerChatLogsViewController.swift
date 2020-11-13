@@ -82,6 +82,7 @@ class OwnerChatLogsViewController: UIViewController, UICollectionViewDelegate {
        //MARK: - Interface Action
         @IBAction func sendTapped(_ sender: Any) {
             handleSend()
+            NotificationCenter.default.post(name: .didReceiveMessageData, object: nil)
         }
     
         

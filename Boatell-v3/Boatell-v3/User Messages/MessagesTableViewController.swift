@@ -18,7 +18,10 @@ class MessagesTableViewController: UITableViewController {
     override func viewDidLoad() {
            super.viewDidLoad()
            
+        // Notification Post for Red Alert Badge to Dismiss
+        NotificationCenter.default.post(name: .didClickOnMessagesTab, object: nil)
        
+        
            let newMessageController = NewMessagesTableViewController()
                   newMessageController.messagesController = self
         self.tableView.delegate = self
@@ -29,6 +32,8 @@ class MessagesTableViewController: UITableViewController {
         observeUserMessages()
         
        }
+    
+
     
 
     
@@ -65,7 +70,7 @@ class MessagesTableViewController: UITableViewController {
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
-                    NotificationCenter.default.post(name: .didReceiveMessageData, object: nil)
+//                    NotificationCenter.default.post(name: .didReceiveMessageData, object: nil)
                     
                 }
             }, withCancel: nil)
@@ -289,12 +294,14 @@ class MessagesTableViewController: UITableViewController {
         }
            // Pass the selected object to the new view controller.
        }
+    
+ 
        
 
 
 }
 
 extension Notification.Name {
-    static let didReceiveMessageData = Notification.Name("didReceiveData")
-
+    static let didReceiveMessageData = Notification.Name("didReceiveMessageData")
+    static let didClickOnMessagesTab = Notification.Name("didClickOnMessagesTab")
 }
